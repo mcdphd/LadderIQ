@@ -14,15 +14,16 @@ if not exist "%LADDERIQ_ROOT%\publish_ladderiq.ps1" (
 )
 
 cd /d "%LADDERIQ_ROOT%"
+
 PowerShell.exe -NoProfile -ExecutionPolicy Bypass -File "%LADDERIQ_ROOT%\publish_ladderiq.ps1"
 
 if errorlevel 1 (
     echo.
-    echo LadderIQ stopped because an error occurred. Review the message above.
+    echo LadderIQ stopped because an error occurred.
+    echo Review the message above.
+    echo.
     pause
     exit /b 1
 )
 
- echo.
-echo LadderIQ completed successfully.
-pause
+exit
