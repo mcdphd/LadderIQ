@@ -1,0 +1,129 @@
+{
+  "as_of": "2026-07-07",
+  "benchmark": "QQQ",
+  "current_holdings": [
+    "NVDA",
+    "TSM",
+    "PANW",
+    "SPCX",
+    "ANET",
+    "ASML",
+    "AMD",
+    "CRWD",
+    "AMZN"
+  ],
+  "watch_candidates": [
+    "PLTR",
+    "VRT",
+    "AVGO",
+    "MSFT",
+    "GOOGL",
+    "ARM",
+    "DELL",
+    "ORCL",
+    "NOW",
+    "SNOW",
+    "SMCI"
+  ],
+  "rotation_candidate_groups": {
+    "AI_infrastructure": [
+      "NVDA",
+      "TSM",
+      "ANET",
+      "AVGO",
+      "ASML",
+      "ARM"
+    ],
+    "AI_software_data": [
+      "PLTR",
+      "MSFT",
+      "GOOGL",
+      "NOW",
+      "SNOW"
+    ],
+    "cybersecurity": [
+      "PANW",
+      "CRWD"
+    ],
+    "AI_power_compute_infrastructure": [
+      "VRT",
+      "DELL",
+      "SMCI"
+    ],
+    "semiconductor_recovery_watch": [
+      "AMD"
+    ],
+    "payments_compounders": [
+      "V",
+      "MA"
+    ],
+    "healthcare_innovation": [
+      "LLY"
+    ],
+    "defense_industrial": [
+      "RTX"
+    ],
+    "industrial_automation": [
+      "EMR",
+      "ROK"
+    ],
+    "consumer_compounders": [
+      "COST"
+    ]
+  },
+  "exclude_unless_manually_reactivated": [
+    "MU",
+    "LLY",
+    "SOUN"
+  ],
+  "notes": {
+    "purpose": "Leadership Rotation Engine seed list. Scanner ranks both current holdings and possible replacements.",
+    "workflow": "Run python leadership_scanner.py before python generate_ladder.py.",
+    "bear_market_focus": "In Bear Mode, prioritize names that fall less than QQQ and recover faster. Do not average down weak leaders blindly.",
+    "v43_rule": "Separate Approved Universe from Active Holdings. Generate ladders only for Active Holdings, plus manually approved active allocation candidates. Watch candidates are scanner-only.",
+    "active_holdings_rule": "Tomorrow ladders are generated only for active holdings with quantity/value or explicitly approved active allocation candidates. META remains excluded unless manually reactivated."
+  },
+  "version": "V43 Approved Universe / Active Holdings",
+  "active_holdings": [
+    "NVDA",
+    "ANET",
+    "SPCX",
+    "TSM",
+    "AMZN",
+    "CRWD",
+    "AMD",
+    "ASML"
+  ],
+  "approved_universe": [
+    "AMD",
+    "AMZN",
+    "ANET",
+    "ARM",
+    "ASML",
+    "AVGO",
+    "COST",
+    "CRWD",
+    "DELL",
+    "EMR",
+    "GOOGL",
+    "LLY",
+    "MA",
+    "MSFT",
+    "NOW",
+    "NVDA",
+    "ORCL",
+    "PANW",
+    "PLTR",
+    "ROK",
+    "RTX",
+    "SMCI",
+    "SNOW",
+    "SPCX",
+    "TSM",
+    "V",
+    "VRT"
+  ],
+  "removed_from_active_universe": {
+    "META": "Removed in V43 because user no longer owns it; no buy/sell ladder should be generated unless manually reactivated."
+  }
+}

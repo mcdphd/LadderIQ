@@ -1,0 +1,13 @@
+{
+  "version": "V55 Strategy Profile",
+  "human_in_the_loop": true,
+  "auto_apply_changes": false,
+  "rules": {
+    "first_sell_min_distance_pct": 1.0,
+    "micro_harvest_enabled": true,
+    "micro_harvest_requires_manual_approval": true,
+    "max_position_weight_pct": 25.0,
+    "preferred_cash_reserve_pct": 5.0
+  },
+  "governance": "LadderIQ records overrides, tests patterns, and proposes changes. No strategy rule changes without user approval."
+}

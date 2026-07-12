@@ -1,0 +1,17 @@
+{
+  "version": "V55",
+  "events": [
+    {
+      "date": "2026-04-07",
+      "type": "initial_contribution",
+      "amount": 9913.04
+    },
+    {
+      "date": "2026-07-10",
+      "type": "external_contribution",
+      "amount": 5055.52,
+      "source": "Booz Allen SPP / vested stock"
+    }
+  ],
+  "net_capital_contributed": 14968.56
+}

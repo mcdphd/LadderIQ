@@ -1,0 +1,67 @@
+{
+  "version": "V19 External Leadership Tracker",
+  "symbols": {
+    "CRWD": {
+      "ge85_days": 11,
+      "status": "Fast-Track Entry Candidate - manual approval required",
+      "last_counted_date": "2026-06-30",
+      "last_score": 90.0
+    },
+    "AMD": {
+      "ge85_days": 11,
+      "status": "Fast-Track Entry Candidate - manual approval required",
+      "last_counted_date": "2026-06-30",
+      "last_score": 100.0
+    },
+    "ASML": {
+      "ge85_days": 11,
+      "status": "Fast-Track Entry Candidate - manual approval required",
+      "last_counted_date": "2026-06-30",
+      "last_score": 100.0
+    },
+    "ARM": {
+      "ge85_days": 0,
+      "status": "External Watch 0/8 fast-track; 0/10 standard",
+      "last_counted_date": "2026-06-30",
+      "last_score": 80.0
+    },
+    "DELL": {
+      "ge85_days": 11,
+      "status": "Fast-Track Entry Candidate - manual approval required",
+      "last_counted_date": "2026-06-30",
+      "last_score": 90.0
+    },
+    "SNOW": {
+      "ge85_days": 0,
+      "status": "External Watch 0/8 fast-track; 0/10 standard",
+      "last_counted_date": "2026-06-30",
+      "last_score": 65.0
+    },
+    "VRT": {
+      "ge85_days": 0,
+      "status": "External Watch 0/8 fast-track; 0/10 standard",
+      "last_counted_date": "2026-06-30",
+      "last_score": 100.0
+    },
+    "GOOGL": {
+      "ge85_days": 0,
+      "status": "External Watch 0/10",
+      "last_counted_date": "2026-06-18",
+      "last_score": 65.0
+    },
+    "AVGO": {
+      "ge85_days": 0,
+      "status": "External Watch 0/8 fast-track; 0/10 standard",
+      "last_counted_date": "2026-06-30",
+      "last_score": 35.0
+    },
+    "SMCI": {
+      "ge85_days": 0,
+      "status": "External Watch 0/8 fast-track; 0/10 standard",
+      "last_counted_date": "2026-06-26",
+      "last_score": 40.0
+    }
+  },
+  "last_updated": "2026-06-30 16:26:39",
+  "rule": "Fast Track: external leader qualifies for manual Entry Candidate review at >=90 for 8 consecutive sessions. Standard path: >=85 for 10 consecutive sessions."
+}

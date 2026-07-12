@@ -1,0 +1,31 @@
+[
+  {
+    "date": "2026-07-10",
+    "symbol": "NVDA",
+    "event": "manual_override",
+    "system_recommendation": "First sell 3 shares at $214",
+    "user_action": "Sold 2 shares at $210.085",
+    "reason": "Earlier micro-harvest while preserving the remaining 3@$214, 4@$220 and higher layers",
+    "outcome_status": "pending_review"
+  },
+  {
+    "date": "2026-07-10",
+    "symbol": "AMZN",
+    "event": "manual_override",
+    "system_recommendation": "First exit layer near prior close",
+    "user_action": "Lowered first sell layer slightly",
+    "reason": "Improve execution probability when the first layer was approximately equal to market close",
+    "outcome_status": "pending_review"
+  },
+  {
+    "date": "2026-07-10",
+    "symbol": "AMZN",
+    "event": "ladder_rule_correction",
+    "previous_first_sell": 244.85,
+    "current_price": 245.34,
+    "new_first_sell": 249.02,
+    "new_second_sell": 255.15,
+    "reason": "Sell ladder must harvest into strength and cannot start below market.",
+    "status": "approved"
+  }
+]

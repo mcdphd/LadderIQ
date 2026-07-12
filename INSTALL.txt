@@ -1,0 +1,4 @@
+Copy both Python files into:
+C:\Users\mcdph\OneDrive\03 - LadderIQ Platform\04 - Development
+
+Choose Replace the files in the destination, then double-click Generate_LadderIQ.bat again.

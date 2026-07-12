@@ -1,0 +1,25 @@
+LadderIQ Path Migration Report
+Date: 2026-07-12
+
+Authoritative root:
+C:\Users\mcdph\OneDrive\03 - LadderIQ Platform\04 - Development
+
+Updated files:
+- Generate_LadderIQ.bat (new double-click launcher)
+- publish_ladderiq.ps1
+- README.md
+- build_ladder.py
+- generate_ladder.py
+
+Validation performed:
+- Searched package text files for old OneDrive\Documents LadderIQ/NerdyStocks paths.
+- Confirmed active absolute path references use the authoritative root.
+- Compiled all Python files successfully.
+- Executed build_ladder.py successfully.
+- Confirmed reports\latestladder.html was generated.
+
+GitHub design:
+- The authoritative development root is intended to be the Git working tree.
+- Generate_LadderIQ.bat launches publish_ladderiq.ps1.
+- The PowerShell workflow imports data, refreshes leadership scores when available,
+  builds the report, opens it, and pushes changed files when .git is configured.

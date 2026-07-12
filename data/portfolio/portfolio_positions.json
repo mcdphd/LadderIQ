@@ -1,0 +1,83 @@
+{
+    "BAH": {
+        "description": "BOOZ ALLEN HAMILTON HLDG CORP CL A",
+        "shares": 67.7131,
+        "price": 62.76,
+        "current_value": 4249.67,
+        "avg_cost": 57.64,
+        "cost_basis_total": 3902.78,
+        "percent_of_account": 22.74
+    },
+    "NVDA": {
+        "description": "NVIDIA CORPORATION COM",
+        "shares": 31.306,
+        "price": 210.96,
+        "current_value": 6604.31,
+        "avg_cost": 213.5,
+        "cost_basis_total": 6683.85,
+        "percent_of_account": 35.33
+    },
+    "SPCX": {
+        "description": "SPACE EXPL TECHNOLOGIES CORP CL A",
+        "shares": 6.241,
+        "price": 145.3,
+        "current_value": 906.81,
+        "avg_cost": 161.01,
+        "cost_basis_total": 1004.84,
+        "percent_of_account": 4.85
+    },
+    "CRWD": {
+        "description": "CROWDSTRIKE HLDGS INC CL A",
+        "shares": 5.298,
+        "price": 187.18,
+        "current_value": 991.67,
+        "avg_cost": 190.6,
+        "cost_basis_total": 1009.8,
+        "percent_of_account": 5.31
+    },
+    "PANW": {
+        "description": "PALO ALTO NETWORKS INC COM USD0.0001",
+        "shares": 3.758,
+        "price": 325.91,
+        "current_value": 1224.76,
+        "avg_cost": 336.08,
+        "cost_basis_total": 1263.0,
+        "percent_of_account": 6.55
+    },
+    "TSM": {
+        "description": "TAIWAN SEMICONDUCTOR MANUFACTURING SPON ADS EACH REP 5 ORD TWD10",
+        "shares": 3.639,
+        "price": 434.11,
+        "current_value": 1579.72,
+        "avg_cost": 440.78,
+        "cost_basis_total": 1604.01,
+        "percent_of_account": 8.45
+    },
+    "AMD": {
+        "description": "ADVANCED MICRO DEVICES INC",
+        "shares": 0.608,
+        "price": 557.89,
+        "current_value": 339.19,
+        "avg_cost": 512.88,
+        "cost_basis_total": 311.83,
+        "percent_of_account": 1.81
+    },
+    "ASML": {
+        "description": "ASML HOLDING NV EUR0.09 NY REGISTRY SHS 2012",
+        "shares": 0.372,
+        "price": 1797.32,
+        "current_value": 668.6,
+        "avg_cost": 1775.16,
+        "cost_basis_total": 660.36,
+        "percent_of_account": 3.58
+    },
+    "AMZN": {
+        "description": "AMAZON.COM INC",
+        "shares": 0.125,
+        "price": 245.34,
+        "current_value": 30.66,
+        "avg_cost": 258.0,
+        "cost_basis_total": 32.25,
+        "percent_of_account": 0.16
+    }
+}

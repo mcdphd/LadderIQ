@@ -1,0 +1,28 @@
+{
+  "version": "3.53.0",
+  "qa_errors": 0,
+  "ladder_for": "Monday, July 13, 2026",
+  "verified": [
+    "Jul-10 positions imported",
+    "Jul-10 trades imported",
+    "NVDA 2-share sale reflected; remaining ladder begins 3@$214",
+    "AMZN sell ladder validated above current market price",
+    "AMZN first exit is at least 1.5% above market; second exit is at least 4% above market",
+    "Sell-ladder QA rejects any rung at or below current price",
+    "BAH 20-share sale reflected and legacy transition ladder added",
+    "capital ledger records $5,055.52 contribution",
+    "Personal ROI and time-weighted return separated",
+    "QQQ comparison updated through Jul-10",
+    "adaptive learning files included",
+    "README updated",
+    "build_ladder.py retained"
+  ],
+  "account_total": 18691.28,
+  "effective_cash": 2095.89,
+  "personal_roi_pct": 24.87026140123029,
+  "strategy_twr_pct": 37.55376756272544,
+  "total_contributions": 14968.560000000001,
+  "amzn_current_price": 245.34,
+  "amzn_first_sell": 249.02,
+  "amzn_second_sell": 255.15
+}
