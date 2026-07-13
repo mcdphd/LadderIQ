@@ -83,15 +83,15 @@ def base_stock(sym, group, rank, role, status, target, subtitle=''):
     p=positions.get(sym,{})
     price=p.get('price') or float(s.get('price') or 0)
     qty=p.get('quantity',0.0); value=p.get('value',0.0)
-    leadership=float(s.get('leadership_score', {'TSM':100,'PANW':100,'ANET':100,'NVDA':35,'AMZN':35,'ASML':100,'CRWD':90,'AMD':100,'SPCX':72,'ARM':74,'BAH':70}.get(sym,0)))
+    leadership=float(s.get('leadership_score', {'TSM':100,'PANW':100,'ANET':100,'NVDA':35,'AMZN':35,'ASML':100,'CRWD':90,'AMD':100,'SPCX':72,'ARM':74}.get(sym,0)))
     trend='Up' if leadership>=75 else ('Lateral' if leadership>=30 else 'Down')
     if sym in ['AMZN','META']: trend='Down'
     if sym=='NVDA': trend='Lateral'
     rotation={'TSM':88,'PANW':83,'ANET':74,'NVDA':38,'AMZN':32,'ASML':98,'CRWD':92,'AMD':88,'SPCX':56,'ARM':52}.get(sym, int(max(0, leadership-20)))
-    company={'TSM':'Taiwan Semiconductor Manufacturing Co.','PANW':'Palo Alto Networks','ANET':'Arista Networks','NVDA':'NVIDIA Corporation','AMZN':'Amazon.com','ASML':'ASML Holding','CRWD':'CrowdStrike Holdings','AMD':'Advanced Micro Devices','SPCX':'Space Exploration Tech','META':'Meta Platforms','ARM':'Arm Holdings','BAH':'Booz Allen Hamilton Holding Corp.'}.get(sym, p.get('company',sym))
-    business_quality={'ASML':100,'TSM':99,'NVDA':98,'PANW':97,'CRWD':96,'ANET':95,'AMD':91,'AMZN':88,'SPCX':72,'ARM':83,'BAH':88}.get(sym, max(50, leadership))
-    score_reason={'NVDA':'World-class AI company, but overweight and in harvest mode; new capital priority remains low.', 'AMZN':'Quality business, but currently a rotation/exit candidate.', 'TSM':'Strategic AI infrastructure leader with active accumulation priority.', 'ASML':'Strategic semiconductor monopoly-style asset and approved growth engine.', 'ANET':'AI networking leader with current leadership confirmation.', 'PANW':'Cybersecurity leader and current capital deployment candidate.', 'CRWD':'Cybersecurity growth leader and current capital deployment candidate.', 'AMD':'AI/datacenter challenger; active growth-engine candidate.', 'SPCX':'Special situation; governed by separate risk rules.', 'ARM':'Watch-list candidate; no active ladder until approved.', 'BAH':'Legacy holding from employer RSUs. No automatic buy ladder; manage with transition rules and exit discipline.'}.get(sym, 'Opportunity score controls where the next dollar goes today; business quality is tracked separately.')
-    own_reason={'BAH':'Employer RSUs / Legacy Holding','SPCX':'Special Situation','ARM':'Watch List Only'}.get(sym, 'LadderIQ Selected')
+    company={'TSM':'Taiwan Semiconductor Manufacturing Co.','PANW':'Palo Alto Networks','ANET':'Arista Networks','NVDA':'NVIDIA Corporation','AMZN':'Amazon.com','ASML':'ASML Holding','CRWD':'CrowdStrike Holdings','AMD':'Advanced Micro Devices','SPCX':'Space Exploration Tech','META':'Meta Platforms','ARM':'Arm Holdings'}.get(sym, p.get('company',sym))
+    business_quality={'ASML':100,'TSM':99,'NVDA':98,'PANW':97,'CRWD':96,'ANET':95,'AMD':91,'AMZN':88,'SPCX':72,'ARM':83}.get(sym, max(50, leadership))
+    score_reason={'NVDA':'World-class AI company, but overweight and in harvest mode; new capital priority remains low.', 'AMZN':'Quality business, but currently a rotation/exit candidate.', 'TSM':'Strategic AI infrastructure leader with active accumulation priority.', 'ASML':'Strategic semiconductor monopoly-style asset and approved growth engine.', 'ANET':'AI networking leader with current leadership confirmation.', 'PANW':'Cybersecurity leader and current capital deployment candidate.', 'CRWD':'Cybersecurity growth leader and current capital deployment candidate.', 'AMD':'AI/datacenter challenger; active growth-engine candidate.', 'SPCX':'Special situation; governed by separate risk rules.', 'ARM':'Watch-list candidate; no active ladder until approved.'}.get(sym, 'Opportunity score controls where the next dollar goes today; business quality is tracked separately.')
+    own_reason={'SPCX':'Special Situation','ARM':'Watch List Only'}.get(sym, 'LadderIQ Selected')
     return {**p, 'symbol':sym, 'company':company, 'group':group, 'rank':rank, 'role':role, 'status':status, 'target':target, 'subtitle':subtitle, 'price':price, 'quantity':qty, 'value':value, 'leadership':leadership, 'opportunity':leadership, 'business_quality':business_quality, 'score_reason':score_reason, 'own_reason':own_reason, 'trend':trend, 'rotation':rotation, 'avg_cost':p.get('avg_cost',0), 'weight':p.get('weight',0), 'total_pl':p.get('total_pl',0), 'total_pl_pct':p.get('total_pl_pct',0), 'today_pl':p.get('today_pl',0), 'today_pl_pct':p.get('today_pl_pct',0)}
 
 stocks=[
@@ -104,7 +104,6 @@ stocks=[
  base_stock('CRWD','Growth Engine',2,'Incubator','Seed','10–20%','Approved incubator'),
  base_stock('AMD','Growth Engine',3,'Incubator','Seed','10–20%','Approved incubator'),
  base_stock('SPCX','Special Situations',1,'Special','Hold','5–10%','Strategic special situation'),
- base_stock('BAH','Legacy Holdings',1,'Legacy RSU','Transition Watch','0–5%','Employer RSUs; transition plan only'),
  base_stock('ARM','Watch List',1,'Watch','Watch Only','0%','Watch only; not approved yet'),
 ]
 # Active Holdings drive ladders; ARM remains watch-only. META removed in V43.
@@ -1412,7 +1411,7 @@ QQQ_BENCHMARK.update({
 
 # Stock-specific ladder generation.
 def buy_levels(sym, price):
-    if price<=0 or sym in ['NVDA','AMZN','ARM','BAH']: return []
+    if price<=0 or sym in ['NVDA','AMZN','ARM']: return []
     if sym=='SPCX':
         return [('Buy Zone 1', round(price*.97), 'Add only on weakness'),('Buy Zone 2', round(price*.92), 'Strong add zone'),('Review Add', round(price*.85), 'Manual review')]
     if sym in ['ASML','CRWD','AMD']:
@@ -1430,9 +1429,6 @@ def sell_levels(sym, price, qty, avg):
         if second <= first:
             second=round(first*1.02,2)
         return [('40% Exit',first,round(q*.4,3),'Validated harvest rung: at least 1.5% above market'),('60% Exit',second,round(q*.6,3),'Complete exit only into additional strength')]
-    if sym=='BAH':
-        q=qty or 0
-        return [('Transition 1',64,round(q*.25,3),'Legacy RSU staged exit'),('Transition 2',66,round(q*.25,3),'Recycle into LadderIQ leaders'),('Transition 3',68,round(q*.25,3),'Continue concentration reduction'),('Final Review',72,round(q*.25,3),'Review full transition near target zone')]
     if sym=='SPCX':
         cost=avg or price
         return [('+50% Review', round(cost*1.5), qty, 'Review only'),('+100% Review', round(cost*2), qty, 'Consider capital recovery')]
@@ -1480,14 +1476,13 @@ group_meta={
  'Tactical Compounders': {'num':2,'color':'green','target':'20–40%','desc':'High-growth tactical leaders'},
  'Growth Engine': {'num':3,'color':'purple','target':'10–20%','desc':'Approved incubators'},
  'Special Situations': {'num':4,'color':'orange','target':'5–10%','desc':'Unique / event-driven'},
- 'Legacy Holdings': {'num':5,'color':'red','target':'0–5%','desc':'RSUs / inherited / non-system positions'},
  'Watch List': {'num':6,'color':'gray','target':'0%','desc':'Monitor only'},
 }
 
 active_holdings = [s['symbol'] for s in stocks if s.get('quantity',0) > 0 and s.get('value',0) > 0]
-approved_universe = [s['symbol'] for s in stocks if s['symbol'] not in ['ARM','BAH']]
+approved_universe = [s['symbol'] for s in stocks if s['symbol'] != 'ARM']
 watch_only = [s['symbol'] for s in stocks if s.get('status') == 'Watch Only']
-legacy_holdings = [s['symbol'] for s in stocks if s['group'] == 'Legacy Holdings']
+legacy_holdings = []
 
 html_data=json.dumps({'stocks':stocks,'active_holdings':active_holdings,'approved_universe':approved_universe,'watch_only':watch_only,'legacy_holdings':legacy_holdings,'benchmark':QQQ_BENCHMARK,'metrics':{'account_total':account_total,'cash':cash,'pending':pending,'effective_cash':effective_cash,'deployable':deployable,'roi':roi,'personal_roi':personal_roi,'twr':twr,'net_gain':net_gain,'total_contributions':TOTAL_CONTRIBUTIONS,'new_contribution':NEW_CONTRIBUTION,'capital_ledger':capital_ledger,'today_pl':today_pl,'today_pl_pct':today_pl_pct,'baseline':BASELINE,'version':VERSION,'ladder_for':LADDER_FOR,'data_as_of':DATA_AS_OF},'groups':group_meta}, ensure_ascii=False)
 
@@ -1571,7 +1566,7 @@ function footer(){
  const opp=['PANW','ANET','CRWD','TSM','ASML'].filter(x=>DATA.stocks.find(s=>s.symbol===x));
  const strategic=['NVDA','TSM','ASML','PANW'].filter(x=>DATA.stocks.find(s=>s.symbol===x));
  const emerging=['DELL','SNOW','VRT','ARM','GOOGL'];
- document.getElementById('footergrid').innerHTML=`<div class="small-card"><h3>Portfolio Health</h3><div style="font-size:30px;font-weight:900">94<small>/100</small></div><div class="positive">Excellent</div><p style="color:var(--muted)">Opportunity score drives new capital. Business quality stays separate.</p></div>${renderBenchmarkCard()}<div class="small-card"><h3>Opportunity Ranking</h3>${opp.map((r,i)=>{const st=DATA.stocks.find(s=>s.symbol===r); return `<div class="rank-row"><b>${i+1}</b><span>${r}</span><span class="positive">${Math.round(st?.opportunity ?? st?.leadership ?? 0)}</span></div>`}).join('')}</div><div class="small-card"><h3>Strategic Leaders</h3>${strategic.map((r,i)=>{const st=DATA.stocks.find(s=>s.symbol===r); return `<div class="rank-row"><b>${i+1}</b><span>${r}</span><span>${Math.round(st?.business_quality ?? 0)}</span></div>`}).join('')}<p style="color:var(--muted)">Quality names; not always current buys.</p></div><div class="small-card"><h3>Watch / Emerging</h3>${emerging.map((r,i)=>`<div class="rank-row"><b>${i+1}</b><span>${r}</span><span>${i<2?'Attack':'Hold'}</span></div>`).join('')}</div><div class="small-card"><h3>Legacy Holdings</h3><div class="rank-row"><b>1</b><span>BAH</span><span>RSU</span></div><p style="color:var(--muted)">Exit zone $72–75. Risk review below $58–60. Proceeds convert to LadderIQ cash.</p></div>`;}
+ document.getElementById('footergrid').innerHTML=`<div class="small-card"><h3>Portfolio Health</h3><div style="font-size:30px;font-weight:900">94<small>/100</small></div><div class="positive">Excellent</div><p style="color:var(--muted)">Opportunity score drives new capital. Business quality stays separate.</p></div>${renderBenchmarkCard()}<div class="small-card"><h3>Opportunity Ranking</h3>${opp.map((r,i)=>{const st=DATA.stocks.find(s=>s.symbol===r); return `<div class="rank-row"><b>${i+1}</b><span>${r}</span><span class="positive">${Math.round(st?.opportunity ?? st?.leadership ?? 0)}</span></div>`}).join('')}</div><div class="small-card"><h3>Strategic Leaders</h3>${strategic.map((r,i)=>{const st=DATA.stocks.find(s=>s.symbol===r); return `<div class="rank-row"><b>${i+1}</b><span>${r}</span><span>${Math.round(st?.business_quality ?? 0)}</span></div>`}).join('')}<p style="color:var(--muted)">Quality names; not always current buys.</p></div><div class="small-card"><h3>Watch / Emerging</h3>${emerging.map((r,i)=>`<div class="rank-row"><b>${i+1}</b><span>${r}</span><span>${i<2?'Attack':'Hold'}</span></div>`).join('')}</div>`;}
 function filterStocks(q){q=(q||'').toUpperCase(); document.querySelectorAll('.stock-nav').forEach(el=>{el.style.display=el.dataset.symbol.includes(q)?'grid':'none'})}
 kpi(); sidebar(); decision(); footer(); selectStock('TSM');
 
@@ -1663,7 +1658,6 @@ Do not run `update_portfolio.py`; that file is not part of this system.
 - Decision Center: Buy Today / Sell Today / Watch Closely
 - Left-side portfolio hierarchy
 - Opportunity Score and Business Quality are separated.
-- Legacy Holdings framework for RSUs / inherited / non-system positions.
 - Benchmark vs QQQ card uses cash-flow-segmented TWR and keeps Personal ROI separate.
 - Capital ledger records the $5,055.52 external contribution without treating it as gain.
 - Adaptive learning records NVDA and AMZN manual ladder overrides for future rule proposals.

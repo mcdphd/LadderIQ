@@ -66,7 +66,6 @@ Do not run `update_portfolio.py`; that file is not part of this system.
 - Decision Center: Buy Today / Sell Today / Watch Closely
 - Left-side portfolio hierarchy
 - Opportunity Score and Business Quality are separated.
-- Legacy Holdings framework for RSUs / inherited / non-system positions.
 - Benchmark vs QQQ card uses cash-flow-segmented TWR and keeps Personal ROI separate.
 - Capital ledger records the $5,055.52 external contribution without treating it as gain.
 - Adaptive learning records NVDA and AMZN manual ladder overrides for future rule proposals.
@@ -74,8 +73,8 @@ Do not run `update_portfolio.py`; that file is not part of this system.
 
 ## Latest Build Inputs
 
-- Positions file: `Portfolio_Positions_Jul-10-2026.csv`
-- Account Total: $18,691.28
-- Effective Cash: $2,095.89
-- ROI Since Inception: 37.55%
+- Positions file: `Portfolio_Positions_Jul-13-2026.csv`
+- Account Total: $18,468.65
+- Effective Cash: $2,154.88
+- ROI Since Inception: 35.31%
 - Next ladder: Monday, July 13, 2026

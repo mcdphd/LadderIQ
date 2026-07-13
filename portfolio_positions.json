@@ -1,83 +1,92 @@
 {
     "BAH": {
         "description": "BOOZ ALLEN HAMILTON HLDG CORP CL A",
-        "shares": 67.7131,
-        "price": 62.76,
-        "current_value": 4249.67,
+        "shares": 50.7851,
+        "price": 64.8,
+        "current_value": 3290.87,
         "avg_cost": 57.64,
-        "cost_basis_total": 3902.78,
-        "percent_of_account": 22.74
+        "cost_basis_total": 2927.1,
+        "percent_of_account": 17.82
     },
     "NVDA": {
         "description": "NVIDIA CORPORATION COM",
         "shares": 31.306,
-        "price": 210.96,
-        "current_value": 6604.31,
+        "price": 203.5284,
+        "current_value": 6371.66,
         "avg_cost": 213.5,
         "cost_basis_total": 6683.85,
-        "percent_of_account": 35.33
+        "percent_of_account": 34.5
     },
     "SPCX": {
         "description": "SPACE EXPL TECHNOLOGIES CORP CL A",
-        "shares": 6.241,
-        "price": 145.3,
-        "current_value": 906.81,
-        "avg_cost": 161.01,
-        "cost_basis_total": 1004.84,
-        "percent_of_account": 4.85
+        "shares": 6.557,
+        "price": 139.14,
+        "current_value": 912.34,
+        "avg_cost": 160.04,
+        "cost_basis_total": 1049.4,
+        "percent_of_account": 4.94
     },
     "CRWD": {
         "description": "CROWDSTRIKE HLDGS INC CL A",
-        "shares": 5.298,
-        "price": 187.18,
-        "current_value": 991.67,
-        "avg_cost": 190.6,
-        "cost_basis_total": 1009.8,
-        "percent_of_account": 5.31
+        "shares": 6.077,
+        "price": 187.91,
+        "current_value": 1141.92,
+        "avg_cost": 189.61,
+        "cost_basis_total": 1152.26,
+        "percent_of_account": 6.18
     },
     "PANW": {
         "description": "PALO ALTO NETWORKS INC COM USD0.0001",
-        "shares": 3.758,
-        "price": 325.91,
-        "current_value": 1224.76,
-        "avg_cost": 336.08,
-        "cost_basis_total": 1263.0,
-        "percent_of_account": 6.55
+        "shares": 4.313,
+        "price": 330.3,
+        "current_value": 1424.58,
+        "avg_cost": 334.14,
+        "cost_basis_total": 1441.16,
+        "percent_of_account": 7.71
     },
     "TSM": {
         "description": "TAIWAN SEMICONDUCTOR MANUFACTURING SPON ADS EACH REP 5 ORD TWD10",
-        "shares": 3.639,
-        "price": 434.11,
-        "current_value": 1579.72,
-        "avg_cost": 440.78,
-        "cost_basis_total": 1604.01,
-        "percent_of_account": 8.45
+        "shares": 4.097,
+        "price": 421.58,
+        "current_value": 1727.21,
+        "avg_cost": 439.35,
+        "cost_basis_total": 1800.03,
+        "percent_of_account": 9.35
     },
     "AMD": {
         "description": "ADVANCED MICRO DEVICES INC",
-        "shares": 0.608,
-        "price": 557.89,
-        "current_value": 339.19,
-        "avg_cost": 512.88,
-        "cost_basis_total": 311.83,
-        "percent_of_account": 1.81
+        "shares": 0.869,
+        "price": 534.39,
+        "current_value": 464.38,
+        "avg_cost": 520.24,
+        "cost_basis_total": 452.09,
+        "percent_of_account": 2.51
+    },
+    "ANET": {
+        "description": "ARISTA NETWORKS INC COM SHS",
+        "shares": 0.775,
+        "price": 181.15,
+        "current_value": 140.39,
+        "avg_cost": 184.0,
+        "cost_basis_total": 142.6,
+        "percent_of_account": 0.76
     },
     "ASML": {
         "description": "ASML HOLDING NV EUR0.09 NY REGISTRY SHS 2012",
-        "shares": 0.372,
-        "price": 1797.32,
-        "current_value": 668.6,
-        "avg_cost": 1775.16,
-        "cost_basis_total": 660.36,
-        "percent_of_account": 3.58
+        "shares": 0.469,
+        "price": 1726.04,
+        "current_value": 809.51,
+        "avg_cost": 1771.26,
+        "cost_basis_total": 830.72,
+        "percent_of_account": 4.38
     },
     "AMZN": {
         "description": "AMAZON.COM INC",
         "shares": 0.125,
-        "price": 245.34,
-        "current_value": 30.66,
+        "price": 247.31,
+        "current_value": 30.91,
         "avg_cost": 258.0,
         "cost_basis_total": 32.25,
-        "percent_of_account": 0.16
+        "percent_of_account": 0.17
     }
 }
