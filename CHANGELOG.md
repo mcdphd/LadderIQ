@@ -1,3 +1,10 @@
+# V3.53.2 — Dynamic QQQ benchmark refresh
+
+- Refreshes QQQ daily history directly from Yahoo Finance whenever the build runs.
+- Uses today as Yahoo's exclusive end date, so the benchmark slider ends on the latest completed trading session (T-1).
+- Falls back to yfinance, then to embedded history, if Yahoo is unavailable.
+- Removes the hard-coded 2026-07-10 benchmark endpoint.
+
 # Changelog
 
 ## 3.53.1 — Report Path Compatibility

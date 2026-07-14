@@ -2,7 +2,7 @@ import csv, json, re, math, zipfile, shutil, os
 from pathlib import Path
 from datetime import datetime, timedelta
 
-VERSION='3.53.1'
+VERSION='3.53.2'
 BASELINE=9913.04
 NEW_CONTRIBUTION=5055.52
 CONTRIBUTION_DATE='2026-07-10'
@@ -1403,11 +1403,81 @@ QQQ_BENCHMARK['replay_series']=[
   }
 ]
 
-# V55 cash-flow-aware performance endpoint for 2026-07-10.
-QQQ_END_PRICE=725.54
+# Refresh QQQ through the latest completed market session.
+# yfinance treats `end` as exclusive, so using today's date intentionally stops at T-1.
+def refresh_qqq_history(benchmark):
+    start_date = benchmark.get('start_date', '2026-04-07')
+    symbol = benchmark.get('symbol', 'QQQ')
+    end_exclusive = datetime.now().strftime('%Y-%m-%d')
+
+    # Primary source: Yahoo Finance chart endpoint, using only Python's standard library.
+    try:
+        import urllib.parse
+        import urllib.request
+        start_epoch = int(datetime.strptime(start_date, '%Y-%m-%d').timestamp())
+        end_epoch = int(datetime.strptime(end_exclusive, '%Y-%m-%d').timestamp())
+        url = (
+            f"https://query1.finance.yahoo.com/v8/finance/chart/{urllib.parse.quote(symbol)}"
+            f"?period1={start_epoch}&period2={end_epoch}&interval=1d&events=history"
+        )
+        request = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0 LadderIQ/1.0'})
+        with urllib.request.urlopen(request, timeout=20) as response:
+            payload = json.loads(response.read().decode('utf-8'))
+        result = payload['chart']['result'][0]
+        timestamps = result.get('timestamp') or []
+        quotes = result.get('indicators', {}).get('quote', [{}])[0]
+        closes = quotes.get('close') or []
+        series = []
+        for timestamp, value in zip(timestamps, closes):
+            if value is None:
+                continue
+            market_date = datetime.fromtimestamp(timestamp).strftime('%Y-%m-%d')
+            series.append({'date': market_date, 'price': round(float(value), 4)})
+        if not series:
+            raise RuntimeError('Yahoo Finance returned no QQQ closes.')
+        benchmark['series'] = series
+        print(f"QQQ benchmark refreshed through {series[-1]['date']} from Yahoo Finance.")
+        return series[-1]['date'], series[-1]['price']
+    except Exception as yahoo_exc:
+        print(f'WARNING: Direct Yahoo Finance refresh failed. {yahoo_exc}')
+
+    # Secondary source: yfinance, when installed.
+    try:
+        import yfinance as yf
+        history = yf.download(
+            symbol,
+            start=start_date,
+            end=end_exclusive,
+            progress=False,
+            auto_adjust=False,
+            threads=False,
+        )
+        if history is None or history.empty:
+            raise RuntimeError('yfinance returned no QQQ history.')
+        close = history['Close']
+        if hasattr(close, 'columns'):
+            close = close.iloc[:, 0]
+        close = close.dropna()
+        if close.empty:
+            raise RuntimeError('QQQ close series was empty.')
+        benchmark['series'] = [
+            {'date': idx.strftime('%Y-%m-%d'), 'price': round(float(value), 4)}
+            for idx, value in close.items()
+        ]
+        print(f"QQQ benchmark refreshed through {benchmark['series'][-1]['date']} using yfinance.")
+        return benchmark['series'][-1]['date'], benchmark['series'][-1]['price']
+    except Exception as yf_exc:
+        print(f'WARNING: yfinance refresh failed; using embedded benchmark data. {yf_exc}')
+        existing = benchmark.get('series') or []
+        if existing:
+            last = existing[-1]
+            return last['date'], float(last['price'])
+        return benchmark.get('end_date', '2026-07-10'), float(benchmark.get('end_price', 725.54))
+
+QQQ_END_DATE, QQQ_END_PRICE = refresh_qqq_history(QQQ_BENCHMARK)
 qqq_twr=((QQQ_END_PRICE/QQQ_BENCHMARK['start_price'])-1)*100
 benchmark_row={
-    'date':'2026-07-10',
+    'date':QQQ_END_DATE,
     'portfolio_value':round(account_total,2),
     'portfolio_roi':round(twr,4),
     'personal_roi':round(personal_roi,4),
@@ -1422,13 +1492,16 @@ benchmark_row={
     'ladder_value_added':round(BASELINE*((twr-QQQ_BENCHMARK.get('buy_hold_return_pct',0))/100),2),
     'status':'Beating' if twr>=qqq_twr else 'Lagging'
 }
-QQQ_BENCHMARK['replay_series']=[r for r in QQQ_BENCHMARK.get('replay_series',[]) if r.get('date')!='2026-07-10']+[benchmark_row]
+QQQ_BENCHMARK['replay_series']=[
+    r for r in QQQ_BENCHMARK.get('replay_series',[]) if r.get('date') != QQQ_END_DATE
+] + [benchmark_row]
+QQQ_BENCHMARK['replay_series'].sort(key=lambda row: row.get('date',''))
 QQQ_BENCHMARK.update({
-    'end_date':'2026-07-10','end_price':QQQ_END_PRICE,'return_pct':qqq_twr,
+    'end_date':QQQ_END_DATE,'end_price':QQQ_END_PRICE,'return_pct':qqq_twr,
     'portfolio_return_pct':twr,'personal_roi_pct':personal_roi,
     'alpha_pct':twr-qqq_twr,'status':benchmark_row['status'],
     'capital_ledger':capital_ledger,
-    'notes':'3.53.0 uses cash-flow-segmented time-weighted return and validated sell ladders. The $5,055.52 contribution is excluded from performance.'
+    'notes':'QQQ history refreshes from Yahoo Finance through the latest completed market session each time the build runs.'
 })
 
 # Stock-specific ladder generation.
