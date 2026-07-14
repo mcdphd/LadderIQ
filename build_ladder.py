@@ -12,8 +12,22 @@ _today=datetime.now()
 while _today.weekday() >= 5:
     _today += timedelta(days=1)
 LADDER_FOR=_today.strftime('%A, %B %d, %Y').replace(' 0',' ')
-DATA_AS_OF='2026-07-10 ET (After Hours)'
 ROOT=Path(__file__).resolve().parent
+
+def positions_file_date(path):
+    match = re.search(r'Portfolio_Positions_([A-Za-z]{3})-(\d{1,2})-(\d{4})\.csv$', path.name, re.IGNORECASE)
+    if not match:
+        return None
+    try:
+        return datetime.strptime('-'.join(match.groups()), '%b-%d-%Y')
+    except ValueError:
+        return None
+
+def format_data_as_of(path):
+    file_date = positions_file_date(path)
+    if file_date is None:
+        file_date = datetime.fromtimestamp(path.stat().st_mtime)
+    return file_date.strftime('%Y-%m-%d') + ' ET (After Hours)'
 
 def money_to_float(s):
     if s is None: return 0.0
@@ -38,6 +52,10 @@ def find_latest_positions_csv():
     files = [f for f in files if f.is_file()]
     if not files:
         raise FileNotFoundError('No positions CSV found. Expected Portfolio_Positions*.csv')
+    dated = [(positions_file_date(f), f) for f in files]
+    dated = [(d, f) for d, f in dated if d is not None]
+    if dated:
+        return max(dated, key=lambda item: item[0])[1]
     return max(files, key=lambda f: f.stat().st_mtime)
 
 def read_positions():
@@ -79,6 +97,7 @@ def read_scores():
     return scores
 
 positions,cash,pending,pos_file=read_positions()
+DATA_AS_OF=format_data_as_of(ROOT / pos_file)
 scores=read_scores()
 
 def base_stock(sym, group, rank, role, status, target, subtitle=''):
