@@ -1,6 +1,6 @@
 import csv, json, re, math, zipfile, shutil, os
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timedelta
 
 VERSION='3.53.1'
 BASELINE=9913.04
@@ -8,7 +8,10 @@ NEW_CONTRIBUTION=5055.52
 CONTRIBUTION_DATE='2026-07-10'
 PRE_CONTRIBUTION_VALUE=13017.99
 TOTAL_CONTRIBUTIONS=BASELINE+NEW_CONTRIBUTION
-LADDER_FOR='Monday, July 13, 2026'
+_today=datetime.now()
+while _today.weekday() >= 5:
+    _today += timedelta(days=1)
+LADDER_FOR=_today.strftime('%A, %B %d, %Y').replace(' 0',' ')
 DATA_AS_OF='2026-07-10 ET (After Hours)'
 ROOT=Path(__file__).resolve().parent
 
@@ -1499,6 +1502,22 @@ const fmtPct = v => Number(v||0).toFixed(2)+'%';
 const fmtSh = v => Number(v||0).toFixed(3).replace(/\.0+$/,'').replace(/(\.\d*?)0+$/,'$1');
 function trendClass(t){return (t||'').toLowerCase()==='up'?'up':((t||'').toLowerCase()==='down'?'down':'lateral')}
 function trendIcon(t){return (t||'').toLowerCase()==='up'?'↑':((t||'').toLowerCase()==='down'?'↓':'→')}
+function formatEasternDate(date=new Date()){
+ const parts=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',weekday:'long',year:'numeric',month:'long',day:'numeric'}).formatToParts(date);
+ const p=Object.fromEntries(parts.filter(x=>x.type!=='literal').map(x=>[x.type,x.value]));
+ return `${p.weekday}, ${p.month} ${Number(p.day)}, ${p.year}`;
+}
+function easternCalendarDate(date=new Date()){
+ const parts=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(date);
+ const p=Object.fromEntries(parts.filter(x=>x.type!=='literal').map(x=>[x.type,x.value]));
+ return new Date(Date.UTC(Number(p.year),Number(p.month)-1,Number(p.day),12));
+}
+function nextLadderDate(date=new Date()){
+ const d=easternCalendarDate(date);
+ while(d.getUTCDay()===0 || d.getUTCDay()===6) d.setUTCDate(d.getUTCDate()+1);
+ return new Intl.DateTimeFormat('en-US',{timeZone:'UTC',weekday:'long',year:'numeric',month:'long',day:'numeric'}).format(d);
+}
+
 function kpi(){const m=DATA.metrics; document.getElementById('kpis').innerHTML=`
  <div class="kpi"><div class="label">Account Total</div><div class="value">${fmtMoney(m.account_total)}</div><small>Market value</small></div>
  <div class="kpi"><div class="label">Effective Cash</div><div class="value">${fmtMoney(m.effective_cash)}</div><small>Raw cash + pending</small></div>
@@ -1506,9 +1525,9 @@ function kpi(){const m=DATA.metrics; document.getElementById('kpis').innerHTML=`
  <div class="kpi"><div class="label">Strategy Return (TWR)</div><div class="value ${m.twr>=0?'positive':'negative'}">${m.twr>=0?'+':''}${fmtPct(m.twr)}</div><small>Personal ROI ${m.personal_roi>=0?'+':''}${fmtPct(m.personal_roi)} · Net gain ${m.net_gain>=0?'+':''}${fmtMoney(m.net_gain)}</small></div>
  <div class="kpi"><div class="label">Today's P/L</div><div class="value ${m.today_pl>=0?'positive':'negative'}">${m.today_pl>=0?'+':''}${fmtMoney(m.today_pl)}</div><small>${m.today_pl>=0?'+':''}${fmtPct(m.today_pl_pct)}</small></div>
  <div class="kpi"><div class="label">Progress to 100% Goal</div><div class="value">${fmtPct(m.roi)}</div><div class="progress"><div class="bar" style="width:${Math.min(100,Math.max(0,m.roi))}%"></div></div></div>`;}
-function sidebar(){const groups=DATA.groups; const by={}; DATA.stocks.forEach(s=>{(by[s.group]??=[]).push(s)}); let html='<div class=\"brand\"><span class=\"icon\">📈</span><span class=\"brand-name\">LadderIQ</span><span class=\"version\">'+DATA.metrics.version+'</span></div><div class="subtitle">Portfolio Command Center</div><div class="decision-mini"><h3>✨ Decision Center</h3><div>Your top 3 priorities for '+DATA.metrics.ladder_for+'</div><button style="margin-top:10px;background:#09294b;border:1px solid #2362a2;color:#80c7ff;border-radius:7px;padding:8px 10px">View All Opportunities</button></div><h3>Portfolio Hierarchy</h3><div style="color:var(--muted);font-size:11px;margin-top:-4px;margin-bottom:8px">Sidebar number = Opportunity Score, not business quality.</div><div class="search"><input placeholder="Search symbols..." oninput="filterStocks(this.value)"></div>';
+function sidebar(){const groups=DATA.groups; const by={}; DATA.stocks.forEach(s=>{(by[s.group]??=[]).push(s)}); let html='<div class=\"brand\"><span class=\"icon\">📈</span><span class=\"brand-name\">LadderIQ</span><span class=\"version\">'+DATA.metrics.version+'</span></div><div class="subtitle">Portfolio Command Center</div><div class="decision-mini"><h3>✨ Decision Center</h3><div>Your top 3 priorities for '+formatEasternDate()+'</div><button style="margin-top:10px;background:#09294b;border:1px solid #2362a2;color:#80c7ff;border-radius:7px;padding:8px 10px">View All Opportunities</button></div><h3>Portfolio Hierarchy</h3><div style="color:var(--muted);font-size:11px;margin-top:-4px;margin-bottom:8px">Sidebar number = Opportunity Score, not business quality.</div><div class="search"><input placeholder="Search symbols..." oninput="filterStocks(this.value)"></div>';
  Object.keys(groups).forEach(g=>{const meta=groups[g]; const arr=by[g]||[]; html+=`<div class="group g-${meta.color}"><div class="group-head"><div>${meta.num} ${g}<small>Target: ${meta.target} · ${arr.length} Holdings</small></div><div>⌄</div></div>`; arr.forEach(s=>{html+=`<div class="stock-nav" data-symbol="${s.symbol}" onclick="selectStock('${s.symbol}')"><div><div class="sym">${s.symbol}</div><div class="company-small">${s.company}</div></div><span class="pill" title="Opportunity Score: where the next dollar should go today">${Math.round(s.opportunity ?? s.leadership)}</span><span class="trend ${trendClass(s.trend)}">${s.trend}</span></div>`}); html+='</div>'});
- html+=`<div class="box"><small>Data as of: ${DATA.metrics.data_as_of}</small><br><small>Next Ladder: <b>${DATA.metrics.ladder_for}</b></small></div>`; document.getElementById('sidebar').innerHTML=html;}
+ html+=`<div class="box"><small>Data as of: ${DATA.metrics.data_as_of}</small><br><small>Next Ladder: <b>${nextLadderDate()}</b></small></div>`; document.getElementById('sidebar').innerHTML=html;}
 function decision(){const buy=DATA.stocks.find(s=>s.symbol==='ASML'); const sell=DATA.stocks.find(s=>s.symbol==='NVDA'); const watch=DATA.stocks.find(s=>s.symbol==='AMZN'); document.getElementById('decision').innerHTML=`<div class="decision-title"><div><b>Decision Center</b> <span style="color:var(--muted);margin-left:12px">Today's top priorities</span></div><a style="color:#58b5ff">View All Signals →</a></div><div class="decision-grid">
  <div class="dec-card buy"><h3>🛒 Buy Today <span class="scorebig">98/100</span></h3><div class="dec-symbol">${buy.symbol}</div><div>${buy.company}</div><p>Why: strongest approved incubator; pullback + opportunity + quality setup.</p></div>
  <div class="dec-card sell"><h3>🎯 Sell Today <span class="scorebig">92/100</span></h3><div class="dec-symbol">${sell.symbol}</div><div>${sell.company}</div><p>Why: over 50% of portfolio, in harvest mode, reduce concentration.</p></div>
@@ -1568,11 +1587,11 @@ function footer(){
  const emerging=['DELL','SNOW','VRT','ARM','GOOGL'];
  document.getElementById('footergrid').innerHTML=`<div class="small-card"><h3>Portfolio Health</h3><div style="font-size:30px;font-weight:900">94<small>/100</small></div><div class="positive">Excellent</div><p style="color:var(--muted)">Opportunity score drives new capital. Business quality stays separate.</p></div>${renderBenchmarkCard()}<div class="small-card"><h3>Opportunity Ranking</h3>${opp.map((r,i)=>{const st=DATA.stocks.find(s=>s.symbol===r); return `<div class="rank-row"><b>${i+1}</b><span>${r}</span><span class="positive">${Math.round(st?.opportunity ?? st?.leadership ?? 0)}</span></div>`}).join('')}</div><div class="small-card"><h3>Strategic Leaders</h3>${strategic.map((r,i)=>{const st=DATA.stocks.find(s=>s.symbol===r); return `<div class="rank-row"><b>${i+1}</b><span>${r}</span><span>${Math.round(st?.business_quality ?? 0)}</span></div>`}).join('')}<p style="color:var(--muted)">Quality names; not always current buys.</p></div><div class="small-card"><h3>Watch / Emerging</h3>${emerging.map((r,i)=>`<div class="rank-row"><b>${i+1}</b><span>${r}</span><span>${i<2?'Attack':'Hold'}</span></div>`).join('')}</div>`;}
 function filterStocks(q){q=(q||'').toUpperCase(); document.querySelectorAll('.stock-nav').forEach(el=>{el.style.display=el.dataset.symbol.includes(q)?'grid':'none'})}
-kpi(); sidebar(); decision(); footer(); selectStock('TSM');
+kpi(); sidebar(); decision(); footer(); selectStock('TSM'); document.getElementById('nextLadderFooter').textContent=nextLadderDate();
 
 '''.replace('__DATA__', html_data)
 
-html=f'''<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>LadderIQ {VERSION} Portfolio Command Center</title><style>{css}</style></head><body><div class="app"><aside id="sidebar" class="sidebar"></aside><main class="main"><section id="kpis" class="kpis"></section><section id="decision" class="decision"></section><section id="detail" class="detail"></section><section id="footergrid" class="footer-grid"></section><div class="footer">LadderIQ | {VERSION} | Data as of {DATA_AS_OF} | Next ladder: {LADDER_FOR}</div></main></div><script>{script}</script></body></html>'''
+html=f'''<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>LadderIQ {VERSION} Portfolio Command Center</title><style>{css}</style></head><body><div class="app"><aside id="sidebar" class="sidebar"></aside><main class="main"><section id="kpis" class="kpis"></section><section id="decision" class="decision"></section><section id="detail" class="detail"></section><section id="footergrid" class="footer-grid"></section><div class="footer">LadderIQ | {VERSION} | Data as of {DATA_AS_OF} | Next ladder: <span id="nextLadderFooter"></span></div></main></div><script>{script}</script></body></html>'''
 
 # reports/latestladder.html is the authoritative generated report.
 REPORTS_DIR = ROOT / 'reports'

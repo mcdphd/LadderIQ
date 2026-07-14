@@ -1,7 +1,7 @@
 {
   "version": "3.53.0",
   "qa_errors": 0,
-  "ladder_for": "Monday, July 13, 2026",
+  "ladder_for": "Dynamic current/next trading date (America/New_York)",
   "verified": [
     "Jul-10 positions imported",
     "Jul-10 trades imported",
