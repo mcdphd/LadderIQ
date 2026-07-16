@@ -2,7 +2,7 @@ import csv, json, re, math, zipfile, shutil, os
 from pathlib import Path
 from datetime import datetime, timedelta
 
-VERSION='3.53.2'
+VERSION='3.53.3'
 BASELINE=9913.04
 NEW_CONTRIBUTION=5055.52
 CONTRIBUTION_DATE='2026-07-10'
@@ -1505,6 +1505,21 @@ QQQ_BENCHMARK.update({
 })
 
 # Stock-specific ladder generation.
+# BR-017 — Active Position Rule:
+# A sell ladder is generated only when the imported position has both a
+# meaningful share quantity and market value. This removes stale/zero-share
+# exit ladders while preserving legitimate fractional-share positions.
+MIN_ACTIVE_POSITION_SHARES = 0.0005
+MIN_ACTIVE_POSITION_VALUE = 1.00
+
+def has_active_position(stock):
+    try:
+        qty = max(0.0, float(stock.get('quantity') or 0))
+        value = max(0.0, float(stock.get('value') or 0))
+    except (TypeError, ValueError):
+        return False
+    return qty >= MIN_ACTIVE_POSITION_SHARES and value >= MIN_ACTIVE_POSITION_VALUE
+
 def buy_levels(sym, price):
     if price<=0 or sym in ['NVDA','AMZN','ARM']: return []
     if sym=='SPCX':
@@ -1513,10 +1528,19 @@ def buy_levels(sym, price):
         return [('Seed Add', round(price*.985), 'Small incubator add'),('Add On', round(price*.965), 'Pullback add'),('Final Add', round(price*.93), 'Only if thesis intact')]
     return [('First Entry', round(price*.985), 'Limit buy'),('Add On', round(price*.965), 'Limit buy'),('Final Add', round(price*.945), 'Limit buy')]
 
-def sell_levels(sym, price, qty, avg):
+def sell_levels(sym, price, qty, avg, position_value=0):
+    # Never create an exit ladder for a closed, missing, or economically
+    # meaningless position. Fractional positions remain supported.
+    try:
+        current_qty = max(0.0, float(qty or 0))
+        current_value = max(0.0, float(position_value or 0))
+    except (TypeError, ValueError):
+        return []
+    if current_qty < MIN_ACTIVE_POSITION_SHARES or current_value < MIN_ACTIVE_POSITION_VALUE:
+        return []
     if sym=='NVDA': return [('Trim 1',214,3,'Reduce concentration'),('Trim 2',220,4,'Harvest weak leader'),('Harvest',226,5,'Reallocate capital')]
     if sym=='AMZN':
-        q=qty or 0
+        q=current_qty
         # Sell ladders must harvest into strength, never below the latest market price.
         # Keep the first rung at least 1.5% above market and the second at least 4% above.
         first=round(price*1.015,2) if price>0 else 249.00
@@ -1526,18 +1550,20 @@ def sell_levels(sym, price, qty, avg):
         return [('40% Exit',first,round(q*.4,3),'Validated harvest rung: at least 1.5% above market'),('60% Exit',second,round(q*.6,3),'Complete exit only into additional strength')]
     if sym=='SPCX':
         cost=avg or price
-        return [('+50% Review', round(cost*1.5), qty, 'Review only'),('+100% Review', round(cost*2), qty, 'Consider capital recovery')]
+        return [('+50% Review', round(cost*1.5), current_qty, 'Review only'),('+100% Review', round(cost*2), current_qty, 'Consider capital recovery')]
     if sym=='ARM': return []
     if price<=0: return []
     if sym in ['ASML','CRWD','AMD']:
-        return [('Review 1',round(price*1.08), qty*.33 if qty else 0, 'Review, not auto-sell'),('Review 2',round(price*1.15), qty*.33 if qty else 0, 'Scale only if needed')]
-    return [('Trim 1',round(price*1.025), qty*.33 if qty else 0, 'Partial profit'),('Trim 2',round(price*1.05), qty*.33 if qty else 0, 'Lock gains'),('Harvest',round(price*1.075), qty*.34 if qty else 0, 'Full harvest')]
+        return [('Review 1',round(price*1.08), current_qty*.33, 'Review, not auto-sell'),('Review 2',round(price*1.15), current_qty*.33, 'Scale only if needed')]
+    return [('Trim 1',round(price*1.025), qty*.33 if qty else 0, 'Partial profit'),('Trim 2',round(price*1.05), qty*.33 if qty else 0, 'Lock gains'),('Harvest',round(price*1.075), current_qty*.34, 'Full harvest')]
 
 def budget_for(sym):
     weights={'TSM':.22,'PANW':.20,'ANET':.16,'ASML':.12,'CRWD':.10,'AMD':.10,'SPCX':.05}
     return deployable*weights.get(sym,0)
 
 for st in stocks:
+    st['has_active_position']=has_active_position(st)
+    st['position_status']='Active' if st['has_active_position'] else 'Closed'
     st['buy']=[]; st['sell']=[]
     b=buy_levels(st['symbol'], st['price']); bud=budget_for(st['symbol'])
     if b:
@@ -1546,7 +1572,7 @@ for st in stocks:
             alloc=bud*(splits[i] if i<len(splits) else 1/len(b))
             sh=alloc/price if price else 0
             st['buy'].append({'level':i+1,'label':label,'price':price,'allocation':alloc,'shares':sh,'note':note})
-    for i,(label,price,sh,note) in enumerate(sell_levels(st['symbol'], st['price'], st['quantity'], st.get('avg_cost',0))):
+    for i,(label,price,sh,note) in enumerate(sell_levels(st['symbol'], st['price'], st['quantity'], st.get('avg_cost',0), st.get('value',0))):
         proceeds=(price or 0)*(sh or 0)
         st['sell'].append({'level':i+1,'label':label,'price':price,'shares':sh,'proceeds':proceeds,'note':note})
 
@@ -1574,7 +1600,7 @@ group_meta={
  'Watch List': {'num':6,'color':'gray','target':'0%','desc':'Monitor only'},
 }
 
-active_holdings = [s['symbol'] for s in stocks if s.get('quantity',0) > 0 and s.get('value',0) > 0]
+active_holdings = [s['symbol'] for s in stocks if has_active_position(s)]
 approved_universe = [s['symbol'] for s in stocks if s['symbol'] != 'ARM']
 watch_only = [s['symbol'] for s in stocks if s.get('status') == 'Watch Only']
 legacy_holdings = []
@@ -1625,11 +1651,11 @@ function decision(){const buy=DATA.stocks.find(s=>s.symbol==='ASML'); const sell
  <div class="dec-card sell"><h3>🎯 Sell Today <span class="scorebig">92/100</span></h3><div class="dec-symbol">${sell.symbol}</div><div>${sell.company}</div><p>Why: over 50% of portfolio, in harvest mode, reduce concentration.</p></div>
  <div class="dec-card watch"><h3>👁 Watch Closely <span class="scorebig">72/100</span></h3><div class="dec-symbol">${watch.symbol}</div><div>${watch.company}</div><p>Why: weak momentum; could continue toward full rotation exit.</p></div>
  </div>`;}
-function ladderRows(levels,type){return levels.map(x=>`<tr><td><span class="levelbox">${x.level}</span></td><td><div class="price">${fmtMoney(x.price)}</div><div class="limit">Limit ${type==='buy'?'Buy':'Sell'}</div></td><td>${type==='buy'?fmtMoney(x.allocation):fmtPct(x.shares?33:0)}</td><td>${fmtSh(x.shares)}</td><td>${type==='buy'?'Waiting':fmtMoney(x.proceeds)}</td><td>${x.note||''}</td></tr>`).join('') || '<tr><td colspan="6">No ladder for this side.</td></tr>'}
+function ladderRows(levels,type,hasPosition=true){if(!levels.length){const msg=(type==='sell'&&!hasPosition)?'<b>Position Closed</b><br><span style="color:var(--muted)">No shares are currently owned. No sell ladder is required.</span>':'No ladder for this side.';return `<tr><td colspan="6">${msg}</td></tr>`;}return levels.map(x=>`<tr><td><span class="levelbox">${x.level}</span></td><td><div class="price">${fmtMoney(x.price)}</div><div class="limit">Limit ${type==='buy'?'Buy':'Sell'}</div></td><td>${type==='buy'?fmtMoney(x.allocation):fmtPct(x.shares?33:0)}</td><td>${fmtSh(x.shares)}</td><td>${type==='buy'?'Waiting':fmtMoney(x.proceeds)}</td><td>${x.note||''}</td></tr>`).join('')}
 function selectStock(sym){const s=DATA.stocks.find(x=>x.symbol===sym)||DATA.stocks[0]; document.querySelectorAll('.stock-nav').forEach(el=>el.classList.toggle('active',el.dataset.symbol===sym)); const pl=s.total_pl||0; document.getElementById('detail').innerHTML=`
  <div class="stock-hero"><div><div class="stock-title">${s.symbol}</div><div style="color:var(--muted)">${s.company}</div><div class="tags"><span>${s.role}</span><span>${s.group}</span></div></div><div class="metrics-row"><div class="mini-metric"><small>Opportunity</small><b>${Math.round(s.opportunity ?? s.leadership)}</b></div><div class="mini-metric"><small>Trend</small><b class="trend ${trendClass(s.trend)}">${trendIcon(s.trend)} ${s.trend}</b></div><div class="mini-metric"><small>Business Quality</small><b>${Math.round(s.business_quality ?? s.leadership)}</b></div><div class="mini-metric"><small>% Portfolio</small><b>${fmtPct(s.weight)}</b></div><div class="mini-metric"><small>Market Value</small><b>${fmtMoney(s.value)}</b></div></div><div class="actions"><button>Add Note</button><button>View Chart</button><button>Set Alert</button><div style="margin-top:12px"><small>Unrealized P/L</small><br><b class="${pl>=0?'positive':'negative'}">${pl>=0?'+':''}${fmtMoney(pl)}</b></div></div></div>
  <div class="tabs"><div class="tab active">Overview</div><div class="tab">Ladders</div><div class="tab">Analysis</div><div class="tab">Notes</div><div class="tab">Performance</div></div>
- <div class="content"><div class="ladder buy"><h3>Buy Ladder (${s.status}) <span style="float:right;color:var(--muted);font-size:13px">Budget: ${fmtMoney(s.buy.reduce((a,b)=>a+b.allocation,0))}</span></h3><table><thead><tr><th>Level</th><th>Price</th><th>Allocation</th><th>Shares</th><th>Status</th><th>Notes</th></tr></thead><tbody>${ladderRows(s.buy,'buy')}</tbody></table></div><div class="ladder sell"><h3>Sell Ladder / Review <span style="float:right;color:var(--muted);font-size:13px">Target: ${fmtMoney(s.sell.reduce((a,b)=>a+b.proceeds,0))}</span></h3><table><thead><tr><th>Level</th><th>Price</th><th>Trim</th><th>Shares</th><th>Proceeds</th><th>Notes</th></tr></thead><tbody>${ladderRows(s.sell,'sell')}</tbody></table></div><div class="side-panel"><div class="box"><h3>Score Breakdown</h3><div style="color:var(--muted);font-size:12px;margin-bottom:10px">Opportunity score is tactical. Business quality is long-term.</div>${['Relative Strength','Momentum','Price Structure','Capital Priority','Opportunity Score'].map((n,i)=>`<div class="profile-row"><span>${n}</span><div class="meter"><span style="width:${Math.max(10,Math.min(100,s.leadership-(i*2)))}%"></span></div><b>${Math.max(0,Math.round(s.leadership-(i*2)))}</b></div>`).join('')}</div><div class="box"><h3>Key Levels</h3><div>Current: <b style="float:right">${fmtMoney(s.price)}</b></div><div>Avg Cost: <b style="float:right">${fmtMoney(s.avg_cost)}</b></div><div>Shares: <b style="float:right">${fmtSh(s.quantity)}</b></div><div>Weight: <b style="float:right">${fmtPct(s.weight)}</b></div><div>Reason Owned: <b style="float:right">${s.own_reason || 'LadderIQ Selected'}</b></div><div class="callout"><b>Score Interpretation</b><span>${s.score_reason || 'Opportunity score controls today’s capital allocation.'}</span></div></div></div></div>
+ <div class="content"><div class="ladder buy"><h3>Buy Ladder (${s.status}) <span style="float:right;color:var(--muted);font-size:13px">Budget: ${fmtMoney(s.buy.reduce((a,b)=>a+b.allocation,0))}</span></h3><table><thead><tr><th>Level</th><th>Price</th><th>Allocation</th><th>Shares</th><th>Status</th><th>Notes</th></tr></thead><tbody>${ladderRows(s.buy,'buy',s.has_active_position)}</tbody></table></div><div class="ladder sell"><h3>${s.has_active_position?'Sell Ladder / Review':'Position Closed'} <span style="float:right;color:var(--muted);font-size:13px">Target: ${fmtMoney(s.sell.reduce((a,b)=>a+b.proceeds,0))}</span></h3><table><thead><tr><th>Level</th><th>Price</th><th>Trim</th><th>Shares</th><th>Proceeds</th><th>Notes</th></tr></thead><tbody>${ladderRows(s.sell,'sell',s.has_active_position)}</tbody></table></div><div class="side-panel"><div class="box"><h3>Score Breakdown</h3><div style="color:var(--muted);font-size:12px;margin-bottom:10px">Opportunity score is tactical. Business quality is long-term.</div>${['Relative Strength','Momentum','Price Structure','Capital Priority','Opportunity Score'].map((n,i)=>`<div class="profile-row"><span>${n}</span><div class="meter"><span style="width:${Math.max(10,Math.min(100,s.leadership-(i*2)))}%"></span></div><b>${Math.max(0,Math.round(s.leadership-(i*2)))}</b></div>`).join('')}</div><div class="box"><h3>Key Levels</h3><div>Current: <b style="float:right">${fmtMoney(s.price)}</b></div><div>Avg Cost: <b style="float:right">${fmtMoney(s.avg_cost)}</b></div><div>Shares: <b style="float:right">${fmtSh(s.quantity)}</b></div><div>Weight: <b style="float:right">${fmtPct(s.weight)}</b></div><div>Reason Owned: <b style="float:right">${s.own_reason || 'LadderIQ Selected'}</b></div><div class="callout"><b>Score Interpretation</b><span>${s.score_reason || 'Opportunity score controls today’s capital allocation.'}</span></div></div></div></div>
  <div class="lower"><div class="box"><h3>Technical Snapshot</h3><div>Price (AH) <b style="float:right">${fmtMoney(s.price)}</b></div><div>Trend <b class="trend ${trendClass(s.trend)}" style="float:right">${s.trend}</b></div><div>Opportunity <b style="float:right">${Math.round(s.opportunity ?? s.leadership)}</b></div><div>Business Quality <b style="float:right">${Math.round(s.business_quality ?? s.leadership)}</b></div></div><div class="box"><h3>Portfolio Health</h3><div class="health-score positive">91<small>/100</small></div><div class="positive">Excellent</div><div class="health-bars"><div class="health-line"><span>Opportunity</span><div class="health-meter"><span style="width:95%"></span></div><b>95</b></div><div class="health-line"><span>Diversification</span><div class="health-meter"><span style="width:84%"></span></div><b>84</b></div><div class="health-line"><span>Risk Mgmt</span><div class="health-meter"><span style="width:92%"></span></div><b>92</b></div><div class="health-line"><span>Cash Efficiency</span><div class="health-meter"><span style="width:78%"></span></div><b>78</b></div><div class="health-line"><span>Momentum</span><div class="health-meter"><span style="width:97%"></span></div><b>97</b></div></div><div class="callout"><b>Biggest Weakness</b><span class="warning-text">NVDA concentration remains high; harvest plan stays active.</span></div></div><div class="box"><h3>Capital Allocation Engine</h3><div>Deployable cash: <b>${fmtMoney(DATA.metrics.deployable)}</b></div><div class="progress"><div class="bar" style="width:86%"></div></div><small>Cash efficiency: Good</small></div><div class="box"><h3>Allocation & Risk</h3><div style="font-size:34px;font-weight:900">${fmtPct(s.weight)}</div><div>Risk Status: <b class="positive">${s.weight>40?'Watch':'Good'}</b></div></div></div>`;}
 function renderBenchmarkCard(){
  const b=DATA.benchmark || {};

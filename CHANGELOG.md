@@ -188,3 +188,10 @@
 - Daily and weekly review cadence.
 - Discipline-first execution rules.
 - Initial focus on AI infrastructure and high-conviction technology leaders.
+
+## 3.53.3 — Closed-position ladder cleanup
+- Added BR-017 Active Position Rule: sell ladders are generated only for imported positions with a meaningful positive quantity and market value.
+- Suppressed stale zero-share sell ladders for fully liquidated securities such as AMZN.
+- Added explicit `has_active_position` and `position_status` fields to generated stock data.
+- Replaced empty sell-ladder rows with a clear "Position Closed" message.
+- Applied the same logic to both `build_ladder.py` and `generate_ladder.py`.
