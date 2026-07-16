@@ -1,3 +1,10 @@
+## 3.54.0 — Position Lifecycle Manager (2026-07-16)
+- Added explicit lifecycle states: owned, active candidate, watchlist, recently exited, and archived.
+- Archived zero-share harvest-only positions are removed from the active dashboard while history is preserved.
+- Removed AMZN from active holdings, sidebar, decision cards, and rotation decisions after full liquidation.
+- Replaced hard-coded AMZN Decision Center logic with dynamic candidate selection.
+- Added `position_lifecycle.json` as the lifecycle source of truth.
+
 # V3.53.2 — Dynamic QQQ benchmark refresh
 
 - Refreshes QQQ daily history directly from Yahoo Finance whenever the build runs.

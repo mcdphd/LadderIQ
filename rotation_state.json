@@ -1,14 +1,6 @@
 {
-  "version": "V18 Active Holdings / Approved Universe Guard",
+  "version": "V19 Position Lifecycle Manager",
   "symbols": {
-    "AMZN": {
-      "weak_below_60_days": 13,
-      "weak_below_50_days": 12,
-      "last_counted_date": "2026-06-30",
-      "current_priority": "P3",
-      "demotion_reason": "Accelerated harvest-only P3: no routine buys; recycle proceeds into leaders, external incubator, or SPCX.",
-      "last_score": 35.0
-    },
     "ANET": {
       "weak_below_60_days": 0,
       "weak_below_50_days": 0,
@@ -56,8 +48,21 @@
     "single_day_reading": "cannot demote a strategic core holding",
     "spcx": "SPCX is excluded from P1/P2/P3 and governed as Strategic Special Situation. Target 10%, max 15%.",
     "v43_active_holdings_rule": "META removed. Rotation/ladders must operate on active holdings only unless a symbol is manually reactivated.",
-    "meta": "META removed from active holdings and ladders; historical transactions remain only in transaction history."
+    "meta": "META removed from active holdings and ladders; historical transactions remain only in transaction history.",
+    "position_lifecycle": "Only owned, active-candidate, watchlist, or recently-exited symbols can appear on the dashboard. Archived symbols remain in history only."
   },
-  "last_updated": "2026-07-07 16:30:00",
-  "as_of": "2026-07-07"
+  "last_updated": "2026-07-16 16:00:00",
+  "as_of": "2026-07-16",
+  "archived_symbols": {
+    "AMZN": {
+      "weak_below_60_days": 13,
+      "weak_below_50_days": 12,
+      "last_counted_date": "2026-06-30",
+      "current_priority": "P3",
+      "demotion_reason": "Accelerated harvest-only P3: no routine buys; recycle proceeds into leaders, external incubator, or SPCX.",
+      "last_score": 35.0,
+      "archived_date": "2026-07-16",
+      "archive_reason": "Position fully liquidated; no longer active in dashboard or rotation decisions."
+    }
+  }
 }

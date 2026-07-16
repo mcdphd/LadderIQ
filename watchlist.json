@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-07-07",
+  "as_of": "2026-07-16",
   "benchmark": "QQQ",
   "current_holdings": [
     "NVDA",
@@ -9,8 +9,7 @@
     "ANET",
     "ASML",
     "AMD",
-    "CRWD",
-    "AMZN"
+    "CRWD"
   ],
   "watch_candidates": [
     "PLTR",
@@ -83,13 +82,12 @@
     "v43_rule": "Separate Approved Universe from Active Holdings. Generate ladders only for Active Holdings, plus manually approved active allocation candidates. Watch candidates are scanner-only.",
     "active_holdings_rule": "Tomorrow ladders are generated only for active holdings with quantity/value or explicitly approved active allocation candidates. META remains excluded unless manually reactivated."
   },
-  "version": "V43 Approved Universe / Active Holdings",
+  "version": "V44 Position Lifecycle Manager",
   "active_holdings": [
     "NVDA",
     "ANET",
     "SPCX",
     "TSM",
-    "AMZN",
     "CRWD",
     "AMD",
     "ASML"
@@ -124,6 +122,7 @@
     "VRT"
   ],
   "removed_from_active_universe": {
-    "META": "Removed in V43 because user no longer owns it; no buy/sell ladder should be generated unless manually reactivated."
+    "META": "Removed in V43 because user no longer owns it; no buy/sell ladder should be generated unless manually reactivated.",
+    "AMZN": "Fully liquidated and archived by Position Lifecycle Manager on 2026-07-16."
   }
 }

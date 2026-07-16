@@ -1,8 +1,10 @@
 {
   "product": "LadderIQ",
-  "version": "3.53.2",
+  "version": "3.54.0",
   "release_name": "Report Path Compatibility",
   "release_date": "2026-07-10",
   "status": "Stable patch",
-  "versioning": "major.minor.patch"
+  "versioning": "major.minor.patch",
+  "date": "2026-07-16",
+  "feature": "Position Lifecycle Manager"
 }

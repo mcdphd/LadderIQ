@@ -897,10 +897,10 @@
       "ffa15a8050c7e747"
     ],
     "last_csv_imported": "Accounts_History (6).csv",
-    "last_import_trade_count": 13
+    "last_import_trade_count": 0
   },
   "positions_last_imported_from": ".\\Portfolio_Positions_Jul-16-2026.csv",
-  "positions_last_imported_at": "2026-07-16 16:40:12",
+  "positions_last_imported_at": "2026-07-16 16:50:27",
   "effective_cash": 1892.5,
   "priority_framework": {
     "version": "V15 Locked Framework",
@@ -950,7 +950,6 @@
     "ANET",
     "SPCX",
     "TSM",
-    "AMZN",
     "CRWD",
     "AMD",
     "ASML"
@@ -986,5 +985,12 @@
   ],
   "removed_symbols": {
     "META": "Removed from active ladders in V43; no current position."
+  },
+  "position_lifecycle": {
+    "AMZN": {
+      "state": "archived",
+      "as_of": "2026-07-16",
+      "reason": "Position fully liquidated."
+    }
   }
 }

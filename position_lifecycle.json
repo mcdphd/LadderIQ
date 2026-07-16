@@ -1,0 +1,74 @@
+{
+  "version": "1.0",
+  "settings": {
+    "recent_exit_days": 0,
+    "hide_archived_from_dashboard": true
+  },
+  "symbols": {
+    "AMZN": {
+      "state": "archived",
+      "reason": "Position fully liquidated; removed from active dashboard.",
+      "manual": true,
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Jul-16-2026.csv"
+    },
+    "ARM": {
+      "state": "watchlist",
+      "reason": "Approved watch-only candidate.",
+      "manual": true,
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Jul-16-2026.csv"
+    },
+    "TSM": {
+      "state": "owned",
+      "quantity": 7.094,
+      "market_value": 2906.69,
+      "last_position_file": "Portfolio_Positions_Jul-16-2026.csv"
+    },
+    "PANW": {
+      "state": "owned",
+      "quantity": 1.983,
+      "market_value": 701.96,
+      "last_position_file": "Portfolio_Positions_Jul-16-2026.csv"
+    },
+    "ANET": {
+      "state": "owned",
+      "quantity": 9.34,
+      "market_value": 1574.35,
+      "last_position_file": "Portfolio_Positions_Jul-16-2026.csv"
+    },
+    "NVDA": {
+      "state": "owned",
+      "quantity": 31.306,
+      "market_value": 6492.86,
+      "last_position_file": "Portfolio_Positions_Jul-16-2026.csv"
+    },
+    "ASML": {
+      "state": "owned",
+      "quantity": 0.78,
+      "market_value": 1392.19,
+      "last_position_file": "Portfolio_Positions_Jul-16-2026.csv"
+    },
+    "CRWD": {
+      "state": "owned",
+      "quantity": 6.286,
+      "market_value": 1280.83,
+      "last_position_file": "Portfolio_Positions_Jul-16-2026.csv"
+    },
+    "AMD": {
+      "state": "owned",
+      "quantity": 2.612,
+      "market_value": 1308.45,
+      "last_position_file": "Portfolio_Positions_Jul-16-2026.csv"
+    },
+    "SPCX": {
+      "state": "owned",
+      "quantity": 7.225,
+      "market_value": 947.26,
+      "last_position_file": "Portfolio_Positions_Jul-16-2026.csv"
+    }
+  },
+  "last_updated": "2026-07-16 16:50:33"
+}
