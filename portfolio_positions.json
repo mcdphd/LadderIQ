@@ -2,82 +2,73 @@
     "NVDA": {
         "description": "NVIDIA CORPORATION COM",
         "shares": 31.306,
-        "price": 211.8,
-        "current_value": 6630.61,
+        "price": 212.5,
+        "current_value": 6652.52,
         "avg_cost": 213.5,
         "cost_basis_total": 6683.85,
-        "percent_of_account": 35.15
+        "percent_of_account": 35.3
     },
-    "TSM": {
-        "description": "TAIWAN SEMICONDUCTOR MANUFACTURING SPON ADS EACH REP 5 ORD TWD10",
-        "shares": 4.097,
-        "price": 420.39,
-        "current_value": 1722.33,
-        "avg_cost": 439.35,
-        "cost_basis_total": 1800.03,
-        "percent_of_account": 9.13
+    "ANET": {
+        "description": "ARISTA NETWORKS INC COM SHS",
+        "shares": 6.669,
+        "price": 171.92,
+        "current_value": 1146.53,
+        "avg_cost": 178.21,
+        "cost_basis_total": 1188.46,
+        "percent_of_account": 6.08
     },
     "SPCX": {
         "description": "SPACE EXPL TECHNOLOGIES CORP CL A",
         "shares": 6.557,
-        "price": 136.08,
-        "current_value": 892.27,
+        "price": 135.27,
+        "current_value": 886.96,
         "avg_cost": 160.04,
         "cost_basis_total": 1049.4,
-        "percent_of_account": 4.73
+        "percent_of_account": 4.71
+    },
+    "TSM": {
+        "description": "TAIWAN SEMICONDUCTOR MANUFACTURING SPON ADS EACH REP 5 ORD TWD10",
+        "shares": 5.59,
+        "price": 419.48,
+        "current_value": 2344.89,
+        "avg_cost": 432.58,
+        "cost_basis_total": 2418.13,
+        "percent_of_account": 12.44
     },
     "CRWD": {
         "description": "CROWDSTRIKE HLDGS INC CL A",
-        "shares": 4.077,
-        "price": 210.73,
-        "current_value": 859.14,
-        "avg_cost": 187.89,
-        "cost_basis_total": 766.02,
-        "percent_of_account": 4.55
-    },
-    "ASML": {
-        "description": "ASML HOLDING NV EUR0.09 NY REGISTRY SHS 2012",
-        "shares": 0.469,
-        "price": 1775.64,
-        "current_value": 832.77,
-        "avg_cost": 1771.26,
-        "cost_basis_total": 830.72,
-        "percent_of_account": 4.41
-    },
-    "PANW": {
-        "description": "PALO ALTO NETWORKS INC COM USD0.0001",
-        "shares": 1.467,
-        "price": 352.89,
-        "current_value": 517.68,
-        "avg_cost": 323.54,
-        "cost_basis_total": 474.63,
-        "percent_of_account": 2.74
+        "shares": 5.428,
+        "price": 206.77,
+        "current_value": 1122.34,
+        "avg_cost": 192.89,
+        "cost_basis_total": 1047.03,
+        "percent_of_account": 5.96
     },
     "AMD": {
         "description": "ADVANCED MICRO DEVICES INC",
-        "shares": 0.869,
-        "price": 548.13,
-        "current_value": 476.32,
-        "avg_cost": 520.24,
-        "cost_basis_total": 452.09,
-        "percent_of_account": 2.52
+        "shares": 1.928,
+        "price": 529.14,
+        "current_value": 1020.18,
+        "avg_cost": 525.85,
+        "cost_basis_total": 1013.84,
+        "percent_of_account": 5.41
     },
-    "ANET": {
-        "description": "ARISTA NETWORKS INC COM SHS",
-        "shares": 1.598,
-        "price": 182.57,
-        "current_value": 291.74,
-        "avg_cost": 180.91,
-        "cost_basis_total": 289.09,
-        "percent_of_account": 1.55
+    "PANW": {
+        "description": "PALO ALTO NETWORKS INC COM USD0.0001",
+        "shares": 0.983,
+        "price": 354.02,
+        "current_value": 348.0,
+        "avg_cost": 322.75,
+        "cost_basis_total": 317.26,
+        "percent_of_account": 1.85
     },
-    "AMZN": {
-        "description": "AMAZON.COM INC",
-        "shares": 0.125,
-        "price": 247.49,
-        "current_value": 30.93,
-        "avg_cost": 258.0,
-        "cost_basis_total": 32.25,
-        "percent_of_account": 0.16
+    "ASML": {
+        "description": "ASML HOLDING NV EUR0.09 NY REGISTRY SHS 2012",
+        "shares": 0.662,
+        "price": 1815.27,
+        "current_value": 1201.7,
+        "avg_cost": 1764.77,
+        "cost_basis_total": 1168.28,
+        "percent_of_account": 6.38
     }
 }
