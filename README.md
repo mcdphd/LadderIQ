@@ -1,4 +1,4 @@
-# LadderIQ 3.54.0 — Tomorrow Ladder
+# LadderIQ 3.55.0 — Tomorrow Ladder
 
 Updated with the latest Fidelity files detected in the project folder.
 
@@ -60,11 +60,13 @@ Use `build_ladder.py`. The old version-specific build name (`build_v41.py`) has 
 
 Do not run `update_portfolio.py`; that file is not part of this system.
 
-## 3.54.0 Features
+## 3.55.0 Features
 
 - Portfolio Command Center layout
 - Decision Center: Buy Today / Sell Today / Watch Closely
-- Left-side portfolio hierarchy
+- Left-side portfolio hierarchy with dynamic within-category ranking
+- Portfolio Classification Engine v1.0 for candidate/watch placement
+- One shared ladder date drives Decision Center and footer labels
 - Opportunity Score and Business Quality are separated.
 - Benchmark vs QQQ card uses cash-flow-segmented TWR and keeps Personal ROI separate.
 - Capital ledger records the $5,055.52 external contribution without treating it as gain.
@@ -73,8 +75,8 @@ Do not run `update_portfolio.py`; that file is not part of this system.
 
 ## Latest Build Inputs
 
-- Positions file: `Portfolio_Positions_Jul-20-2026.csv`
-- Account Total: $18,212.83
-- Effective Cash: $1,284.50
-- ROI Since Inception: 32.73%
+- Positions file: `Portfolio_Positions_Jul-20-2026 (1).csv`
+- Account Total: $18,197.42
+- Effective Cash: $1,093.58
+- ROI Since Inception: 32.57%
 - Next ladder: Monday, July 20, 2026

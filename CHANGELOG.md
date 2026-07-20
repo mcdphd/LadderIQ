@@ -1,3 +1,24 @@
+# Changelog
+
+## v3.55.0 — 2026-07-20
+
+### Added
+- Portfolio Classification Engine v1.0 for non-owned candidate placement.
+- `Growth Candidates` portfolio group for qualifying names with opportunity scores of 60 or higher.
+- Dynamic within-category sidebar sorting by Opportunity Score, trend, leadership, and existing rank.
+- OPS label on sidebar score badges to distinguish Opportunity Score from Business Quality.
+
+### Changed
+- ARM is now classified as a Growth Candidate rather than a passive Watch List name.
+- Decision Center and the initial stock detail panel now open on the same highest-priority buy candidate.
+- Decision Center date, sidebar date, and footer date now consume one shared Ladder Date value.
+- Version advanced to 3.55.0.
+
+### Business Rules
+- BR-018 — Unified Ladder Date: all ladder-facing date labels use the generator's single Eastern-time date. Runs on weekends roll forward to Monday.
+- BR-019 — Candidate Classification: a non-owned, visible symbol with Opportunity Score >= 60 is a Growth Candidate; lower-scoring names remain Watch List.
+- BR-020 — Dynamic Sidebar Ranking: stocks are ordered inside each group by Opportunity Score, trend, leadership, then prior rank.
+
 ## 3.54.0 — Position Lifecycle Manager (2026-07-16)
 - Added explicit lifecycle states: owned, active candidate, watchlist, recently exited, and archived.
 - Archived zero-share harvest-only positions are removed from the active dashboard while history is preserved.

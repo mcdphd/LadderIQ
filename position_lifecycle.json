@@ -1,5 +1,5 @@
 {
-  "version": "1.0",
+  "version": "1.1",
   "settings": {
     "recent_exit_days": 0,
     "hide_archived_from_dashboard": true
@@ -11,64 +11,64 @@
       "manual": true,
       "quantity": 0.0,
       "market_value": 0.0,
-      "last_position_file": "Portfolio_Positions_Jul-20-2026.csv"
+      "last_position_file": "Portfolio_Positions_Jul-20-2026 (1).csv"
     },
     "ARM": {
-      "state": "watchlist",
-      "reason": "Approved watch-only candidate.",
+      "state": "active_candidate",
+      "reason": "Growth candidate based on opportunity score; monitored for approval.",
       "manual": true,
       "quantity": 0.0,
       "market_value": 0.0,
-      "last_position_file": "Portfolio_Positions_Jul-20-2026.csv"
+      "last_position_file": "Portfolio_Positions_Jul-20-2026 (1).csv"
     },
     "TSM": {
       "state": "owned",
       "quantity": 7.094,
-      "market_value": 2826.03,
-      "last_position_file": "Portfolio_Positions_Jul-20-2026.csv"
+      "market_value": 2853.91,
+      "last_position_file": "Portfolio_Positions_Jul-20-2026 (1).csv"
     },
     "PANW": {
       "state": "owned",
-      "quantity": 1.79,
-      "market_value": 642.03,
-      "last_position_file": "Portfolio_Positions_Jul-20-2026.csv"
+      "quantity": 2.099,
+      "market_value": 731.83,
+      "last_position_file": "Portfolio_Positions_Jul-20-2026 (1).csv"
     },
     "ANET": {
       "state": "owned",
       "quantity": 10.913,
-      "market_value": 1840.04,
-      "last_position_file": "Portfolio_Positions_Jul-20-2026.csv"
+      "market_value": 1848.11,
+      "last_position_file": "Portfolio_Positions_Jul-20-2026 (1).csv"
     },
     "NVDA": {
       "state": "owned",
       "quantity": 31.306,
-      "market_value": 6349.16,
-      "last_position_file": "Portfolio_Positions_Jul-20-2026.csv"
+      "market_value": 6363.88,
+      "last_position_file": "Portfolio_Positions_Jul-20-2026 (1).csv"
     },
     "ASML": {
       "state": "owned",
       "quantity": 0.869,
-      "market_value": 1518.64,
-      "last_position_file": "Portfolio_Positions_Jul-20-2026.csv"
+      "market_value": 1511.2,
+      "last_position_file": "Portfolio_Positions_Jul-20-2026 (1).csv"
     },
     "CRWD": {
       "state": "owned",
-      "quantity": 6.686,
-      "market_value": 1357.79,
-      "last_position_file": "Portfolio_Positions_Jul-20-2026.csv"
+      "quantity": 6.959,
+      "market_value": 1381.29,
+      "last_position_file": "Portfolio_Positions_Jul-20-2026 (1).csv"
     },
     "AMD": {
       "state": "owned",
       "quantity": 2.944,
-      "market_value": 1459.51,
-      "last_position_file": "Portfolio_Positions_Jul-20-2026.csv"
+      "market_value": 1482.51,
+      "last_position_file": "Portfolio_Positions_Jul-20-2026 (1).csv"
     },
     "SPCX": {
       "state": "owned",
-      "quantity": 7.542,
-      "market_value": 935.13,
-      "last_position_file": "Portfolio_Positions_Jul-20-2026.csv"
+      "quantity": 7.769,
+      "market_value": 931.11,
+      "last_position_file": "Portfolio_Positions_Jul-20-2026 (1).csv"
     }
   },
-  "last_updated": "2026-07-20 18:31:36"
+  "last_updated": "2026-07-20 18:49:19"
 }

@@ -1,10 +1,10 @@
 {
   "product": "LadderIQ",
-  "version": "3.54.0",
-  "release_name": "Report Path Compatibility",
-  "release_date": "2026-07-10",
-  "status": "Stable patch",
+  "version": "3.55.0",
+  "release_name": "Classification and Date Synchronization",
+  "release_date": "2026-07-20",
+  "status": "Stable feature release",
   "versioning": "major.minor.patch",
-  "date": "2026-07-16",
-  "feature": "Position Lifecycle Manager"
+  "date": "2026-07-20",
+  "feature": "Portfolio Classification Engine v1.0 and Unified Ladder Date"
 }
