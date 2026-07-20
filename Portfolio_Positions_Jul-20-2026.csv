@@ -1,0 +1,17 @@
+﻿Account number,Account name,Symbol,Description,Quantity,Last price,Last price change,Current value,Today's gain/loss dollar,Today's gain/loss percent,Total gain/loss dollar,Total gain/loss percent,Percent of account,Cost basis total,Average cost basis,Type
+Z25686771,Individual - TOD,FCASH**,HELD IN FCASH,,,,$1892.50,,,,,10.39%,,,Cash,
+Z25686771,Individual - TOD,NVDA,NVIDIA CORPORATION COM,31.306,$202.81,-$4.59,$6349.16,-$143.70,-2.22%,-$334.69,-5.01%,34.86%,$6683.85,$213.50,Cash,
+Z25686771,Individual - TOD,ANET,ARISTA NETWORKS INC COM SHS,10.913,$168.61,+$0.05,$1840.04,+$10.77,+0.58%,-$51.70,-2.74%,10.10%,$1891.74,$173.35,Cash,
+Z25686771,Individual - TOD,SPCX,SPACE EXPL TECHNOLOGIES CORP CL A,7.542,$123.99,-$7.12,$935.13,-$52.40,-5.31%,-$242.04,-20.57%,5.13%,$1177.17,$156.08,Cash,
+Z25686771,Individual - TOD,TSM,TAIWAN SEMICONDUCTOR MANUFACTURING SPON ADS EACH REP 5 ORD TWD10,7.094,$398.37,-$11.37,$2826.03,-$80.66,-2.78%,-$203.39,-6.72%,15.52%,$3029.42,$427.04,Cash,
+Z25686771,Individual - TOD,CRWD,CROWDSTRIKE HLDGS INC CL A,6.686,$203.08,-$0.68,$1357.79,-$3.05,-0.23%,+$55.73,+4.28%,7.46%,$1302.06,$194.74,Cash,
+Z25686771,Individual - TOD,AMD,ADVANCED MICRO DEVICES INC,2.944,$495.76,-$5.18,$1459.51,-$6.38,-0.44%,-$57.63,-3.80%,8.01%,$1517.14,$515.33,Cash,
+Z25686771,Individual - TOD,PANW,PALO ALTO NETWORKS INC COM USD0.0001,1.79,$358.68,+$4.69,$642.03,+$12.37,+1.96%,+$28.21,+4.59%,3.53%,$613.82,$342.92,Cash,
+Z25686771,Individual - TOD,ASML,ASML HOLDING NV EUR0.09 NY REGISTRY SHS 2012,0.869,$1747.58,-$37.29,$1518.64,-$27.55,-1.79%,-$14.61,-0.96%,8.34%,$1533.25,$1764.38,Cash,
+Z25686771,Individual - TOD,Pending activity,,,,,-$608.00,,,,,,
+
+"The data and information in this spreadsheet is provided to you solely for your use and is not for distribution. The spreadsheet is provided for informational purposes only, and is not intended to provide advice, nor should it be construed as an offer to sell, a solicitation of an offer to buy or a recommendation for any security by Fidelity or any third party. Data and information shown is based on information known to Fidelity as of the date it was exported and is subject to change. It should not be used in place of your account statements or trade confirmations and is not intended for tax reporting purposes. For more information on the data included in this spreadsheet, including any limitations thereof, go to Fidelity.com."
+
+"Brokerage services are provided by Fidelity Brokerage Services LLC (FBS), 900 Salem Street, Smithfield, RI 02917. Custody and other services provided by National Financial Services LLC (NFS). Both are Fidelity Investment companies and members SIPC, NYSE. Neither FBS nor NFS offer crypto as a direct investment nor provide trading or custody services for such assets."
+
+"Date downloaded Jul-20-2026 7:03 a.m ET"
