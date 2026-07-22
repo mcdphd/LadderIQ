@@ -2,7 +2,7 @@ import csv, json, re, math, zipfile, shutil, os
 from pathlib import Path
 from datetime import datetime, timedelta
 
-VERSION='3.55.0'
+VERSION='3.55.1'
 BASELINE=9913.04
 NEW_CONTRIBUTION=5055.52
 CONTRIBUTION_DATE='2026-07-10'
@@ -113,6 +113,12 @@ positions,cash,pending,pos_file=read_positions()
 DATA_AS_OF=format_data_as_of(ROOT / pos_file)
 scores=read_scores()
 
+# Opportunity universe used only to populate Section 5: Growth Candidates.
+# Sections 1–4 remain fixed and are not reclassified by this logic.
+WATCHLIST_PATH = ROOT / 'watchlist.json'
+watchlist_data = json.load(open(WATCHLIST_PATH, encoding='utf-8')) if WATCHLIST_PATH.exists() else {}
+GROWTH_CANDIDATE_MIN_SCORE = 60
+
 # Position Lifecycle Manager
 # One source of truth for whether a symbol belongs on the active dashboard.
 # States: owned, active_candidate, watchlist, recently_exited, archived.
@@ -165,7 +171,7 @@ def base_stock(sym, group, rank, role, status, target, subtitle=''):
     if sym in ['AMZN','META']: trend='Down'
     if sym=='NVDA': trend='Lateral'
     rotation={'TSM':88,'PANW':83,'ANET':74,'NVDA':38,'AMZN':32,'ASML':98,'CRWD':92,'AMD':88,'SPCX':56,'ARM':52}.get(sym, int(max(0, leadership-20)))
-    company={'TSM':'Taiwan Semiconductor Manufacturing Co.','PANW':'Palo Alto Networks','ANET':'Arista Networks','NVDA':'NVIDIA Corporation','AMZN':'Amazon.com','ASML':'ASML Holding','CRWD':'CrowdStrike Holdings','AMD':'Advanced Micro Devices','SPCX':'Space Exploration Tech','META':'Meta Platforms','ARM':'Arm Holdings'}.get(sym, p.get('company',sym))
+    company={'TSM':'Taiwan Semiconductor Manufacturing Co.','PANW':'Palo Alto Networks','ANET':'Arista Networks','NVDA':'NVIDIA Corporation','AMZN':'Amazon.com','ASML':'ASML Holding','CRWD':'CrowdStrike Holdings','AMD':'Advanced Micro Devices','SPCX':'Space Exploration Tech','META':'Meta Platforms','ARM':'Arm Holdings','SNOW':'Snowflake','DELL':'Dell Technologies','PLTR':'Palantir Technologies','VRT':'Vertiv Holdings','AVGO':'Broadcom','MSFT':'Microsoft','GOOGL':'Alphabet','ORCL':'Oracle','NOW':'ServiceNow','SMCI':'Super Micro Computer'}.get(sym, p.get('company',sym))
     business_quality={'ASML':100,'TSM':99,'NVDA':98,'PANW':97,'CRWD':96,'ANET':95,'AMD':91,'AMZN':88,'SPCX':72,'ARM':83}.get(sym, max(50, leadership))
     score_reason={'NVDA':'World-class AI company, but overweight and in harvest mode; new capital priority remains low.', 'AMZN':'Quality business, but currently a rotation/exit candidate.', 'TSM':'Strategic AI infrastructure leader with active accumulation priority.', 'ASML':'Strategic semiconductor monopoly-style asset and approved growth engine.', 'ANET':'AI networking leader with current leadership confirmation.', 'PANW':'Cybersecurity leader and current capital deployment candidate.', 'CRWD':'Cybersecurity growth leader and current capital deployment candidate.', 'AMD':'AI/datacenter challenger; active growth-engine candidate.', 'SPCX':'Special situation; governed by separate risk rules.', 'ARM':'Growth candidate with a qualifying opportunity score; no active ladder until approval.'}.get(sym, 'Opportunity score controls where the next dollar goes today; business quality is tracked separately.')
     own_reason={'SPCX':'Special Situation','ARM':'Growth Candidate'}.get(sym, 'LadderIQ Selected')
@@ -181,8 +187,21 @@ stocks=[
  base_stock('CRWD','Growth Engine',2,'Incubator','Seed','10–20%','Approved incubator'),
  base_stock('AMD','Growth Engine',3,'Incubator','Seed','10–20%','Approved incubator'),
  base_stock('SPCX','Special Situations',1,'Special','Hold','5–10%','Strategic special situation'),
- base_stock('ARM','Growth Candidates',1,'Growth Candidate','Candidate','0–10%','Qualified candidate; awaiting ladder approval'),
 ]
+
+# Section 5 is generated fresh on every run from the opportunity universe.
+# Show every non-owned watch candidate meeting the minimum score.
+owned_symbols = {sym for sym, pos in positions.items() if float(pos.get('quantity') or 0) >= 0.0005 and float(pos.get('value') or 0) >= 1.00}
+excluded_symbols = set(watchlist_data.get('exclude_unless_manually_reactivated', []) or [])
+candidate_symbols = []
+for sym in watchlist_data.get('watch_candidates', []) or []:
+    score = float((scores.get(sym) or {}).get('leadership_score') or 0)
+    if sym not in owned_symbols and sym not in excluded_symbols and score >= GROWTH_CANDIDATE_MIN_SCORE:
+        candidate_symbols.append(sym)
+candidate_symbols.sort(key=lambda sym: (-float((scores.get(sym) or {}).get('leadership_score') or 0), sym))
+for candidate_rank, sym in enumerate(candidate_symbols, start=1):
+    stocks.append(base_stock(sym,'Growth Candidates',candidate_rank,'Growth Candidate','Candidate','0–10%','Qualified opportunity-universe candidate'))
+
 # Active holdings drive management ladders; qualified non-owned names can remain visible as growth candidates. META removed in V43.
 position_sum=sum(p['value'] for p in positions.values())
 account_total=cash+pending+position_sum
@@ -1586,8 +1605,8 @@ def resolve_lifecycle_state(stock):
         if override.get('state') == 'watchlist' and float(stock.get('opportunity') or 0) >= 60:
             return 'active_candidate'
         return override['state']
-    if stock.get('status') == 'Watch Only':
-        return 'active_candidate' if float(stock.get('opportunity') or 0) >= 60 else 'watchlist'
+    if stock.get('status') in {'Candidate','Watch Only'}:
+        return 'active_candidate' if float(stock.get('opportunity') or 0) >= GROWTH_CANDIDATE_MIN_SCORE else 'watchlist'
     # Symbols eligible for a fresh buy ladder can remain visible as approved
     # allocation candidates even without a current position. Harvest-only names
     # with no shares are automatically archived.
@@ -1651,7 +1670,7 @@ for st in stocks:
         'last_position_file': pos_file
     })
     st['buy']=[]; st['sell']=[]
-    b=buy_levels(st['symbol'], st['price']); bud=budget_for(st['symbol'])
+    b=[] if st.get('group') == 'Growth Candidates' else buy_levels(st['symbol'], st['price']); bud=budget_for(st['symbol'])
     if b:
         splits=[.5,.3,.2] if len(b)==3 else [1]
         for i,(label,price,note) in enumerate(b):
@@ -1737,8 +1756,8 @@ function kpi(){const m=DATA.metrics; document.getElementById('kpis').innerHTML=`
  <div class="kpi"><div class="label">Strategy Return (TWR)</div><div class="value ${m.twr>=0?'positive':'negative'}">${m.twr>=0?'+':''}${fmtPct(m.twr)}</div><small>Personal ROI ${m.personal_roi>=0?'+':''}${fmtPct(m.personal_roi)} · Net gain ${m.net_gain>=0?'+':''}${fmtMoney(m.net_gain)}</small></div>
  <div class="kpi"><div class="label">Today's P/L</div><div class="value ${m.today_pl>=0?'positive':'negative'}">${m.today_pl>=0?'+':''}${fmtMoney(m.today_pl)}</div><small>${m.today_pl>=0?'+':''}${fmtPct(m.today_pl_pct)}</small></div>
  <div class="kpi"><div class="label">Progress to 100% Goal</div><div class="value">${fmtPct(m.roi)}</div><div class="progress"><div class="bar" style="width:${Math.min(100,Math.max(0,m.roi))}%"></div></div></div>`;}
-function sidebar(){const groups=DATA.groups; const by={}; const trendRank={Up:3,Lateral:2,Down:1}; DATA.stocks.forEach(s=>{(by[s.group]??=[]).push(s)}); Object.values(by).forEach(arr=>arr.sort((a,b)=>(b.opportunity||0)-(a.opportunity||0) || (trendRank[b.trend]||0)-(trendRank[a.trend]||0) || (b.leadership||0)-(a.leadership||0) || (a.rank||99)-(b.rank||99))); let html='<div class=\"brand\"><span class=\"icon\">📈</span><span class=\"brand-name\">LadderIQ</span><span class=\"version\">'+DATA.metrics.version+'</span></div><div class="subtitle">Portfolio Command Center</div><h3>Portfolio Hierarchy</h3><div style="color:var(--muted);font-size:11px;margin-top:-4px;margin-bottom:8px">Sidebar number = Opportunity Score, not business quality.</div><div class="search"><input placeholder="Search symbols..." oninput="filterStocks(this.value)"></div>';
- Object.keys(groups).forEach(g=>{const meta=groups[g]; const arr=by[g]||[]; html+=`<div class="group g-${meta.color}"><div class="group-head"><div>${meta.num} ${g}<small>Target: ${meta.target} · ${arr.length} Holdings</small></div><div>⌄</div></div>`; arr.forEach(s=>{html+=`<div class="stock-nav" data-symbol="${s.symbol}" onclick="selectStock('${s.symbol}')"><div><div class="sym">${s.symbol}</div><div class="company-small">${s.company}</div></div><span class="pill" title="Opportunity Score: where the next dollar should go today">${Math.round(s.opportunity ?? s.leadership)}<small style="font-size:8px;margin-left:2px">OPS</small></span><span class="trend ${trendClass(s.trend)}">${s.trend}</span></div>`}); html+='</div>'});
+function sidebar(){const groups=DATA.groups; const by={}; DATA.stocks.forEach(s=>{(by[s.group]??=[]).push(s)}); Object.entries(by).forEach(([group,arr])=>arr.sort(group==='Growth Candidates' ? ((a,b)=>(b.opportunity||0)-(a.opportunity||0) || (a.rank||99)-(b.rank||99)) : ((a,b)=>(a.rank||99)-(b.rank||99)))); let html='<div class=\"brand\"><span class=\"icon\">📈</span><span class=\"brand-name\">LadderIQ</span><span class=\"version\">'+DATA.metrics.version+'</span></div><div class="subtitle">Portfolio Command Center</div><h3>Portfolio Hierarchy</h3><div style="color:var(--muted);font-size:11px;margin-top:-4px;margin-bottom:8px">Sidebar number = Opportunity Score, not business quality.</div><div class="search"><input placeholder="Search symbols..." oninput="filterStocks(this.value)"></div>';
+ Object.keys(groups).forEach(g=>{const meta=groups[g]; const arr=by[g]||[]; html+=`<div class="group g-${meta.color}"><div class="group-head"><div>${meta.num} ${g}<small>Target: ${meta.target} · ${arr.length} ${g==='Growth Candidates' ? (arr.length===1?'Candidate':'Candidates') : 'Holdings'}</small></div><div>⌄</div></div>`; arr.forEach(s=>{html+=`<div class="stock-nav" data-symbol="${s.symbol}" onclick="selectStock('${s.symbol}')"><div><div class="sym">${s.symbol}</div><div class="company-small">${s.company}</div></div><span class="pill" title="Opportunity Score: where the next dollar should go today">${Math.round(s.opportunity ?? s.leadership)}<small style="font-size:8px;margin-left:2px">OPS</small></span><span class="trend ${trendClass(s.trend)}">${s.trend}</span></div>`}); html+='</div>'});
  html+=`<div class="box"><small>Data as of: ${DATA.metrics.data_as_of}</small></div>`; document.getElementById('sidebar').innerHTML=html;}
 let PRIMARY_DECISION_SYMBOL=null;
 function decision(){

@@ -1,3 +1,9 @@
+## v3.55.1 — Dynamic Growth Candidates (2026-07-22)
+- Section 5 now refreshes automatically from the opportunity universe.
+- Shows every non-owned watch candidate scoring 60 or higher.
+- Sections 1–4 and their ordering remain unchanged.
+- Growth Candidates displays Candidate/Candidates instead of Holdings.
+
 # Changelog
 
 ## v3.55.0 — 2026-07-20

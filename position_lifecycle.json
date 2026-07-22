@@ -68,7 +68,19 @@
       "quantity": 7.769,
       "market_value": 959.78,
       "last_position_file": "Portfolio_Positions_Jul-22-2026.csv"
+    },
+    "SNOW": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Jul-22-2026.csv"
+    },
+    "DELL": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Jul-22-2026.csv"
     }
   },
-  "last_updated": "2026-07-22 06:53:46"
+  "last_updated": "2026-07-22 07:41:17"
 }

@@ -1,30 +1,12 @@
-# Patch Notes — v3.55.0
+# Patch Notes — v3.55.1 Dynamic Growth Candidates
 
-**Date:** 2026-07-20  
-**Patch:** Classification and Date Synchronization
+## Scope
+Only Section 5, **Growth Candidates**, was changed. Sections 1–4 remain fixed exactly as configured.
 
-## Issues Addressed
-1. ARM displayed as Watch List despite a qualifying Opportunity Score of 65.
-2. Stocks inside portfolio groups retained static ordering.
-3. Decision Center Buy Today could differ from the stock detail initially displayed.
-4. Ladder-facing date labels were calculated independently.
-
-## Files Updated
-- `build_ladder.py`
-- `generate_ladder.py`
-- `index.html`
-- `latestladder.html`
-- `position_lifecycle.json`
-- `version.json`
-- `README.md`
-- `CHANGELOG.md`
-- `RELEASE_NOTES.md`
-- `PATCH_NOTES.md`
-
-## Validation
-- Python compilation passed.
-- Generator completed successfully using the July 20 Fidelity positions export.
-- Generated output reports version 3.55.0.
-- ARM renders as a Growth Candidate.
-- All ladder date labels read from `metrics.ladder_for`.
-- Decision Center and initial stock detail share the same highest-priority buy symbol.
+## Changes
+- Rebuilds Growth Candidates on every run from `watchlist.json` → `watch_candidates`.
+- Includes every non-owned candidate with a current Leadership/Opportunity Score of 60 or higher.
+- Displays one candidate when one qualifies and multiple candidates when multiple qualify.
+- Sorts only Growth Candidates by score; Sections 1–4 retain their configured order.
+- Uses Candidate/Candidates wording rather than Holdings for Section 5.
+- Does not create automatic buy ladders for candidates.
