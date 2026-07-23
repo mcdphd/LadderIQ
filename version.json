@@ -1,10 +1,10 @@
 {
   "product": "LadderIQ",
-  "version": "3.55.1",
-  "release_name": "Dynamic Growth Candidates",
+  "version": "3.55.2",
+  "release_name": "Dynamic Allocation Rebalancing",
   "release_date": "2026-07-22",
-  "status": "Stable feature release",
+  "status": "Stable patch release",
   "versioning": "major.minor.patch",
   "date": "2026-07-22",
-  "feature": "Dynamic Section 5 Growth Candidates from opportunity universe"
+  "feature": "BR-021 recalculates NVDA target allocation and remaining sell ladder after each imported trade"
 }

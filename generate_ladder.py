@@ -2,7 +2,7 @@ import csv, json, re, math, zipfile, shutil, os
 from pathlib import Path
 from datetime import datetime, timedelta
 
-VERSION='3.55.1'
+VERSION='3.55.2'
 BASELINE=9913.04
 NEW_CONTRIBUTION=5055.52
 CONTRIBUTION_DATE='2026-07-10'
@@ -28,11 +28,11 @@ _LADDER_DT=effective_ladder_datetime()
 LADDER_FOR=_LADDER_DT.strftime('%A, %B %d, %Y').replace(' 0',' ')
 
 def positions_file_date(path):
-    match = re.search(r'Portfolio_Positions_([A-Za-z]{3})-(\d{1,2})-(\d{4})\.csv$', path.name, re.IGNORECASE)
+    match = re.search(r'Portfolio_Positions_([A-Za-z]{3})-(\d{1,2})-(\d{4})(?: \(\d+\))?\.csv$', path.name, re.IGNORECASE)
     if not match:
         return None
     try:
-        return datetime.strptime('-'.join(match.groups()), '%b-%d-%Y')
+        return datetime.strptime('-'.join(match.groups()[:3]), '%b-%d-%Y')
     except ValueError:
         return None
 
@@ -68,7 +68,7 @@ def find_latest_positions_csv():
     dated = [(positions_file_date(f), f) for f in files]
     dated = [(d, f) for d, f in dated if d is not None]
     if dated:
-        return max(dated, key=lambda item: item[0])[1]
+        return max(dated, key=lambda item: (item[0], item[1].stat().st_mtime))[1]
     return max(files, key=lambda f: f.stat().st_mtime)
 
 def read_positions():
@@ -1625,7 +1625,27 @@ def buy_levels(sym, price):
         return [('Seed Add', round(price*.985), 'Small incubator add'),('Add On', round(price*.965), 'Pullback add'),('Final Add', round(price*.93), 'Only if thesis intact')]
     return [('First Entry', round(price*.985), 'Limit buy'),('Add On', round(price*.965), 'Limit buy'),('Final Add', round(price*.945), 'Limit buy')]
 
-def sell_levels(sym, price, qty, avg, position_value=0):
+def target_weight_for_score(sym, score, group):
+    """Return the current target portfolio weight as a decimal.
+
+    BR-021 Dynamic Allocation Rebalancing: target allocation must be
+    recalculated from the latest opportunity score after every imported trade.
+    This prevents yesterday's fixed share ladder from surviving a completed
+    sale or a material score recovery.
+    """
+    score=float(score or 0)
+    if sym == 'NVDA':
+        # NVDA remains a Tactical Compounder. A recovered score supports a
+        # larger retained position, while lower scores progressively reduce it.
+        if score >= 90: return 0.30
+        if score >= 80: return 0.275
+        if score >= 70: return 0.25
+        if score >= 60: return 0.225
+        return 0.20
+    return None
+
+
+def sell_levels(sym, price, qty, avg, position_value=0, opportunity_score=0, portfolio_total=0, group=''):
     # Never create an exit ladder for a closed, missing, or economically
     # meaningless position. Fractional positions remain supported.
     try:
@@ -1635,7 +1655,33 @@ def sell_levels(sym, price, qty, avg, position_value=0):
         return []
     if current_qty < MIN_ACTIVE_POSITION_SHARES or current_value < MIN_ACTIVE_POSITION_VALUE:
         return []
-    if sym=='NVDA': return [('Trim 1',214,3,'Reduce concentration'),('Trim 2',220,4,'Harvest weak leader'),('Harvest',226,5,'Reallocate capital')]
+    if sym=='NVDA':
+        target_weight=target_weight_for_score(sym, opportunity_score, group)
+        if target_weight is None or portfolio_total <= 0 or price <= 0:
+            return []
+        target_value=portfolio_total*target_weight
+        excess_value=max(0.0, current_value-target_value)
+        excess_shares=min(current_qty, excess_value/price)
+        # A de minimis variance does not justify a new management ladder.
+        if excess_shares < 0.50:
+            return []
+        # Recalculate from the post-transaction position. Three rungs divide
+        # only the remaining excess, rather than repeating stale 3/4/5 shares.
+        splits=(0.40,0.35,0.25)
+        rung_shares=[]
+        remaining=excess_shares
+        for idx,split in enumerate(splits):
+            sh=remaining if idx==len(splits)-1 else round(excess_shares*split,3)
+            sh=min(sh,remaining)
+            rung_shares.append(round(sh,3))
+            remaining=round(max(0.0,remaining-sh),3)
+        prices=(round(price*1.025,2),round(price*1.055,2),round(price*1.09,2))
+        target_pct=target_weight*100
+        return [
+            ('Rebalance 1',prices[0],rung_shares[0],f'Trim toward {target_pct:.1f}% target'),
+            ('Rebalance 2',prices[1],rung_shares[1],'Reduce remaining excess into strength'),
+            ('Rebalance 3',prices[2],rung_shares[2],'Complete dynamic rebalance if strength continues')
+        ]
     if sym=='AMZN':
         q=current_qty
         # Sell ladders must harvest into strength, never below the latest market price.
@@ -1677,9 +1723,13 @@ for st in stocks:
             alloc=bud*(splits[i] if i<len(splits) else 1/len(b))
             sh=alloc/price if price else 0
             st['buy'].append({'level':i+1,'label':label,'price':price,'allocation':alloc,'shares':sh,'note':note})
-    for i,(label,price,sh,note) in enumerate(sell_levels(st['symbol'], st['price'], st['quantity'], st.get('avg_cost',0), st.get('value',0))):
+    for i,(label,price,sh,note) in enumerate(sell_levels(st['symbol'], st['price'], st['quantity'], st.get('avg_cost',0), st.get('value',0), st.get('opportunity',0), account_total, st.get('group',''))):
         proceeds=(price or 0)*(sh or 0)
-        st['sell'].append({'level':i+1,'label':label,'price':price,'shares':sh,'proceeds':proceeds,'note':note})
+        trim_pct=(float(sh or 0)/float(st.get('quantity') or 1))*100 if float(st.get('quantity') or 0)>0 else 0
+        st['sell'].append({'level':i+1,'label':label,'price':price,'shares':sh,'trim_pct':trim_pct,'proceeds':proceeds,'note':note})
+    target_weight=target_weight_for_score(st['symbol'], st.get('opportunity',0), st.get('group',''))
+    st['target_weight_pct']=target_weight*100 if target_weight is not None else None
+    st['excess_weight_pct']=max(0.0, float(st.get('weight') or 0)-st['target_weight_pct']) if st['target_weight_pct'] is not None else None
 
 # Ladder QA: marketable sell limits are invalid unless explicitly approved.
 # AMZN uses a 1.5% minimum harvest distance; all other ordinary sell ladders
@@ -1769,7 +1819,7 @@ function decision(){
  const card=(kind,title,stock,why,score)=>stock?`<div class="dec-card ${kind}"><h3>${title} <span class="scorebig">${Math.round(score ?? stock.opportunity ?? 0)}/100</span></h3><div class="dec-symbol">${stock.symbol}</div><div>${stock.company}</div><p>${why}</p></div>`:'';
  document.getElementById('decision').innerHTML=`<div class="decision-title"><div><b>Decision Center</b> <span style="color:var(--muted);margin-left:12px">Today's top priorities</span></div><a style="color:#58b5ff">View All Signals →</a></div><div class="decision-grid">${card('buy','🛒 Buy Today',buy,'Highest-priority approved opportunity with an active buy ladder.')}${card('sell','🎯 Manage / Sell',sell,'Largest active position with an approved management ladder.')}${card('watch','👁 Watch Closely',watch,'Watchlist or weakening name requiring attention.')}</div>`;
 }
-function ladderRows(levels,type,hasPosition=true){if(!levels.length){const msg=(type==='sell'&&!hasPosition)?'<b>Position Closed</b><br><span style="color:var(--muted)">No shares are currently owned. No sell ladder is required.</span>':'No ladder for this side.';return `<tr><td colspan="6">${msg}</td></tr>`;}return levels.map(x=>`<tr><td><span class="levelbox">${x.level}</span></td><td><div class="price">${fmtMoney(x.price)}</div><div class="limit">Limit ${type==='buy'?'Buy':'Sell'}</div></td><td>${type==='buy'?fmtMoney(x.allocation):fmtPct(x.shares?33:0)}</td><td>${fmtSh(x.shares)}</td><td>${type==='buy'?'Waiting':fmtMoney(x.proceeds)}</td><td>${x.note||''}</td></tr>`).join('')}
+function ladderRows(levels,type,hasPosition=true){if(!levels.length){const msg=(type==='sell'&&!hasPosition)?'<b>Position Closed</b><br><span style="color:var(--muted)">No shares are currently owned. No sell ladder is required.</span>':'No ladder for this side.';return `<tr><td colspan="6">${msg}</td></tr>`;}return levels.map(x=>`<tr><td><span class="levelbox">${x.level}</span></td><td><div class="price">${fmtMoney(x.price)}</div><div class="limit">Limit ${type==='buy'?'Buy':'Sell'}</div></td><td>${type==='buy'?fmtMoney(x.allocation):fmtPct(x.trim_pct||0)}</td><td>${fmtSh(x.shares)}</td><td>${type==='buy'?'Waiting':fmtMoney(x.proceeds)}</td><td>${x.note||''}</td></tr>`).join('')}
 function selectStock(sym){const s=DATA.stocks.find(x=>x.symbol===sym)||DATA.stocks[0]; document.querySelectorAll('.stock-nav').forEach(el=>el.classList.toggle('active',el.dataset.symbol===sym)); const pl=s.total_pl||0; document.getElementById('detail').innerHTML=`
  <div class="stock-hero"><div><div class="stock-title">${s.symbol}</div><div style="color:var(--muted)">${s.company}</div><div class="tags"><span>${s.role}</span><span>${s.group}</span></div></div><div class="metrics-row"><div class="mini-metric"><small>Opportunity</small><b>${Math.round(s.opportunity ?? s.leadership)}</b></div><div class="mini-metric"><small>Trend</small><b class="trend ${trendClass(s.trend)}">${trendIcon(s.trend)} ${s.trend}</b></div><div class="mini-metric"><small>Business Quality</small><b>${Math.round(s.business_quality ?? s.leadership)}</b></div><div class="mini-metric"><small>% Portfolio</small><b>${fmtPct(s.weight)}</b></div><div class="mini-metric"><small>Market Value</small><b>${fmtMoney(s.value)}</b></div></div><div class="actions"><button>Add Note</button><button>View Chart</button><button>Set Alert</button><div style="margin-top:12px"><small>Unrealized P/L</small><br><b class="${pl>=0?'positive':'negative'}">${pl>=0?'+':''}${fmtMoney(pl)}</b></div></div></div>
  <div class="tabs"><div class="tab active">Overview</div><div class="tab">Ladders</div><div class="tab">Analysis</div><div class="tab">Notes</div><div class="tab">Performance</div></div>

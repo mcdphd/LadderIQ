@@ -1,21 +1,18 @@
-## v3.55.1 — Dynamic Growth Candidates (2026-07-22)
-- Section 5 now refreshes automatically from the opportunity universe.
-- Shows every non-owned watch candidate scoring 60 or higher.
-- Sections 1–4 and their ordering remain unchanged.
-- Growth Candidates displays Candidate/Candidates instead of Holdings.
+# LadderIQ v3.55.2 Release Notes
 
-# LadderIQ v3.55.0 Release Notes
+## Dynamic Allocation Rebalancing
 
-## Classification and Date Synchronization
+This patch makes NVDA's management ladder responsive to both completed transactions and the latest Opportunity Score.
 
-This release makes the Portfolio Hierarchy and Decision Center more data-driven and internally consistent.
+### Current July 22 recalculation
+- Current NVDA shares: 28.306
+- Current portfolio weight: 32.03%
+- Opportunity Score: 90
+- Dynamic target weight: 30.00%
+- Remaining excess: approximately 1.792 shares
+- New ladder: 0.717, 0.627, and 0.448 shares at progressively higher limit prices
 
-### Highlights
-- ARM now appears under **Growth Candidates**, reflecting its qualifying 65 Opportunity Score.
-- Stocks automatically sort within each portfolio group by tactical priority.
-- The sidebar score now carries an **OPS** label.
-- The Decision Center's Buy Today selection and the stock detail panel open on the same symbol.
-- **Your top 3 priorities**, **Next Ladder**, and the footer all use the same generated Ladder Date.
+The previous fixed 3, 4, and 5-share ladder is no longer used.
 
-### Installation
-Replace the files in the Development folder with the files from this ZIP, then run `Generate_LadderIQ.bat`.
+### Additional correction
+When multiple Fidelity position exports have the same date, LadderIQ now selects the newest numbered export, such as `Portfolio_Positions_Jul-22-2026 (1).csv`.

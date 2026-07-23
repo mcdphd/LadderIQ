@@ -1,3 +1,10 @@
+## v3.55.2 — Dynamic Allocation Rebalancing (2026-07-22)
+- Added BR-021 to recalculate NVDA target allocation from the latest Opportunity Score after every imported trade.
+- Rebuilds the sell ladder from the current post-transaction position rather than carrying forward fixed 3/4/5-share rungs.
+- At a 90 Opportunity Score, NVDA uses a 30% target allocation; only the remaining excess above that target is laddered for sale.
+- Sell-ladder Trim percentages now reflect each rung's actual percentage of the current position.
+- Improved same-day Fidelity positions-file selection so the newest numbered export is used.
+
 ## v3.55.1 — Dynamic Growth Candidates (2026-07-22)
 - Section 5 now refreshes automatically from the opportunity universe.
 - Shows every non-owned watch candidate scoring 60 or higher.
