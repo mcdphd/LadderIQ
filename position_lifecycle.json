@@ -11,7 +11,7 @@
       "manual": true,
       "quantity": 0.0,
       "market_value": 0.0,
-      "last_position_file": "Portfolio_Positions_Jul-23-2026.csv"
+      "last_position_file": "Portfolio_Positions_Jul-27-2026.csv"
     },
     "ARM": {
       "state": "active_candidate",
@@ -19,74 +19,74 @@
       "manual": true,
       "quantity": 0.0,
       "market_value": 0.0,
-      "last_position_file": "Portfolio_Positions_Jul-23-2026.csv"
+      "last_position_file": "Portfolio_Positions_Jul-27-2026.csv"
     },
     "TSM": {
       "state": "owned",
-      "quantity": 3.944,
-      "market_value": 1639.04,
-      "last_position_file": "Portfolio_Positions_Jul-23-2026.csv"
+      "quantity": 4.584,
+      "market_value": 1849.23,
+      "last_position_file": "Portfolio_Positions_Jul-27-2026.csv"
     },
     "PANW": {
       "state": "owned",
       "quantity": 5.329,
-      "market_value": 1735.28,
-      "last_position_file": "Portfolio_Positions_Jul-23-2026.csv"
+      "market_value": 1725.47,
+      "last_position_file": "Portfolio_Positions_Jul-27-2026.csv"
     },
     "ANET": {
       "state": "owned",
-      "quantity": 8.892,
-      "market_value": 1570.41,
-      "last_position_file": "Portfolio_Positions_Jul-23-2026.csv"
+      "quantity": 9.571,
+      "market_value": 1665.25,
+      "last_position_file": "Portfolio_Positions_Jul-27-2026.csv"
     },
     "NVDA": {
       "state": "owned",
       "quantity": 28.306,
-      "market_value": 5909.16,
-      "last_position_file": "Portfolio_Positions_Jul-23-2026.csv"
+      "market_value": 5854.81,
+      "last_position_file": "Portfolio_Positions_Jul-27-2026.csv"
     },
     "ASML": {
       "state": "owned",
-      "quantity": 0.984,
-      "market_value": 1774.15,
-      "last_position_file": "Portfolio_Positions_Jul-23-2026.csv"
+      "quantity": 1.065,
+      "market_value": 1871.3,
+      "last_position_file": "Portfolio_Positions_Jul-27-2026.csv"
     },
     "CRWD": {
       "state": "owned",
       "quantity": 9.288,
-      "market_value": 1703.6,
-      "last_position_file": "Portfolio_Positions_Jul-23-2026.csv"
+      "market_value": 1702.3,
+      "last_position_file": "Portfolio_Positions_Jul-27-2026.csv"
     },
     "AMD": {
       "state": "owned",
-      "quantity": 2.645,
-      "market_value": 1427.48,
-      "last_position_file": "Portfolio_Positions_Jul-23-2026.csv"
+      "quantity": 2.869,
+      "market_value": 1497.47,
+      "last_position_file": "Portfolio_Positions_Jul-27-2026.csv"
     },
     "SPCX": {
       "state": "owned",
-      "quantity": 9.014,
-      "market_value": 1065.81,
-      "last_position_file": "Portfolio_Positions_Jul-23-2026.csv"
+      "quantity": 9.335,
+      "market_value": 1074.17,
+      "last_position_file": "Portfolio_Positions_Jul-27-2026.csv"
     },
     "SNOW": {
       "state": "active_candidate",
       "quantity": 0.0,
       "market_value": 0.0,
-      "last_position_file": "Portfolio_Positions_Jul-23-2026.csv"
+      "last_position_file": "Portfolio_Positions_Jul-27-2026.csv"
     },
     "DELL": {
       "state": "active_candidate",
       "quantity": 0.0,
       "market_value": 0.0,
-      "last_position_file": "Portfolio_Positions_Jul-23-2026.csv"
+      "last_position_file": "Portfolio_Positions_Jul-27-2026.csv"
     },
     "AVGO": {
       "state": "active_candidate",
       "quantity": 0.0,
       "market_value": 0.0,
-      "last_position_file": "Portfolio_Positions_Jul-23-2026.csv"
+      "last_position_file": "Portfolio_Positions_Jul-27-2026.csv"
     }
   },
-  "last_updated": "2026-07-23 23:21:40"
+  "last_updated": "2026-07-27 06:11:40"
 }

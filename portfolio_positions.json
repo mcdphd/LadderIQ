@@ -2,73 +2,73 @@
     "NVDA": {
         "description": "NVIDIA CORPORATION COM",
         "shares": 28.306,
-        "price": 208.76,
-        "current_value": 5909.16,
+        "price": 206.84,
+        "current_value": 5854.81,
         "avg_cost": 213.72,
         "cost_basis_total": 6049.45,
-        "percent_of_account": 31.83
+        "percent_of_account": 31.99
     },
     "ASML": {
         "description": "ASML HOLDING NV EUR0.09 NY REGISTRY SHS 2012",
-        "shares": 0.984,
-        "price": 1803.0,
-        "current_value": 1774.15,
-        "avg_cost": 1764.77,
-        "cost_basis_total": 1736.53,
-        "percent_of_account": 9.56
+        "shares": 1.065,
+        "price": 1757.09,
+        "current_value": 1871.3,
+        "avg_cost": 1764.57,
+        "cost_basis_total": 1879.27,
+        "percent_of_account": 10.22
+    },
+    "TSM": {
+        "description": "TAIWAN SEMICONDUCTOR MANUFACTURING SPON ADS EACH REP 5 ORD TWD10",
+        "shares": 4.584,
+        "price": 403.41,
+        "current_value": 1849.23,
+        "avg_cost": 426.37,
+        "cost_basis_total": 1954.47,
+        "percent_of_account": 10.1
     },
     "PANW": {
         "description": "PALO ALTO NETWORKS INC COM USD0.0001",
         "shares": 5.329,
-        "price": 325.63,
-        "current_value": 1735.28,
+        "price": 323.79,
+        "current_value": 1725.47,
         "avg_cost": 337.33,
         "cost_basis_total": 1797.64,
-        "percent_of_account": 9.35
+        "percent_of_account": 9.43
     },
     "CRWD": {
         "description": "CROWDSTRIKE HLDGS INC CL A",
         "shares": 9.288,
-        "price": 183.42,
-        "current_value": 1703.6,
+        "price": 183.28,
+        "current_value": 1702.3,
         "avg_cost": 193.08,
         "cost_basis_total": 1793.3,
-        "percent_of_account": 9.18
-    },
-    "TSM": {
-        "description": "TAIWAN SEMICONDUCTOR MANUFACTURING SPON ADS EACH REP 5 ORD TWD10",
-        "shares": 3.944,
-        "price": 415.58,
-        "current_value": 1639.04,
-        "avg_cost": 429.68,
-        "cost_basis_total": 1694.66,
-        "percent_of_account": 8.83
+        "percent_of_account": 9.3
     },
     "ANET": {
         "description": "ARISTA NETWORKS INC COM SHS",
-        "shares": 8.892,
-        "price": 176.61,
-        "current_value": 1570.41,
-        "avg_cost": 172.49,
-        "cost_basis_total": 1533.78,
-        "percent_of_account": 8.46
+        "shares": 9.571,
+        "price": 173.99,
+        "current_value": 1665.25,
+        "avg_cost": 172.6,
+        "cost_basis_total": 1651.93,
+        "percent_of_account": 9.1
     },
     "AMD": {
         "description": "ADVANCED MICRO DEVICES INC",
-        "shares": 2.645,
-        "price": 539.69,
-        "current_value": 1427.48,
-        "avg_cost": 517.53,
-        "cost_basis_total": 1368.88,
-        "percent_of_account": 7.69
+        "shares": 2.869,
+        "price": 521.95,
+        "current_value": 1497.47,
+        "avg_cost": 518.34,
+        "cost_basis_total": 1487.12,
+        "percent_of_account": 8.18
     },
     "SPCX": {
         "description": "SPACE EXPL TECHNOLOGIES CORP CL A",
-        "shares": 9.014,
-        "price": 118.24,
-        "current_value": 1065.81,
-        "avg_cost": 149.71,
-        "cost_basis_total": 1349.51,
-        "percent_of_account": 5.74
+        "shares": 9.335,
+        "price": 115.07,
+        "current_value": 1074.17,
+        "avg_cost": 148.52,
+        "cost_basis_total": 1386.43,
+        "percent_of_account": 5.87
     }
 }
