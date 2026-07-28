@@ -1,8 +1,8 @@
 {
   "product": "LadderIQ",
-  "version": "3.55.2",
-  "release_name": "Dynamic Allocation Rebalancing",
-  "release_date": "2026-07-22",
+  "version": "3.60.0",
+  "release_name": "Intelligent Opportunity Engine",
+  "release_date": "2026-07-28",
   "status": "Stable patch release",
   "versioning": "major.minor.patch",
   "date": "2026-07-22",

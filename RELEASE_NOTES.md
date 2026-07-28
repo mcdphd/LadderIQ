@@ -1,18 +1,13 @@
-# LadderIQ v3.55.2 Release Notes
+# LadderIQ 3.60.0 — Intelligent Opportunity Engine
 
-## Dynamic Allocation Rebalancing
-
-This patch makes NVDA's management ladder responsive to both completed transactions and the latest Opportunity Score.
-
-### Current July 22 recalculation
-- Current NVDA shares: 28.306
-- Current portfolio weight: 32.03%
-- Opportunity Score: 90
-- Dynamic target weight: 30.00%
-- Remaining excess: approximately 1.792 shares
-- New ladder: 0.717, 0.627, and 0.448 shares at progressively higher limit prices
-
-The previous fixed 3, 4, and 5-share ladder is no longer used.
-
-### Additional correction
-When multiple Fidelity position exports have the same date, LadderIQ now selects the newest numbered export, such as `Portfolio_Positions_Jul-22-2026 (1).csv`.
+- Broad, liquid opportunity universe spanning all major market sectors.
+- Growth Candidates now require a confirmed Opportunity Score of 100.
+- Two-trading-day confirmation replaces the prior long persistence rule.
+- Severe deterioration can trigger an immediate risk override.
+- Every actionable recommendation connects directly to one ladder.
+- Owned securities generate sell/management ladders only.
+- Unowned confirmed opportunities generate buy ladders only.
+- Position states added: Harvest, Hold, Recovery, and Defensive.
+- Sell ladders are state-driven from current market structure rather than rigidly anchored to cost basis or automatically lowered after a dip.
+- Mission pace compares current return with the compounded pace required for the aggressive 100% annual ROI objective.
+- BAT and PowerShell launch paths are portable outside OneDrive.

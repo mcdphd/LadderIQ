@@ -1,0 +1,689 @@
+{
+  "symbols": {
+    "DELL": {
+      "observed_score": 90.0,
+      "confirmed_score": 100.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "SNOW": {
+      "observed_score": 100.0,
+      "confirmed_score": 100.0,
+      "streak": 3,
+      "last_observed": "2026-07-28",
+      "qualified_100": true,
+      "immediate_risk_override": false
+    },
+    "PANW": {
+      "observed_score": 90.0,
+      "confirmed_score": 95.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "CRWD": {
+      "observed_score": 90.0,
+      "confirmed_score": 95.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "ANET": {
+      "observed_score": 80.0,
+      "confirmed_score": 75.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "AVGO": {
+      "observed_score": 60.0,
+      "confirmed_score": 70.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "ASML": {
+      "observed_score": 65.0,
+      "confirmed_score": 65.0,
+      "streak": 3,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "AMD": {
+      "observed_score": 65.0,
+      "confirmed_score": 65.0,
+      "streak": 3,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "ARM": {
+      "observed_score": 65.0,
+      "confirmed_score": 65.0,
+      "streak": 3,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "NOW": {
+      "observed_score": 60.0,
+      "confirmed_score": 60.0,
+      "streak": 3,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "NVDA": {
+      "observed_score": 45.0,
+      "confirmed_score": 45.0,
+      "streak": 2,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": true
+    },
+    "TSM": {
+      "observed_score": 50.0,
+      "confirmed_score": 45.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "VRT": {
+      "observed_score": 45.0,
+      "confirmed_score": 45.0,
+      "streak": 2,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": true
+    },
+    "SMCI": {
+      "observed_score": 45.0,
+      "confirmed_score": 45.0,
+      "streak": 2,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": true
+    },
+    "GOOGL": {
+      "observed_score": 35.0,
+      "confirmed_score": 35.0,
+      "streak": 2,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": true
+    },
+    "PLTR": {
+      "observed_score": 15.0,
+      "confirmed_score": 15.0,
+      "streak": 2,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": true
+    },
+    "MSFT": {
+      "observed_score": 25.0,
+      "confirmed_score": 25.0,
+      "streak": 2,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": true
+    },
+    "ORCL": {
+      "observed_score": 0.0,
+      "confirmed_score": 0.0,
+      "streak": 2,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": true
+    },
+    "AAPL": {
+      "observed_score": 100.0,
+      "confirmed_score": 100.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "LLY": {
+      "observed_score": 100.0,
+      "confirmed_score": 100.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "UNH": {
+      "observed_score": 100.0,
+      "confirmed_score": 100.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "ABBV": {
+      "observed_score": 100.0,
+      "confirmed_score": 100.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "MRK": {
+      "observed_score": 100.0,
+      "confirmed_score": 100.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "JPM": {
+      "observed_score": 100.0,
+      "confirmed_score": 100.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "BAC": {
+      "observed_score": 100.0,
+      "confirmed_score": 100.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "V": {
+      "observed_score": 100.0,
+      "confirmed_score": 100.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "GE": {
+      "observed_score": 100.0,
+      "confirmed_score": 100.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "RTX": {
+      "observed_score": 100.0,
+      "confirmed_score": 100.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "ROK": {
+      "observed_score": 100.0,
+      "confirmed_score": 100.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "PH": {
+      "observed_score": 100.0,
+      "confirmed_score": 100.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "URI": {
+      "observed_score": 100.0,
+      "confirmed_score": 100.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "KO": {
+      "observed_score": 100.0,
+      "confirmed_score": 100.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "PM": {
+      "observed_score": 100.0,
+      "confirmed_score": 100.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "EOG": {
+      "observed_score": 100.0,
+      "confirmed_score": 100.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "SO": {
+      "observed_score": 100.0,
+      "confirmed_score": 100.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "PLD": {
+      "observed_score": 100.0,
+      "confirmed_score": 100.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "MA": {
+      "observed_score": 95.0,
+      "confirmed_score": 95.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "EMR": {
+      "observed_score": 90.0,
+      "confirmed_score": 90.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "TJX": {
+      "observed_score": 90.0,
+      "confirmed_score": 90.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "XOM": {
+      "observed_score": 90.0,
+      "confirmed_score": 90.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "CVX": {
+      "observed_score": 90.0,
+      "confirmed_score": 90.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "COP": {
+      "observed_score": 85.0,
+      "confirmed_score": 85.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "GS": {
+      "observed_score": 80.0,
+      "confirmed_score": 80.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "SHW": {
+      "observed_score": 80.0,
+      "confirmed_score": 80.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "TMO": {
+      "observed_score": 75.0,
+      "confirmed_score": 75.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "VRTX": {
+      "observed_score": 75.0,
+      "confirmed_score": 75.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "SYK": {
+      "observed_score": 75.0,
+      "confirmed_score": 75.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "MS": {
+      "observed_score": 75.0,
+      "confirmed_score": 75.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "BX": {
+      "observed_score": 75.0,
+      "confirmed_score": 75.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "LMT": {
+      "observed_score": 75.0,
+      "confirmed_score": 75.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "BKNG": {
+      "observed_score": 75.0,
+      "confirmed_score": 75.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "PG": {
+      "observed_score": 75.0,
+      "confirmed_score": 75.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "COST": {
+      "observed_score": 70.0,
+      "confirmed_score": 70.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "NEE": {
+      "observed_score": 70.0,
+      "confirmed_score": 70.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "FCX": {
+      "observed_score": 70.0,
+      "confirmed_score": 70.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "CAT": {
+      "observed_score": 65.0,
+      "confirmed_score": 65.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "LIN": {
+      "observed_score": 65.0,
+      "confirmed_score": 65.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "EQIX": {
+      "observed_score": 65.0,
+      "confirmed_score": 65.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "ETN": {
+      "observed_score": 55.0,
+      "confirmed_score": 55.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "HD": {
+      "observed_score": 55.0,
+      "confirmed_score": 55.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "SLB": {
+      "observed_score": 50.0,
+      "confirmed_score": 50.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "CRM": {
+      "observed_score": 45.0,
+      "confirmed_score": 45.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "ADBE": {
+      "observed_score": 45.0,
+      "confirmed_score": 45.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "AXP": {
+      "observed_score": 45.0,
+      "confirmed_score": 45.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "KKR": {
+      "observed_score": 45.0,
+      "confirmed_score": 45.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "PWR": {
+      "observed_score": 45.0,
+      "confirmed_score": 45.0,
+      "streak": 2,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": true
+    },
+    "REGN": {
+      "observed_score": 40.0,
+      "confirmed_score": 40.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "CME": {
+      "observed_score": 40.0,
+      "confirmed_score": 40.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "PEP": {
+      "observed_score": 40.0,
+      "confirmed_score": 40.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "LOW": {
+      "observed_score": 35.0,
+      "confirmed_score": 35.0,
+      "streak": 1,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": false
+    },
+    "BSX": {
+      "observed_score": 25.0,
+      "confirmed_score": 25.0,
+      "streak": 2,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": true
+    },
+    "NKE": {
+      "observed_score": 25.0,
+      "confirmed_score": 25.0,
+      "streak": 2,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": true
+    },
+    "MCD": {
+      "observed_score": 25.0,
+      "confirmed_score": 25.0,
+      "streak": 2,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": true
+    },
+    "CEG": {
+      "observed_score": 25.0,
+      "confirmed_score": 25.0,
+      "streak": 2,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": true
+    },
+    "DIS": {
+      "observed_score": 25.0,
+      "confirmed_score": 25.0,
+      "streak": 2,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": true
+    },
+    "AMT": {
+      "observed_score": 25.0,
+      "confirmed_score": 25.0,
+      "streak": 2,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": true
+    },
+    "AMZN": {
+      "observed_score": 20.0,
+      "confirmed_score": 20.0,
+      "streak": 2,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": true
+    },
+    "WMT": {
+      "observed_score": 20.0,
+      "confirmed_score": 20.0,
+      "streak": 2,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": true
+    },
+    "META": {
+      "observed_score": 15.0,
+      "confirmed_score": 15.0,
+      "streak": 2,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": true
+    },
+    "TMUS": {
+      "observed_score": 15.0,
+      "confirmed_score": 15.0,
+      "streak": 2,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": true
+    },
+    "NFLX": {
+      "observed_score": 10.0,
+      "confirmed_score": 10.0,
+      "streak": 2,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": true
+    },
+    "NEM": {
+      "observed_score": 10.0,
+      "confirmed_score": 10.0,
+      "streak": 2,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": true
+    },
+    "ISRG": {
+      "observed_score": 0.0,
+      "confirmed_score": 0.0,
+      "streak": 2,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": true
+    },
+    "TSLA": {
+      "observed_score": 0.0,
+      "confirmed_score": 0.0,
+      "streak": 2,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": true
+    },
+    "VST": {
+      "observed_score": 0.0,
+      "confirmed_score": 0.0,
+      "streak": 2,
+      "last_observed": "2026-07-28",
+      "qualified_100": false,
+      "immediate_risk_override": true
+    }
+  },
+  "version": "1.0",
+  "confirmation_days": 2,
+  "threshold": 100.0,
+  "last_updated": "2026-07-28 18:23:30",
+  "migration_bootstrap_used": false
+}

@@ -2,82 +2,82 @@
     "NVDA": {
         "description": "NVIDIA CORPORATION COM",
         "shares": 28.306,
-        "price": 196.51,
-        "current_value": 5562.41,
+        "price": 197.01,
+        "current_value": 5576.56,
         "avg_cost": 213.72,
         "cost_basis_total": 6049.45,
-        "percent_of_account": 31.44
-    },
-    "ANET": {
-        "description": "ARISTA NETWORKS INC COM SHS",
-        "shares": 10.251,
-        "price": 170.76,
-        "current_value": 1750.46,
-        "avg_cost": 172.42,
-        "cost_basis_total": 1767.43,
-        "percent_of_account": 9.9
-    },
-    "CRWD": {
-        "description": "CROWDSTRIKE HLDGS INC CL A",
-        "shares": 9.537,
-        "price": 180.11,
-        "current_value": 1717.7,
-        "avg_cost": 192.76,
-        "cost_basis_total": 1838.37,
-        "percent_of_account": 9.71
-    },
-    "SPCX": {
-        "description": "SPACE EXPL TECHNOLOGIES CORP CL A",
-        "shares": 9.335,
-        "price": 113.5,
-        "current_value": 1059.52,
-        "avg_cost": 148.52,
-        "cost_basis_total": 1386.43,
-        "percent_of_account": 5.99
-    },
-    "PANW": {
-        "description": "PALO ALTO NETWORKS INC COM USD0.0001",
-        "shares": 5.612,
-        "price": 317.32,
-        "current_value": 1780.79,
-        "avg_cost": 336.41,
-        "cost_basis_total": 1887.92,
-        "percent_of_account": 10.07
+        "percent_of_account": 31.86
     },
     "TSM": {
         "description": "TAIWAN SEMICONDUCTOR MANUFACTURING SPON ADS EACH REP 5 ORD TWD10",
-        "shares": 4.987,
-        "price": 399.09,
-        "current_value": 1990.26,
-        "avg_cost": 423.75,
-        "cost_basis_total": 2113.24,
-        "percent_of_account": 11.25
+        "shares": 5.137,
+        "price": 392.31,
+        "current_value": 2015.29,
+        "avg_cost": 422.62,
+        "cost_basis_total": 2170.99,
+        "percent_of_account": 11.51
     },
-    "AMD": {
-        "description": "ADVANCED MICRO DEVICES INC",
-        "shares": 3.048,
-        "price": 494.95,
-        "current_value": 1508.6,
-        "avg_cost": 517.56,
-        "cost_basis_total": 1577.52,
-        "percent_of_account": 8.53
+    "PANW": {
+        "description": "PALO ALTO NETWORKS INC COM USD0.0001",
+        "shares": 5.712,
+        "price": 319.0,
+        "current_value": 1822.12,
+        "avg_cost": 336.0,
+        "cost_basis_total": 1919.22,
+        "percent_of_account": 10.41
     },
     "ASML": {
         "description": "ASML HOLDING NV EUR0.09 NY REGISTRY SHS 2012",
-        "shares": 1.128,
-        "price": 1655.26,
-        "current_value": 1867.13,
-        "avg_cost": 1760.98,
-        "cost_basis_total": 1986.39,
-        "percent_of_account": 10.55
+        "shares": 1.146,
+        "price": 1582.95,
+        "current_value": 1814.06,
+        "avg_cost": 1758.16,
+        "cost_basis_total": 2014.85,
+        "percent_of_account": 10.36
+    },
+    "ANET": {
+        "description": "ARISTA NETWORKS INC COM SHS",
+        "shares": 10.536,
+        "price": 169.71,
+        "current_value": 1788.06,
+        "avg_cost": 172.2,
+        "cost_basis_total": 1814.3,
+        "percent_of_account": 10.22
+    },
+    "CRWD": {
+        "description": "CROWDSTRIKE HLDGS INC CL A",
+        "shares": 9.62,
+        "price": 181.8,
+        "current_value": 1748.91,
+        "avg_cost": 192.63,
+        "cost_basis_total": 1853.06,
+        "percent_of_account": 9.99
+    },
+    "AMD": {
+        "description": "ADVANCED MICRO DEVICES INC",
+        "shares": 3.109,
+        "price": 454.62,
+        "current_value": 1413.41,
+        "avg_cost": 516.52,
+        "cost_basis_total": 1605.87,
+        "percent_of_account": 8.08
+    },
+    "SPCX": {
+        "description": "SPACE EXPL TECHNOLOGIES CORP CL A",
+        "shares": 9.402,
+        "price": 116.41,
+        "current_value": 1094.48,
+        "avg_cost": 148.24,
+        "cost_basis_total": 1393.75,
+        "percent_of_account": 6.25
     },
     "DELL": {
         "description": "DELL TECHNOLOGIES INC CL C",
         "shares": 0.25,
-        "price": 426.91,
-        "current_value": 106.72,
+        "price": 392.1,
+        "current_value": 98.02,
         "avg_cost": 433.6,
         "cost_basis_total": 108.4,
-        "percent_of_account": 0.6
+        "percent_of_account": 0.56
     }
 }

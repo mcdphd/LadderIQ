@@ -1,21 +1,20 @@
 @echo off
 setlocal
 
-set "LADDERIQ_ROOT=C:\Users\mcdph\OneDrive\03 - LadderIQ Platform\04 - Development"
+rem Run LadderIQ from the folder that contains this BAT file.
+rem This remains portable after moving Development out of OneDrive.
+set "LADDERIQ_ROOT=%~dp0"
+cd /d "%LADDERIQ_ROOT%"
 
-if not exist "%LADDERIQ_ROOT%\publish_ladderiq.ps1" (
+if not exist "%LADDERIQ_ROOT%publish_ladderiq.ps1" (
     echo.
-    echo ERROR: LadderIQ was not found at:
+    echo ERROR: publish_ladderiq.ps1 was not found in:
     echo %LADDERIQ_ROOT%
-    echo.
-    echo Make sure this package is stored in the correct root folder.
     pause
     exit /b 1
 )
 
-cd /d "%LADDERIQ_ROOT%"
-
-PowerShell.exe -NoProfile -ExecutionPolicy Bypass -File "%LADDERIQ_ROOT%\publish_ladderiq.ps1"
+PowerShell.exe -NoProfile -ExecutionPolicy Bypass -File "%LADDERIQ_ROOT%publish_ladderiq.ps1"
 
 if errorlevel 1 (
     echo.
@@ -26,4 +25,4 @@ if errorlevel 1 (
     exit /b 1
 )
 
-exit
+exit /b 0

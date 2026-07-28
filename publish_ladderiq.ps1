@@ -1,16 +1,8 @@
 ﻿$ErrorActionPreference = "Stop"
 
-# LadderIQ's authoritative working folder and Git repository.
-# $PSScriptRoot resolves to the folder containing this script, which should be:
-# C:\Users\mcdph\OneDrive\03 - LadderIQ Platform\04 - Development
-$ExpectedRoot = "C:\Users\mcdph\OneDrive\03 - LadderIQ Platform\04 - Development"
+# Use the script folder as the authoritative project root.
+# This keeps the workflow portable after moving Development out of OneDrive.
 $ProjectRoot = $PSScriptRoot
-
-if ([System.IO.Path]::GetFullPath($ProjectRoot).TrimEnd('\\') -ne [System.IO.Path]::GetFullPath($ExpectedRoot).TrimEnd('\\')) {
-    Write-Warning "This package is running from: $ProjectRoot"
-    Write-Warning "The intended LadderIQ root is: $ExpectedRoot"
-    Write-Warning "Move/extract the package to the intended root before using it as the production copy."
-}
 
 Set-Location $ProjectRoot
 Write-Host ""

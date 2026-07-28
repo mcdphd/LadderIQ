@@ -146,8 +146,10 @@ def main():
     current_scored = [r for r in results if r["symbol"] in current_set]
     watch_scored = [r for r in results if r["symbol"] not in current_set]
 
+    market_session_date = str(getattr(benchmark_close.index[-1], "date", lambda: benchmark_close.index[-1])())
     payload = {
         "as_of": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "market_session_date": market_session_date,
         "source": "yfinance",
         "benchmark": benchmark,
         "market_mode": classify_market_mode_from_state(state),
@@ -157,8 +159,8 @@ def main():
         "scores": results,
         "errors": errors,
         "rotation_guidance": {
-            "promote_if": "watch candidate score >= 90 and current holding score < 75",
-            "demote_if": "V16 guard: strategic core P1 demotes only after score <60 for 5 consecutive trading sessions AND at least two alternatives >=85; P2 demotes after score <50 for 10 consecutive sessions.",
+            "promote_if": "non-owned candidate reaches 100 OPS for two consecutive market sessions",
+            "demote_if": "confirmed score changes after two consecutive market sessions; severe risk deterioration overrides immediately",
             "bear_market_rule": "In BEAR mode, prioritize relative strength and preserve cash; do not add weak current holdings just because they are down."
         }
     }

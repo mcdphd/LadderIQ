@@ -1,8 +1,9 @@
 import csv, json, re, math, zipfile, shutil, os
 from pathlib import Path
 from datetime import datetime, timedelta
+from investment_engine import confirm_opportunities, position_state, roi_pace, recommended_candidate_budget
 
-VERSION='3.55.2'
+VERSION='3.60.0'
 BASELINE=9913.04
 NEW_CONTRIBUTION=5055.52
 CONTRIBUTION_DATE='2026-07-10'
@@ -112,12 +113,14 @@ def read_scores():
 positions,cash,pending,pos_file=read_positions()
 DATA_AS_OF=format_data_as_of(ROOT / pos_file)
 scores=read_scores()
+score_payload = json.load(open(ROOT/'leadership_scores.json', encoding='utf-8')) if (ROOT/'leadership_scores.json').exists() else {}
+confirmation = confirm_opportunities(scores, ROOT, score_payload.get('market_session_date') or score_payload.get('as_of'))
 
 # Opportunity universe used only to populate Section 5: Growth Candidates.
 # Sections 1–4 remain fixed and are not reclassified by this logic.
 WATCHLIST_PATH = ROOT / 'watchlist.json'
 watchlist_data = json.load(open(WATCHLIST_PATH, encoding='utf-8')) if WATCHLIST_PATH.exists() else {}
-GROWTH_CANDIDATE_MIN_SCORE = 60
+GROWTH_CANDIDATE_MIN_SCORE = 100
 
 # Position Lifecycle Manager
 # One source of truth for whether a symbol belongs on the active dashboard.
@@ -167,6 +170,8 @@ def base_stock(sym, group, rank, role, status, target, subtitle=''):
     price=p.get('price') or float(s.get('price') or 0)
     qty=p.get('quantity',0.0); value=p.get('value',0.0)
     leadership=float(s.get('leadership_score', {'TSM':100,'PANW':100,'ANET':100,'NVDA':35,'AMZN':35,'ASML':100,'CRWD':90,'AMD':100,'SPCX':72,'ARM':74}.get(sym,0)))
+    confirm_meta=confirmation.get(sym, {'confirmed_score': leadership, 'streak': 2, 'qualified_100': leadership >= 100, 'immediate_risk_override': False})
+    confirmed_opportunity=float(confirm_meta.get('confirmed_score', leadership))
     trend='Up' if leadership>=75 else ('Lateral' if leadership>=30 else 'Down')
     if sym in ['AMZN','META']: trend='Down'
     if sym=='NVDA': trend='Lateral'
@@ -175,7 +180,7 @@ def base_stock(sym, group, rank, role, status, target, subtitle=''):
     business_quality={'ASML':100,'TSM':99,'NVDA':98,'PANW':97,'CRWD':96,'ANET':95,'AMD':91,'AMZN':88,'SPCX':72,'ARM':83}.get(sym, max(50, leadership))
     score_reason={'NVDA':'World-class AI company, but overweight and in harvest mode; new capital priority remains low.', 'AMZN':'Quality business, but currently a rotation/exit candidate.', 'TSM':'Strategic AI infrastructure leader with active accumulation priority.', 'ASML':'Strategic semiconductor monopoly-style asset and approved growth engine.', 'ANET':'AI networking leader with current leadership confirmation.', 'PANW':'Cybersecurity leader and current capital deployment candidate.', 'CRWD':'Cybersecurity growth leader and current capital deployment candidate.', 'AMD':'AI/datacenter challenger; active growth-engine candidate.', 'SPCX':'Special situation; governed by separate risk rules.', 'ARM':'Growth candidate with a qualifying opportunity score; no active ladder until approval.'}.get(sym, 'Opportunity score controls where the next dollar goes today; business quality is tracked separately.')
     own_reason={'SPCX':'Special Situation','ARM':'Growth Candidate'}.get(sym, 'LadderIQ Selected')
-    return {**p, 'symbol':sym, 'company':company, 'group':group, 'rank':rank, 'role':role, 'status':status, 'target':target, 'subtitle':subtitle, 'price':price, 'quantity':qty, 'value':value, 'leadership':leadership, 'opportunity':leadership, 'business_quality':business_quality, 'score_reason':score_reason, 'own_reason':own_reason, 'trend':trend, 'rotation':rotation, 'avg_cost':p.get('avg_cost',0), 'weight':p.get('weight',0), 'total_pl':p.get('total_pl',0), 'total_pl_pct':p.get('total_pl_pct',0), 'today_pl':p.get('today_pl',0), 'today_pl_pct':p.get('today_pl_pct',0)}
+    return {**p, 'symbol':sym, 'company':company, 'group':group, 'rank':rank, 'role':role, 'status':status, 'target':target, 'subtitle':subtitle, 'price':price, 'quantity':qty, 'value':value, 'leadership':leadership, 'opportunity':confirmed_opportunity, 'raw_opportunity':leadership, 'confirmation_days':int(confirm_meta.get('streak',1)), 'qualified_100':bool(confirm_meta.get('qualified_100')), 'immediate_risk_override':bool(confirm_meta.get('immediate_risk_override')), 'score_data':s, 'business_quality':business_quality, 'score_reason':score_reason, 'own_reason':own_reason, 'trend':trend, 'rotation':rotation, 'avg_cost':p.get('avg_cost',0), 'weight':p.get('weight',0), 'total_pl':p.get('total_pl',0), 'total_pl_pct':p.get('total_pl_pct',0), 'today_pl':p.get('today_pl',0), 'today_pl_pct':p.get('today_pl_pct',0)}
 
 stocks=[
  base_stock('TSM','Core Compounders',1,'P1 Leader','Accumulate','40–50%','Best-in-class leader'),
@@ -196,7 +201,8 @@ excluded_symbols = set(watchlist_data.get('exclude_unless_manually_reactivated',
 candidate_symbols = []
 for sym in watchlist_data.get('watch_candidates', []) or []:
     score = float((scores.get(sym) or {}).get('leadership_score') or 0)
-    if sym not in owned_symbols and sym not in excluded_symbols and score >= GROWTH_CANDIDATE_MIN_SCORE:
+    meta = confirmation.get(sym, {})
+    if sym not in owned_symbols and sym not in excluded_symbols and bool(meta.get('qualified_100')) and score >= GROWTH_CANDIDATE_MIN_SCORE:
         candidate_symbols.append(sym)
 candidate_symbols.sort(key=lambda sym: (-float((scores.get(sym) or {}).get('leadership_score') or 0), sym))
 for candidate_rank, sym in enumerate(candidate_symbols, start=1):
@@ -216,6 +222,7 @@ period1_return=(PRE_CONTRIBUTION_VALUE/BASELINE)-1 if BASELINE else 0.0
 period2_return=((account_total-NEW_CONTRIBUTION)/PRE_CONTRIBUTION_VALUE)-1 if PRE_CONTRIBUTION_VALUE else 0.0
 twr=((1+period1_return)*(1+period2_return)-1)*100
 roi=twr
+roi_pacing=roi_pace(roi, '2026-04-07', DATA_AS_OF)
 capital_ledger=[
     {'date':'2026-04-07','type':'Initial contribution','amount':BASELINE,'notes':'LadderIQ inception capital'},
     {'date':CONTRIBUTION_DATE,'type':'External contribution','amount':NEW_CONTRIBUTION,'notes':'Booz Allen SPP / vested stock contribution'},
@@ -1618,7 +1625,7 @@ def lifecycle_visible(stock):
     return stock.get('lifecycle_state') in {'owned','active_candidate','watchlist','recently_exited'}
 
 def buy_levels(sym, price):
-    if price<=0 or sym in ['NVDA','AMZN','ARM']: return []
+    if price<=0: return []
     if sym=='SPCX':
         return [('Buy Zone 1', round(price*.97), 'Add only on weakness'),('Buy Zone 2', round(price*.92), 'Strong add zone'),('Review Add', round(price*.85), 'Manual review')]
     if sym in ['ASML','CRWD','AMD']:
@@ -1694,13 +1701,27 @@ def sell_levels(sym, price, qty, avg, position_value=0, opportunity_score=0, por
     if sym=='SPCX':
         cost=avg or price
         return [('+50% Review', round(cost*1.5), current_qty, 'Review only'),('+100% Review', round(cost*2), current_qty, 'Consider capital recovery')]
-    if sym=='ARM': return []
     if price<=0: return []
-    if sym in ['ASML','CRWD','AMD']:
-        return [('Review 1',round(price*1.08), current_qty*.33, 'Review, not auto-sell'),('Review 2',round(price*1.15), current_qty*.33, 'Scale only if needed')]
-    return [('Trim 1',round(price*1.025), qty*.33 if qty else 0, 'Partial profit'),('Trim 2',round(price*1.05), qty*.33 if qty else 0, 'Lock gains'),('Harvest',round(price*1.075), current_qty*.34, 'Full harvest')]
+    # State-driven exit ladder: current structure governs the rungs; cost basis is context, not the anchor.
+    temp={'symbol':sym,'opportunity':opportunity_score,'price':price,'avg_cost':avg,'total_pl_pct':0,'score_data':scores.get(sym,{}),'immediate_risk_override':confirmation.get(sym,{}).get('immediate_risk_override',False)}
+    state=position_state(temp)['name']
+    if state=='Defensive':
+        multipliers=(1.005,1.025,1.05); notes=('Immediate risk reduction near market','Reduce on first recovery','Complete defensive rebalance into strength')
+    elif state=='Recovery':
+        multipliers=(1.025,1.055,1.09); notes=('Recovery trim; do not lower automatically','Trim into recovery zone','Harvest only if recovery extends')
+    elif state=='Harvest':
+        multipliers=(1.04,1.08,1.13); notes=('Harvest strength','Lock additional gains','Final harvest rung')
+    else:
+        multipliers=(1.03,1.065,1.10); notes=('Management review','Trim into strength','Extended strength review')
+    splits=(.40,.35,.25)
+    return [(state+' '+str(i+1),round(price*multipliers[i],2),round(current_qty*splits[i],3),notes[i]) for i in range(3)]
 
-def budget_for(sym):
+confirmed_candidate_count=max(1, len(candidate_symbols))
+def budget_for(sym, is_owned=False, group=''):
+    if is_owned:
+        return 0.0
+    if group == 'Growth Candidates':
+        return recommended_candidate_budget(deployable, confirmed_candidate_count)
     weights={'TSM':.22,'PANW':.20,'ANET':.16,'ASML':.12,'CRWD':.10,'AMD':.10,'SPCX':.05}
     return deployable*weights.get(sym,0)
 
@@ -1716,7 +1737,11 @@ for st in stocks:
         'last_position_file': pos_file
     })
     st['buy']=[]; st['sell']=[]
-    b=[] if st.get('group') == 'Growth Candidates' else buy_levels(st['symbol'], st['price']); bud=budget_for(st['symbol'])
+    st['position_state']=position_state(st) if st['has_active_position'] else {'name':'New Opportunity','action':'Build entry ladder after confirmation.'}
+    # BR-027: every actionable recommendation has exactly one execution side.
+    # Owned securities receive a sell/management ladder; unowned securities receive a buy ladder.
+    b=[] if st['has_active_position'] else buy_levels(st['symbol'], st['price'])
+    bud=budget_for(st['symbol'], st['has_active_position'], st.get('group',''))
     if b:
         splits=[.5,.3,.2] if len(b)==3 else [1]
         for i,(label,price,note) in enumerate(b):
@@ -1780,7 +1805,7 @@ approved_universe = [s['symbol'] for s in visible_stocks if s['lifecycle_state']
 watch_only = [s['symbol'] for s in visible_stocks if s['lifecycle_state'] == 'watchlist']
 legacy_holdings = [sym for sym, meta in lifecycle.get('symbols',{}).items() if meta.get('state') in {'recently_exited','archived'}]
 
-html_data=json.dumps({'stocks':visible_stocks,'active_holdings':active_holdings,'approved_universe':approved_universe,'watch_only':watch_only,'legacy_holdings':legacy_holdings,'position_lifecycle':lifecycle,'benchmark':QQQ_BENCHMARK,'metrics':{'account_total':account_total,'cash':cash,'pending':pending,'effective_cash':effective_cash,'deployable':deployable,'roi':roi,'personal_roi':personal_roi,'twr':twr,'net_gain':net_gain,'total_contributions':TOTAL_CONTRIBUTIONS,'new_contribution':NEW_CONTRIBUTION,'capital_ledger':capital_ledger,'today_pl':today_pl,'today_pl_pct':today_pl_pct,'baseline':BASELINE,'version':VERSION,'ladder_for':LADDER_FOR,'data_as_of':DATA_AS_OF},'groups':group_meta}, ensure_ascii=False)
+html_data=json.dumps({'stocks':visible_stocks,'active_holdings':active_holdings,'approved_universe':approved_universe,'watch_only':watch_only,'legacy_holdings':legacy_holdings,'position_lifecycle':lifecycle,'benchmark':QQQ_BENCHMARK,'metrics':{'account_total':account_total,'cash':cash,'pending':pending,'effective_cash':effective_cash,'deployable':deployable,'roi':roi,'personal_roi':personal_roi,'twr':twr,'net_gain':net_gain,'total_contributions':TOTAL_CONTRIBUTIONS,'new_contribution':NEW_CONTRIBUTION,'capital_ledger':capital_ledger,'today_pl':today_pl,'today_pl_pct':today_pl_pct,'roi_pacing':roi_pacing,'annual_roi_goal':100.0,'baseline':BASELINE,'version':VERSION,'ladder_for':LADDER_FOR,'data_as_of':DATA_AS_OF},'groups':group_meta}, ensure_ascii=False)
 
 css=r'''
 
@@ -1805,7 +1830,7 @@ function kpi(){const m=DATA.metrics; document.getElementById('kpis').innerHTML=`
  <div class="kpi"><div class="label">Buying Power</div><div class="value">${fmtMoney(m.deployable)}</div><small>After 15% reserve</small></div>
  <div class="kpi"><div class="label">Strategy Return (TWR)</div><div class="value ${m.twr>=0?'positive':'negative'}">${m.twr>=0?'+':''}${fmtPct(m.twr)}</div><small>Personal ROI ${m.personal_roi>=0?'+':''}${fmtPct(m.personal_roi)} · Net gain ${m.net_gain>=0?'+':''}${fmtMoney(m.net_gain)}</small></div>
  <div class="kpi"><div class="label">Today's P/L</div><div class="value ${m.today_pl>=0?'positive':'negative'}">${m.today_pl>=0?'+':''}${fmtMoney(m.today_pl)}</div><small>${m.today_pl>=0?'+':''}${fmtPct(m.today_pl_pct)}</small></div>
- <div class="kpi"><div class="label">Progress to 100% Goal</div><div class="value">${fmtPct(m.roi)}</div><div class="progress"><div class="bar" style="width:${Math.min(100,Math.max(0,m.roi))}%"></div></div></div>`;}
+ <div class="kpi"><div class="label">100% ROI Mission Pace</div><div class="value ${m.roi_pacing.status==='Ahead'?'positive':'negative'}">${m.roi_pacing.status}</div><small>Current ${fmtPct(m.roi)} · Required now ${fmtPct(m.roi_pacing.required_to_date_pct)}</small><div class="progress"><div class="bar" style="width:${Math.min(100,Math.max(0,m.roi_pacing.pace_ratio_pct))}%"></div></div></div>`;}
 function sidebar(){const groups=DATA.groups; const by={}; const trendRank={Up:3,Lateral:2,Down:1}; DATA.stocks.forEach(s=>{(by[s.group]??=[]).push(s)}); Object.values(by).forEach(arr=>arr.sort((a,b)=>(b.opportunity||0)-(a.opportunity||0) || (trendRank[b.trend]||0)-(trendRank[a.trend]||0) || (b.leadership||0)-(a.leadership||0) || (a.rank||99)-(b.rank||99))); let html='<div class=\"brand\"><span class=\"icon\">📈</span><span class=\"brand-name\">LadderIQ</span><span class=\"version\">'+DATA.metrics.version+'</span></div><div class="subtitle">Portfolio Command Center</div><h3>Portfolio Hierarchy</h3><div style="color:var(--muted);font-size:11px;margin-top:-4px;margin-bottom:8px">Sidebar number = Opportunity Score, not business quality.</div><div class="search"><input placeholder="Search symbols..." oninput="filterStocks(this.value)"></div>';
  Object.keys(groups).forEach(g=>{const meta=groups[g]; const arr=by[g]||[]; html+=`<div class="group g-${meta.color}"><div class="group-head"><div>${meta.num} ${g}<small>Target: ${meta.target} · ${arr.length} ${g==='Growth Candidates' ? (arr.length===1?'Candidate':'Candidates') : 'Holdings'}</small></div><div>⌄</div></div>`; arr.forEach(s=>{html+=`<div class="stock-nav" data-symbol="${s.symbol}" onclick="selectStock('${s.symbol}')"><div><div class="sym">${s.symbol}</div><div class="company-small">${s.company}</div></div><span class="pill" title="Opportunity Score: where the next dollar should go today">${Math.round(s.opportunity ?? s.leadership)}<small style="font-size:8px;margin-left:2px">OPS</small></span><span class="trend ${trendClass(s.trend)}">${s.trend}</span></div>`}); html+='</div>'});
  html+=`<div class="box"><small>Data as of: ${DATA.metrics.data_as_of}</small></div>`; document.getElementById('sidebar').innerHTML=html;}
@@ -1816,14 +1841,14 @@ function decision(){
  const sell=[...candidates].filter(s=>s.has_active_position && s.sell?.length).sort((a,b)=>(b.weight||0)-(a.weight||0))[0] || candidates.find(s=>s.has_active_position) || candidates[0];
  PRIMARY_DECISION_SYMBOL=buy?.symbol || candidates[0]?.symbol || null;
  const watch=[...candidates].filter(s=>s.lifecycle_state==='watchlist' || s.trend!=='Up').sort((a,b)=>(a.opportunity||0)-(b.opportunity||0))[0] || candidates[candidates.length-1] || candidates[0];
- const card=(kind,title,stock,why,score)=>stock?`<div class="dec-card ${kind}"><h3>${title} <span class="scorebig">${Math.round(score ?? stock.opportunity ?? 0)}/100</span></h3><div class="dec-symbol">${stock.symbol}</div><div>${stock.company}</div><p>${why}</p></div>`:'';
+ const card=(kind,title,stock,why,score)=>stock?`<div class="dec-card ${kind}" onclick="selectStock('${stock.symbol}')" style="cursor:pointer"><h3>${title} <span class="scorebig">${Math.round(score ?? stock.opportunity ?? 0)}/100</span></h3><div class="dec-symbol">${stock.symbol}</div><div>${stock.company}</div><p>${why}</p><b style="color:#58b5ff">View ${stock.has_active_position?'Sell':'Buy'} Ladder →</b></div>`:'';
  document.getElementById('decision').innerHTML=`<div class="decision-title"><div><b>Decision Center</b> <span style="color:var(--muted);margin-left:12px">Today's top priorities</span></div><a style="color:#58b5ff">View All Signals →</a></div><div class="decision-grid">${card('buy','🛒 Buy Today',buy,'Highest-priority approved opportunity with an active buy ladder.')}${card('sell','🎯 Manage / Sell',sell,'Largest active position with an approved management ladder.')}${card('watch','👁 Watch Closely',watch,'Watchlist or weakening name requiring attention.')}</div>`;
 }
 function ladderRows(levels,type,hasPosition=true){if(!levels.length){const msg=(type==='sell'&&!hasPosition)?'<b>Position Closed</b><br><span style="color:var(--muted)">No shares are currently owned. No sell ladder is required.</span>':'No ladder for this side.';return `<tr><td colspan="6">${msg}</td></tr>`;}return levels.map(x=>`<tr><td><span class="levelbox">${x.level}</span></td><td><div class="price">${fmtMoney(x.price)}</div><div class="limit">Limit ${type==='buy'?'Buy':'Sell'}</div></td><td>${type==='buy'?fmtMoney(x.allocation):fmtPct(x.trim_pct||0)}</td><td>${fmtSh(x.shares)}</td><td>${type==='buy'?'Waiting':fmtMoney(x.proceeds)}</td><td>${x.note||''}</td></tr>`).join('')}
 function selectStock(sym){const s=DATA.stocks.find(x=>x.symbol===sym)||DATA.stocks[0]; document.querySelectorAll('.stock-nav').forEach(el=>el.classList.toggle('active',el.dataset.symbol===sym)); const pl=s.total_pl||0; document.getElementById('detail').innerHTML=`
  <div class="stock-hero"><div><div class="stock-title">${s.symbol}</div><div style="color:var(--muted)">${s.company}</div><div class="tags"><span>${s.role}</span><span>${s.group}</span></div></div><div class="metrics-row"><div class="mini-metric"><small>Opportunity</small><b>${Math.round(s.opportunity ?? s.leadership)}</b></div><div class="mini-metric"><small>Trend</small><b class="trend ${trendClass(s.trend)}">${trendIcon(s.trend)} ${s.trend}</b></div><div class="mini-metric"><small>Business Quality</small><b>${Math.round(s.business_quality ?? s.leadership)}</b></div><div class="mini-metric"><small>% Portfolio</small><b>${fmtPct(s.weight)}</b></div><div class="mini-metric"><small>Market Value</small><b>${fmtMoney(s.value)}</b></div></div><div class="actions"><button>Add Note</button><button>View Chart</button><button>Set Alert</button><div style="margin-top:12px"><small>Unrealized P/L</small><br><b class="${pl>=0?'positive':'negative'}">${pl>=0?'+':''}${fmtMoney(pl)}</b></div></div></div>
  <div class="tabs"><div class="tab active">Overview</div><div class="tab">Ladders</div><div class="tab">Analysis</div><div class="tab">Notes</div><div class="tab">Performance</div></div>
- <div class="content"><div class="ladder buy"><h3>Buy Ladder (${s.status}) <span style="float:right;color:var(--muted);font-size:13px">Budget: ${fmtMoney(s.buy.reduce((a,b)=>a+b.allocation,0))}</span></h3><table><thead><tr><th>Level</th><th>Price</th><th>Allocation</th><th>Shares</th><th>Status</th><th>Notes</th></tr></thead><tbody>${ladderRows(s.buy,'buy',s.has_active_position)}</tbody></table></div><div class="ladder sell"><h3>${s.has_active_position?'Sell Ladder / Review':'Position Closed'} <span style="float:right;color:var(--muted);font-size:13px">Target: ${fmtMoney(s.sell.reduce((a,b)=>a+b.proceeds,0))}</span></h3><table><thead><tr><th>Level</th><th>Price</th><th>Trim</th><th>Shares</th><th>Proceeds</th><th>Notes</th></tr></thead><tbody>${ladderRows(s.sell,'sell',s.has_active_position)}</tbody></table></div><div class="side-panel"><div class="box"><h3>Score Breakdown</h3><div style="color:var(--muted);font-size:12px;margin-bottom:10px">Opportunity score is tactical. Business quality is long-term.</div>${['Relative Strength','Momentum','Price Structure','Capital Priority','Opportunity Score'].map((n,i)=>`<div class="profile-row"><span>${n}</span><div class="meter"><span style="width:${Math.max(10,Math.min(100,s.leadership-(i*2)))}%"></span></div><b>${Math.max(0,Math.round(s.leadership-(i*2)))}</b></div>`).join('')}</div><div class="box"><h3>Key Levels</h3><div>Current: <b style="float:right">${fmtMoney(s.price)}</b></div><div>Avg Cost: <b style="float:right">${fmtMoney(s.avg_cost)}</b></div><div>Shares: <b style="float:right">${fmtSh(s.quantity)}</b></div><div>Weight: <b style="float:right">${fmtPct(s.weight)}</b></div><div>Reason Owned: <b style="float:right">${s.own_reason || 'LadderIQ Selected'}</b></div><div class="callout"><b>Score Interpretation</b><span>${s.score_reason || 'Opportunity score controls today’s capital allocation.'}</span></div></div></div></div>
+ <div class="content">${s.has_active_position?`<div class="ladder sell"><h3>Sell Ladder · ${s.position_state?.name||'Manage'} <span style="float:right;color:var(--muted);font-size:13px">Target: ${fmtMoney(s.sell.reduce((a,b)=>a+b.proceeds,0))}</span></h3><table><thead><tr><th>Level</th><th>Price</th><th>Trim</th><th>Shares</th><th>Proceeds</th><th>Notes</th></tr></thead><tbody>${ladderRows(s.sell,'sell',true)}</tbody></table></div>`:`<div class="ladder buy"><h3>Buy Ladder · Confirmed ${s.confirmation_days||0}/2 Days <span style="float:right;color:var(--muted);font-size:13px">Budget: ${fmtMoney(s.buy.reduce((a,b)=>a+b.allocation,0))}</span></h3><table><thead><tr><th>Level</th><th>Price</th><th>Allocation</th><th>Shares</th><th>Status</th><th>Notes</th></tr></thead><tbody>${ladderRows(s.buy,'buy',false)}</tbody></table></div>`}<div class="box"><h3>Recommendation State</h3><div style="font-size:24px;font-weight:900">${s.position_state?.name||'New Opportunity'}</div><p>${s.position_state?.action||''}</p><div>Raw OPS <b style="float:right">${Math.round(s.raw_opportunity??s.opportunity)}</b></div><div>Confirmed OPS <b style="float:right">${Math.round(s.opportunity)}</b></div><div>Confirmation <b style="float:right">${s.confirmation_days||0}/2 days</b></div></div><div class="side-panel"><div class="box"><h3>Score Breakdown</h3><div style="color:var(--muted);font-size:12px;margin-bottom:10px">Opportunity score is tactical. Business quality is long-term.</div>${['Relative Strength','Momentum','Price Structure','Capital Priority','Opportunity Score'].map((n,i)=>`<div class="profile-row"><span>${n}</span><div class="meter"><span style="width:${Math.max(10,Math.min(100,s.leadership-(i*2)))}%"></span></div><b>${Math.max(0,Math.round(s.leadership-(i*2)))}</b></div>`).join('')}</div><div class="box"><h3>Key Levels</h3><div>Current: <b style="float:right">${fmtMoney(s.price)}</b></div><div>Avg Cost: <b style="float:right">${fmtMoney(s.avg_cost)}</b></div><div>Shares: <b style="float:right">${fmtSh(s.quantity)}</b></div><div>Weight: <b style="float:right">${fmtPct(s.weight)}</b></div><div>Reason Owned: <b style="float:right">${s.own_reason || 'LadderIQ Selected'}</b></div><div class="callout"><b>Score Interpretation</b><span>${s.score_reason || 'Opportunity score controls today’s capital allocation.'}</span></div></div></div></div>
  <div class="lower"><div class="box"><h3>Technical Snapshot</h3><div>Price (AH) <b style="float:right">${fmtMoney(s.price)}</b></div><div>Trend <b class="trend ${trendClass(s.trend)}" style="float:right">${s.trend}</b></div><div>Opportunity <b style="float:right">${Math.round(s.opportunity ?? s.leadership)}</b></div><div>Business Quality <b style="float:right">${Math.round(s.business_quality ?? s.leadership)}</b></div></div><div class="box"><h3>Portfolio Health</h3><div class="health-score positive">91<small>/100</small></div><div class="positive">Excellent</div><div class="health-bars"><div class="health-line"><span>Opportunity</span><div class="health-meter"><span style="width:95%"></span></div><b>95</b></div><div class="health-line"><span>Diversification</span><div class="health-meter"><span style="width:84%"></span></div><b>84</b></div><div class="health-line"><span>Risk Mgmt</span><div class="health-meter"><span style="width:92%"></span></div><b>92</b></div><div class="health-line"><span>Cash Efficiency</span><div class="health-meter"><span style="width:78%"></span></div><b>78</b></div><div class="health-line"><span>Momentum</span><div class="health-meter"><span style="width:97%"></span></div><b>97</b></div></div><div class="callout"><b>Biggest Weakness</b><span class="warning-text">NVDA concentration remains high; harvest plan stays active.</span></div></div><div class="box"><h3>Capital Allocation Engine</h3><div>Deployable cash: <b>${fmtMoney(DATA.metrics.deployable)}</b></div><div class="progress"><div class="bar" style="width:86%"></div></div><small>Cash efficiency: Good</small></div><div class="box"><h3>Allocation & Risk</h3><div style="font-size:34px;font-weight:900">${fmtPct(s.weight)}</div><div>Risk Status: <b class="positive">${s.weight>40?'Watch':'Good'}</b></div></div></div>`;}
 function renderBenchmarkCard(){
  const b=DATA.benchmark || {};
@@ -1877,7 +1902,7 @@ kpi(); sidebar(); decision(); footer(); selectStock(PRIMARY_DECISION_SYMBOL || D
 
 '''.replace('__DATA__', html_data)
 
-html=f'''<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>LadderIQ {VERSION} Portfolio Command Center</title><style>{css}</style></head><body><div class="app"><aside id="sidebar" class="sidebar"></aside><main class="main"><section id="kpis" class="kpis"></section><section id="decision" class="decision"></section><section id="detail" class="detail"></section><section id="footergrid" class="footer-grid"></section><div class="footer">LadderIQ | {VERSION} | Data as of {DATA_AS_OF} | Next ladder: <span id="nextLadderFooter"></span></div></main></div><script>{script}</script></body></html>'''
+html=f'''<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>LadderIQ {VERSION} Portfolio Command Center</title><style>{css}</style></head><body><div class="app"><aside id="sidebar" class="sidebar"></aside><main class="main"><section id="kpis" class="kpis"></section><section id="decision" class="decision"></section><section id="detail" class="detail"></section><section id="footergrid" class="footer-grid"></section><div class="footer">LadderIQ | {VERSION} | Data as of {DATA_AS_OF}</div></main></div><script>{script}</script></body></html>'''
 
 # reports/latestladder.html is the authoritative generated report.
 REPORTS_DIR = ROOT / 'reports'
