@@ -2,73 +2,82 @@
     "NVDA": {
         "description": "NVIDIA CORPORATION COM",
         "shares": 28.306,
-        "price": 206.84,
-        "current_value": 5854.81,
+        "price": 196.51,
+        "current_value": 5562.41,
         "avg_cost": 213.72,
         "cost_basis_total": 6049.45,
-        "percent_of_account": 31.99
-    },
-    "ASML": {
-        "description": "ASML HOLDING NV EUR0.09 NY REGISTRY SHS 2012",
-        "shares": 1.065,
-        "price": 1757.09,
-        "current_value": 1871.3,
-        "avg_cost": 1764.57,
-        "cost_basis_total": 1879.27,
-        "percent_of_account": 10.22
-    },
-    "TSM": {
-        "description": "TAIWAN SEMICONDUCTOR MANUFACTURING SPON ADS EACH REP 5 ORD TWD10",
-        "shares": 4.584,
-        "price": 403.41,
-        "current_value": 1849.23,
-        "avg_cost": 426.37,
-        "cost_basis_total": 1954.47,
-        "percent_of_account": 10.1
-    },
-    "PANW": {
-        "description": "PALO ALTO NETWORKS INC COM USD0.0001",
-        "shares": 5.329,
-        "price": 323.79,
-        "current_value": 1725.47,
-        "avg_cost": 337.33,
-        "cost_basis_total": 1797.64,
-        "percent_of_account": 9.43
-    },
-    "CRWD": {
-        "description": "CROWDSTRIKE HLDGS INC CL A",
-        "shares": 9.288,
-        "price": 183.28,
-        "current_value": 1702.3,
-        "avg_cost": 193.08,
-        "cost_basis_total": 1793.3,
-        "percent_of_account": 9.3
+        "percent_of_account": 31.44
     },
     "ANET": {
         "description": "ARISTA NETWORKS INC COM SHS",
-        "shares": 9.571,
-        "price": 173.99,
-        "current_value": 1665.25,
-        "avg_cost": 172.6,
-        "cost_basis_total": 1651.93,
-        "percent_of_account": 9.1
+        "shares": 10.251,
+        "price": 170.76,
+        "current_value": 1750.46,
+        "avg_cost": 172.42,
+        "cost_basis_total": 1767.43,
+        "percent_of_account": 9.9
     },
-    "AMD": {
-        "description": "ADVANCED MICRO DEVICES INC",
-        "shares": 2.869,
-        "price": 521.95,
-        "current_value": 1497.47,
-        "avg_cost": 518.34,
-        "cost_basis_total": 1487.12,
-        "percent_of_account": 8.18
+    "CRWD": {
+        "description": "CROWDSTRIKE HLDGS INC CL A",
+        "shares": 9.537,
+        "price": 180.11,
+        "current_value": 1717.7,
+        "avg_cost": 192.76,
+        "cost_basis_total": 1838.37,
+        "percent_of_account": 9.71
     },
     "SPCX": {
         "description": "SPACE EXPL TECHNOLOGIES CORP CL A",
         "shares": 9.335,
-        "price": 115.07,
-        "current_value": 1074.17,
+        "price": 113.5,
+        "current_value": 1059.52,
         "avg_cost": 148.52,
         "cost_basis_total": 1386.43,
-        "percent_of_account": 5.87
+        "percent_of_account": 5.99
+    },
+    "PANW": {
+        "description": "PALO ALTO NETWORKS INC COM USD0.0001",
+        "shares": 5.612,
+        "price": 317.32,
+        "current_value": 1780.79,
+        "avg_cost": 336.41,
+        "cost_basis_total": 1887.92,
+        "percent_of_account": 10.07
+    },
+    "TSM": {
+        "description": "TAIWAN SEMICONDUCTOR MANUFACTURING SPON ADS EACH REP 5 ORD TWD10",
+        "shares": 4.987,
+        "price": 399.09,
+        "current_value": 1990.26,
+        "avg_cost": 423.75,
+        "cost_basis_total": 2113.24,
+        "percent_of_account": 11.25
+    },
+    "AMD": {
+        "description": "ADVANCED MICRO DEVICES INC",
+        "shares": 3.048,
+        "price": 494.95,
+        "current_value": 1508.6,
+        "avg_cost": 517.56,
+        "cost_basis_total": 1577.52,
+        "percent_of_account": 8.53
+    },
+    "ASML": {
+        "description": "ASML HOLDING NV EUR0.09 NY REGISTRY SHS 2012",
+        "shares": 1.128,
+        "price": 1655.26,
+        "current_value": 1867.13,
+        "avg_cost": 1760.98,
+        "cost_basis_total": 1986.39,
+        "percent_of_account": 10.55
+    },
+    "DELL": {
+        "description": "DELL TECHNOLOGIES INC CL C",
+        "shares": 0.25,
+        "price": 426.91,
+        "current_value": 106.72,
+        "avg_cost": 433.6,
+        "cost_basis_total": 108.4,
+        "percent_of_account": 0.6
     }
 }
