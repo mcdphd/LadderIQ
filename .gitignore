@@ -1,0 +1,11 @@
+# LadderIQ runtime market-data cache (local only; regenerated automatically)
+market_cache/
+
+# Python runtime artifacts
+__pycache__/
+*.py[cod]
+
+# Temporary/incomplete downloads and serialized cache artifacts
+*.tmp
+*.part
+*.pkl.tmp

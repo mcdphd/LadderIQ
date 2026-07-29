@@ -1,10 +1,11 @@
 {
   "product": "LadderIQ",
-  "version": "3.60.2",
-  "release_name": "Broad-Market Symbol Hygiene Fix",
+  "version": "3.60.3",
+  "release_name": "Scanner Stability Patch",
   "release_date": "2026-07-28",
   "status": "Stable maintenance release",
   "versioning": "major.minor.patch",
   "date": "2026-07-22",
-  "feature": "Watchlist-independent broad-market candidate discovery with composite OPS, fundamentals, sector leadership, two-day confirmation, and one-sided ladders"
+  "feature": "Watchlist-independent broad-market candidate discovery with composite OPS, fundamentals, sector leadership, two-day confirmation, and one-sided ladders",
+  "release": "Scanner Stability Patch"
 }

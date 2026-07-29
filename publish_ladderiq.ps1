@@ -59,7 +59,14 @@ Start-Process $ReportPath
 # Publish only when this root folder has been initialized as a Git repository.
 if (Test-Path (Join-Path $ProjectRoot ".git")) {
     Write-Host "[GitHub] Checking for changes..." -ForegroundColor Yellow
-    & git add --all
+
+    # Scanner cache is runtime data and must never be published. Remove any
+    # previously tracked cache paths from the index, while keeping local files.
+    & git rm -r --cached --ignore-unmatch --quiet market_cache 2>$null
+
+    # Stage project changes. .gitignore excludes volatile scanner cache files,
+    # preventing file-disappeared races while the cache is being updated.
+    & git -c gc.auto=0 add --all
     if ($LASTEXITCODE -ne 0) { throw "git add failed." }
 
     $changes = & git status --porcelain
@@ -67,10 +74,10 @@ if (Test-Path (Join-Path $ProjectRoot ".git")) {
 
     if ($changes) {
         $stamp = Get-Date -Format "yyyy-MM-dd HH:mm"
-        & git commit -m "LadderIQ automated refresh $stamp"
+        & git -c gc.auto=0 commit -m "LadderIQ automated refresh $stamp"
         if ($LASTEXITCODE -ne 0) { throw "git commit failed." }
 
-        & git push
+        & git -c gc.auto=0 push
         if ($LASTEXITCODE -ne 0) { throw "git push failed. Check GitHub authentication and the configured remote." }
 
         Write-Host "[GitHub] Changes committed and pushed." -ForegroundColor Green
