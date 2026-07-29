@@ -3,7 +3,7 @@ from pathlib import Path
 from datetime import datetime, timedelta
 from investment_engine import confirm_opportunities, position_state, roi_pace, recommended_candidate_budget
 
-VERSION='3.60.5'
+VERSION='3.60.6'
 BASELINE=9913.04
 NEW_CONTRIBUTION=5055.52
 CONTRIBUTION_DATE='2026-07-10'
@@ -1745,6 +1745,11 @@ def sell_levels(sym, price, qty, avg, position_value=0, opportunity_score=0, por
     return [(state+' '+str(i+1),round(price*multipliers[i],2),round(current_qty*splits[i],3),notes[i]) for i in range(3)]
 
 confirmed_candidate_count=len(confirmed_candidate_symbols)
+# BR-072/073: every displayed, non-owned Growth Candidate must have a buy
+# ladder. Confirmation controls whether the ladder is ACTIVE or PREVIEW; it no
+# longer suppresses the ladder entirely. This lets the user prepare orders for
+# emerging opportunities while preserving the two-session confirmation gate.
+allocation_candidate_symbols=list(dict.fromkeys(candidate_symbols))
 # BR-068/069: allocate the candidate pool by rank, confidence, return velocity
 # and sector concentration instead of equal division. The complete candidate
 # pool is capped at 85% of deployable cash and each name remains capped at 25%.
@@ -1753,18 +1758,21 @@ for held_sym, pos in positions.items():
     sector=(scores.get(held_sym) or {}).get('sector','Unknown')
     sector_weights[sector]=sector_weights.get(sector,0)+float(pos.get('weight') or 0)
 _candidate_strength={}
-for sym in confirmed_candidate_symbols:
+for sym in allocation_candidate_symbols:
     row=scores.get(sym) or {}
-    base=max(.01,float(row.get('return_velocity') or 0))*max(.25,float(row.get('reward_to_risk') or 0))*max(.50,float(row.get('business_quality') or 50)/100)
+    stock_row=next((x for x in stocks if x.get('symbol') == sym), {})
+    ops=float(stock_row.get('raw_opportunity') or row.get('composite_score') or row.get('leadership_score') or 0)
+    base=max(.01,float(row.get('return_velocity') or 0))*max(.25,float(row.get('reward_to_risk') or 0))*max(.50,float(row.get('business_quality') or stock_row.get('business_quality') or 50)/100)
     concentration=max(0.35,1-min(0.65,sector_weights.get(row.get('sector','Unknown'),0)/100))
-    _candidate_strength[sym]=base*concentration
+    confirmation_factor=1.35 if sym in confirmed_candidate_symbols else max(.55,min(.95,ops/100))
+    _candidate_strength[sym]=base*concentration*confirmation_factor
 _candidate_strength_total=sum(_candidate_strength.values())
 
 def budget_for(sym, is_owned=False, group=''):
     if is_owned:
         return 0.0
     if group == 'Growth Candidates':
-        if sym not in confirmed_candidate_symbols or not confirmed_candidate_count or _candidate_strength_total<=0:
+        if sym not in allocation_candidate_symbols or not allocation_candidate_symbols or _candidate_strength_total<=0:
             return 0.0
         proportional=deployable*.85*(_candidate_strength.get(sym,0)/_candidate_strength_total)
         return min(proportional,deployable*.25)
@@ -1783,17 +1791,21 @@ for st in stocks:
         'last_position_file': pos_file
     })
     st['buy']=[]; st['sell']=[]
-    st['position_state']=position_state(st) if st['has_active_position'] else ({'name':'New Opportunity','action':'Confirmed candidate with an active buy ladder.'} if st.get('qualified_candidate') else {'name':'Emerging Opportunity','action':'Automatically discovered; buy ladder activates after the second qualifying trading session.'})
-    # BR-027: every actionable recommendation has exactly one execution side.
-    # Owned securities receive a sell/management ladder; unowned securities receive a buy ladder.
-    b=[] if st['has_active_position'] or (st.get('group')=='Growth Candidates' and not st.get('qualified_candidate')) else buy_levels(st['symbol'], st['price'])
+    st['position_state']=position_state(st) if st['has_active_position'] else ({'name':'New Opportunity','action':'Confirmed candidate with an active buy ladder.'} if st.get('qualified_candidate') else {'name':'Emerging Opportunity','action':'Automatically discovered; a preview buy ladder is prepared now and becomes active after the second qualifying trading session.'})
+    # BR-027/072/073: every displayed recommendation has exactly one execution
+    # side. Owned securities receive a sell/management ladder; every unowned
+    # Growth Candidate receives a buy ladder. Emerging ladders are marked as
+    # preview/pending until the second qualifying session.
+    b=[] if st['has_active_position'] else buy_levels(st['symbol'], st['price'])
     bud=budget_for(st['symbol'], st['has_active_position'], st.get('group',''))
     if b:
         splits=[.5,.3,.2] if len(b)==3 else [1]
         for i,(label,price,note) in enumerate(b):
             alloc=bud*(splits[i] if i<len(splits) else 1/len(b))
             sh=alloc/price if price else 0
-            st['buy'].append({'level':i+1,'label':label,'price':price,'allocation':alloc,'shares':sh,'note':note})
+            ladder_status='Active' if st.get('qualified_candidate') else 'Preview — pending confirmation'
+            ladder_note=note if st.get('qualified_candidate') else f"{note}; do not place until confirmation reaches 2/2"
+            st['buy'].append({'level':i+1,'label':label,'price':price,'allocation':alloc,'shares':sh,'status':ladder_status,'note':ladder_note})
     for i,(label,price,sh,note) in enumerate(sell_levels(st['symbol'], st['price'], st['quantity'], st.get('avg_cost',0), st.get('value',0), st.get('opportunity',0), account_total, st.get('group',''))):
         proceeds=(price or 0)*(sh or 0)
         trim_pct=(float(sh or 0)/float(st.get('quantity') or 1))*100 if float(st.get('quantity') or 0)>0 else 0
@@ -1889,7 +1901,7 @@ function decision(){
  const card=(kind,title,stock,why,score)=>stock?`<div class="dec-card ${kind}" onclick="selectStock('${stock.symbol}')" style="cursor:pointer"><h3>${title} <span class="scorebig">${Math.round(score ?? stock.opportunity ?? 0)}/100</span></h3><div class="dec-symbol">${stock.symbol}</div><div>${stock.company}</div><p>${why}</p><b style="color:#58b5ff">View ${stock.has_active_position?'Sell':'Buy'} Ladder →</b></div>`:'';
  document.getElementById('decision').innerHTML=`<div class="decision-title"><div><b>Decision Center</b> <span style="color:var(--muted);margin-left:12px">Today's top priorities</span></div><a style="color:#58b5ff">View All Signals →</a></div><div class="decision-grid">${card('buy','🛒 Buy Today',buy,'Highest-priority approved opportunity with an active buy ladder.')}${card('sell','🎯 Manage / Sell',sell,'Largest active position with an approved management ladder.')}${card('watch','👁 Risk Watch',watch,'Owned position with weakening price structure requiring attention.')}</div>`;
 }
-function ladderRows(levels,type,hasPosition=true){if(!levels.length){const msg=(type==='sell'&&!hasPosition)?'<b>Position Closed</b><br><span style="color:var(--muted)">No shares are currently owned. No sell ladder is required.</span>':'No ladder for this side.';return `<tr><td colspan="6">${msg}</td></tr>`;}return levels.map(x=>`<tr><td><span class="levelbox">${x.level}</span></td><td><div class="price">${fmtMoney(x.price)}</div><div class="limit">Limit ${type==='buy'?'Buy':'Sell'}</div></td><td>${type==='buy'?fmtMoney(x.allocation):fmtPct(x.trim_pct||0)}</td><td>${fmtSh(x.shares)}</td><td>${type==='buy'?'Waiting':fmtMoney(x.proceeds)}</td><td>${x.note||''}</td></tr>`).join('')}
+function ladderRows(levels,type,hasPosition=true){if(!levels.length){const msg=(type==='sell'&&!hasPosition)?'<b>Position Closed</b><br><span style="color:var(--muted)">No shares are currently owned. No sell ladder is required.</span>':'No ladder for this side.';return `<tr><td colspan="6">${msg}</td></tr>`;}return levels.map(x=>`<tr><td><span class="levelbox">${x.level}</span></td><td><div class="price">${fmtMoney(x.price)}</div><div class="limit">Limit ${type==='buy'?'Buy':'Sell'}</div></td><td>${type==='buy'?fmtMoney(x.allocation):fmtPct(x.trim_pct||0)}</td><td>${fmtSh(x.shares)}</td><td>${type==='buy'?(x.status||'Waiting'):fmtMoney(x.proceeds)}</td><td>${x.note||''}</td></tr>`).join('')}
 function selectStock(sym){const s=DATA.stocks.find(x=>x.symbol===sym)||DATA.stocks[0]; document.querySelectorAll('.stock-nav').forEach(el=>el.classList.toggle('active',el.dataset.symbol===sym)); const pl=s.total_pl||0; document.getElementById('detail').innerHTML=`
  <div class="stock-hero"><div><div class="stock-title">${s.symbol}</div><div style="color:var(--muted)">${s.company}</div><div class="tags"><span>${s.role}</span><span>${s.group}</span></div></div><div class="metrics-row"><div class="mini-metric"><small>Opportunity</small><b>${Math.round(s.opportunity ?? s.leadership)}</b></div><div class="mini-metric"><small>Trend</small><b class="trend ${trendClass(s.trend)}">${trendIcon(s.trend)} ${s.trend}</b></div><div class="mini-metric"><small>Business Quality</small><b>${Math.round(s.business_quality ?? s.leadership)}</b></div><div class="mini-metric"><small>% Portfolio</small><b>${fmtPct(s.weight)}</b></div><div class="mini-metric"><small>Market Value</small><b>${fmtMoney(s.value)}</b></div></div><div class="actions"><button>Add Note</button><button>View Chart</button><button>Set Alert</button><div style="margin-top:12px"><small>Unrealized P/L</small><br><b class="${pl>=0?'positive':'negative'}">${pl>=0?'+':''}${fmtMoney(pl)}</b></div></div></div>
  <div class="tabs"><div class="tab active">Overview</div><div class="tab">Ladders</div><div class="tab">Analysis</div><div class="tab">Notes</div><div class="tab">Performance</div></div>

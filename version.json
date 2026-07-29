@@ -1,11 +1,11 @@
 {
   "product": "LadderIQ",
-  "version": "3.60.5",
-  "release_name": "Automatic Candidate Visibility",
+  "version": "3.60.6",
+  "release_name": "Candidate Ladder Completion",
   "release_date": "2026-07-28",
   "status": "Stable maintenance release",
   "versioning": "major.minor.patch",
   "date": "2026-07-22",
-  "feature": "Watchlist-independent broad-market candidate discovery with composite OPS, fundamentals, sector leadership, two-day confirmation, and one-sided ladders",
-  "release": "Automatic Candidate Visibility"
+  "feature": "Buy ladders for every automatically displayed non-owned Growth Candidate; emerging ladders remain preview-only until 2/2 confirmation",
+  "release": "Candidate Ladder Completion"
 }
