@@ -1,11 +1,5 @@
 {
-  "product": "LadderIQ",
-  "version": "3.60.6",
-  "release_name": "Candidate Ladder Completion",
-  "release_date": "2026-07-28",
-  "status": "Stable maintenance release",
-  "versioning": "major.minor.patch",
-  "date": "2026-07-22",
-  "feature": "Buy ladders for every automatically displayed non-owned Growth Candidate; emerging ladders remain preview-only until 2/2 confirmation",
-  "release": "Candidate Ladder Completion"
+  "version": "3.60.7",
+  "release": "Growth Candidate Insight Hover",
+  "date": "2026-07-28"
 }
