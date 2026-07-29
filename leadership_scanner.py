@@ -1,183 +1,248 @@
+"""LadderIQ v3.60 broad-market opportunity scanner.
+
+Discovers candidates from the investable U.S. market rather than a user
+watchlist. It applies liquidity, technical, business-quality, sector-leadership,
+risk and return-velocity rules, then emits a normalized 0-100 OPS.
+"""
+from __future__ import annotations
+
 import json
+import math
 from datetime import datetime
 from pathlib import Path
+from typing import Dict, Iterable
+import contextlib
+import io
+import logging
+import re
 
-def scalar(value):
+from market_universe import load_market_universe, normalize_yahoo_symbol
+
+MIN_PRICE = 10.0
+MIN_MARKET_CAP = 2_000_000_000
+MIN_DOLLAR_VOLUME = 50_000_000
+MIN_HISTORY = 220
+FUNDAMENTAL_REVIEW_COUNT = 125
+BATCH_SIZE = 75
+VALID_DOWNLOAD_SYMBOL = re.compile(r"^[A-Z]{1,6}(?:-[A-Z])?$")
+
+SECTOR_ETFS = {
+    "Technology": "XLK", "Healthcare": "XLV", "Financial Services": "XLF",
+    "Industrials": "XLI", "Consumer Cyclical": "XLY", "Consumer Defensive": "XLP",
+    "Energy": "XLE", "Utilities": "XLU", "Communication Services": "XLC",
+    "Basic Materials": "XLB", "Real Estate": "XLRE",
+}
+
+
+def scalar(value, default=0.0):
     try:
-        if hasattr(value, "squeeze"):
-            value = value.squeeze()
-        if hasattr(value, "item"):
-            return float(value.item())
+        if hasattr(value, "squeeze"): value = value.squeeze()
+        if hasattr(value, "item"): value = value.item()
         return float(value)
     except Exception:
-        try:
-            return float(value.values[0])
-        except Exception:
-            return float(value)
+        return float(default)
 
-def safe_pct(numerator, denominator):
+
+def pct_change(current, prior):
+    prior = scalar(prior)
+    return (scalar(current) / prior - 1.0) if prior else 0.0
+
+
+def clamp(value, low=0.0, high=100.0):
+    return max(low, min(high, float(value)))
+
+
+def load_holdings(root: Path) -> list[str]:
+    path = root / "portfolio_positions.json"
     try:
-        denominator = float(denominator)
-        if denominator == 0:
-            return 0.0
-        return float(numerator) / denominator
+        data = json.loads(path.read_text(encoding="utf-8"))
+        return [s.upper() for s, row in data.items() if scalar(row.get("shares")) >= 0.0005 and scalar(row.get("current_value")) >= 1]
     except Exception:
-        return 0.0
+        return []
 
-def download_close(ticker, period="1y"):
+
+def batch_history(symbols: list[str], period="1y"):
+    """Download price history quietly in validated batches.
+
+    Yahoo/yfinance can emit a full warning block for every invalid exchange
+    issue.  The universe is filtered first, and expected provider noise is
+    captured so the console receives one useful summary instead.
+    """
     import yfinance as yf
-    data = yf.download(ticker, period=period, interval="1d", auto_adjust=True, progress=False, threads=False)
-    if data is None or data.empty or "Close" not in data:
-        raise RuntimeError(f"No close data returned for {ticker}")
-    close = data["Close"]
-    if hasattr(close, "columns"):
-        close = close.iloc[:, 0]
-    return close.dropna()
 
-def classify_market_mode_from_state(state):
-    md = state.get("market_data", {})
+    clean_symbols = []
+    rejected = []
+    for raw in symbols:
+        symbol = normalize_yahoo_symbol(str(raw))
+        if symbol and VALID_DOWNLOAD_SYMBOL.fullmatch(symbol):
+            clean_symbols.append(symbol)
+        else:
+            rejected.append(str(raw))
+    clean_symbols = sorted(set(clean_symbols))
+
+    frames = {}
+    provider_failures = []
+    yf_logger = logging.getLogger("yfinance")
+    old_level = yf_logger.level
+    yf_logger.setLevel(logging.CRITICAL)
     try:
-        q = float(md.get("qqq_price", 0))
-        s50 = float(md.get("qqq_sma_50", 0))
-        s200 = float(md.get("qqq_sma_200", 0))
-        slope = float(md.get("qqq_sma_200_slope", 0))
-        if q > s200 * 1.05 and s50 > s200:
-            return "BULL"
-        if q < s200 and slope < 0:
-            return "BEAR"
-    except Exception:
-        pass
-    return "NEUTRAL"
+        for start in range(0, len(clean_symbols), BATCH_SIZE):
+            chunk = clean_symbols[start:start + BATCH_SIZE]
+            if not chunk:
+                continue
+            try:
+                with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
+                    data = yf.download(
+                        chunk, period=period, interval="1d", auto_adjust=True,
+                        progress=False, threads=True, group_by="ticker",
+                    )
+            except Exception:
+                provider_failures.extend(chunk)
+                continue
 
-def score_one(ticker, benchmark_close):
-    close = download_close(ticker)
-    if len(close) < 220:
-        raise RuntimeError(f"Not enough history for {ticker}; rows={len(close)}")
+            if len(chunk) == 1:
+                symbol = chunk[0]
+                try:
+                    frame = data.dropna(how="all")
+                    if not frame.empty:
+                        frames[symbol] = frame
+                    else:
+                        provider_failures.append(symbol)
+                except Exception:
+                    provider_failures.append(symbol)
+            else:
+                for symbol in chunk:
+                    try:
+                        frame = data[symbol].dropna(how="all")
+                        if not frame.empty:
+                            frames[symbol] = frame
+                        else:
+                            provider_failures.append(symbol)
+                    except Exception:
+                        provider_failures.append(symbol)
+    finally:
+        yf_logger.setLevel(old_level)
 
-    price = scalar(close.iloc[-1])
-    sma20 = scalar(close.rolling(20).mean().iloc[-1])
-    sma50 = scalar(close.rolling(50).mean().iloc[-1])
-    sma200 = scalar(close.rolling(200).mean().iloc[-1])
-
-    ret_1m = safe_pct(price - scalar(close.iloc[-21]), scalar(close.iloc[-21])) if len(close) >= 22 else 0
-    ret_3m = safe_pct(price - scalar(close.iloc[-63]), scalar(close.iloc[-63])) if len(close) >= 64 else 0
-    ret_6m = safe_pct(price - scalar(close.iloc[-126]), scalar(close.iloc[-126])) if len(close) >= 127 else 0
-
-    b_price = scalar(benchmark_close.iloc[-1])
-    b_ret_1m = safe_pct(b_price - scalar(benchmark_close.iloc[-21]), scalar(benchmark_close.iloc[-21])) if len(benchmark_close) >= 22 else 0
-    b_ret_3m = safe_pct(b_price - scalar(benchmark_close.iloc[-63]), scalar(benchmark_close.iloc[-63])) if len(benchmark_close) >= 64 else 0
-    b_ret_6m = safe_pct(b_price - scalar(benchmark_close.iloc[-126]), scalar(benchmark_close.iloc[-126])) if len(benchmark_close) >= 127 else 0
-
-    rel_1m = ret_1m - b_ret_1m
-    rel_3m = ret_3m - b_ret_3m
-    rel_6m = ret_6m - b_ret_6m
-
-    trend_score = 0
-    trend_score += 10 if price > sma20 else 0
-    trend_score += 15 if price > sma50 else 0
-    trend_score += 15 if price > sma200 else 0
-    trend_score += 10 if sma50 > sma200 else 0
-
-    relative_score = 0
-    relative_score += 10 if rel_1m > 0 else 0
-    relative_score += 15 if rel_3m > 0 else 0
-    relative_score += 15 if rel_6m > 0 else 0
-
-    momentum_score = 0
-    momentum_score += 5 if ret_1m > 0 else 0
-    momentum_score += 5 if ret_3m > 0 else 0
-    momentum_score += 5 if ret_6m > 0 else 0
-
-    leadership_score = min(100, trend_score + relative_score + momentum_score)
-
-    if leadership_score >= 90:
-        action = "ATTACK"
-    elif leadership_score >= 75:
-        action = "ACCUMULATE"
-    elif leadership_score >= 60:
-        action = "HOLD"
-    else:
-        action = "REPLACE_CANDIDATE"
-
-    return {
-        "symbol": ticker,
-        "leadership_score": round(leadership_score, 1),
-        "action": action,
-        "price": round(price, 2),
-        "sma20": round(sma20, 2),
-        "sma50": round(sma50, 2),
-        "sma200": round(sma200, 2),
-        "return_1m_pct": round(ret_1m * 100, 2),
-        "return_3m_pct": round(ret_3m * 100, 2),
-        "return_6m_pct": round(ret_6m * 100, 2),
-        "relative_1m_vs_qqq_pct": round(rel_1m * 100, 2),
-        "relative_3m_vs_qqq_pct": round(rel_3m * 100, 2),
-        "relative_6m_vs_qqq_pct": round(rel_6m * 100, 2),
-        "above_20dma": price > sma20,
-        "above_50dma": price > sma50,
-        "above_200dma": price > sma200,
-        "sma50_above_sma200": sma50 > sma200
+    diagnostics = {
+        "requested": len(clean_symbols),
+        "downloaded": len(frames),
+        "invalid_rejected_before_download": len(rejected),
+        "provider_failures": sorted(set(provider_failures)),
     }
+    return frames, diagnostics
+
+
+def technical_row(symbol: str, frame, benchmark_close) -> dict | None:
+    try:
+        close = frame["Close"].dropna()
+        volume = frame["Volume"].reindex(close.index).fillna(0)
+        if len(close) < MIN_HISTORY: return None
+        price = scalar(close.iloc[-1])
+        avg_volume = scalar(volume.tail(20).mean())
+        dollar_volume = price * avg_volume
+        if price < MIN_PRICE or dollar_volume < MIN_DOLLAR_VOLUME: return None
+        sma20 = scalar(close.rolling(20).mean().iloc[-1]); sma50 = scalar(close.rolling(50).mean().iloc[-1]); sma200 = scalar(close.rolling(200).mean().iloc[-1])
+        returns = {"1m": pct_change(price, close.iloc[-21]), "3m": pct_change(price, close.iloc[-63]), "6m": pct_change(price, close.iloc[-126])}
+        bprice = scalar(benchmark_close.iloc[-1])
+        breturns = {"1m": pct_change(bprice, benchmark_close.iloc[-21]), "3m": pct_change(bprice, benchmark_close.iloc[-63]), "6m": pct_change(bprice, benchmark_close.iloc[-126])}
+        trend = (10 if price>sma20 else 0)+(15 if price>sma50 else 0)+(15 if price>sma200 else 0)+(10 if sma50>sma200 else 0)
+        relative = (10 if returns["1m"]>breturns["1m"] else 0)+(15 if returns["3m"]>breturns["3m"] else 0)+(15 if returns["6m"]>breturns["6m"] else 0)
+        momentum = sum(5 for value in returns.values() if value > 0)
+        technical = min(100, trend+relative+momentum)
+        volatility = scalar(close.pct_change().tail(63).std()) * math.sqrt(252) * 100
+        downside = max(1.0, (price-sma200)/price*100 if price>sma200 else volatility/3)
+        expected_upside = clamp((returns["3m"]*100)*0.45 + (returns["6m"]*100)*0.30 + max(0,(price/sma50-1)*100)*0.25, 0, 60)
+        return {
+            "symbol": symbol, "price": round(price,2), "sma20": round(sma20,2), "sma50": round(sma50,2), "sma200": round(sma200,2),
+            "average_daily_dollar_volume": round(dollar_volume,2), "technical_score": round(technical,1), "leadership_score": round(technical,1),
+            "return_1m_pct": round(returns["1m"]*100,2), "return_3m_pct": round(returns["3m"]*100,2), "return_6m_pct": round(returns["6m"]*100,2),
+            "relative_1m_vs_qqq_pct": round((returns["1m"]-breturns["1m"])*100,2), "relative_3m_vs_qqq_pct": round((returns["3m"]-breturns["3m"])*100,2), "relative_6m_vs_qqq_pct": round((returns["6m"]-breturns["6m"])*100,2),
+            "above_20dma": price>sma20, "above_50dma": price>sma50, "above_200dma": price>sma200, "sma50_above_sma200": sma50>sma200,
+            "annualized_volatility_pct": round(volatility,2), "expected_upside_pct": round(expected_upside,2), "expected_downside_pct": round(downside,2),
+            "reward_to_risk": round(expected_upside/downside if downside else 0,2), "return_velocity": round(expected_upside/90.0,4),
+        }
+    except Exception:
+        return None
+
+
+def business_quality(symbol: str) -> dict:
+    import yfinance as yf
+    info = {}
+    try: info = yf.Ticker(symbol).get_info() or {}
+    except Exception: pass
+    market_cap = scalar(info.get("marketCap"))
+    revenue_growth = scalar(info.get("revenueGrowth"))*100
+    earnings_growth = scalar(info.get("earningsGrowth"))*100
+    fcf = scalar(info.get("freeCashflow")); operating_margin = scalar(info.get("operatingMargins"))*100
+    roe = scalar(info.get("returnOnEquity"))*100; debt = scalar(info.get("totalDebt")); cash = scalar(info.get("totalCash"))
+    score = 50.0
+    score += clamp(revenue_growth, -20, 30)*0.45
+    score += clamp(earnings_growth, -30, 40)*0.30
+    score += 8 if fcf > 0 else -10
+    score += clamp(operating_margin, -10, 30)*0.30
+    score += clamp(roe, -20, 35)*0.15
+    if debt > 0: score += clamp((cash/debt)-0.5, -0.5, 1.5)*8
+    elif cash > 0: score += 6
+    score = clamp(score)
+    return {"business_quality": round(score,1), "market_cap": market_cap, "sector": info.get("sector") or "Unknown", "industry": info.get("industry") or "Unknown", "company": info.get("shortName") or info.get("longName") or symbol,
+            "revenue_growth_pct": round(revenue_growth,2), "earnings_growth_pct": round(earnings_growth,2), "free_cash_flow": fcf, "operating_margin_pct": round(operating_margin,2), "return_on_equity_pct": round(roe,2),
+            "fundamental_disqualification": bool(market_cap and market_cap < MIN_MARKET_CAP)}
+
+
+def sector_scores(frames, benchmark_close) -> Dict[str,float]:
+    scores = {}
+    for sector, ticker in SECTOR_ETFS.items():
+        row = technical_row(ticker, frames.get(ticker), benchmark_close) if frames.get(ticker) is not None else None
+        scores[sector] = row["technical_score"] if row else 50.0
+    return scores
+
 
 def main():
-    base = Path(".")
-    watchlist = json.loads((base / "watchlist.json").read_text(encoding="utf-8"))
-    state = json.loads((base / "portfolio_state.json").read_text(encoding="utf-8")) if (base / "portfolio_state.json").exists() else {}
+    root = Path(__file__).resolve().parent
+    holdings = load_holdings(root)
+    universe, universe_source, universe_filter_stats = load_market_universe(root, holdings)
+    import yfinance as yf
+    benchmark_data = yf.download("QQQ", period="1y", interval="1d", auto_adjust=True, progress=False, threads=False)
+    benchmark_close = benchmark_data["Close"]
+    if hasattr(benchmark_close,"columns"): benchmark_close=benchmark_close.iloc[:,0]
+    benchmark_close=benchmark_close.dropna()
+    scan_symbols = sorted(set(universe) | set(SECTOR_ETFS.values()))
+    frames, download_diagnostics = batch_history(scan_symbols)
+    technical = []
+    for symbol in universe:
+        row = technical_row(symbol, frames.get(symbol), benchmark_close) if frames.get(symbol) is not None else None
+        if row: technical.append(row)
+    technical.sort(key=lambda r:(r["technical_score"],r["reward_to_risk"],r["average_daily_dollar_volume"]), reverse=True)
+    sectors = sector_scores(frames, benchmark_close)
+    reviewed = {r["symbol"] for r in technical[:FUNDAMENTAL_REVIEW_COUNT]} | set(holdings)
+    results=[]; errors=[]
+    for row in technical:
+        if row["symbol"] in reviewed:
+            try: row.update(business_quality(row["symbol"]))
+            except Exception as exc: errors.append({"symbol":row["symbol"],"error":str(exc)})
+        else:
+            row.update({"business_quality":50.0,"market_cap":0,"sector":"Unknown","industry":"Unknown","company":row["symbol"],"fundamental_disqualification":False})
+        sector_score = sectors.get(row.get("sector"),50.0)
+        risk_score = clamp(100-row["annualized_volatility_pct"])
+        composite = .45*row["technical_score"] + .30*row["business_quality"] + .15*sector_score + .10*clamp(row["reward_to_risk"]*25)
+        eligible = (row["price"]>=MIN_PRICE and row["average_daily_dollar_volume"]>=MIN_DOLLAR_VOLUME and (row["market_cap"]==0 or row["market_cap"]>=MIN_MARKET_CAP) and row["business_quality"]>=70 and not row["fundamental_disqualification"])
+        # 100 OPS is a qualification tier, not simple arithmetic saturation.
+        display_ops = 100.0 if eligible and composite>=82 and row["technical_score"]>=90 and row["reward_to_risk"]>=1.0 else round(clamp(composite),1)
+        row.update({"sector_leadership_score":round(sector_score,1),"risk_score":round(risk_score,1),"composite_score":round(composite,1),"leadership_score":display_ops,"candidate_eligible":eligible,
+                    "qualified_100_raw":display_ops>=100,"action":"ATTACK" if display_ops>=90 else "ACCUMULATE" if display_ops>=75 else "HOLD" if display_ops>=60 else "REPLACE_CANDIDATE"})
+        results.append(row)
+    results.sort(key=lambda r:(r["leadership_score"],r["return_velocity"],r["reward_to_risk"],r["business_quality"]),reverse=True)
+    owned=set(holdings)
+    payload={"as_of":datetime.now().strftime("%Y-%m-%d %H:%M:%S"),"market_session_date":str(benchmark_close.index[-1].date()),"source":"yfinance + Nasdaq Trader","universe_source":universe_source,"universe_count":len(universe),"universe_filter_stats":universe_filter_stats,"download_diagnostics":download_diagnostics,"eligible_technical_count":len(technical),"benchmark":"QQQ","market_mode":"BULL" if scalar(benchmark_close.iloc[-1])>scalar(benchmark_close.rolling(200).mean().iloc[-1])*1.05 and scalar(benchmark_close.rolling(50).mean().iloc[-1])>scalar(benchmark_close.rolling(200).mean().iloc[-1]) else "BEAR" if scalar(benchmark_close.iloc[-1])<scalar(benchmark_close.rolling(200).mean().iloc[-1]) else "NEUTRAL",
+             "sector_leadership":sectors,"current_leaders":[r for r in results if r["symbol"] in owned],"emerging_leaders":[r for r in results if r["symbol"] not in owned and r["candidate_eligible"]][:50],"weakening_leaders":[r for r in results if r["symbol"] in owned and r["leadership_score"]<70],"scores":results,"errors":errors,
+             "rules":{"candidate_discovery":"automatic broad-market discovery; watchlist membership is ignored","candidate_qualification":"non-owned, eligible, business quality >=70, technical >=90, composite >=82, reward/risk >=1","confirmation":"two distinct market sessions; immediate severe-risk override"}}
+    (root/"leadership_scores.json").write_text(json.dumps(payload,indent=2),encoding="utf-8")
+    print(f"Generated leadership_scores.json from {len(universe):,} valid common-stock symbols; {len(technical):,} passed price/liquidity/history screens.")
+    removed = sum(int(universe_filter_stats.get(k, 0)) for k in ("test_issues_removed", "etfs_removed", "non_common_removed", "invalid_symbols_removed"))
+    failures = len(download_diagnostics.get("provider_failures") or [])
+    print(f"Universe hygiene: {removed:,} non-common/invalid issues excluded before download; {failures:,} provider symbols returned no usable history.")
+    print("Top automatically discovered opportunities:")
+    for row in payload["emerging_leaders"][:10]: print(f"  {row['symbol']}: OPS {row['leadership_score']:.0f} | {row['sector']} | BQ {row['business_quality']:.0f}")
+    if errors: print(f"Fundamental lookup warnings: {len(errors)}")
 
-    benchmark = watchlist.get("benchmark", "QQQ")
-    tickers = []
-    for key in ["current_holdings", "watch_candidates"]:
-        for symbol in watchlist.get(key, []):
-            if symbol not in tickers:
-                tickers.append(symbol)
-
-    benchmark_close = download_close(benchmark)
-
-    results = []
-    errors = []
-    for ticker in tickers:
-        try:
-            results.append(score_one(ticker, benchmark_close))
-        except Exception as exc:
-            errors.append({"symbol": ticker, "error": str(exc)})
-
-    results = sorted(results, key=lambda x: x["leadership_score"], reverse=True)
-    current_set = set(watchlist.get("current_holdings", []))
-    current_scored = [r for r in results if r["symbol"] in current_set]
-    watch_scored = [r for r in results if r["symbol"] not in current_set]
-
-    market_session_date = str(getattr(benchmark_close.index[-1], "date", lambda: benchmark_close.index[-1])())
-    payload = {
-        "as_of": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-        "market_session_date": market_session_date,
-        "source": "yfinance",
-        "benchmark": benchmark,
-        "market_mode": classify_market_mode_from_state(state),
-        "current_leaders": current_scored[:6],
-        "emerging_leaders": watch_scored[:8],
-        "weakening_leaders": [r for r in current_scored if r["leadership_score"] < 70],
-        "scores": results,
-        "errors": errors,
-        "rotation_guidance": {
-            "promote_if": "non-owned candidate reaches 100 OPS for two consecutive market sessions",
-            "demote_if": "confirmed score changes after two consecutive market sessions; severe risk deterioration overrides immediately",
-            "bear_market_rule": "In BEAR mode, prioritize relative strength and preserve cash; do not add weak current holdings just because they are down."
-        }
-    }
-
-    (base / "leadership_scores.json").write_text(json.dumps(payload, indent=2), encoding="utf-8")
-
-    print("Generated leadership_scores.json")
-    print("Top Current Leaders:")
-    for r in payload["current_leaders"][:5]:
-        print(f"  {r['symbol']}: {r['leadership_score']} / {r['action']}")
-    print("Top Emerging Leaders:")
-    for r in payload["emerging_leaders"][:5]:
-        print(f"  {r['symbol']}: {r['leadership_score']} / {r['action']}")
-    if errors:
-        print("Errors:")
-        for e in errors:
-            print(f"  {e['symbol']}: {e['error']}")
-
-if __name__ == "__main__":
-    main()
+if __name__ == "__main__": main()

@@ -76,10 +76,10 @@
       "last_position_file": "Portfolio_Positions_Jul-28-2026.csv"
     },
     "DELL": {
-      "state": "active_candidate",
-      "quantity": 0.0,
-      "market_value": 0.0,
-      "last_position_file": "Portfolio_Positions_Jul-27-2026.csv"
+      "state": "owned",
+      "quantity": 0.25,
+      "market_value": 98.02,
+      "last_position_file": "Portfolio_Positions_Jul-28-2026.csv"
     },
     "AVGO": {
       "state": "active_candidate",
@@ -94,5 +94,5 @@
       "last_position_file": "Portfolio_Positions_Jul-27-2026 (1).csv"
     }
   },
-  "last_updated": "2026-07-28 18:23:30"
+  "last_updated": "2026-07-28 21:47:29"
 }

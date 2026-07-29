@@ -236,3 +236,8 @@
 - Added explicit `has_active_position` and `position_status` fields to generated stock data.
 - Replaced empty sell-ladder rows with a clear "Position Closed" message.
 - Applied the same logic to both `build_ladder.py` and `generate_ladder.py`.
+
+### 3.60.1
+- Broad-market scanner replaces watchlist-driven candidate discovery.
+- Composite opportunity scoring and automatic cross-sector candidate population.
+- Volatility-adjusted entry ladders and ranked candidate budgets.

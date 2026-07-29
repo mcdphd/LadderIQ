@@ -147,7 +147,8 @@
     "bear_market_focus": "In Bear Mode, prioritize names that fall less than QQQ and recover faster. Do not average down weak leaders blindly.",
     "v43_rule": "Separate Approved Universe from Active Holdings. Generate ladders only for Active Holdings, plus manually approved active allocation candidates. Watch candidates are scanner-only.",
     "active_holdings_rule": "Tomorrow ladders are generated only for active holdings with quantity/value or explicitly approved active allocation candidates. META remains excluded unless manually reactivated.",
-    "v360_rule": "Scan a broad, liquid cross-sector universe. Section 5 shows confirmed 100-OPS non-owned names. Score changes confirm after two trading days, with immediate severe-risk override."
+    "v360_rule": "Scan a broad, liquid cross-sector universe. Section 5 shows confirmed 100-OPS non-owned names. Score changes confirm after two trading days, with immediate severe-risk override.",
+    "v3601_rule": "watchlist.json no longer drives candidate discovery, qualification, ranking, or Growth Candidates. It is retained only for compatibility and optional personal reference."
   },
   "version": "V3.60 Intelligent Opportunity Engine",
   "active_holdings": [
@@ -300,5 +301,6 @@
       "AMT",
       "EQIX"
     ]
-  }
+  },
+  "deprecated_for_candidate_discovery": true
 }

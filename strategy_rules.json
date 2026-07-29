@@ -1,0 +1,61 @@
+{
+  "version": "3.60.1",
+  "annual_roi_target_pct": 100,
+  "confirmation_days": 2,
+  "universe": {
+    "source": "Nasdaq Trader U.S.-listed common stocks",
+    "watchlist_independent": true,
+    "min_price": 10,
+    "min_market_cap": 2000000000,
+    "min_average_daily_dollar_volume": 50000000,
+    "min_history_sessions": 220
+  },
+  "composite_ops_weights": {
+    "technical": 0.45,
+    "business_quality": 0.3,
+    "sector_leadership": 0.15,
+    "risk_adjusted_return": 0.1
+  },
+  "qualified_100_tier": {
+    "composite_min": 82,
+    "technical_min": 90,
+    "business_quality_min": 70,
+    "reward_to_risk_min": 1.0,
+    "fundamental_disqualification": false
+  },
+  "candidate_rules": {
+    "non_owned": true,
+    "two_day_confirmation": true,
+    "display_all_confirmed_100": true,
+    "buy_ladder_only": true
+  },
+  "owned_rules": {
+    "sell_or_management_ladder_only": true,
+    "states": [
+      "Defensive",
+      "Recovery",
+      "Harvest",
+      "Hold"
+    ]
+  },
+  "cash": {
+    "reserve_pct": 15,
+    "max_new_candidate_pct_of_deployable": 25
+  },
+  "buy_ladder": {
+    "capital_splits": [
+      0.5,
+      0.3,
+      0.2
+    ],
+    "volatility_adjusted": true
+  },
+  "sell_ladder": {
+    "share_splits": [
+      0.4,
+      0.35,
+      0.25
+    ],
+    "state_driven": true
+  }
+}

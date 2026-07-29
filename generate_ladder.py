@@ -116,10 +116,9 @@ scores=read_scores()
 score_payload = json.load(open(ROOT/'leadership_scores.json', encoding='utf-8')) if (ROOT/'leadership_scores.json').exists() else {}
 confirmation = confirm_opportunities(scores, ROOT, score_payload.get('market_session_date') or score_payload.get('as_of'))
 
-# Opportunity universe used only to populate Section 5: Growth Candidates.
-# Sections 1–4 remain fixed and are not reclassified by this logic.
-WATCHLIST_PATH = ROOT / 'watchlist.json'
-watchlist_data = json.load(open(WATCHLIST_PATH, encoding='utf-8')) if WATCHLIST_PATH.exists() else {}
+# Growth Candidates are discovered automatically by leadership_scanner.py from
+# the broad U.S. market. watchlist.json is retained only for backward
+# compatibility and has no role in candidate discovery or ranking.
 GROWTH_CANDIDATE_MIN_SCORE = 100
 
 # Position Lifecycle Manager
@@ -176,11 +175,11 @@ def base_stock(sym, group, rank, role, status, target, subtitle=''):
     if sym in ['AMZN','META']: trend='Down'
     if sym=='NVDA': trend='Lateral'
     rotation={'TSM':88,'PANW':83,'ANET':74,'NVDA':38,'AMZN':32,'ASML':98,'CRWD':92,'AMD':88,'SPCX':56,'ARM':52}.get(sym, int(max(0, leadership-20)))
-    company={'TSM':'Taiwan Semiconductor Manufacturing Co.','PANW':'Palo Alto Networks','ANET':'Arista Networks','NVDA':'NVIDIA Corporation','AMZN':'Amazon.com','ASML':'ASML Holding','CRWD':'CrowdStrike Holdings','AMD':'Advanced Micro Devices','SPCX':'Space Exploration Tech','META':'Meta Platforms','ARM':'Arm Holdings','SNOW':'Snowflake','DELL':'Dell Technologies','PLTR':'Palantir Technologies','VRT':'Vertiv Holdings','AVGO':'Broadcom','MSFT':'Microsoft','GOOGL':'Alphabet','ORCL':'Oracle','NOW':'ServiceNow','SMCI':'Super Micro Computer'}.get(sym, p.get('company',sym))
-    business_quality={'ASML':100,'TSM':99,'NVDA':98,'PANW':97,'CRWD':96,'ANET':95,'AMD':91,'AMZN':88,'SPCX':72,'ARM':83}.get(sym, max(50, leadership))
+    company=s.get('company') or {'TSM':'Taiwan Semiconductor Manufacturing Co.','PANW':'Palo Alto Networks','ANET':'Arista Networks','NVDA':'NVIDIA Corporation','AMZN':'Amazon.com','ASML':'ASML Holding','CRWD':'CrowdStrike Holdings','AMD':'Advanced Micro Devices','SPCX':'Space Exploration Tech','META':'Meta Platforms','ARM':'Arm Holdings','SNOW':'Snowflake','DELL':'Dell Technologies','PLTR':'Palantir Technologies','VRT':'Vertiv Holdings','AVGO':'Broadcom','MSFT':'Microsoft','GOOGL':'Alphabet','ORCL':'Oracle','NOW':'ServiceNow','SMCI':'Super Micro Computer'}.get(sym, p.get('company',sym))
+    business_quality=float(s.get('business_quality', {'ASML':100,'TSM':99,'NVDA':98,'PANW':97,'CRWD':96,'ANET':95,'AMD':91,'AMZN':88,'SPCX':72,'ARM':83}.get(sym, max(50, leadership))))
     score_reason={'NVDA':'World-class AI company, but overweight and in harvest mode; new capital priority remains low.', 'AMZN':'Quality business, but currently a rotation/exit candidate.', 'TSM':'Strategic AI infrastructure leader with active accumulation priority.', 'ASML':'Strategic semiconductor monopoly-style asset and approved growth engine.', 'ANET':'AI networking leader with current leadership confirmation.', 'PANW':'Cybersecurity leader and current capital deployment candidate.', 'CRWD':'Cybersecurity growth leader and current capital deployment candidate.', 'AMD':'AI/datacenter challenger; active growth-engine candidate.', 'SPCX':'Special situation; governed by separate risk rules.', 'ARM':'Growth candidate with a qualifying opportunity score; no active ladder until approval.'}.get(sym, 'Opportunity score controls where the next dollar goes today; business quality is tracked separately.')
     own_reason={'SPCX':'Special Situation','ARM':'Growth Candidate'}.get(sym, 'LadderIQ Selected')
-    return {**p, 'symbol':sym, 'company':company, 'group':group, 'rank':rank, 'role':role, 'status':status, 'target':target, 'subtitle':subtitle, 'price':price, 'quantity':qty, 'value':value, 'leadership':leadership, 'opportunity':confirmed_opportunity, 'raw_opportunity':leadership, 'confirmation_days':int(confirm_meta.get('streak',1)), 'qualified_100':bool(confirm_meta.get('qualified_100')), 'immediate_risk_override':bool(confirm_meta.get('immediate_risk_override')), 'score_data':s, 'business_quality':business_quality, 'score_reason':score_reason, 'own_reason':own_reason, 'trend':trend, 'rotation':rotation, 'avg_cost':p.get('avg_cost',0), 'weight':p.get('weight',0), 'total_pl':p.get('total_pl',0), 'total_pl_pct':p.get('total_pl_pct',0), 'today_pl':p.get('today_pl',0), 'today_pl_pct':p.get('today_pl_pct',0)}
+    return {**p, 'symbol':sym, 'company':company, 'sector':s.get('sector','Unknown'), 'industry':s.get('industry','Unknown'), 'expected_upside_pct':float(s.get('expected_upside_pct') or 0), 'reward_to_risk':float(s.get('reward_to_risk') or 0), 'return_velocity':float(s.get('return_velocity') or 0), 'sector_leadership_score':float(s.get('sector_leadership_score') or 50), 'composite_score':float(s.get('composite_score') or leadership), 'candidate_eligible':bool(s.get('candidate_eligible', False)), 'group':group, 'rank':rank, 'role':role, 'status':status, 'target':target, 'subtitle':subtitle, 'price':price, 'quantity':qty, 'value':value, 'leadership':leadership, 'opportunity':confirmed_opportunity, 'raw_opportunity':leadership, 'confirmation_days':int(confirm_meta.get('streak',1)), 'qualified_100':bool(confirm_meta.get('qualified_100')), 'immediate_risk_override':bool(confirm_meta.get('immediate_risk_override')), 'score_data':s, 'business_quality':business_quality, 'score_reason':score_reason, 'own_reason':own_reason, 'trend':trend, 'rotation':rotation, 'avg_cost':p.get('avg_cost',0), 'weight':p.get('weight',0), 'total_pl':p.get('total_pl',0), 'total_pl_pct':p.get('total_pl_pct',0), 'today_pl':p.get('today_pl',0), 'today_pl_pct':p.get('today_pl_pct',0)}
 
 stocks=[
  base_stock('TSM','Core Compounders',1,'P1 Leader','Accumulate','40–50%','Best-in-class leader'),
@@ -194,19 +193,31 @@ stocks=[
  base_stock('SPCX','Special Situations',1,'Special','Hold','5–10%','Strategic special situation'),
 ]
 
-# Section 5 is generated fresh on every run from the opportunity universe.
-# Show every non-owned watch candidate meeting the minimum score.
+# Section 5 is generated fresh from every broad-market symbol that passed the
+# scanner's eligibility, quality and 100-OPS tier. Personal watchlist membership
+# is deliberately ignored.
 owned_symbols = {sym for sym, pos in positions.items() if float(pos.get('quantity') or 0) >= 0.0005 and float(pos.get('value') or 0) >= 1.00}
-excluded_symbols = set(watchlist_data.get('exclude_unless_manually_reactivated', []) or [])
 candidate_symbols = []
-for sym in watchlist_data.get('watch_candidates', []) or []:
-    score = float((scores.get(sym) or {}).get('leadership_score') or 0)
+for sym, row in scores.items():
+    raw_score = float(row.get('leadership_score') or 0)
     meta = confirmation.get(sym, {})
-    if sym not in owned_symbols and sym not in excluded_symbols and bool(meta.get('qualified_100')) and score >= GROWTH_CANDIDATE_MIN_SCORE:
+    if sym not in owned_symbols and bool(row.get('candidate_eligible', False)) and bool(meta.get('qualified_100')) and raw_score >= GROWTH_CANDIDATE_MIN_SCORE:
         candidate_symbols.append(sym)
-candidate_symbols.sort(key=lambda sym: (-float((scores.get(sym) or {}).get('leadership_score') or 0), sym))
+candidate_symbols.sort(key=lambda sym: (
+    -float((scores.get(sym) or {}).get('leadership_score') or 0),
+    -float((scores.get(sym) or {}).get('return_velocity') or 0),
+    -float((scores.get(sym) or {}).get('reward_to_risk') or 0),
+    -float((scores.get(sym) or {}).get('business_quality') or 0),
+    sym,
+))
 for candidate_rank, sym in enumerate(candidate_symbols, start=1):
-    stocks.append(base_stock(sym,'Growth Candidates',candidate_rank,'Growth Candidate','Candidate','0–10%','Qualified opportunity-universe candidate'))
+    stocks.append(base_stock(sym,'Growth Candidates',candidate_rank,'Growth Candidate','Candidate','0–10%','Automatically discovered broad-market 100-OPS candidate'))
+
+# Ensure every brokerage holding is managed even when it was not part of the
+# historical fixed portfolio architecture.
+existing_symbols = {s['symbol'] for s in stocks}
+for sym in sorted(owned_symbols - existing_symbols):
+    stocks.append(base_stock(sym,'Tactical Compounders',99,'Owned Position','Manage','Dynamic','Imported holding; automatically included for management'))
 
 # Active holdings drive management ladders; qualified non-owned names can remain visible as growth candidates. META removed in V43.
 position_sum=sum(p['value'] for p in positions.values())
@@ -1627,10 +1638,14 @@ def lifecycle_visible(stock):
 def buy_levels(sym, price):
     if price<=0: return []
     if sym=='SPCX':
-        return [('Buy Zone 1', round(price*.97), 'Add only on weakness'),('Buy Zone 2', round(price*.92), 'Strong add zone'),('Review Add', round(price*.85), 'Manual review')]
-    if sym in ['ASML','CRWD','AMD']:
-        return [('Seed Add', round(price*.985), 'Small incubator add'),('Add On', round(price*.965), 'Pullback add'),('Final Add', round(price*.93), 'Only if thesis intact')]
-    return [('First Entry', round(price*.985), 'Limit buy'),('Add On', round(price*.965), 'Limit buy'),('Final Add', round(price*.945), 'Limit buy')]
+        return [('Buy Zone 1', round(price*.97,2), 'Add only on weakness'),('Buy Zone 2', round(price*.92,2), 'Strong add zone'),('Review Add', round(price*.85,2), 'Manual review')]
+    # BR-078: widen or tighten the entry ladder using observed annualized
+    # volatility. Stable stocks use the baseline 1.5/3.5/5.5% pullbacks;
+    # highly volatile names receive wider rungs, capped to preserve usability.
+    volatility=float((scores.get(sym) or {}).get('annualized_volatility_pct') or 30)
+    vol_factor=max(.80,min(1.80,volatility/35.0))
+    gaps=[.015*vol_factor,.035*vol_factor,.055*vol_factor]
+    return [('First Entry', round(price*(1-gaps[0]),2), 'Volatility-adjusted initial entry'),('Add On', round(price*(1-gaps[1]),2), 'Volatility-adjusted pullback add'),('Final Add', round(price*(1-gaps[2]),2), 'Final add only if thesis remains intact')]
 
 def target_weight_for_score(sym, score, group):
     """Return the current target portfolio weight as a decimal.
@@ -1716,12 +1731,30 @@ def sell_levels(sym, price, qty, avg, position_value=0, opportunity_score=0, por
     splits=(.40,.35,.25)
     return [(state+' '+str(i+1),round(price*multipliers[i],2),round(current_qty*splits[i],3),notes[i]) for i in range(3)]
 
-confirmed_candidate_count=max(1, len(candidate_symbols))
+confirmed_candidate_count=len(candidate_symbols)
+# BR-068/069: allocate the candidate pool by rank, confidence, return velocity
+# and sector concentration instead of equal division. The complete candidate
+# pool is capped at 85% of deployable cash and each name remains capped at 25%.
+sector_weights={}
+for held_sym, pos in positions.items():
+    sector=(scores.get(held_sym) or {}).get('sector','Unknown')
+    sector_weights[sector]=sector_weights.get(sector,0)+float(pos.get('weight') or 0)
+_candidate_strength={}
+for sym in candidate_symbols:
+    row=scores.get(sym) or {}
+    base=max(.01,float(row.get('return_velocity') or 0))*max(.25,float(row.get('reward_to_risk') or 0))*max(.50,float(row.get('business_quality') or 50)/100)
+    concentration=max(0.35,1-min(0.65,sector_weights.get(row.get('sector','Unknown'),0)/100))
+    _candidate_strength[sym]=base*concentration
+_candidate_strength_total=sum(_candidate_strength.values())
+
 def budget_for(sym, is_owned=False, group=''):
     if is_owned:
         return 0.0
     if group == 'Growth Candidates':
-        return recommended_candidate_budget(deployable, confirmed_candidate_count)
+        if not confirmed_candidate_count or _candidate_strength_total<=0:
+            return 0.0
+        proportional=deployable*.85*(_candidate_strength.get(sym,0)/_candidate_strength_total)
+        return min(proportional,deployable*.25)
     weights={'TSM':.22,'PANW':.20,'ANET':.16,'ASML':.12,'CRWD':.10,'AMD':.10,'SPCX':.05}
     return deployable*weights.get(sym,0)
 

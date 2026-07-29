@@ -992,10 +992,10 @@
       "ffa15a8050c7e747"
     ],
     "last_csv_imported": "Accounts_History (7).csv",
-    "last_import_trade_count": 13
+    "last_import_trade_count": 0
   },
   "positions_last_imported_from": ".\\Portfolio_Positions_Jul-28-2026.csv",
-  "positions_last_imported_at": "2026-07-28 18:23:15",
+  "positions_last_imported_at": "2026-07-28 21:45:57",
   "effective_cash": 131.78,
   "priority_framework": {
     "version": "V15 Locked Framework",
