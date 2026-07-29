@@ -512,7 +512,7 @@ def main() -> int:
         row.update({
             "sector_leadership_score": round(sector_score, 1), "risk_score": round(risk_score, 1),
             "composite_score": round(composite, 1), "leadership_score": display_ops,
-            "candidate_eligible": eligible, "qualified_100_raw": display_ops >= 100,
+            "candidate_eligible": eligible, "qualified_candidate_raw": display_ops >= 95, "qualified_100_raw": display_ops >= 100,
             "action": "ATTACK" if display_ops >= 90 else "ACCUMULATE" if display_ops >= 75
             else "HOLD" if display_ops >= 60 else "REPLACE_CANDIDATE",
         })
@@ -553,7 +553,7 @@ def main() -> int:
         "errors": errors,
         "rules": {
             "candidate_discovery": "automatic broad-market discovery; watchlist membership is ignored",
-            "candidate_qualification": "non-owned, verified quality >=70, technical >=90, composite >=82, reward/risk >=1",
+            "candidate_qualification": "non-owned, eligible and OPS >=95; OPS 90-94 is shown as emerging; exact 100 remains elite",
             "confirmation": "two distinct market sessions; immediate severe-risk override",
         },
     }

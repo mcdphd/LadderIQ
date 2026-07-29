@@ -92,7 +92,139 @@
       "quantity": 0.0,
       "market_value": 0.0,
       "last_position_file": "Portfolio_Positions_Jul-27-2026 (1).csv"
+    },
+    "CORT": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Jul-28-2026.csv"
+    },
+    "DVA": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Jul-28-2026.csv"
+    },
+    "OSCR": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Jul-28-2026.csv"
+    },
+    "NTAP": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Jul-28-2026.csv"
+    },
+    "FIVN": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Jul-28-2026.csv"
+    },
+    "CHEF": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Jul-28-2026.csv"
+    },
+    "NTNX": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Jul-28-2026.csv"
+    },
+    "CVS": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Jul-28-2026.csv"
+    },
+    "NBIX": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Jul-28-2026.csv"
+    },
+    "DOC": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Jul-28-2026.csv"
+    },
+    "GEN": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Jul-28-2026.csv"
+    },
+    "LLY": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Jul-28-2026.csv"
+    },
+    "HALO": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Jul-28-2026.csv"
+    },
+    "IOT": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Jul-28-2026.csv"
+    },
+    "HEI": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Jul-28-2026.csv"
+    },
+    "HQY": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Jul-28-2026.csv"
+    },
+    "MMM": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Jul-28-2026.csv"
+    },
+    "GE": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Jul-28-2026.csv"
+    },
+    "GD": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Jul-28-2026.csv"
+    },
+    "V": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Jul-28-2026.csv"
+    },
+    "KMB": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Jul-28-2026.csv"
+    },
+    "LOGI": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Jul-28-2026.csv"
     }
   },
-  "last_updated": "2026-07-28 22:22:39"
+  "last_updated": "2026-07-28 22:30:21"
 }

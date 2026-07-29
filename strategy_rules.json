@@ -1,5 +1,5 @@
 {
-  "version": "3.60.1",
+  "version": "3.60.5",
   "annual_roi_target_pct": 100,
   "confirmation_days": 2,
   "universe": {
@@ -25,9 +25,13 @@
   },
   "candidate_rules": {
     "non_owned": true,
+    "confirmed_threshold": 95,
+    "elite_threshold": 100,
+    "emerging_threshold": 90,
     "two_day_confirmation": true,
-    "display_all_confirmed_100": true,
-    "buy_ladder_only": true
+    "display_confirmed_and_emerging": true,
+    "buy_ladder_only_after_confirmation": true,
+    "watchlist_independent": true
   },
   "owned_rules": {
     "sell_or_management_ladder_only": true,

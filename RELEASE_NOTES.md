@@ -25,3 +25,7 @@
 - Added volatility-adjusted buy-ladder spacing and ranked candidate capital allocation.
 - Added automatic management coverage for brokerage holdings outside the historical fixed groups.
 - Added `strategy_rules.json` for auditable runtime thresholds.
+
+
+## 3.60.5 — Automatic Candidate Visibility
+Removed the obsolete Watch List UI, added automatic confirmed/emerging Growth Candidates, practical 95+ confirmation threshold, 90–94 emerging tier, scan diagnostics, and consistent version display.

@@ -1,4 +1,4 @@
-"""LadderIQ v3.60 strategy engine.
+"""LadderIQ v3.60.5 strategy engine.
 
 Centralizes the broad-market opportunity confirmation, position-state logic,
 ROI pacing, and recommendation-to-ladder controls.
@@ -12,7 +12,7 @@ from typing import Dict, Iterable, List, Mapping, MutableMapping
 
 ANNUAL_ROI_TARGET = 1.00
 CONFIRMATION_DAYS = 2
-OPPORTUNITY_THRESHOLD = 100.0
+OPPORTUNITY_THRESHOLD = 95.0
 IMMEDIATE_RISK_SCORE = 45.0
 STATE_FILE = "opportunity_confirmation_state.json"
 
@@ -75,7 +75,8 @@ def confirm_opportunities(
             "confirmed_score": confirmed,
             "streak": streak,
             "last_observed": day,
-            "qualified_100": qualified,
+            "qualified_candidate": qualified,
+            "qualified_100": confirmed >= 100 and streak >= CONFIRMATION_DAYS,
             "immediate_risk_override": immediate_risk,
         }
         result[symbol] = dict(symbols[symbol])
@@ -84,6 +85,7 @@ def confirm_opportunities(
         "version": "1.0",
         "confirmation_days": CONFIRMATION_DAYS,
         "threshold": threshold,
+        "elite_threshold": 100.0,
         "last_updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "migration_bootstrap_used": first_migration,
     })

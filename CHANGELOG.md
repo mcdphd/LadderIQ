@@ -241,3 +241,7 @@
 - Broad-market scanner replaces watchlist-driven candidate discovery.
 - Composite opportunity scoring and automatic cross-sector candidate population.
 - Volatility-adjusted entry ladders and ranked candidate budgets.
+
+
+## 3.60.5 — Automatic Candidate Visibility
+Removed the obsolete Watch List UI, added automatic confirmed/emerging Growth Candidates, practical 95+ confirmation threshold, 90–94 emerging tier, scan diagnostics, and consistent version display.
