@@ -1,0 +1,25 @@
+{
+  "version": "1.0",
+  "capital_efficiency": {
+    "weights": {
+      "pullback_quality": 25,
+      "long_term_conviction": 20,
+      "technical_structure": 15,
+      "risk_reward": 15,
+      "trend_strength": 10,
+      "portfolio_weight": 5,
+      "earnings_risk": 5,
+      "cash_available": 5
+    },
+    "score_bands": {
+      "95-100": "Strong Buy",
+      "90-94": "Buy",
+      "85-89": "Buy if cash available",
+      "80-84": "Hold",
+      "75-79": "Watch",
+      "<75": "Pass"
+    },
+    "allocation_method": "Rank opportunities by Capital Efficiency Score and allocate incremental capital from highest score downward.",
+    "no_trade_rule": "If no opportunity scores >=85, recommend Hold Cash / No Trade."
+  }
+}

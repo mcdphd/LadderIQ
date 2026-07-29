@@ -9,5 +9,13 @@
     "max_position_weight_pct": 25.0,
     "preferred_cash_reserve_pct": 5.0
   },
-  "governance": "LadderIQ records overrides, tests patterns, and proposes changes. No strategy rule changes without user approval."
+  "governance": "LadderIQ records overrides, tests patterns, and proposes changes. No strategy rule changes without user approval.",
+  "capital_efficiency_engine": {
+    "enabled": true,
+    "phase": "Phase 1",
+    "adaptive_learning_enabled": true,
+    "adaptive_weight": 0,
+    "historical_weight": 20,
+    "rules_weight": 80
+  }
 }

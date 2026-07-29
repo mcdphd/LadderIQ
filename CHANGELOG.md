@@ -245,3 +245,9 @@
 
 ## 3.60.5 — Automatic Candidate Visibility
 Removed the obsolete Watch List UI, added automatic confirmed/emerging Growth Candidates, practical 95+ confirmation threshold, 90–94 emerging tier, scan diagnostics, and consistent version display.
+
+
+### Phase 1 Capital Efficiency Engine
+* Added fixed-weight capital allocation framework.
+* Added Hold Cash / No Trade rule.
+* Added infrastructure for future adaptive learning.

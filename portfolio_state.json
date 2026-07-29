@@ -1,88 +1,88 @@
 {
-  "as_of": "2026-07-28",
+  "as_of": "2026-07-29",
   "baseline_value": 9913.04,
-  "cash": 1062.06,
-  "pending_activity": -930.28,
+  "cash": 346.52,
+  "pending_activity": -214.74,
   "market_mode": "BULL",
   "market_mode_source": "auto_yfinance_with_manual_fallback",
   "positions": [
     {
       "symbol": "NVDA",
-      "price": 197.01,
+      "price": 190.01,
       "quantity": 28.306,
-      "current_value": 5576.56,
+      "current_value": 5378.42,
       "cost_basis": 6049.45,
       "priority": "P2",
       "role": "Imported Fidelity position"
     },
     {
       "symbol": "TSM",
-      "price": 392.31,
+      "price": 374.67,
       "quantity": 5.137,
-      "current_value": 2015.29,
+      "current_value": 1924.67,
       "cost_basis": 2170.99,
       "priority": "P1",
       "role": "Imported Fidelity position"
     },
     {
       "symbol": "PANW",
-      "price": 319.0,
+      "price": 314.15,
       "quantity": 5.712,
-      "current_value": 1822.12,
+      "current_value": 1794.42,
       "cost_basis": 1919.22,
       "priority": "P1",
       "role": "Imported Fidelity position"
     },
     {
       "symbol": "ASML",
-      "price": 1582.95,
+      "price": 1550.69,
       "quantity": 1.146,
-      "current_value": 1814.06,
+      "current_value": 1777.09,
       "cost_basis": 2014.85,
       "priority": "P3",
       "role": "Imported Fidelity position"
     },
     {
-      "symbol": "ANET",
-      "price": 169.71,
-      "quantity": 10.536,
-      "current_value": 1788.06,
-      "cost_basis": 1814.3,
-      "priority": "P2",
-      "role": "Imported Fidelity position"
-    },
-    {
       "symbol": "CRWD",
-      "price": 181.8,
+      "price": 179.38,
       "quantity": 9.62,
-      "current_value": 1748.91,
+      "current_value": 1725.63,
       "cost_basis": 1853.06,
       "priority": "P3",
       "role": "Imported Fidelity position"
     },
     {
+      "symbol": "ANET",
+      "price": 157.97,
+      "quantity": 10.536,
+      "current_value": 1664.37,
+      "cost_basis": 1814.3,
+      "priority": "P2",
+      "role": "Imported Fidelity position"
+    },
+    {
       "symbol": "AMD",
-      "price": 454.62,
+      "price": 429.56,
       "quantity": 3.109,
-      "current_value": 1413.41,
+      "current_value": 1335.5,
       "cost_basis": 1605.87,
       "priority": "P3",
       "role": "Imported Fidelity position"
     },
     {
       "symbol": "SPCX",
-      "price": 116.41,
+      "price": 112.55,
       "quantity": 9.402,
-      "current_value": 1094.48,
+      "current_value": 1058.19,
       "cost_basis": 1393.75,
       "priority": "SS",
       "role": "Imported Fidelity position"
     },
     {
       "symbol": "DELL",
-      "price": 392.1,
+      "price": 369.64,
       "quantity": 0.25,
-      "current_value": 98.02,
+      "current_value": 92.41,
       "cost_basis": 108.4,
       "priority": "P3",
       "role": "Imported Fidelity position"
@@ -991,11 +991,11 @@
       "ff808fad6fbbfc0a",
       "ffa15a8050c7e747"
     ],
-    "last_csv_imported": "Accounts_History (7).csv",
+    "last_csv_imported": "History_for_Account_Z25686771.csv",
     "last_import_trade_count": 0
   },
-  "positions_last_imported_from": ".\\Portfolio_Positions_Jul-28-2026.csv",
-  "positions_last_imported_at": "2026-07-28 22:47:35",
+  "positions_last_imported_from": ".\\Portfolio_Positions_Jul-29-2026.csv",
+  "positions_last_imported_at": "2026-07-29 18:56:07",
   "effective_cash": 131.78,
   "priority_framework": {
     "version": "V15 Locked Framework",
