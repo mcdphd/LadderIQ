@@ -258,3 +258,9 @@ Removed the obsolete Watch List UI, added automatic confirmed/emerging Growth Ca
 - Added conservative accumulation budgets for newly imported approved holdings.
 - Updated the position detail layout to display buy and sell ladders together.
 - Preserved sell-only behavior for weak, recovery, defensive, harvest-ineligible, and special-situation positions.
+
+
+## 3.60.10 — All-Section Ladder Hover
+- Extended the existing mobile/hover insight popup from Growth Candidates to every portfolio section.
+- Displays compact active buy and sell ladder rows using only limit price and shares.
+- Preserved all Phase 1 scoring, recommendation, allocation, and ladder-generation logic.

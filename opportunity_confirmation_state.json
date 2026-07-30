@@ -12242,7 +12242,7 @@
   "version": "1.0",
   "confirmation_days": 2,
   "threshold": 95.0,
-  "last_updated": "2026-07-30 17:25:33",
+  "last_updated": "2026-07-30 18:18:34",
   "migration_bootstrap_used": false,
   "elite_threshold": 100.0
 }
