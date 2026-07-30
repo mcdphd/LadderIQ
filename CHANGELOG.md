@@ -251,3 +251,10 @@ Removed the obsolete Watch List UI, added automatic confirmed/emerging Growth Ca
 * Added fixed-weight capital allocation framework.
 * Added Hold Cash / No Trade rule.
 * Added infrastructure for future adaptive learning.
+
+## 3.60.8 — Dual-Ladder Position Management
+- Restored buy ladders for owned positions with confirmed OPS of 75 or higher, an Up trend, and no Defensive/Recovery risk state.
+- Kept sell/management ladders visible at the same time; ownership no longer forces a sell-only view.
+- Added conservative accumulation budgets for newly imported approved holdings.
+- Updated the position detail layout to display buy and sell ladders together.
+- Preserved sell-only behavior for weak, recovery, defensive, harvest-ineligible, and special-situation positions.

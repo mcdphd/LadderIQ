@@ -29,3 +29,6 @@
 
 ## 3.60.5 — Automatic Candidate Visibility
 Removed the obsolete Watch List UI, added automatic confirmed/emerging Growth Candidates, practical 95+ confirmation threshold, 90–94 emerging tier, scan diagnostics, and consistent version display.
+
+## 3.60.8
+Corrects the regression that hid buy ladders for all owned positions. Eligible holdings now display both accumulation and management ladders.

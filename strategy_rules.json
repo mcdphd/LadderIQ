@@ -1,5 +1,5 @@
 {
-  "version": "3.60.5",
+  "version": "3.60.8",
   "annual_roi_target_pct": 100,
   "confirmation_days": 2,
   "universe": {
@@ -34,13 +34,16 @@
     "watchlist_independent": true
   },
   "owned_rules": {
-    "sell_or_management_ladder_only": true,
+    "sell_or_management_ladder_only": false,
     "states": [
       "Defensive",
       "Recovery",
       "Harvest",
       "Hold"
-    ]
+    ],
+    "buy_and_sell_independent": true,
+    "owned_buy_min_ops": 75,
+    "owned_buy_requires_uptrend": true
   },
   "cash": {
     "reserve_pct": 15,

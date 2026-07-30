@@ -254,7 +254,43 @@
       "quantity": 0.0,
       "market_value": 0.0,
       "last_position_file": "Portfolio_Positions_Jul-29-2026.csv"
+    },
+    "HPE": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Jul-30-2026.csv"
+    },
+    "VCYT": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Jul-30-2026.csv"
+    },
+    "ILMN": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Jul-30-2026.csv"
+    },
+    "NET": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Jul-30-2026.csv"
+    },
+    "ADP": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Jul-30-2026.csv"
+    },
+    "DT": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Jul-30-2026.csv"
     }
   },
-  "last_updated": "2026-07-30 16:58:33"
+  "last_updated": "2026-07-30 17:09:43"
 }

@@ -1,4 +1,4 @@
-"""LadderIQ v3.60.5 strategy engine.
+"""LadderIQ v3.60.8 strategy engine.
 
 Centralizes the broad-market opportunity confirmation, position-state logic,
 ROI pacing, and recommendation-to-ladder controls.
