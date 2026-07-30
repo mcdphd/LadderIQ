@@ -1,83 +1,92 @@
 {
     "NVDA": {
         "description": "NVIDIA CORPORATION COM",
-        "shares": 28.306,
-        "price": 190.01,
-        "current_value": 5378.42,
-        "avg_cost": 213.72,
-        "cost_basis_total": 6049.45,
-        "percent_of_account": 31.86
-    },
-    "TSM": {
-        "description": "TAIWAN SEMICONDUCTOR MANUFACTURING SPON ADS EACH REP 5 ORD TWD10",
-        "shares": 5.137,
-        "price": 374.67,
-        "current_value": 1924.67,
-        "avg_cost": 422.62,
-        "cost_basis_total": 2170.99,
-        "percent_of_account": 11.4
+        "shares": 23.306,
+        "price": 195.04,
+        "current_value": 4545.6,
+        "avg_cost": 214.81,
+        "cost_basis_total": 5006.42,
+        "percent_of_account": 25.88
     },
     "PANW": {
         "description": "PALO ALTO NETWORKS INC COM USD0.0001",
-        "shares": 5.712,
-        "price": 314.15,
-        "current_value": 1794.42,
-        "avg_cost": 336.0,
-        "cost_basis_total": 1919.22,
-        "percent_of_account": 10.63
-    },
-    "ASML": {
-        "description": "ASML HOLDING NV EUR0.09 NY REGISTRY SHS 2012",
-        "shares": 1.146,
-        "price": 1550.69,
-        "current_value": 1777.09,
-        "avg_cost": 1758.16,
-        "cost_basis_total": 2014.85,
-        "percent_of_account": 10.53
+        "shares": 3.427,
+        "price": 325.68,
+        "current_value": 1116.1,
+        "avg_cost": 344.53,
+        "cost_basis_total": 1180.7,
+        "percent_of_account": 6.36
     },
     "CRWD": {
         "description": "CROWDSTRIKE HLDGS INC CL A",
-        "shares": 9.62,
-        "price": 179.38,
-        "current_value": 1725.63,
-        "avg_cost": 192.63,
-        "cost_basis_total": 1853.06,
-        "percent_of_account": 10.22
-    },
-    "ANET": {
-        "description": "ARISTA NETWORKS INC COM SHS",
-        "shares": 10.536,
-        "price": 157.97,
-        "current_value": 1664.37,
-        "avg_cost": 172.2,
-        "cost_basis_total": 1814.3,
-        "percent_of_account": 9.86
-    },
-    "AMD": {
-        "description": "ADVANCED MICRO DEVICES INC",
-        "shares": 3.109,
-        "price": 429.56,
-        "current_value": 1335.5,
-        "avg_cost": 516.52,
-        "cost_basis_total": 1605.87,
-        "percent_of_account": 7.91
+        "shares": 5.772,
+        "price": 185.22,
+        "current_value": 1069.08,
+        "avg_cost": 197.87,
+        "cost_basis_total": 1142.12,
+        "percent_of_account": 6.09
     },
     "SPCX": {
         "description": "SPACE EXPL TECHNOLOGIES CORP CL A",
         "shares": 9.402,
-        "price": 112.55,
-        "current_value": 1058.19,
+        "price": 112.2,
+        "current_value": 1054.9,
         "avg_cost": 148.24,
         "cost_basis_total": 1393.75,
-        "percent_of_account": 6.27
+        "percent_of_account": 6.01
+    },
+    "TSM": {
+        "description": "TAIWAN SEMICONDUCTOR MANUFACTURING SPON ADS EACH REP 5 ORD TWD10",
+        "shares": 1.284,
+        "price": 403.31,
+        "current_value": 517.85,
+        "avg_cost": 454.13,
+        "cost_basis_total": 583.1,
+        "percent_of_account": 2.95
+    },
+    "ASML": {
+        "description": "ASML HOLDING NV EUR0.09 NY REGISTRY SHS 2012",
+        "shares": 0.287,
+        "price": 1651.44,
+        "current_value": 473.96,
+        "avg_cost": 1962.68,
+        "cost_basis_total": 563.29,
+        "percent_of_account": 2.7
+    },
+    "ANET": {
+        "description": "ARISTA NETWORKS INC COM SHS",
+        "shares": 2.536,
+        "price": 171.02,
+        "current_value": 433.7,
+        "avg_cost": 188.47,
+        "cost_basis_total": 477.97,
+        "percent_of_account": 2.47
+    },
+    "DVA": {
+        "description": "DAVITA INC COM",
+        "shares": 0.25,
+        "price": 238.86,
+        "current_value": 59.71,
+        "avg_cost": 239.2,
+        "cost_basis_total": 59.8,
+        "percent_of_account": 0.34
+    },
+    "OSCR": {
+        "description": "OSCAR HEALTH INC CL A",
+        "shares": 1.0,
+        "price": 31.23,
+        "current_value": 31.23,
+        "avg_cost": 31.16,
+        "cost_basis_total": 31.16,
+        "percent_of_account": 0.18
     },
     "DELL": {
         "description": "DELL TECHNOLOGIES INC CL C",
-        "shares": 0.25,
-        "price": 369.64,
-        "current_value": 92.41,
-        "avg_cost": 433.6,
-        "cost_basis_total": 108.4,
-        "percent_of_account": 0.55
+        "shares": 0.001,
+        "price": 404.81,
+        "current_value": 0.4,
+        "avg_cost": 430.0,
+        "cost_basis_total": 0.43,
+        "percent_of_account": 0.0
     }
 }
