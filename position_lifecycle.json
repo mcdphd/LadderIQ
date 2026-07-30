@@ -224,7 +224,37 @@
       "quantity": 0.0,
       "market_value": 0.0,
       "last_position_file": "Portfolio_Positions_Jul-28-2026.csv"
+    },
+    "DDOG": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Jul-29-2026.csv"
+    },
+    "KNSA": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Jul-29-2026.csv"
+    },
+    "HIW": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Jul-29-2026.csv"
+    },
+    "TECH": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Jul-29-2026.csv"
+    },
+    "BRK-B": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Jul-29-2026.csv"
     }
   },
-  "last_updated": "2026-07-29 18:58:11"
+  "last_updated": "2026-07-30 14:56:12"
 }
