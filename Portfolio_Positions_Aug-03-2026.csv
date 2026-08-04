@@ -1,0 +1,21 @@
+﻿Account number,Account name,Symbol,Description,Quantity,Last price,Last price change,Current value,Today's gain/loss dollar,Today's gain/loss percent,Total gain/loss dollar,Total gain/loss percent,Percent of account,Cost basis total,Average cost basis,Type
+Z25686771,Individual - TOD,FCASH**,HELD IN FCASH,,,,$8262.75,,,,,45.78%,,,Cash,
+Z25686771,Individual - TOD,NVDA,NVIDIA CORPORATION COM,19.775,$206.64,+$5.89,$4086.30,+$116.47,+2.93%,-$143.53,-3.40%,22.64%,$4229.83,$213.90,Cash,
+Z25686771,Individual - TOD,SPCX,SPACE EXPL TECHNOLOGIES CORP CL A,9.402,$114.53,+$6.16,$1076.81,+$57.91,+5.68%,-$316.94,-22.75%,5.97%,$1393.75,$148.24,Cash,
+Z25686771,Individual - TOD,ANET,ARISTA NETWORKS INC COM SHS,3.922,$184.89,+$4.54,$725.13,+$38.80,+5.65%,+$10.13,+1.41%,4.02%,$715.00,$182.30,Cash,
+Z25686771,Individual - TOD,PANW,PALO ALTO NETWORKS INC COM USD0.0001,2.056,$347.13,+$15.30,$713.69,+$31.45,+4.61%,+$1.57,+0.22%,3.95%,$712.12,$346.36,Cash,
+Z25686771,Individual - TOD,OSCR,OSCAR HEALTH INC CL A,20.47,$30.74,-$0.48,$629.24,-$1.23,-0.20%,+$6.50,+1.04%,3.49%,$622.74,$30.42,Cash,
+Z25686771,Individual - TOD,ASML,ASML HOLDING NV EUR0.09 NY REGISTRY SHS 2012,0.287,$1642.52,+$13.52,$471.40,+$3.88,+0.82%,-$91.89,-16.32%,2.61%,$563.29,$1962.68,Cash,
+Z25686771,Individual - TOD,CRWD,CROWDSTRIKE HLDGS INC CL A,2.078,$202.54,+$11.68,$420.87,+$24.27,+6.11%,-$1.31,-0.31%,2.33%,$422.18,$203.17,Cash,
+Z25686771,Individual - TOD,DVA,DAVITA INC COM,1.59,$233.68,-$6.41,$371.55,-$3.05,-0.82%,-$2.82,-0.76%,2.06%,$374.37,$235.45,Cash,
+Z25686771,Individual - TOD,HPE,HEWLETT PACKARD ENTERPRISE CO COM,7.382,$50.24,+$2.34,$370.87,+$26.79,+7.78%,+$26.79,+7.78%,2.05%,$344.08,$46.61,Cash,
+Z25686771,Individual - TOD,TSM,TAIWAN SEMICONDUCTOR MANUFACTURING SPON ADS EACH REP 5 ORD TWD10,0.77,$406.11,+$1.86,$312.70,+$1.43,+0.46%,-$31.47,-9.15%,1.73%,$344.17,$446.97,Cash,
+Z25686771,Individual - TOD,NBIX,NEUROCRINE BIOSCIENCES INC,1.436,$166.23,-$0.57,$238.70,-$0.82,-0.35%,-$23.76,-9.06%,1.32%,$262.46,$182.77,Cash,
+Z25686771,Individual - TOD,DELL,DELL TECHNOLOGIES INC CL C,0.001,$429.02,+$23.65,$0.42,+$0.02,+5.83%,-$0.01,-0.23%,0.00%,$0.43,$430.00,Cash,
+Z25686771,Individual - TOD,Pending activity,,,,,$369.63,,,,,,,,,
+
+"The data and information in this spreadsheet is provided to you solely for your use and is not for distribution. The spreadsheet is provided for informational purposes only, and is not intended to provide advice, nor should it be construed as an offer to sell, a solicitation of an offer to buy or a recommendation for any security by Fidelity or any third party. Data and information shown is based on information known to Fidelity as of the date it was exported and is subject to change. It should not be used in place of your account statements or trade confirmations and is not intended for tax reporting purposes. For more information on the data included in this spreadsheet, including any limitations thereof, go to Fidelity.com."
+
+"Brokerage services are provided by Fidelity Brokerage Services LLC (FBS), 900 Salem Street, Smithfield, RI 02917. Custody and other services provided by National Financial Services LLC (NFS). Both are Fidelity Investment companies and members SIPC, NYSE. Neither FBS nor NFS offer crypto as a direct investment nor provide trading or custody services for such assets."
+
+"Date downloaded Aug-03-2026 9:28 p.m ET"
