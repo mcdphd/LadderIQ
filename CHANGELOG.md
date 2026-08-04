@@ -1,3 +1,11 @@
+# Changelog
+
+## 3.60.11 — 2026-08-04
+- Classifies Fidelity money-market holdings such as FDRXX, PDRXX, SPAXX, and SPRXX as cash equivalents.
+- Includes cash-equivalent market value in effective cash and buying power.
+- Excludes cash equivalents from OPS candidate discovery, buy/sell ladder generation, and sell-ladder validation.
+- Prevents the `$1.00 is not above current price $1.00` generation failure.
+
 ## v3.55.2 — Dynamic Allocation Rebalancing (2026-07-22)
 - Added BR-021 to recalculate NVDA target allocation from the latest Opportunity Score after every imported trade.
 - Rebuilds the sell ladder from the current post-transaction position rather than carrying forward fixed 3/4/5-share rungs.

@@ -7,6 +7,18 @@ POSITIONS_SEARCH_DIRS=['.', 'data/portfolio', POSITIONS_DIR]
 STATE_FILE='portfolio_state.json'
 OUTPUT_FILE='portfolio_positions.json'
 
+CASH_EQUIVALENT_SYMBOLS={'CASH','FCASH','FCASH**','FDRXX','PDRXX','SPAXX','SPRXX'}
+
+def is_cash_equivalent(symbol='', description=''):
+    sym=str(symbol or '').strip().upper()
+    desc=str(description or '').strip().upper()
+    return (
+        sym in CASH_EQUIVALENT_SYMBOLS
+        or 'HELD IN FCASH' in desc
+        or 'MONEY MARKET' in desc
+        or 'GOVERNMENT CASH RESERVES' in desc
+    )
+
 def clean_number(value):
     if pd.isna(value): return 0.0
     s=str(value).strip().replace('\ufeff','')
@@ -63,7 +75,7 @@ def main():
         symbol=str(row['Symbol']).strip().replace('\ufeff',''); description=str(row['Description']).strip()
         if symbol in ['', 'nan']: continue
         quantity=clean_number(row['Quantity']); last_price=clean_number(row['Last Price']); current_value=clean_number(row['Current Value']); cost_basis_total=clean_number(row['Cost Basis Total']); avg_cost=clean_number(row['Average Cost Basis']); pct_account=clean_number(row['Percent Of Account'])
-        if symbol in ['FCASH','FCASH**','HELD IN FCASH'] or 'FCASH' in symbol or 'CASH' in description.upper():
+        if is_cash_equivalent(symbol, description):
             cash += current_value; continue
         if symbol=='Pending activity' or 'PENDING ACTIVITY' in symbol.upper() or 'PENDING ACTIVITY' in description.upper():
             pending_activity += current_value; continue

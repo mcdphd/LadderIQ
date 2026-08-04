@@ -3,13 +3,30 @@ from pathlib import Path
 from datetime import datetime, timedelta
 from investment_engine import confirm_opportunities, position_state, roi_pace, recommended_candidate_budget
 
-VERSION='3.60.10'
+VERSION='3.60.11'
 BASELINE=9913.04
 NEW_CONTRIBUTION=5055.52
 CONTRIBUTION_DATE='2026-07-10'
 PRE_CONTRIBUTION_VALUE=13017.99
 TOTAL_CONTRIBUTIONS=BASELINE+NEW_CONTRIBUTION
 ROOT=Path(__file__).resolve().parent
+
+# Fidelity cash and money-market positions are portfolio liquidity, not
+# tradable equity candidates. They must contribute to effective cash while
+# remaining excluded from OPS scoring and buy/sell ladder generation.
+CASH_EQUIVALENT_SYMBOLS = {
+    'CASH', 'FCASH', 'FCASH**', 'FDRXX', 'PDRXX', 'SPAXX', 'SPRXX',
+}
+
+def is_cash_equivalent(symbol='', description=''):
+    sym=str(symbol or '').strip().upper()
+    desc=str(description or '').strip().upper()
+    return (
+        sym in CASH_EQUIVALENT_SYMBOLS
+        or 'HELD IN FCASH' in desc
+        or 'MONEY MARKET' in desc
+        or 'GOVERNMENT CASH RESERVES' in desc
+    )
 
 def effective_ladder_datetime(now=None):
     """Return the single Eastern-time date used everywhere in the UI.
@@ -79,8 +96,9 @@ def read_positions():
     with open(path, encoding='utf-8-sig', newline='') as f:
         for row in csv.DictReader(f):
             sym=(row.get('Symbol') or '').strip()
-            if sym=='FCASH**':
-                cash=money_to_float(row.get('Current Value') or row.get('Current value'))
+            description=row.get('Description') or ''
+            if is_cash_equivalent(sym, description):
+                cash += money_to_float(row.get('Current Value') or row.get('Current value'))
             elif sym=='Pending activity':
                 pending=money_to_float(row.get('Current Value') or row.get('Current value'))
             elif sym and sym not in ('', 'Symbol') and row.get('Quantity'):
@@ -107,7 +125,10 @@ def read_scores():
         data=json.load(open(path))
         for bucket in ['scores','current_leaders','emerging_leaders','weakening_leaders']:
             for item in data.get(bucket,[]) or []:
-                scores[item['symbol']]=item
+                symbol=str(item.get('symbol') or '').strip().upper()
+                if not symbol or is_cash_equivalent(symbol, item.get('company') or item.get('description') or ''):
+                    continue
+                scores[symbol]=item
     return scores
 
 positions,cash,pending,pos_file=read_positions()
@@ -1797,6 +1818,10 @@ def owned_buy_eligible(stock):
     state=(stock.get('position_state') or {}).get('name')
     return score >= 75 and stock.get('trend') == 'Up' and state not in {'Defensive','Recovery'}
 
+# Defensive guard: stale caches or brokerage imports must never allow a cash
+# equivalent into the tradable stock collection.
+stocks=[st for st in stocks if not is_cash_equivalent(st.get('symbol'), st.get('company'))]
+
 for st in stocks:
     st['has_active_position']=has_active_position(st)
     st['lifecycle_state']=resolve_lifecycle_state(st)
@@ -1839,6 +1864,8 @@ for st in stocks:
 # AMZN uses a 1.5% minimum harvest distance; all other ordinary sell ladders
 # must at minimum remain above the latest market price.
 for st in stocks:
+    if is_cash_equivalent(st.get('symbol'), st.get('company')):
+        continue
     current=float(st.get('price') or 0)
     if current <= 0:
         continue
