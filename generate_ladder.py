@@ -3,7 +3,7 @@ from pathlib import Path
 from datetime import datetime, timedelta
 from investment_engine import confirm_opportunities, position_state, roi_pace, recommended_candidate_budget
 
-VERSION='3.60.11'
+VERSION='3.60.12'
 BASELINE=9913.04
 NEW_CONTRIBUTION=5055.52
 CONTRIBUTION_DATE='2026-07-10'
@@ -1751,19 +1751,35 @@ def sell_levels(sym, price, qty, avg, position_value=0, opportunity_score=0, por
         cost=avg or price
         return [('+50% Review', round(cost*1.5), current_qty, 'Review only'),('+100% Review', round(cost*2), current_qty, 'Consider capital recovery')]
     if price<=0: return []
-    # State-driven exit ladder: current structure governs the rungs; cost basis is context, not the anchor.
+    # State-driven exit ladder. Defensive and Recovery states may intentionally
+    # sell below cost basis to reduce risk. Ordinary Hold/Harvest management
+    # ladders must be genuine profit-taking ladders and therefore use the
+    # imported Fidelity average cost basis as a minimum price floor.
     temp={'symbol':sym,'opportunity':opportunity_score,'price':price,'avg_cost':avg,'total_pl_pct':0,'score_data':scores.get(sym,{}),'immediate_risk_override':confirmation.get(sym,{}).get('immediate_risk_override',False)}
     state=position_state(temp)['name']
     if state=='Defensive':
         multipliers=(1.005,1.025,1.05); notes=('Immediate risk reduction near market','Reduce on first recovery','Complete defensive rebalance into strength')
     elif state=='Recovery':
-        multipliers=(1.025,1.055,1.09); notes=('Recovery trim; do not lower automatically','Trim into recovery zone','Harvest only if recovery extends')
+        multipliers=(1.025,1.055,1.09); notes=('Recovery trim; may remain below cost basis','Trim into recovery zone','Harvest only if recovery extends')
     elif state=='Harvest':
-        multipliers=(1.04,1.08,1.13); notes=('Harvest strength','Lock additional gains','Final harvest rung')
+        multipliers=(1.04,1.08,1.13); notes=('Harvest strength above cost basis','Lock additional gains above cost basis','Final profit-harvest rung')
     else:
-        multipliers=(1.03,1.065,1.10); notes=('Management review','Trim into strength','Extended strength review')
+        multipliers=(1.03,1.065,1.10); notes=('Management review above cost basis','Trim into strength above cost basis','Extended strength review above cost basis')
+
+    prices=[round(price*m,2) for m in multipliers]
+    if state not in {'Defensive','Recovery'} and float(avg or 0) > 0:
+        # BR-080 Cost-Basis Protection: normal management sells cannot lock in
+        # an avoidable loss. Preserve the market-based ladder, but floor each
+        # rung at 2%, 5%, and 8% above imported average cost basis.
+        basis_floors=(1.02,1.05,1.08)
+        prices=[max(prices[i], round(float(avg)*basis_floors[i],2)) for i in range(3)]
+        # Rounding or an unusual basis can collapse rungs; maintain strict order.
+        for i in range(1,3):
+            if prices[i] <= prices[i-1]:
+                prices[i]=round(prices[i-1]*1.01,2)
+
     splits=(.40,.35,.25)
-    return [(state+' '+str(i+1),round(price*multipliers[i],2),round(current_qty*splits[i],3),notes[i]) for i in range(3)]
+    return [(state+' '+str(i+1),prices[i],round(current_qty*splits[i],3),notes[i]) for i in range(3)]
 
 confirmed_candidate_count=len(confirmed_candidate_symbols)
 # BR-072/073: every displayed, non-owned Growth Candidate must have a buy

@@ -1,6 +1,13 @@
+
+## 3.60.12 — Cost-Basis Protected Sell Ladders
+- Normal Hold and Harvest sell ladders now use Fidelity average cost basis as a minimum price floor.
+- Sell rungs are floored at 2%, 5%, and 8% above average cost basis while preserving higher market-based targets.
+- Defensive and Recovery ladders remain risk-driven and may intentionally execute below cost basis.
+- No OPS, buy-ladder, candidate, or portfolio-classification logic changed.
+
 # Changelog
 
-## 3.60.11 — 2026-08-04
+## 3.60.12 — 2026-08-04
 - Classifies Fidelity money-market holdings such as FDRXX, PDRXX, SPAXX, and SPRXX as cash equivalents.
 - Includes cash-equivalent market value in effective cash and buying power.
 - Excludes cash equivalents from OPS candidate discovery, buy/sell ladder generation, and sell-ladder validation.

@@ -320,7 +320,61 @@
       "quantity": 0.25,
       "market_value": 179.32,
       "last_position_file": "Portfolio_Positions_Aug-06-2026.csv"
+    },
+    "NSIT": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Aug-06-2026.csv"
+    },
+    "DAVE": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Aug-06-2026.csv"
+    },
+    "ZBRA": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Aug-06-2026.csv"
+    },
+    "ZETA": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Aug-06-2026.csv"
+    },
+    "BAX": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Aug-06-2026.csv"
+    },
+    "GLBE": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Aug-06-2026.csv"
+    },
+    "CPAY": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Aug-06-2026.csv"
+    },
+    "APH": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Aug-06-2026.csv"
+    },
+    "FRSH": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Aug-06-2026.csv"
     }
   },
-  "last_updated": "2026-08-06 06:40:52"
+  "last_updated": "2026-08-06 07:23:49"
 }
