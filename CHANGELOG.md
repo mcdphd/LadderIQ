@@ -278,3 +278,8 @@ Removed the obsolete Watch List UI, added automatic confirmed/emerging Growth Ca
 - Standardized maximum sell-ladder coverage by recommendation state: Hold 60%, Harvest 80%, Recovery 60%, Defensive 100%.
 - Preserved cost-basis protection for ordinary Hold and Harvest ladders.
 - Preserved AMZN exit and SPCX special-situation rules.
+
+## 3.60.14 — Sidebar Sell Coverage Label
+- Added a compact `(Sell: X%)` label immediately after each owned stock symbol.
+- Percentage is calculated from the shares currently included across all active sell-ladder rungs.
+- No scoring, classification, price, sizing, or recommendation logic changed.

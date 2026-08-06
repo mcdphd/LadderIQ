@@ -32,3 +32,7 @@ Removed the obsolete Watch List UI, added automatic confirmed/emerging Growth Ca
 
 ## 3.60.8
 Corrects the regression that hid buy ladders for all owned positions. Eligible holdings now display both accumulation and management ladders.
+
+## 3.60.14
+- Sidebar symbols now show the active sell-ladder coverage as `(Sell: X%)`.
+- Cosmetic-only change; investment logic is unchanged.
