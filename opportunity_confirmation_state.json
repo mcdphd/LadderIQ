@@ -1511,7 +1511,7 @@
       "immediate_risk_override": false
     },
     "CAKE": {
-      "observed_score": 71.8,
+      "observed_score": 78.7,
       "confirmed_score": 65.1,
       "streak": 1,
       "last_observed": "2026-08-05",
@@ -3302,7 +3302,7 @@
       "immediate_risk_override": false
     },
     "RACE": {
-      "observed_score": 79.8,
+      "observed_score": 81.0,
       "confirmed_score": 69.7,
       "streak": 1,
       "last_observed": "2026-08-05",
@@ -12647,7 +12647,7 @@
   "version": "1.0",
   "confirmation_days": 2,
   "threshold": 95.0,
-  "last_updated": "2026-08-06 08:05:18",
+  "last_updated": "2026-08-06 16:05:19",
   "migration_bootstrap_used": false,
   "elite_threshold": 100.0
 }
