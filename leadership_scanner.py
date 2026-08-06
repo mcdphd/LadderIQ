@@ -216,6 +216,14 @@ def batch_history(root: Path, symbols: list[str], period="1y"):
     refreshed = 0
     rate_limit_detected = False
 
+    # Make the cache behavior explicit. A small refresh batch does not mean the
+    # market universe collapsed; it means most symbols already have current
+    # local history and only stale/missing symbols need a provider request.
+    print(
+        f"  Broad-market universe requested: {len(clean_symbols):,} symbols | "
+        f"current cache available: {cache_hits:,} | refresh required: {len(stale_symbols):,}"
+    )
+
     total_batches = max(1, math.ceil(len(stale_symbols) / BATCH_SIZE))
     for batch_no, start in enumerate(range(0, len(stale_symbols), BATCH_SIZE), start=1):
         if rate_limit_detected:
@@ -223,7 +231,7 @@ def batch_history(root: Path, symbols: list[str], period="1y"):
         chunk = stale_symbols[start:start + BATCH_SIZE]
         if not chunk:
             continue
-        print(f"  Market data batch {batch_no}/{total_batches}: {len(chunk)} symbols")
+        print(f"  Market-data refresh batch {batch_no}/{total_batches}: {len(chunk)} stale/missing symbols")
 
         data = None
         noise = ""

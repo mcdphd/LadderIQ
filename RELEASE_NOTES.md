@@ -36,3 +36,10 @@ Corrects the regression that hid buy ladders for all owned positions. Eligible h
 ## 3.60.14
 - Sidebar symbols now show the active sell-ladder coverage as `(Sell: X%)`.
 - Cosmetic-only change; investment logic is unchanged.
+
+
+## 3.60.15
+- Clarifies broad-market scan progress in PowerShell.
+- Prints the full requested universe, current cache count, and stale/missing refresh count before provider batches.
+- Renames the batch message to `Market-data refresh batch` so a 1-symbol refresh is not mistaken for a 1-symbol market scan.
+- No scoring, candidate, ladder, or portfolio logic changed.

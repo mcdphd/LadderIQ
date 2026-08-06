@@ -12647,7 +12647,7 @@
   "version": "1.0",
   "confirmation_days": 2,
   "threshold": 95.0,
-  "last_updated": "2026-08-06 16:06:38",
+  "last_updated": "2026-08-06 16:12:45",
   "migration_bootstrap_used": false,
   "elite_threshold": 100.0
 }
