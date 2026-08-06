@@ -3,7 +3,7 @@ from pathlib import Path
 from datetime import datetime, timedelta
 from investment_engine import confirm_opportunities, position_state, roi_pace, recommended_candidate_budget
 
-VERSION='3.60.12'
+VERSION='3.60.13'
 BASELINE=9913.04
 NEW_CONTRIBUTION=5055.52
 CONTRIBUTION_DATE='2026-07-10'
@@ -1711,33 +1711,6 @@ def sell_levels(sym, price, qty, avg, position_value=0, opportunity_score=0, por
         return []
     if current_qty < MIN_ACTIVE_POSITION_SHARES or current_value < MIN_ACTIVE_POSITION_VALUE:
         return []
-    if sym=='NVDA':
-        target_weight=target_weight_for_score(sym, opportunity_score, group)
-        if target_weight is None or portfolio_total <= 0 or price <= 0:
-            return []
-        target_value=portfolio_total*target_weight
-        excess_value=max(0.0, current_value-target_value)
-        excess_shares=min(current_qty, excess_value/price)
-        # A de minimis variance does not justify a new management ladder.
-        if excess_shares < 0.50:
-            return []
-        # Recalculate from the post-transaction position. Three rungs divide
-        # only the remaining excess, rather than repeating stale 3/4/5 shares.
-        splits=(0.40,0.35,0.25)
-        rung_shares=[]
-        remaining=excess_shares
-        for idx,split in enumerate(splits):
-            sh=remaining if idx==len(splits)-1 else round(excess_shares*split,3)
-            sh=min(sh,remaining)
-            rung_shares.append(round(sh,3))
-            remaining=round(max(0.0,remaining-sh),3)
-        prices=(round(price*1.025,2),round(price*1.055,2),round(price*1.09,2))
-        target_pct=target_weight*100
-        return [
-            ('Rebalance 1',prices[0],rung_shares[0],f'Trim toward {target_pct:.1f}% target'),
-            ('Rebalance 2',prices[1],rung_shares[1],'Reduce remaining excess into strength'),
-            ('Rebalance 3',prices[2],rung_shares[2],'Complete dynamic rebalance if strength continues')
-        ]
     if sym=='AMZN':
         q=current_qty
         # Sell ladders must harvest into strength, never below the latest market price.
@@ -1778,8 +1751,20 @@ def sell_levels(sym, price, qty, avg, position_value=0, opportunity_score=0, por
             if prices[i] <= prices[i-1]:
                 prices[i]=round(prices[i-1]*1.01,2)
 
+    # BR-081 Maximum Harvest Rule: a profitable strength ladder should be
+    # large enough to monetize the move. High opportunity does not suppress
+    # selling; it changes how readily the position may later be rebuilt.
+    # Hold ladders may harvest 60%, Harvest ladders 80%, Recovery ladders 60%,
+    # and Defensive ladders may reduce up to 100% of the current position.
+    max_harvest_by_state={
+        'Hold':0.60,
+        'Harvest':0.80,
+        'Recovery':0.60,
+        'Defensive':1.00,
+    }
+    eligible_qty=current_qty*max_harvest_by_state.get(state,0.60)
     splits=(.40,.35,.25)
-    return [(state+' '+str(i+1),prices[i],round(current_qty*splits[i],3),notes[i]) for i in range(3)]
+    return [(state+' '+str(i+1),prices[i],round(eligible_qty*splits[i],3),notes[i]) for i in range(3)]
 
 confirmed_candidate_count=len(confirmed_candidate_symbols)
 # BR-072/073: every displayed, non-owned Growth Candidate must have a buy

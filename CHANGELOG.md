@@ -1,13 +1,6 @@
-
-## 3.60.12 — Cost-Basis Protected Sell Ladders
-- Normal Hold and Harvest sell ladders now use Fidelity average cost basis as a minimum price floor.
-- Sell rungs are floored at 2%, 5%, and 8% above average cost basis while preserving higher market-based targets.
-- Defensive and Recovery ladders remain risk-driven and may intentionally execute below cost basis.
-- No OPS, buy-ladder, candidate, or portfolio-classification logic changed.
-
 # Changelog
 
-## 3.60.12 — 2026-08-04
+## 3.60.11 — 2026-08-04
 - Classifies Fidelity money-market holdings such as FDRXX, PDRXX, SPAXX, and SPRXX as cash equivalents.
 - Includes cash-equivalent market value in effective cash and buying power.
 - Excludes cash equivalents from OPS candidate discovery, buy/sell ladder generation, and sell-ladder validation.
@@ -279,3 +272,9 @@ Removed the obsolete Watch List UI, added automatic confirmed/emerging Growth Ca
 - Extended the existing mobile/hover insight popup from Growth Candidates to every portfolio section.
 - Displays compact active buy and sell ladder rows using only limit price and shares.
 - Preserved all Phase 1 scoring, recommendation, allocation, and ladder-generation logic.
+
+## 3.60.13 — Maximum Harvest Sizing
+- Removed the NVDA-only excess-weight sell cap that produced undersized ladders.
+- Standardized maximum sell-ladder coverage by recommendation state: Hold 60%, Harvest 80%, Recovery 60%, Defensive 100%.
+- Preserved cost-basis protection for ordinary Hold and Harvest ladders.
+- Preserved AMZN exit and SPCX special-situation rules.
