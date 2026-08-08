@@ -1,4 +1,4 @@
-"""LadderIQ v3.60.3 resilient broad-market opportunity scanner.
+"""LadderIQ v3.60.16 resilient broad-market opportunity scanner.
 
 Key protections:
 - Validates/normalizes symbols before provider calls.
@@ -22,6 +22,7 @@ from pathlib import Path
 from typing import Dict
 
 from market_universe import load_market_universe, normalize_yahoo_symbol
+from news_refinement import refine_news_scores
 
 MIN_PRICE = 10.0
 MIN_MARKET_CAP = 2_000_000_000
@@ -519,12 +520,22 @@ def main() -> int:
         )
         row.update({
             "sector_leadership_score": round(sector_score, 1), "risk_score": round(risk_score, 1),
-            "composite_score": round(composite, 1), "leadership_score": display_ops,
+            "composite_score": round(composite, 1),
+            # Base OPS remains the untouched quantitative score. The targeted
+            # news-refinement layer runs after the full base scan and writes the
+            # bounded Final OPS back to leadership_score for downstream logic.
+            "base_ops": display_ops, "news_adjustment": 0.0, "final_ops": display_ops,
+            "leadership_score": display_ops,
             "candidate_eligible": eligible, "qualified_candidate_raw": display_ops >= 95, "qualified_100_raw": display_ops >= 100,
             "action": "ATTACK" if display_ops >= 90 else "ACCUMULATE" if display_ops >= 75
             else "HOLD" if display_ops >= 60 else "REPLACE_CANDIDATE",
         })
         results.append(row)
+
+    # Phase 1 targeted news refinement: scan only owned positions plus names
+    # whose Base OPS is already high enough to influence allocation decisions.
+    # If Finnhub is unavailable, this fails open and retains Base OPS.
+    news_diagnostics = refine_news_scores(results, set(holdings), root, min_base_ops=75.0)
 
     results.sort(
         key=lambda r: (r["leadership_score"], r["return_velocity"], r["reward_to_risk"], r["business_quality"]),
@@ -543,13 +554,14 @@ def main() -> int:
     payload = {
         "as_of": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "market_session_date": str(benchmark_close.index[-1].date()),
-        "source": "yfinance + local cache + Nasdaq Trader",
+        "source": "yfinance + local cache + Nasdaq Trader + Finnhub targeted company news",
         "benchmark_source": benchmark_source,
         "benchmark_stale": benchmark_stale,
         "universe_source": universe_source,
         "universe_count": len(universe),
         "universe_filter_stats": universe_filter_stats,
         "download_diagnostics": download_diagnostics,
+        "news_diagnostics": news_diagnostics,
         "eligible_technical_count": len(technical),
         "benchmark": "QQQ",
         "market_mode": market_mode,
@@ -563,6 +575,7 @@ def main() -> int:
             "candidate_discovery": "automatic broad-market discovery; watchlist membership is ignored",
             "candidate_qualification": "non-owned, eligible and OPS >=95; OPS 90-94 is shown as emerging; exact 100 remains elite",
             "confirmation": "two distinct market sessions; immediate severe-risk override",
+            "news_refinement": "owned positions + Base OPS >=75; material company news adjusts OPS within -15/+10; Base and Final OPS are preserved",
         },
     }
     save_json(root / "leadership_scores.json", payload)
@@ -581,10 +594,23 @@ def main() -> int:
         f"{download_diagnostics.get('cache_hits', 0):,} cache hits; "
         f"{download_diagnostics.get('refreshed', 0):,} refreshed; {failures:,} unavailable."
     )
+    print(
+        f"News refinement: {news_diagnostics.get('shortlisted', 0)} shortlisted | "
+        f"{news_diagnostics.get('api_requests', 0)} Finnhub requests | "
+        f"{news_diagnostics.get('cache_hits', 0)} news-cache hits | "
+        f"{news_diagnostics.get('adjusted', 0)} material OPS adjustments."
+    )
+    if not news_diagnostics.get('enabled'):
+        print("NOTICE: FINNHUB_API_KEY is not available; Base OPS was retained without news refinement.")
+    if news_diagnostics.get('errors'):
+        print(f"News lookup warnings: {len(news_diagnostics['errors'])}; affected symbols retained Base OPS.")
+
     print("Top automatically discovered opportunities:")
     for row in payload["emerging_leaders"][:10]:
+        news_note = f" | News {row.get('news_adjustment', 0):+0.1f}" if row.get('news_adjustment') else ""
         print(
-            f"  {row['symbol']}: OPS {row['leadership_score']:.0f} | "
+            f"  {row['symbol']}: OPS {row['leadership_score']:.0f} "
+            f"(Base {row.get('base_ops', row['leadership_score']):.0f}{news_note}) | "
             f"{row['sector']} | BQ {row['business_quality']:.0f}"
         )
     if provider_state.get("rate_limited"):

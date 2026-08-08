@@ -283,3 +283,14 @@ Removed the obsolete Watch List UI, added automatic confirmed/emerging Growth Ca
 - Added a compact `(Sell: X%)` label immediately after each owned stock symbol.
 - Percentage is calculated from the shares currently included across all active sell-ladder rungs.
 - No scoring, classification, price, sizing, or recommendation logic changed.
+
+## 3.60.16 — Targeted News-Refined OPS
+- Added a targeted Finnhub company-news refinement layer after the quantitative broad-market scan.
+- News scans only owned positions plus non-owned names with Base OPS >= 75.
+- Preserves Base OPS, News Adjustment, News-Refined OPS, and Confirmed OPS separately for auditability.
+- Material-event adjustment is bounded to -15 / +10 points and does not replace the quantitative model.
+- Uses event-oriented rules for guidance, major customers/demand, earnings, contracts, regulatory/legal, management, product/operations, and financing/liquidity developments.
+- Deduplicates syndicated headlines and prevents one story from being counted multiple times for the same event.
+- Uses a 30-minute local news cache and safely respects Finnhub's free-tier request rate.
+- Fails open: if Finnhub or FINNHUB_API_KEY is unavailable, Base OPS remains unchanged and LadderIQ still builds.
+- Dashboard Recommendation State now exposes Base OPS, News Impact, News-Refined OPS, and the material-news rationale.

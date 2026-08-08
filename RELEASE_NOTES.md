@@ -43,3 +43,6 @@ Corrects the regression that hid buy ladders for all owned positions. Eligible h
 - Prints the full requested universe, current cache count, and stale/missing refresh count before provider batches.
 - Renames the batch message to `Market-data refresh batch` so a 1-symbol refresh is not mistaken for a 1-symbol market scan.
 - No scoring, candidate, ladder, or portfolio logic changed.
+
+## LadderIQ 3.60.16
+Introduces targeted news-refined Opportunity Scores. The existing quantitative OPS remains the Base OPS. LadderIQ now checks recent Finnhub company news only for owned positions and securities with Base OPS >= 75, then applies a bounded material-event adjustment (-15 to +10) before existing confirmation and ladder rules run. The API key is read only from the FINNHUB_API_KEY environment variable and is never stored in the project.
