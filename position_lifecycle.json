@@ -374,7 +374,55 @@
       "quantity": 0.0,
       "market_value": 0.0,
       "last_position_file": "Portfolio_Positions_Aug-07-2026.csv"
+    },
+    "HNGE": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Aug-07-2026.csv"
+    },
+    "OKTA": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Aug-07-2026.csv"
+    },
+    "PAYC": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Aug-07-2026.csv"
+    },
+    "PTGX": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Aug-07-2026.csv"
+    },
+    "RBRK": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Aug-07-2026.csv"
+    },
+    "MANH": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Aug-07-2026.csv"
+    },
+    "DXCM": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Aug-07-2026.csv"
+    },
+    "CART": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Aug-07-2026.csv"
     }
   },
-  "last_updated": "2026-08-08 18:49:38"
+  "last_updated": "2026-08-08 19:55:02"
 }

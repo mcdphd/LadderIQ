@@ -1,4 +1,4 @@
-"""LadderIQ v3.60.16 resilient broad-market opportunity scanner.
+"""LadderIQ v3.60.17 resilient broad-market opportunity scanner.
 
 Key protections:
 - Validates/normalizes symbols before provider calls.
@@ -23,6 +23,7 @@ from typing import Dict
 
 from market_universe import load_market_universe, normalize_yahoo_symbol
 from news_refinement import refine_news_scores
+from market_regime import calculate_shadow_regime
 
 MIN_PRICE = 10.0
 MIN_MARKET_CAP = 2_000_000_000
@@ -537,6 +538,11 @@ def main() -> int:
     # If Finnhub is unavailable, this fails open and retains Base OPS.
     news_diagnostics = refine_news_scores(results, set(holdings), root, min_base_ops=75.0)
 
+    # Phase 1 shadow market-regime observer. This is deliberately calculated
+    # after the full broad-market scan but is NOT consumed by OPS, confirmation,
+    # recommendations, ladder prices, ladder sizes, or capital allocation.
+    shadow_regime = calculate_shadow_regime(results, benchmark_close, sectors, root)
+
     results.sort(
         key=lambda r: (r["leadership_score"], r["return_velocity"], r["reward_to_risk"], r["business_quality"]),
         reverse=True,
@@ -562,6 +568,7 @@ def main() -> int:
         "universe_filter_stats": universe_filter_stats,
         "download_diagnostics": download_diagnostics,
         "news_diagnostics": news_diagnostics,
+        "shadow_market_regime": shadow_regime,
         "eligible_technical_count": len(technical),
         "benchmark": "QQQ",
         "market_mode": market_mode,
@@ -576,6 +583,7 @@ def main() -> int:
             "candidate_qualification": "non-owned, eligible and OPS >=95; OPS 90-94 is shown as emerging; exact 100 remains elite",
             "confirmation": "two distinct market sessions; immediate severe-risk override",
             "news_refinement": "owned positions + Base OPS >=75; material company news adjusts OPS within -15/+10; Base and Final OPS are preserved",
+            "shadow_market_regime": "Phase 1 observer only; score and hypothetical capital multiplier are logged but do not affect live ladders or OPS",
         },
     }
     save_json(root / "leadership_scores.json", payload)
@@ -604,6 +612,12 @@ def main() -> int:
         print("NOTICE: FINNHUB_API_KEY is not available; Base OPS was retained without news refinement.")
     if news_diagnostics.get('errors'):
         print(f"News lookup warnings: {len(news_diagnostics['errors'])}; affected symbols retained Base OPS.")
+
+    print(
+        f"Shadow Market Regime: {shadow_regime.get('score', 0):.1f}/100 · "
+        f"{shadow_regime.get('regime', 'Pending')} · hypothetical buy-capital "
+        f"{shadow_regime.get('shadow_capital_pct', 100)}% (SHADOW ONLY; live ladders unchanged)."
+    )
 
     print("Top automatically discovered opportunities:")
     for row in payload["emerging_leaders"][:10]:

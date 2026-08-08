@@ -1,3 +1,6 @@
+## 3.60.17 — Shadow Market Regime Observer
+This release adds an observational market-regime layer for Phase 1 data collection. It computes and logs a 0-100 regime score and a hypothetical capital multiplier without changing any live OPS or ladder output.
+
 # LadderIQ 3.60.0 — Intelligent Opportunity Engine
 
 - Broad, liquid opportunity universe spanning all major market sectors.
