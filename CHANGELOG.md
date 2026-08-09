@@ -320,3 +320,9 @@ Removed the obsolete Watch List UI, added automatic confirmed/emerging Growth Ca
 - Uses a 30-minute local news cache and safely respects Finnhub's free-tier request rate.
 - Fails open: if Finnhub or FINNHUB_API_KEY is unavailable, Base OPS remains unchanged and LadderIQ still builds.
 - Dashboard Recommendation State now exposes Base OPS, News Impact, News-Refined OPS, and the material-news rationale.
+
+## 3.60.23 — Shadow Northeast Weather Sentiment (2026-08-09)
+- Added a research-only Northeast weather sentiment observer using New York, Philadelphia, and Boston market-hours cloud/rain forecasts.
+- Logs one forecast observation per target market session to `weather_sentiment_history.json` for later comparison with market outcomes.
+- Added a compact `NE Weather · Shadow` dashboard KPI and terminal diagnostic.
+- Weather is strictly observational: it does not alter OPS, news refinement, candidate eligibility, recommendations, ladders, or capital allocation.

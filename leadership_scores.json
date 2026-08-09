@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-08-08 21:29:21",
+  "as_of": "2026-08-09 09:18:12",
   "market_session_date": "2026-08-07",
   "source": "yfinance + local cache + Nasdaq Trader + Finnhub targeted company news",
   "benchmark_source": "cache-current",
@@ -33,10 +33,10 @@
     "shortlist_threshold": 75.0,
     "shortlisted": 69,
     "owned_shortlisted": 14,
-    "api_requests": 0,
-    "cache_hits": 69,
-    "adjusted": 21,
-    "negative_adjustments": 6,
+    "api_requests": 69,
+    "cache_hits": 0,
+    "adjusted": 20,
+    "negative_adjustments": 5,
     "positive_adjustments": 15,
     "errors": []
   },
@@ -71,6 +71,47 @@
       "qqq_realized_volatility_20d_pct": 26.23
     },
     "methodology": "Phase 1 shadow observer; no live decision or ladder inputs consume this score."
+  },
+  "shadow_weather_sentiment": {
+    "score": 79.9,
+    "signal": "Favorable",
+    "target_session_date": "2026-08-10",
+    "avg_cloud_cover_pct": 27.9,
+    "avg_precip_probability_pct": 1.9,
+    "forecast_precip_mm_total": 0.0,
+    "cities": [
+      {
+        "city": "New York",
+        "score": 82.8,
+        "avg_cloud_cover_pct": 23.2,
+        "avg_precip_probability_pct": 3.0,
+        "forecast_precip_mm": 0.0,
+        "forecast_rainy_market_hours": 0
+      },
+      {
+        "city": "Philadelphia",
+        "score": 87.4,
+        "avg_cloud_cover_pct": 17.0,
+        "avg_precip_probability_pct": 2.2,
+        "forecast_precip_mm": 0.0,
+        "forecast_rainy_market_hours": 0
+      },
+      {
+        "city": "Boston",
+        "score": 69.5,
+        "avg_cloud_cover_pct": 43.4,
+        "avg_precip_probability_pct": 0.4,
+        "forecast_precip_mm": 0.0,
+        "forecast_rainy_market_hours": 0
+      }
+    ],
+    "errors": [],
+    "status": "ok",
+    "shadow_only": true,
+    "affects_live_ladders": false,
+    "hypothesis": "Northeast cloud/rain conditions may correlate with market risk appetite; research only.",
+    "source": "Open-Meteo forecast API",
+    "checked_at": "2026-08-09T09:18:12-04:00"
   },
   "eligible_technical_count": 1393,
   "benchmark": "QQQ",
@@ -149,8 +190,8 @@
           "estimated_effect": 4.5
         }
       ],
-      "news_articles_reviewed": 17,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_articles_reviewed": 18,
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "ANET",
@@ -160,7 +201,7 @@
       "sma200": 147.03,
       "average_daily_dollar_volume": 1525770501.79,
       "technical_score": 100,
-      "leadership_score": 103.2,
+      "leadership_score": 102.6,
       "return_1m_pct": 0.91,
       "return_3m_pct": 33.08,
       "return_6m_pct": 37.22,
@@ -192,8 +233,8 @@
       "risk_score": 40.5,
       "composite_score": 93.2,
       "base_ops": 100.0,
-      "news_adjustment": 3.2,
-      "final_ops": 103.2,
+      "news_adjustment": 2.6,
+      "final_ops": 102.6,
       "candidate_eligible": true,
       "qualified_candidate_raw": true,
       "qualified_100_raw": true,
@@ -209,11 +250,11 @@
           "source": "SeekingAlpha",
           "url": "https://finnhub.io/api/news?id=f15cefd01ea6f58fb35749fcd5abd2aadd85069928444fef9c216019804903b7",
           "datetime": 1786108185,
-          "estimated_effect": 3.2
+          "estimated_effect": 2.6
         }
       ],
-      "news_articles_reviewed": 23,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_articles_reviewed": 24,
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "QLYS",
@@ -266,7 +307,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 3,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "SNOW",
@@ -319,7 +360,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 11,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "CRWD",
@@ -372,7 +413,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 11,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "HPE",
@@ -424,8 +465,8 @@
       "news_risk_level": "Neutral",
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
-      "news_articles_reviewed": 11,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_articles_reviewed": 12,
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "GE",
@@ -478,7 +519,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 8,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "PANW",
@@ -488,7 +529,7 @@
       "sma200": 218.11,
       "average_daily_dollar_volume": 2238515750.98,
       "technical_score": 100,
-      "leadership_score": 90.0,
+      "leadership_score": 90.8,
       "return_1m_pct": 11.64,
       "return_3m_pct": 75.03,
       "return_6m_pct": 128.38,
@@ -520,25 +561,16 @@
       "risk_score": 46.1,
       "composite_score": 87.5,
       "base_ops": 100.0,
-      "news_adjustment": -10.0,
-      "final_ops": 90.0,
+      "news_adjustment": -9.2,
+      "final_ops": 90.8,
       "candidate_eligible": true,
       "qualified_candidate_raw": false,
       "qualified_100_raw": false,
       "action": "ATTACK",
-      "eligibility_ops": 90.0,
+      "eligibility_ops": 90.8,
       "news_risk_level": "High Negative",
-      "news_reason": "regulatory / legal: Palo Alto Networks (PANW) Faces China Cybersecurity Review | guidance: Top Midday Stories: Apollo Acquires EasyJet in Deal Valued at $7.68 Billion; Honeywell Aerospace Shares Fall Following Guidance Cut",
+      "news_reason": "guidance: Top Midday Stories: Apollo Acquires EasyJet in Deal Valued at $7.68 Billion; Honeywell Aerospace Shares Fall Following Guidance Cut | regulatory / legal: Palo Alto Networks (PANW) Faces China Cybersecurity Review",
       "news_sources": [
-        {
-          "category": "regulatory / legal",
-          "direction": "negative",
-          "headline": "Palo Alto Networks (PANW) Faces China Cybersecurity Review",
-          "source": "Yahoo",
-          "url": "https://finnhub.io/api/news?id=c77902c73a7ca2f76f03f65c8708ee635321c1ee68c508846c942c4d397cda04",
-          "datetime": 1786169577,
-          "estimated_effect": -5.2
-        },
         {
           "category": "guidance",
           "direction": "negative",
@@ -547,10 +579,19 @@
           "url": "https://finnhub.io/api/news?id=0051b7817f36c45fdcbf472786a029791c8639d7db74a6e559e164cd3d1f6669",
           "datetime": 1786031110,
           "estimated_effect": -4.7
+        },
+        {
+          "category": "regulatory / legal",
+          "direction": "negative",
+          "headline": "Palo Alto Networks (PANW) Faces China Cybersecurity Review",
+          "source": "Yahoo",
+          "url": "https://finnhub.io/api/news?id=c77902c73a7ca2f76f03f65c8708ee635321c1ee68c508846c942c4d397cda04",
+          "datetime": 1786169577,
+          "estimated_effect": -4.5
         }
       ],
       "news_articles_reviewed": 23,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "NVDA",
@@ -560,7 +601,7 @@
       "sma200": 193.8,
       "average_daily_dollar_volume": 28490832616.9,
       "technical_score": 100,
-      "leadership_score": 83.8,
+      "leadership_score": 80.7,
       "return_1m_pct": 6.16,
       "return_3m_pct": 4.19,
       "return_6m_pct": 20.94,
@@ -592,15 +633,15 @@
       "risk_score": 59.0,
       "composite_score": 91.9,
       "base_ops": 91.9,
-      "news_adjustment": -8.1,
-      "final_ops": 83.8,
+      "news_adjustment": -11.2,
+      "final_ops": 80.7,
       "candidate_eligible": true,
       "qualified_candidate_raw": false,
       "qualified_100_raw": false,
       "action": "ACCUMULATE",
-      "eligibility_ops": 83.8,
+      "eligibility_ops": 80.7,
       "news_risk_level": "High Negative",
-      "news_reason": "contract / partnership: Does Broadcom (AVGO) Now Lead The Biggest AI Infrastructure Spend Outside GPUs? | earnings / revenue: Why Cameco's Ugly Earnings Miss Might Be Good News in Disguise | product / operations: Nokia Oyj (NOK) Launches AI RAN Platform, Is The Valuation Already Too Rich?",
+      "news_reason": "contract / partnership: Does Broadcom (AVGO) Now Lead The Biggest AI Infrastructure Spend Outside GPUs? | earnings / revenue: Cathie Wood's Ark Piled Into Nvidia and Taiwan Semiconductor After Meta's Earnings Miss. Here's What It Signals for Artificial Intelligence (AI) Stocks.",
       "news_sources": [
         {
           "category": "contract / partnership",
@@ -614,24 +655,15 @@
         {
           "category": "earnings / revenue",
           "direction": "negative",
-          "headline": "Why Cameco's Ugly Earnings Miss Might Be Good News in Disguise",
+          "headline": "Cathie Wood's Ark Piled Into Nvidia and Taiwan Semiconductor After Meta's Earnings Miss. Here's What It Signals for Artificial Intelligence (AI) Stocks.",
           "source": "Yahoo",
-          "url": "https://finnhub.io/api/news?id=656424d1c9aa00dee9e405dbd9e99830a4e8e5e7006091a6725ab2d5c84289b4",
-          "datetime": 1786207800,
+          "url": "https://finnhub.io/api/news?id=3b1726157377750a4797940cd017afe771de19d96b52f4583de49ae40cfe45cc",
+          "datetime": 1786260300,
           "estimated_effect": -5.2
-        },
-        {
-          "category": "product / operations",
-          "direction": "positive",
-          "headline": "Nokia Oyj (NOK) Launches AI RAN Platform, Is The Valuation Already Too Rich?",
-          "source": "Yahoo",
-          "url": "https://finnhub.io/api/news?id=d9ff9d6de898e980c4a195cb1cdeabd3f80ebd03ec1e39467318d8e1d875ad94",
-          "datetime": 1786097750,
-          "estimated_effect": 3.2
         }
       ],
-      "news_articles_reviewed": 249,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_articles_reviewed": 250,
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "ASML",
@@ -684,7 +716,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 16,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "TSM",
@@ -737,7 +769,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 9,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "OSCR",
@@ -790,7 +822,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 8,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "NBIX",
@@ -843,7 +875,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 4,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "DVA",
@@ -906,7 +938,7 @@
         }
       ],
       "news_articles_reviewed": 7,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     }
   ],
   "emerging_leaders": [
@@ -918,7 +950,7 @@
       "sma200": 121.95,
       "average_daily_dollar_volume": 456420078.69,
       "technical_score": 100,
-      "leadership_score": 104.5,
+      "leadership_score": 103.7,
       "return_1m_pct": 12.23,
       "return_3m_pct": 61.1,
       "return_6m_pct": 84.89,
@@ -950,8 +982,8 @@
       "risk_score": 35.6,
       "composite_score": 91.1,
       "base_ops": 100.0,
-      "news_adjustment": 4.5,
-      "final_ops": 104.5,
+      "news_adjustment": 3.7,
+      "final_ops": 103.7,
       "candidate_eligible": true,
       "qualified_candidate_raw": true,
       "qualified_100_raw": true,
@@ -967,74 +999,11 @@
           "source": "Yahoo",
           "url": "https://finnhub.io/api/news?id=78c404d9041c679359432ba7589dc8bb01f2f77cb20747dabb5ba81c6952a3ac",
           "datetime": 1786104928,
-          "estimated_effect": 4.5
-        }
-      ],
-      "news_articles_reviewed": 5,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
-    },
-    {
-      "symbol": "PAYC",
-      "price": 214.94,
-      "sma20": 160.39,
-      "sma50": 144.66,
-      "sma200": 144.21,
-      "average_daily_dollar_volume": 204947441.73,
-      "technical_score": 100,
-      "leadership_score": 103.7,
-      "return_1m_pct": 54.54,
-      "return_3m_pct": 57.47,
-      "return_6m_pct": 65.01,
-      "relative_1m_vs_qqq_pct": 54.89,
-      "relative_3m_vs_qqq_pct": 55.7,
-      "relative_6m_vs_qqq_pct": 46.13,
-      "above_20dma": true,
-      "above_50dma": true,
-      "above_200dma": true,
-      "sma50_above_sma200": true,
-      "annualized_volatility_pct": 65.09,
-      "expected_upside_pct": 57.51,
-      "expected_downside_pct": 32.9,
-      "reward_to_risk": 1.75,
-      "return_velocity": 0.639,
-      "business_quality": 86.3,
-      "market_cap": 9687694336.0,
-      "sector": "Technology",
-      "industry": "Software - Application",
-      "company": "Paycom Software, Inc.",
-      "revenue_growth_pct": 9.8,
-      "earnings_growth_pct": 48.1,
-      "free_cash_flow": 423724992.0,
-      "operating_margin_pct": 31.72,
-      "return_on_equity_pct": 41.09,
-      "fundamental_disqualification": false,
-      "fundamental_source": "yfinance",
-      "sector_leadership_score": 100,
-      "risk_score": 34.9,
-      "composite_score": 90.3,
-      "base_ops": 100.0,
-      "news_adjustment": 3.7,
-      "final_ops": 103.7,
-      "candidate_eligible": true,
-      "qualified_candidate_raw": true,
-      "qualified_100_raw": true,
-      "action": "ATTACK",
-      "eligibility_ops": 100.0,
-      "news_risk_level": "Positive",
-      "news_reason": "guidance: Paycom (NYSE:PAYC) Jumps 14% on Q2 Profit Beat and Raised Outlook",
-      "news_sources": [
-        {
-          "category": "guidance",
-          "direction": "positive",
-          "headline": "Paycom (NYSE:PAYC) Jumps 14% on Q2 Profit Beat and Raised Outlook",
-          "source": "ChartMill",
-          "url": "https://finnhub.io/api/news?id=78f18eed503dc5900e272d1ec2b1f5440f3b7716a89c377fcce349332c5738fd",
-          "datetime": 1785981255,
           "estimated_effect": 3.7
         }
       ],
-      "news_articles_reviewed": 16,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_articles_reviewed": 5,
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "DT",
@@ -1097,7 +1066,70 @@
         }
       ],
       "news_articles_reviewed": 12,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
+    },
+    {
+      "symbol": "PAYC",
+      "price": 214.94,
+      "sma20": 160.39,
+      "sma50": 144.66,
+      "sma200": 144.21,
+      "average_daily_dollar_volume": 204947441.73,
+      "technical_score": 100,
+      "leadership_score": 102.6,
+      "return_1m_pct": 54.54,
+      "return_3m_pct": 57.47,
+      "return_6m_pct": 65.01,
+      "relative_1m_vs_qqq_pct": 54.89,
+      "relative_3m_vs_qqq_pct": 55.7,
+      "relative_6m_vs_qqq_pct": 46.13,
+      "above_20dma": true,
+      "above_50dma": true,
+      "above_200dma": true,
+      "sma50_above_sma200": true,
+      "annualized_volatility_pct": 65.09,
+      "expected_upside_pct": 57.51,
+      "expected_downside_pct": 32.9,
+      "reward_to_risk": 1.75,
+      "return_velocity": 0.639,
+      "business_quality": 86.3,
+      "market_cap": 9687694336.0,
+      "sector": "Technology",
+      "industry": "Software - Application",
+      "company": "Paycom Software, Inc.",
+      "revenue_growth_pct": 9.8,
+      "earnings_growth_pct": 48.1,
+      "free_cash_flow": 423724992.0,
+      "operating_margin_pct": 31.72,
+      "return_on_equity_pct": 41.09,
+      "fundamental_disqualification": false,
+      "fundamental_source": "yfinance",
+      "sector_leadership_score": 100,
+      "risk_score": 34.9,
+      "composite_score": 90.3,
+      "base_ops": 100.0,
+      "news_adjustment": 2.6,
+      "final_ops": 102.6,
+      "candidate_eligible": true,
+      "qualified_candidate_raw": true,
+      "qualified_100_raw": true,
+      "action": "ATTACK",
+      "eligibility_ops": 100.0,
+      "news_risk_level": "Positive",
+      "news_reason": "guidance: Paycom (NYSE:PAYC) Jumps 14% on Q2 Profit Beat and Raised Outlook",
+      "news_sources": [
+        {
+          "category": "guidance",
+          "direction": "positive",
+          "headline": "Paycom (NYSE:PAYC) Jumps 14% on Q2 Profit Beat and Raised Outlook",
+          "source": "ChartMill",
+          "url": "https://finnhub.io/api/news?id=78f18eed503dc5900e272d1ec2b1f5440f3b7716a89c377fcce349332c5738fd",
+          "datetime": 1785981255,
+          "estimated_effect": 2.6
+        }
+      ],
+      "news_articles_reviewed": 16,
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "NSIT",
@@ -1150,7 +1182,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 5,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "FIVN",
@@ -1203,7 +1235,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 14,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "HNGE",
@@ -1256,7 +1288,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 5,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "OKTA",
@@ -1309,7 +1341,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 6,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "ZBRA",
@@ -1362,7 +1394,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 5,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "NET",
@@ -1415,7 +1447,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 31,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "ZETA",
@@ -1468,7 +1500,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 3,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "PTGX",
@@ -1521,7 +1553,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "RBRK",
@@ -1574,7 +1606,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "IOT",
@@ -1627,7 +1659,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "NTNX",
@@ -1680,7 +1712,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 3,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "MANH",
@@ -1733,7 +1765,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "GLBE",
@@ -1786,7 +1818,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "FRSH",
@@ -1839,7 +1871,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "DXCM",
@@ -1892,7 +1924,79 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
+    },
+    {
+      "symbol": "CART",
+      "price": 50.17,
+      "sma20": 45.68,
+      "sma50": 44.76,
+      "sma200": 41.14,
+      "average_daily_dollar_volume": 204849370.37,
+      "technical_score": 100,
+      "leadership_score": 100.0,
+      "return_1m_pct": 3.68,
+      "return_3m_pct": 24.34,
+      "return_6m_pct": 44.83,
+      "relative_1m_vs_qqq_pct": 4.02,
+      "relative_3m_vs_qqq_pct": 22.57,
+      "relative_6m_vs_qqq_pct": 25.95,
+      "above_20dma": true,
+      "above_50dma": true,
+      "above_200dma": true,
+      "sma50_above_sma200": true,
+      "annualized_volatility_pct": 46.26,
+      "expected_upside_pct": 27.42,
+      "expected_downside_pct": 18.01,
+      "reward_to_risk": 1.52,
+      "return_velocity": 0.3047,
+      "business_quality": 85.4,
+      "market_cap": 11791444992.0,
+      "sector": "Consumer Cyclical",
+      "industry": "Internet Retail",
+      "company": "Maplebear Inc.",
+      "revenue_growth_pct": 14.1,
+      "earnings_growth_pct": 8.1,
+      "free_cash_flow": 1311500032.0,
+      "operating_margin_pct": 14.09,
+      "return_on_equity_pct": 16.0,
+      "fundamental_disqualification": false,
+      "fundamental_source": "yfinance",
+      "sector_leadership_score": 60,
+      "risk_score": 53.7,
+      "composite_score": 83.4,
+      "base_ops": 100.0,
+      "news_adjustment": 0.0,
+      "final_ops": 100.0,
+      "candidate_eligible": true,
+      "qualified_candidate_raw": true,
+      "qualified_100_raw": true,
+      "action": "ATTACK",
+      "eligibility_ops": 100.0,
+      "news_risk_level": "Neutral",
+      "news_reason": "contract / partnership: Instacart sales climb 14% as grocery platform expands AI, retail technology | earnings / revenue: CART Q2 Earnings Miss, Revenues Beat on GTV and Ad Growth",
+      "news_sources": [
+        {
+          "category": "contract / partnership",
+          "direction": "positive",
+          "headline": "Instacart sales climb 14% as grocery platform expands AI, retail technology",
+          "source": "Yahoo",
+          "url": "https://finnhub.io/api/news?id=a388dddd76a48d93cc7f2d45829a10c438c5b8972ab2e5c509e5dd5c9844e243",
+          "datetime": 1786118039,
+          "estimated_effect": 4.5
+        },
+        {
+          "category": "earnings / revenue",
+          "direction": "negative",
+          "headline": "CART Q2 Earnings Miss, Revenues Beat on GTV and Ad Growth",
+          "source": "Yahoo",
+          "url": "https://finnhub.io/api/news?id=68f524c5ffdb41f1d536cb477eae0aecee78c7411c0024ff33e622a9087c28a0",
+          "datetime": 1786114320,
+          "estimated_effect": -4.5
+        }
+      ],
+      "news_articles_reviewed": 27,
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "HQY",
@@ -1945,7 +2049,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 2,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "ADP",
@@ -1998,79 +2102,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 13,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
-    },
-    {
-      "symbol": "CART",
-      "price": 50.17,
-      "sma20": 45.68,
-      "sma50": 44.76,
-      "sma200": 41.14,
-      "average_daily_dollar_volume": 204849370.37,
-      "technical_score": 100,
-      "leadership_score": 99.2,
-      "return_1m_pct": 3.68,
-      "return_3m_pct": 24.34,
-      "return_6m_pct": 44.83,
-      "relative_1m_vs_qqq_pct": 4.02,
-      "relative_3m_vs_qqq_pct": 22.57,
-      "relative_6m_vs_qqq_pct": 25.95,
-      "above_20dma": true,
-      "above_50dma": true,
-      "above_200dma": true,
-      "sma50_above_sma200": true,
-      "annualized_volatility_pct": 46.26,
-      "expected_upside_pct": 27.42,
-      "expected_downside_pct": 18.01,
-      "reward_to_risk": 1.52,
-      "return_velocity": 0.3047,
-      "business_quality": 85.4,
-      "market_cap": 11791444992.0,
-      "sector": "Consumer Cyclical",
-      "industry": "Internet Retail",
-      "company": "Maplebear Inc.",
-      "revenue_growth_pct": 14.1,
-      "earnings_growth_pct": 8.1,
-      "free_cash_flow": 1311500032.0,
-      "operating_margin_pct": 14.09,
-      "return_on_equity_pct": 16.0,
-      "fundamental_disqualification": false,
-      "fundamental_source": "yfinance",
-      "sector_leadership_score": 60,
-      "risk_score": 53.7,
-      "composite_score": 83.4,
-      "base_ops": 100.0,
-      "news_adjustment": -0.8,
-      "final_ops": 99.2,
-      "candidate_eligible": true,
-      "qualified_candidate_raw": true,
-      "qualified_100_raw": false,
-      "action": "ATTACK",
-      "eligibility_ops": 99.2,
-      "news_risk_level": "Negative",
-      "news_reason": "earnings / revenue: CART Q2 Earnings Miss, Revenues Beat on GTV and Ad Growth | contract / partnership: Instaleap Expands European Footprint Through Strategic Partnership With SPAR Slovenia",
-      "news_sources": [
-        {
-          "category": "earnings / revenue",
-          "direction": "negative",
-          "headline": "CART Q2 Earnings Miss, Revenues Beat on GTV and Ad Growth",
-          "source": "Yahoo",
-          "url": "https://finnhub.io/api/news?id=68f524c5ffdb41f1d536cb477eae0aecee78c7411c0024ff33e622a9087c28a0",
-          "datetime": 1786114320,
-          "estimated_effect": -4.5
-        },
-        {
-          "category": "contract / partnership",
-          "direction": "positive",
-          "headline": "Instaleap Expands European Footprint Through Strategic Partnership With SPAR Slovenia",
-          "source": "Yahoo",
-          "url": "https://finnhub.io/api/news?id=cfaefffb3003193c845a416b57e4f20a32209d0f7424605451e751f619ca2f96",
-          "datetime": 1785995640,
-          "estimated_effect": 3.7
-        }
-      ],
-      "news_articles_reviewed": 25,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "APH",
@@ -2132,8 +2164,8 @@
           "estimated_effect": -4.5
         }
       ],
-      "news_articles_reviewed": 8,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_articles_reviewed": 9,
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "EXPE",
@@ -2143,7 +2175,7 @@
       "sma200": 249.38,
       "average_daily_dollar_volume": 518108596.59,
       "technical_score": 100,
-      "leadership_score": 87.5,
+      "leadership_score": 86.4,
       "return_1m_pct": 14.71,
       "return_3m_pct": 35.38,
       "return_6m_pct": 31.74,
@@ -2175,14 +2207,14 @@
       "risk_score": 53.9,
       "composite_score": 81.2,
       "base_ops": 81.2,
-      "news_adjustment": 6.3,
-      "final_ops": 87.5,
+      "news_adjustment": 5.2,
+      "final_ops": 86.4,
       "candidate_eligible": true,
       "qualified_candidate_raw": false,
       "qualified_100_raw": false,
       "action": "ACCUMULATE",
       "eligibility_ops": 81.2,
-      "news_risk_level": "High Positive",
+      "news_risk_level": "Positive",
       "news_reason": "guidance: Expedia Group Inc (EXPE) (Q2 2026) Earnings Call Highlights: Record Growth and Strategic Expansion | earnings / revenue: Expedia Group Q2 Earnings & Revenues Beat Estimates, Increase Y/Y",
       "news_sources": [
         {
@@ -2192,7 +2224,7 @@
           "source": "Yahoo",
           "url": "https://finnhub.io/api/news?id=467aa572eb88a1825c5ecb4907681ac79906bfea2a90360a1442a91b38fd9734",
           "datetime": 1785993209,
-          "estimated_effect": 3.7
+          "estimated_effect": 2.6
         },
         {
           "category": "earnings / revenue",
@@ -2205,7 +2237,7 @@
         }
       ],
       "news_articles_reviewed": 21,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "SN",
@@ -2267,8 +2299,8 @@
           "estimated_effect": 2.6
         }
       ],
-      "news_articles_reviewed": 10,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_articles_reviewed": 11,
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "CAKE",
@@ -2331,7 +2363,7 @@
         }
       ],
       "news_articles_reviewed": 2,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "RACE",
@@ -2383,8 +2415,8 @@
       "news_risk_level": "Neutral",
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
-      "news_articles_reviewed": 1,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_articles_reviewed": 2,
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "HRB",
@@ -2437,7 +2469,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 3,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "MGNI",
@@ -2490,7 +2522,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 14,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     }
   ],
   "weakening_leaders": [
@@ -2545,7 +2577,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 4,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "DVA",
@@ -2608,73 +2640,10 @@
         }
       ],
       "news_articles_reviewed": 7,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     }
   ],
   "scores": [
-    {
-      "symbol": "NTAP",
-      "price": 189.52,
-      "sma20": 173.05,
-      "sma50": 166.72,
-      "sma200": 121.95,
-      "average_daily_dollar_volume": 456420078.69,
-      "technical_score": 100,
-      "leadership_score": 104.5,
-      "return_1m_pct": 12.23,
-      "return_3m_pct": 61.1,
-      "return_6m_pct": 84.89,
-      "relative_1m_vs_qqq_pct": 12.57,
-      "relative_3m_vs_qqq_pct": 59.33,
-      "relative_6m_vs_qqq_pct": 66.02,
-      "above_20dma": true,
-      "above_50dma": true,
-      "above_200dma": true,
-      "sma50_above_sma200": true,
-      "annualized_volatility_pct": 64.39,
-      "expected_upside_pct": 56.38,
-      "expected_downside_pct": 35.65,
-      "reward_to_risk": 1.58,
-      "return_velocity": 0.6265,
-      "business_quality": 90.6,
-      "market_cap": 36617318400.0,
-      "sector": "Technology",
-      "industry": "Software - Infrastructure",
-      "company": "NetApp, Inc.",
-      "revenue_growth_pct": 12.5,
-      "earnings_growth_pct": 23.4,
-      "free_cash_flow": 1295250048.0,
-      "operating_margin_pct": 27.26,
-      "return_on_equity_pct": 106.73,
-      "fundamental_disqualification": false,
-      "fundamental_source": "yfinance",
-      "sector_leadership_score": 100,
-      "risk_score": 35.6,
-      "composite_score": 91.1,
-      "base_ops": 100.0,
-      "news_adjustment": 4.5,
-      "final_ops": 104.5,
-      "candidate_eligible": true,
-      "qualified_candidate_raw": true,
-      "qualified_100_raw": true,
-      "action": "ATTACK",
-      "eligibility_ops": 100.0,
-      "news_risk_level": "Positive",
-      "news_reason": "contract / partnership: NetApp (NTAP) Acquires Software Firm To Deepen AI Era Data Protection",
-      "news_sources": [
-        {
-          "category": "contract / partnership",
-          "direction": "positive",
-          "headline": "NetApp (NTAP) Acquires Software Firm To Deepen AI Era Data Protection",
-          "source": "Yahoo",
-          "url": "https://finnhub.io/api/news?id=78c404d9041c679359432ba7589dc8bb01f2f77cb20747dabb5ba81c6952a3ac",
-          "datetime": 1786104928,
-          "estimated_effect": 4.5
-        }
-      ],
-      "news_articles_reviewed": 5,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
-    },
     {
       "symbol": "FTNT",
       "price": 159.64,
@@ -2735,48 +2704,48 @@
           "estimated_effect": 4.5
         }
       ],
-      "news_articles_reviewed": 17,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_articles_reviewed": 18,
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
-      "symbol": "PAYC",
-      "price": 214.94,
-      "sma20": 160.39,
-      "sma50": 144.66,
-      "sma200": 144.21,
-      "average_daily_dollar_volume": 204947441.73,
+      "symbol": "NTAP",
+      "price": 189.52,
+      "sma20": 173.05,
+      "sma50": 166.72,
+      "sma200": 121.95,
+      "average_daily_dollar_volume": 456420078.69,
       "technical_score": 100,
       "leadership_score": 103.7,
-      "return_1m_pct": 54.54,
-      "return_3m_pct": 57.47,
-      "return_6m_pct": 65.01,
-      "relative_1m_vs_qqq_pct": 54.89,
-      "relative_3m_vs_qqq_pct": 55.7,
-      "relative_6m_vs_qqq_pct": 46.13,
+      "return_1m_pct": 12.23,
+      "return_3m_pct": 61.1,
+      "return_6m_pct": 84.89,
+      "relative_1m_vs_qqq_pct": 12.57,
+      "relative_3m_vs_qqq_pct": 59.33,
+      "relative_6m_vs_qqq_pct": 66.02,
       "above_20dma": true,
       "above_50dma": true,
       "above_200dma": true,
       "sma50_above_sma200": true,
-      "annualized_volatility_pct": 65.09,
-      "expected_upside_pct": 57.51,
-      "expected_downside_pct": 32.9,
-      "reward_to_risk": 1.75,
-      "return_velocity": 0.639,
-      "business_quality": 86.3,
-      "market_cap": 9687694336.0,
+      "annualized_volatility_pct": 64.39,
+      "expected_upside_pct": 56.38,
+      "expected_downside_pct": 35.65,
+      "reward_to_risk": 1.58,
+      "return_velocity": 0.6265,
+      "business_quality": 90.6,
+      "market_cap": 36617318400.0,
       "sector": "Technology",
-      "industry": "Software - Application",
-      "company": "Paycom Software, Inc.",
-      "revenue_growth_pct": 9.8,
-      "earnings_growth_pct": 48.1,
-      "free_cash_flow": 423724992.0,
-      "operating_margin_pct": 31.72,
-      "return_on_equity_pct": 41.09,
+      "industry": "Software - Infrastructure",
+      "company": "NetApp, Inc.",
+      "revenue_growth_pct": 12.5,
+      "earnings_growth_pct": 23.4,
+      "free_cash_flow": 1295250048.0,
+      "operating_margin_pct": 27.26,
+      "return_on_equity_pct": 106.73,
       "fundamental_disqualification": false,
       "fundamental_source": "yfinance",
       "sector_leadership_score": 100,
-      "risk_score": 34.9,
-      "composite_score": 90.3,
+      "risk_score": 35.6,
+      "composite_score": 91.1,
       "base_ops": 100.0,
       "news_adjustment": 3.7,
       "final_ops": 103.7,
@@ -2786,20 +2755,20 @@
       "action": "ATTACK",
       "eligibility_ops": 100.0,
       "news_risk_level": "Positive",
-      "news_reason": "guidance: Paycom (NYSE:PAYC) Jumps 14% on Q2 Profit Beat and Raised Outlook",
+      "news_reason": "contract / partnership: NetApp (NTAP) Acquires Software Firm To Deepen AI Era Data Protection",
       "news_sources": [
         {
-          "category": "guidance",
+          "category": "contract / partnership",
           "direction": "positive",
-          "headline": "Paycom (NYSE:PAYC) Jumps 14% on Q2 Profit Beat and Raised Outlook",
-          "source": "ChartMill",
-          "url": "https://finnhub.io/api/news?id=78f18eed503dc5900e272d1ec2b1f5440f3b7716a89c377fcce349332c5738fd",
-          "datetime": 1785981255,
+          "headline": "NetApp (NTAP) Acquires Software Firm To Deepen AI Era Data Protection",
+          "source": "Yahoo",
+          "url": "https://finnhub.io/api/news?id=78c404d9041c679359432ba7589dc8bb01f2f77cb20747dabb5ba81c6952a3ac",
+          "datetime": 1786104928,
           "estimated_effect": 3.7
         }
       ],
-      "news_articles_reviewed": 16,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_articles_reviewed": 5,
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "DT",
@@ -2862,7 +2831,70 @@
         }
       ],
       "news_articles_reviewed": 12,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
+    },
+    {
+      "symbol": "PAYC",
+      "price": 214.94,
+      "sma20": 160.39,
+      "sma50": 144.66,
+      "sma200": 144.21,
+      "average_daily_dollar_volume": 204947441.73,
+      "technical_score": 100,
+      "leadership_score": 102.6,
+      "return_1m_pct": 54.54,
+      "return_3m_pct": 57.47,
+      "return_6m_pct": 65.01,
+      "relative_1m_vs_qqq_pct": 54.89,
+      "relative_3m_vs_qqq_pct": 55.7,
+      "relative_6m_vs_qqq_pct": 46.13,
+      "above_20dma": true,
+      "above_50dma": true,
+      "above_200dma": true,
+      "sma50_above_sma200": true,
+      "annualized_volatility_pct": 65.09,
+      "expected_upside_pct": 57.51,
+      "expected_downside_pct": 32.9,
+      "reward_to_risk": 1.75,
+      "return_velocity": 0.639,
+      "business_quality": 86.3,
+      "market_cap": 9687694336.0,
+      "sector": "Technology",
+      "industry": "Software - Application",
+      "company": "Paycom Software, Inc.",
+      "revenue_growth_pct": 9.8,
+      "earnings_growth_pct": 48.1,
+      "free_cash_flow": 423724992.0,
+      "operating_margin_pct": 31.72,
+      "return_on_equity_pct": 41.09,
+      "fundamental_disqualification": false,
+      "fundamental_source": "yfinance",
+      "sector_leadership_score": 100,
+      "risk_score": 34.9,
+      "composite_score": 90.3,
+      "base_ops": 100.0,
+      "news_adjustment": 2.6,
+      "final_ops": 102.6,
+      "candidate_eligible": true,
+      "qualified_candidate_raw": true,
+      "qualified_100_raw": true,
+      "action": "ATTACK",
+      "eligibility_ops": 100.0,
+      "news_risk_level": "Positive",
+      "news_reason": "guidance: Paycom (NYSE:PAYC) Jumps 14% on Q2 Profit Beat and Raised Outlook",
+      "news_sources": [
+        {
+          "category": "guidance",
+          "direction": "positive",
+          "headline": "Paycom (NYSE:PAYC) Jumps 14% on Q2 Profit Beat and Raised Outlook",
+          "source": "ChartMill",
+          "url": "https://finnhub.io/api/news?id=78f18eed503dc5900e272d1ec2b1f5440f3b7716a89c377fcce349332c5738fd",
+          "datetime": 1785981255,
+          "estimated_effect": 2.6
+        }
+      ],
+      "news_articles_reviewed": 16,
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "ANET",
@@ -2872,7 +2904,7 @@
       "sma200": 147.03,
       "average_daily_dollar_volume": 1525770501.79,
       "technical_score": 100,
-      "leadership_score": 103.2,
+      "leadership_score": 102.6,
       "return_1m_pct": 0.91,
       "return_3m_pct": 33.08,
       "return_6m_pct": 37.22,
@@ -2904,8 +2936,8 @@
       "risk_score": 40.5,
       "composite_score": 93.2,
       "base_ops": 100.0,
-      "news_adjustment": 3.2,
-      "final_ops": 103.2,
+      "news_adjustment": 2.6,
+      "final_ops": 102.6,
       "candidate_eligible": true,
       "qualified_candidate_raw": true,
       "qualified_100_raw": true,
@@ -2921,11 +2953,11 @@
           "source": "SeekingAlpha",
           "url": "https://finnhub.io/api/news?id=f15cefd01ea6f58fb35749fcd5abd2aadd85069928444fef9c216019804903b7",
           "datetime": 1786108185,
-          "estimated_effect": 3.2
+          "estimated_effect": 2.6
         }
       ],
-      "news_articles_reviewed": 23,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_articles_reviewed": 24,
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "QLYS",
@@ -2978,7 +3010,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 3,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "SNOW",
@@ -3031,7 +3063,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 11,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "CRWD",
@@ -3084,7 +3116,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 11,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "NSIT",
@@ -3137,7 +3169,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 5,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "FIVN",
@@ -3190,7 +3222,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 14,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "HNGE",
@@ -3243,7 +3275,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 5,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "HPE",
@@ -3295,8 +3327,8 @@
       "news_risk_level": "Neutral",
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
-      "news_articles_reviewed": 11,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_articles_reviewed": 12,
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "OKTA",
@@ -3349,7 +3381,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 6,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "ZBRA",
@@ -3402,7 +3434,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 5,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "NET",
@@ -3455,7 +3487,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 31,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "ZETA",
@@ -3508,7 +3540,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 3,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "PTGX",
@@ -3561,7 +3593,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "RBRK",
@@ -3614,7 +3646,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "IOT",
@@ -3667,7 +3699,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "NTNX",
@@ -3720,7 +3752,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 3,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "MANH",
@@ -3773,7 +3805,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "GLBE",
@@ -3826,7 +3858,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "FRSH",
@@ -3879,7 +3911,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "DXCM",
@@ -3932,7 +3964,79 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
+    },
+    {
+      "symbol": "CART",
+      "price": 50.17,
+      "sma20": 45.68,
+      "sma50": 44.76,
+      "sma200": 41.14,
+      "average_daily_dollar_volume": 204849370.37,
+      "technical_score": 100,
+      "leadership_score": 100.0,
+      "return_1m_pct": 3.68,
+      "return_3m_pct": 24.34,
+      "return_6m_pct": 44.83,
+      "relative_1m_vs_qqq_pct": 4.02,
+      "relative_3m_vs_qqq_pct": 22.57,
+      "relative_6m_vs_qqq_pct": 25.95,
+      "above_20dma": true,
+      "above_50dma": true,
+      "above_200dma": true,
+      "sma50_above_sma200": true,
+      "annualized_volatility_pct": 46.26,
+      "expected_upside_pct": 27.42,
+      "expected_downside_pct": 18.01,
+      "reward_to_risk": 1.52,
+      "return_velocity": 0.3047,
+      "business_quality": 85.4,
+      "market_cap": 11791444992.0,
+      "sector": "Consumer Cyclical",
+      "industry": "Internet Retail",
+      "company": "Maplebear Inc.",
+      "revenue_growth_pct": 14.1,
+      "earnings_growth_pct": 8.1,
+      "free_cash_flow": 1311500032.0,
+      "operating_margin_pct": 14.09,
+      "return_on_equity_pct": 16.0,
+      "fundamental_disqualification": false,
+      "fundamental_source": "yfinance",
+      "sector_leadership_score": 60,
+      "risk_score": 53.7,
+      "composite_score": 83.4,
+      "base_ops": 100.0,
+      "news_adjustment": 0.0,
+      "final_ops": 100.0,
+      "candidate_eligible": true,
+      "qualified_candidate_raw": true,
+      "qualified_100_raw": true,
+      "action": "ATTACK",
+      "eligibility_ops": 100.0,
+      "news_risk_level": "Neutral",
+      "news_reason": "contract / partnership: Instacart sales climb 14% as grocery platform expands AI, retail technology | earnings / revenue: CART Q2 Earnings Miss, Revenues Beat on GTV and Ad Growth",
+      "news_sources": [
+        {
+          "category": "contract / partnership",
+          "direction": "positive",
+          "headline": "Instacart sales climb 14% as grocery platform expands AI, retail technology",
+          "source": "Yahoo",
+          "url": "https://finnhub.io/api/news?id=a388dddd76a48d93cc7f2d45829a10c438c5b8972ab2e5c509e5dd5c9844e243",
+          "datetime": 1786118039,
+          "estimated_effect": 4.5
+        },
+        {
+          "category": "earnings / revenue",
+          "direction": "negative",
+          "headline": "CART Q2 Earnings Miss, Revenues Beat on GTV and Ad Growth",
+          "source": "Yahoo",
+          "url": "https://finnhub.io/api/news?id=68f524c5ffdb41f1d536cb477eae0aecee78c7411c0024ff33e622a9087c28a0",
+          "datetime": 1786114320,
+          "estimated_effect": -4.5
+        }
+      ],
+      "news_articles_reviewed": 27,
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "HQY",
@@ -3985,7 +4089,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 2,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "ADP",
@@ -4038,7 +4142,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 13,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "GE",
@@ -4091,79 +4195,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 8,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
-    },
-    {
-      "symbol": "CART",
-      "price": 50.17,
-      "sma20": 45.68,
-      "sma50": 44.76,
-      "sma200": 41.14,
-      "average_daily_dollar_volume": 204849370.37,
-      "technical_score": 100,
-      "leadership_score": 99.2,
-      "return_1m_pct": 3.68,
-      "return_3m_pct": 24.34,
-      "return_6m_pct": 44.83,
-      "relative_1m_vs_qqq_pct": 4.02,
-      "relative_3m_vs_qqq_pct": 22.57,
-      "relative_6m_vs_qqq_pct": 25.95,
-      "above_20dma": true,
-      "above_50dma": true,
-      "above_200dma": true,
-      "sma50_above_sma200": true,
-      "annualized_volatility_pct": 46.26,
-      "expected_upside_pct": 27.42,
-      "expected_downside_pct": 18.01,
-      "reward_to_risk": 1.52,
-      "return_velocity": 0.3047,
-      "business_quality": 85.4,
-      "market_cap": 11791444992.0,
-      "sector": "Consumer Cyclical",
-      "industry": "Internet Retail",
-      "company": "Maplebear Inc.",
-      "revenue_growth_pct": 14.1,
-      "earnings_growth_pct": 8.1,
-      "free_cash_flow": 1311500032.0,
-      "operating_margin_pct": 14.09,
-      "return_on_equity_pct": 16.0,
-      "fundamental_disqualification": false,
-      "fundamental_source": "yfinance",
-      "sector_leadership_score": 60,
-      "risk_score": 53.7,
-      "composite_score": 83.4,
-      "base_ops": 100.0,
-      "news_adjustment": -0.8,
-      "final_ops": 99.2,
-      "candidate_eligible": true,
-      "qualified_candidate_raw": true,
-      "qualified_100_raw": false,
-      "action": "ATTACK",
-      "eligibility_ops": 99.2,
-      "news_risk_level": "Negative",
-      "news_reason": "earnings / revenue: CART Q2 Earnings Miss, Revenues Beat on GTV and Ad Growth | contract / partnership: Instaleap Expands European Footprint Through Strategic Partnership With SPAR Slovenia",
-      "news_sources": [
-        {
-          "category": "earnings / revenue",
-          "direction": "negative",
-          "headline": "CART Q2 Earnings Miss, Revenues Beat on GTV and Ad Growth",
-          "source": "Yahoo",
-          "url": "https://finnhub.io/api/news?id=68f524c5ffdb41f1d536cb477eae0aecee78c7411c0024ff33e622a9087c28a0",
-          "datetime": 1786114320,
-          "estimated_effect": -4.5
-        },
-        {
-          "category": "contract / partnership",
-          "direction": "positive",
-          "headline": "Instaleap Expands European Footprint Through Strategic Partnership With SPAR Slovenia",
-          "source": "Yahoo",
-          "url": "https://finnhub.io/api/news?id=cfaefffb3003193c845a416b57e4f20a32209d0f7424605451e751f619ca2f96",
-          "datetime": 1785995640,
-          "estimated_effect": 3.7
-        }
-      ],
-      "news_articles_reviewed": 25,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "APH",
@@ -4225,8 +4257,8 @@
           "estimated_effect": -4.5
         }
       ],
-      "news_articles_reviewed": 8,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_articles_reviewed": 9,
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "PANW",
@@ -4236,7 +4268,7 @@
       "sma200": 218.11,
       "average_daily_dollar_volume": 2238515750.98,
       "technical_score": 100,
-      "leadership_score": 90.0,
+      "leadership_score": 90.8,
       "return_1m_pct": 11.64,
       "return_3m_pct": 75.03,
       "return_6m_pct": 128.38,
@@ -4268,25 +4300,16 @@
       "risk_score": 46.1,
       "composite_score": 87.5,
       "base_ops": 100.0,
-      "news_adjustment": -10.0,
-      "final_ops": 90.0,
+      "news_adjustment": -9.2,
+      "final_ops": 90.8,
       "candidate_eligible": true,
       "qualified_candidate_raw": false,
       "qualified_100_raw": false,
       "action": "ATTACK",
-      "eligibility_ops": 90.0,
+      "eligibility_ops": 90.8,
       "news_risk_level": "High Negative",
-      "news_reason": "regulatory / legal: Palo Alto Networks (PANW) Faces China Cybersecurity Review | guidance: Top Midday Stories: Apollo Acquires EasyJet in Deal Valued at $7.68 Billion; Honeywell Aerospace Shares Fall Following Guidance Cut",
+      "news_reason": "guidance: Top Midday Stories: Apollo Acquires EasyJet in Deal Valued at $7.68 Billion; Honeywell Aerospace Shares Fall Following Guidance Cut | regulatory / legal: Palo Alto Networks (PANW) Faces China Cybersecurity Review",
       "news_sources": [
-        {
-          "category": "regulatory / legal",
-          "direction": "negative",
-          "headline": "Palo Alto Networks (PANW) Faces China Cybersecurity Review",
-          "source": "Yahoo",
-          "url": "https://finnhub.io/api/news?id=c77902c73a7ca2f76f03f65c8708ee635321c1ee68c508846c942c4d397cda04",
-          "datetime": 1786169577,
-          "estimated_effect": -5.2
-        },
         {
           "category": "guidance",
           "direction": "negative",
@@ -4295,10 +4318,19 @@
           "url": "https://finnhub.io/api/news?id=0051b7817f36c45fdcbf472786a029791c8639d7db74a6e559e164cd3d1f6669",
           "datetime": 1786031110,
           "estimated_effect": -4.7
+        },
+        {
+          "category": "regulatory / legal",
+          "direction": "negative",
+          "headline": "Palo Alto Networks (PANW) Faces China Cybersecurity Review",
+          "source": "Yahoo",
+          "url": "https://finnhub.io/api/news?id=c77902c73a7ca2f76f03f65c8708ee635321c1ee68c508846c942c4d397cda04",
+          "datetime": 1786169577,
+          "estimated_effect": -4.5
         }
       ],
       "news_articles_reviewed": 23,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "FSLY",
@@ -4361,79 +4393,7 @@
         }
       ],
       "news_articles_reviewed": 5,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
-    },
-    {
-      "symbol": "EXPE",
-      "price": 310.68,
-      "sma20": 283.02,
-      "sma50": 259.71,
-      "sma200": 249.38,
-      "average_daily_dollar_volume": 518108596.59,
-      "technical_score": 100,
-      "leadership_score": 87.5,
-      "return_1m_pct": 14.71,
-      "return_3m_pct": 35.38,
-      "return_6m_pct": 31.74,
-      "relative_1m_vs_qqq_pct": 15.06,
-      "relative_3m_vs_qqq_pct": 33.61,
-      "relative_6m_vs_qqq_pct": 12.86,
-      "above_20dma": true,
-      "above_50dma": true,
-      "above_200dma": true,
-      "sma50_above_sma200": true,
-      "annualized_volatility_pct": 46.06,
-      "expected_upside_pct": 30.35,
-      "expected_downside_pct": 19.73,
-      "reward_to_risk": 1.54,
-      "return_velocity": 0.3372,
-      "business_quality": 77.8,
-      "market_cap": 38366257152.0,
-      "sector": "Consumer Cyclical",
-      "industry": "Travel Services",
-      "company": "Expedia Group, Inc.",
-      "revenue_growth_pct": 14.7,
-      "earnings_growth_pct": 0.0,
-      "free_cash_flow": 3478249984.0,
-      "operating_margin_pct": 7.09,
-      "return_on_equity_pct": 71.49,
-      "fundamental_disqualification": false,
-      "fundamental_source": "yfinance",
-      "sector_leadership_score": 60,
-      "risk_score": 53.9,
-      "composite_score": 81.2,
-      "base_ops": 81.2,
-      "news_adjustment": 6.3,
-      "final_ops": 87.5,
-      "candidate_eligible": true,
-      "qualified_candidate_raw": false,
-      "qualified_100_raw": false,
-      "action": "ACCUMULATE",
-      "eligibility_ops": 81.2,
-      "news_risk_level": "High Positive",
-      "news_reason": "guidance: Expedia Group Inc (EXPE) (Q2 2026) Earnings Call Highlights: Record Growth and Strategic Expansion | earnings / revenue: Expedia Group Q2 Earnings & Revenues Beat Estimates, Increase Y/Y",
-      "news_sources": [
-        {
-          "category": "guidance",
-          "direction": "positive",
-          "headline": "Expedia Group Inc (EXPE) (Q2 2026) Earnings Call Highlights: Record Growth and Strategic Expansion",
-          "source": "Yahoo",
-          "url": "https://finnhub.io/api/news?id=467aa572eb88a1825c5ecb4907681ac79906bfea2a90360a1442a91b38fd9734",
-          "datetime": 1785993209,
-          "estimated_effect": 3.7
-        },
-        {
-          "category": "earnings / revenue",
-          "direction": "positive",
-          "headline": "Expedia Group Q2 Earnings & Revenues Beat Estimates, Increase Y/Y",
-          "source": "Yahoo",
-          "url": "https://finnhub.io/api/news?id=b761d36e1a93d03f27e8abc09c6ece477ca696455adface06183f9b662cdfc7e",
-          "datetime": 1786034820,
-          "estimated_effect": 2.6
-        }
-      ],
-      "news_articles_reviewed": 21,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "NTRA",
@@ -4505,7 +4465,7 @@
         }
       ],
       "news_articles_reviewed": 18,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "GH",
@@ -4568,7 +4528,7 @@
         }
       ],
       "news_articles_reviewed": 2,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "BLFS",
@@ -4621,88 +4581,79 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
-      "symbol": "NVDA",
-      "price": 223.96,
-      "sma20": 206.82,
-      "sma50": 206.05,
-      "sma200": 193.8,
-      "average_daily_dollar_volume": 28490832616.9,
+      "symbol": "EXPE",
+      "price": 310.68,
+      "sma20": 283.02,
+      "sma50": 259.71,
+      "sma200": 249.38,
+      "average_daily_dollar_volume": 518108596.59,
       "technical_score": 100,
-      "leadership_score": 83.8,
-      "return_1m_pct": 6.16,
-      "return_3m_pct": 4.19,
-      "return_6m_pct": 20.94,
-      "relative_1m_vs_qqq_pct": 6.5,
-      "relative_3m_vs_qqq_pct": 2.42,
-      "relative_6m_vs_qqq_pct": 2.06,
+      "leadership_score": 86.4,
+      "return_1m_pct": 14.71,
+      "return_3m_pct": 35.38,
+      "return_6m_pct": 31.74,
+      "relative_1m_vs_qqq_pct": 15.06,
+      "relative_3m_vs_qqq_pct": 33.61,
+      "relative_6m_vs_qqq_pct": 12.86,
       "above_20dma": true,
       "above_50dma": true,
       "above_200dma": true,
       "sma50_above_sma200": true,
-      "annualized_volatility_pct": 41.04,
-      "expected_upside_pct": 10.34,
-      "expected_downside_pct": 13.47,
-      "reward_to_risk": 0.77,
-      "return_velocity": 0.1149,
-      "business_quality": 100.0,
-      "market_cap": 5309727768576.0,
-      "sector": "Technology",
-      "industry": "Semiconductors",
-      "company": "NVIDIA Corporation",
-      "revenue_growth_pct": 85.2,
-      "earnings_growth_pct": 214.5,
-      "free_cash_flow": 46335873024.0,
-      "operating_margin_pct": 65.6,
-      "return_on_equity_pct": 114.29,
+      "annualized_volatility_pct": 46.06,
+      "expected_upside_pct": 30.35,
+      "expected_downside_pct": 19.73,
+      "reward_to_risk": 1.54,
+      "return_velocity": 0.3372,
+      "business_quality": 77.8,
+      "market_cap": 38366257152.0,
+      "sector": "Consumer Cyclical",
+      "industry": "Travel Services",
+      "company": "Expedia Group, Inc.",
+      "revenue_growth_pct": 14.7,
+      "earnings_growth_pct": 0.0,
+      "free_cash_flow": 3478249984.0,
+      "operating_margin_pct": 7.09,
+      "return_on_equity_pct": 71.49,
       "fundamental_disqualification": false,
       "fundamental_source": "yfinance",
-      "sector_leadership_score": 100,
-      "risk_score": 59.0,
-      "composite_score": 91.9,
-      "base_ops": 91.9,
-      "news_adjustment": -8.1,
-      "final_ops": 83.8,
+      "sector_leadership_score": 60,
+      "risk_score": 53.9,
+      "composite_score": 81.2,
+      "base_ops": 81.2,
+      "news_adjustment": 5.2,
+      "final_ops": 86.4,
       "candidate_eligible": true,
       "qualified_candidate_raw": false,
       "qualified_100_raw": false,
       "action": "ACCUMULATE",
-      "eligibility_ops": 83.8,
-      "news_risk_level": "High Negative",
-      "news_reason": "contract / partnership: Does Broadcom (AVGO) Now Lead The Biggest AI Infrastructure Spend Outside GPUs? | earnings / revenue: Why Cameco's Ugly Earnings Miss Might Be Good News in Disguise | product / operations: Nokia Oyj (NOK) Launches AI RAN Platform, Is The Valuation Already Too Rich?",
+      "eligibility_ops": 81.2,
+      "news_risk_level": "Positive",
+      "news_reason": "guidance: Expedia Group Inc (EXPE) (Q2 2026) Earnings Call Highlights: Record Growth and Strategic Expansion | earnings / revenue: Expedia Group Q2 Earnings & Revenues Beat Estimates, Increase Y/Y",
       "news_sources": [
         {
-          "category": "contract / partnership",
-          "direction": "negative",
-          "headline": "Does Broadcom (AVGO) Now Lead The Biggest AI Infrastructure Spend Outside GPUs?",
+          "category": "guidance",
+          "direction": "positive",
+          "headline": "Expedia Group Inc (EXPE) (Q2 2026) Earnings Call Highlights: Record Growth and Strategic Expansion",
           "source": "Yahoo",
-          "url": "https://finnhub.io/api/news?id=7567d5a09a5fef7fd2b67b15e2e617789922980f91be6d8dc2596cb3737eca0b",
-          "datetime": 1786198276,
-          "estimated_effect": -6.0
+          "url": "https://finnhub.io/api/news?id=467aa572eb88a1825c5ecb4907681ac79906bfea2a90360a1442a91b38fd9734",
+          "datetime": 1785993209,
+          "estimated_effect": 2.6
         },
         {
           "category": "earnings / revenue",
-          "direction": "negative",
-          "headline": "Why Cameco's Ugly Earnings Miss Might Be Good News in Disguise",
-          "source": "Yahoo",
-          "url": "https://finnhub.io/api/news?id=656424d1c9aa00dee9e405dbd9e99830a4e8e5e7006091a6725ab2d5c84289b4",
-          "datetime": 1786207800,
-          "estimated_effect": -5.2
-        },
-        {
-          "category": "product / operations",
           "direction": "positive",
-          "headline": "Nokia Oyj (NOK) Launches AI RAN Platform, Is The Valuation Already Too Rich?",
+          "headline": "Expedia Group Q2 Earnings & Revenues Beat Estimates, Increase Y/Y",
           "source": "Yahoo",
-          "url": "https://finnhub.io/api/news?id=d9ff9d6de898e980c4a195cb1cdeabd3f80ebd03ec1e39467318d8e1d875ad94",
-          "datetime": 1786097750,
-          "estimated_effect": 3.2
+          "url": "https://finnhub.io/api/news?id=b761d36e1a93d03f27e8abc09c6ece477ca696455adface06183f9b662cdfc7e",
+          "datetime": 1786034820,
+          "estimated_effect": 2.6
         }
       ],
-      "news_articles_reviewed": 249,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_articles_reviewed": 21,
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "PAYX",
@@ -4754,8 +4705,8 @@
       "news_risk_level": "Neutral",
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
-      "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_articles_reviewed": 1,
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "SN",
@@ -4817,8 +4768,8 @@
           "estimated_effect": 2.6
         }
       ],
-      "news_articles_reviewed": 10,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_articles_reviewed": 11,
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "HAE",
@@ -4871,7 +4822,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 12,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "CAKE",
@@ -4934,7 +4885,7 @@
         }
       ],
       "news_articles_reviewed": 2,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "UMAC",
@@ -4987,7 +4938,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 2,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "ADPT",
@@ -5040,7 +4991,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "OUST",
@@ -5093,7 +5044,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 7,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "RACE",
@@ -5145,8 +5096,8 @@
       "news_risk_level": "Neutral",
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
-      "news_articles_reviewed": 1,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_articles_reviewed": 2,
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "GPN",
@@ -5199,7 +5150,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 18,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "BOX",
@@ -5252,7 +5203,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "SFM",
@@ -5305,70 +5256,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 3,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
-    },
-    {
-      "symbol": "REPL",
-      "price": 12.06,
-      "sma20": 9.91,
-      "sma50": 9.98,
-      "sma200": 7.99,
-      "average_daily_dollar_volume": 90030676.93,
-      "technical_score": 100,
-      "leadership_score": 80.9,
-      "return_1m_pct": 9.74,
-      "return_3m_pct": 196.31,
-      "return_6m_pct": 55.61,
-      "relative_1m_vs_qqq_pct": 10.08,
-      "relative_3m_vs_qqq_pct": 194.54,
-      "relative_6m_vs_qqq_pct": 36.74,
-      "above_20dma": true,
-      "above_50dma": true,
-      "above_200dma": true,
-      "sma50_above_sma200": true,
-      "annualized_volatility_pct": 302.81,
-      "expected_upside_pct": 60,
-      "expected_downside_pct": 33.73,
-      "reward_to_risk": 1.78,
-      "return_velocity": 0.6667,
-      "business_quality": 49.0,
-      "market_cap": 1001590784.0,
-      "sector": "Healthcare",
-      "industry": "Biotechnology",
-      "company": "Replimune Group, Inc.",
-      "revenue_growth_pct": 0.0,
-      "earnings_growth_pct": 0.0,
-      "free_cash_flow": -172249744.0,
-      "operating_margin_pct": 0.0,
-      "return_on_equity_pct": -107.88,
-      "fundamental_disqualification": true,
-      "fundamental_source": "yfinance",
-      "sector_leadership_score": 90,
-      "risk_score": 0.0,
-      "composite_score": 77.7,
-      "base_ops": 77.7,
-      "news_adjustment": 3.2,
-      "final_ops": 80.9,
-      "candidate_eligible": false,
-      "qualified_candidate_raw": false,
-      "qualified_100_raw": false,
-      "action": "ACCUMULATE",
-      "eligibility_ops": 77.7,
-      "news_risk_level": "Positive",
-      "news_reason": "regulatory / legal: Two Rejections, Messy Process: Replimune Finally Secures FDA Approval for Skin Cancer Treatment",
-      "news_sources": [
-        {
-          "category": "regulatory / legal",
-          "direction": "positive",
-          "headline": "Two Rejections, Messy Process: Replimune Finally Secures FDA Approval for Skin Cancer Treatment",
-          "source": "Benzinga",
-          "url": "https://finnhub.io/api/news?id=595acf3dd7214d8c0b731b033e6d6b2f22b6947bd9274a0523db96d75bf16b61",
-          "datetime": 1786088981,
-          "estimated_effect": 3.2
-        }
-      ],
-      "news_articles_reviewed": 6,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "HRB",
@@ -5421,7 +5309,79 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 3,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
+    },
+    {
+      "symbol": "NVDA",
+      "price": 223.96,
+      "sma20": 206.82,
+      "sma50": 206.05,
+      "sma200": 193.8,
+      "average_daily_dollar_volume": 28490832616.9,
+      "technical_score": 100,
+      "leadership_score": 80.7,
+      "return_1m_pct": 6.16,
+      "return_3m_pct": 4.19,
+      "return_6m_pct": 20.94,
+      "relative_1m_vs_qqq_pct": 6.5,
+      "relative_3m_vs_qqq_pct": 2.42,
+      "relative_6m_vs_qqq_pct": 2.06,
+      "above_20dma": true,
+      "above_50dma": true,
+      "above_200dma": true,
+      "sma50_above_sma200": true,
+      "annualized_volatility_pct": 41.04,
+      "expected_upside_pct": 10.34,
+      "expected_downside_pct": 13.47,
+      "reward_to_risk": 0.77,
+      "return_velocity": 0.1149,
+      "business_quality": 100.0,
+      "market_cap": 5309727768576.0,
+      "sector": "Technology",
+      "industry": "Semiconductors",
+      "company": "NVIDIA Corporation",
+      "revenue_growth_pct": 85.2,
+      "earnings_growth_pct": 214.5,
+      "free_cash_flow": 46335873024.0,
+      "operating_margin_pct": 65.6,
+      "return_on_equity_pct": 114.29,
+      "fundamental_disqualification": false,
+      "fundamental_source": "yfinance",
+      "sector_leadership_score": 100,
+      "risk_score": 59.0,
+      "composite_score": 91.9,
+      "base_ops": 91.9,
+      "news_adjustment": -11.2,
+      "final_ops": 80.7,
+      "candidate_eligible": true,
+      "qualified_candidate_raw": false,
+      "qualified_100_raw": false,
+      "action": "ACCUMULATE",
+      "eligibility_ops": 80.7,
+      "news_risk_level": "High Negative",
+      "news_reason": "contract / partnership: Does Broadcom (AVGO) Now Lead The Biggest AI Infrastructure Spend Outside GPUs? | earnings / revenue: Cathie Wood's Ark Piled Into Nvidia and Taiwan Semiconductor After Meta's Earnings Miss. Here's What It Signals for Artificial Intelligence (AI) Stocks.",
+      "news_sources": [
+        {
+          "category": "contract / partnership",
+          "direction": "negative",
+          "headline": "Does Broadcom (AVGO) Now Lead The Biggest AI Infrastructure Spend Outside GPUs?",
+          "source": "Yahoo",
+          "url": "https://finnhub.io/api/news?id=7567d5a09a5fef7fd2b67b15e2e617789922980f91be6d8dc2596cb3737eca0b",
+          "datetime": 1786198276,
+          "estimated_effect": -6.0
+        },
+        {
+          "category": "earnings / revenue",
+          "direction": "negative",
+          "headline": "Cathie Wood's Ark Piled Into Nvidia and Taiwan Semiconductor After Meta's Earnings Miss. Here's What It Signals for Artificial Intelligence (AI) Stocks.",
+          "source": "Yahoo",
+          "url": "https://finnhub.io/api/news?id=3b1726157377750a4797940cd017afe771de19d96b52f4583de49ae40cfe45cc",
+          "datetime": 1786260300,
+          "estimated_effect": -5.2
+        }
+      ],
+      "news_articles_reviewed": 250,
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "PSNL",
@@ -5474,7 +5434,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "NEO",
@@ -5527,7 +5487,70 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
+    },
+    {
+      "symbol": "REPL",
+      "price": 12.06,
+      "sma20": 9.91,
+      "sma50": 9.98,
+      "sma200": 7.99,
+      "average_daily_dollar_volume": 90030676.93,
+      "technical_score": 100,
+      "leadership_score": 80.3,
+      "return_1m_pct": 9.74,
+      "return_3m_pct": 196.31,
+      "return_6m_pct": 55.61,
+      "relative_1m_vs_qqq_pct": 10.08,
+      "relative_3m_vs_qqq_pct": 194.54,
+      "relative_6m_vs_qqq_pct": 36.74,
+      "above_20dma": true,
+      "above_50dma": true,
+      "above_200dma": true,
+      "sma50_above_sma200": true,
+      "annualized_volatility_pct": 302.81,
+      "expected_upside_pct": 60,
+      "expected_downside_pct": 33.73,
+      "reward_to_risk": 1.78,
+      "return_velocity": 0.6667,
+      "business_quality": 49.0,
+      "market_cap": 1001590784.0,
+      "sector": "Healthcare",
+      "industry": "Biotechnology",
+      "company": "Replimune Group, Inc.",
+      "revenue_growth_pct": 0.0,
+      "earnings_growth_pct": 0.0,
+      "free_cash_flow": -172249744.0,
+      "operating_margin_pct": 0.0,
+      "return_on_equity_pct": -107.88,
+      "fundamental_disqualification": true,
+      "fundamental_source": "yfinance",
+      "sector_leadership_score": 90,
+      "risk_score": 0.0,
+      "composite_score": 77.7,
+      "base_ops": 77.7,
+      "news_adjustment": 2.6,
+      "final_ops": 80.3,
+      "candidate_eligible": false,
+      "qualified_candidate_raw": false,
+      "qualified_100_raw": false,
+      "action": "ACCUMULATE",
+      "eligibility_ops": 77.7,
+      "news_risk_level": "Positive",
+      "news_reason": "regulatory / legal: Two Rejections, Messy Process: Replimune Finally Secures FDA Approval for Skin Cancer Treatment",
+      "news_sources": [
+        {
+          "category": "regulatory / legal",
+          "direction": "positive",
+          "headline": "Two Rejections, Messy Process: Replimune Finally Secures FDA Approval for Skin Cancer Treatment",
+          "source": "Benzinga",
+          "url": "https://finnhub.io/api/news?id=595acf3dd7214d8c0b731b033e6d6b2f22b6947bd9274a0523db96d75bf16b61",
+          "datetime": 1786088981,
+          "estimated_effect": 2.6
+        }
+      ],
+      "news_articles_reviewed": 6,
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "ASML",
@@ -5580,7 +5603,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 16,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "TSM",
@@ -5633,7 +5656,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 9,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "AVTR",
@@ -5696,7 +5719,7 @@
         }
       ],
       "news_articles_reviewed": 2,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "CRL",
@@ -5749,65 +5772,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 11,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
-    },
-    {
-      "symbol": "NOW",
-      "price": 124.88,
-      "sma20": 108.3,
-      "sma50": 107.32,
-      "sma200": 123.35,
-      "average_daily_dollar_volume": 3193508090.96,
-      "technical_score": 95,
-      "leadership_score": 78.9,
-      "return_1m_pct": 15.94,
-      "return_3m_pct": 36.96,
-      "return_6m_pct": 23.96,
-      "relative_1m_vs_qqq_pct": 16.28,
-      "relative_3m_vs_qqq_pct": 35.19,
-      "relative_6m_vs_qqq_pct": 5.09,
-      "above_20dma": true,
-      "above_50dma": true,
-      "above_200dma": true,
-      "sma50_above_sma200": false,
-      "annualized_volatility_pct": 71.41,
-      "expected_upside_pct": 27.91,
-      "expected_downside_pct": 1.23,
-      "reward_to_risk": 22.74,
-      "return_velocity": 0.3101,
-      "business_quality": 50.0,
-      "market_cap": 0,
-      "sector": "Unknown",
-      "industry": "Unknown",
-      "company": "NOW",
-      "fundamental_disqualification": false,
-      "fundamental_source": "unavailable",
-      "sector_leadership_score": 50.0,
-      "risk_score": 28.6,
-      "composite_score": 75.2,
-      "base_ops": 75.2,
-      "news_adjustment": 3.7,
-      "final_ops": 78.9,
-      "candidate_eligible": false,
-      "qualified_candidate_raw": false,
-      "qualified_100_raw": false,
-      "action": "ACCUMULATE",
-      "eligibility_ops": 75.2,
-      "news_risk_level": "Positive",
-      "news_reason": "contract / partnership: ServiceNow Opens First Brazil Office; Expands Academic Partnerships to Build Regional AI Talent",
-      "news_sources": [
-        {
-          "category": "contract / partnership",
-          "direction": "positive",
-          "headline": "ServiceNow Opens First Brazil Office; Expands Academic Partnerships to Build Regional AI Talent",
-          "source": "Yahoo",
-          "url": "https://finnhub.io/api/news?id=70be2cf093a8a0d194818f93aa5f8f26654caffd42e884ead161552cfee56640",
-          "datetime": 1786017600,
-          "estimated_effect": 3.7
-        }
-      ],
-      "news_articles_reviewed": 12,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "IQV",
@@ -5870,7 +5835,7 @@
         }
       ],
       "news_articles_reviewed": 4,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "TVTX",
@@ -5923,7 +5888,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 4,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "UTZ",
@@ -5976,7 +5941,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "MGNI",
@@ -6029,7 +5994,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 14,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "VSXY",
@@ -6082,7 +6047,65 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
+    },
+    {
+      "symbol": "NOW",
+      "price": 124.88,
+      "sma20": 108.3,
+      "sma50": 107.32,
+      "sma200": 123.35,
+      "average_daily_dollar_volume": 3193508090.96,
+      "technical_score": 95,
+      "leadership_score": 77.8,
+      "return_1m_pct": 15.94,
+      "return_3m_pct": 36.96,
+      "return_6m_pct": 23.96,
+      "relative_1m_vs_qqq_pct": 16.28,
+      "relative_3m_vs_qqq_pct": 35.19,
+      "relative_6m_vs_qqq_pct": 5.09,
+      "above_20dma": true,
+      "above_50dma": true,
+      "above_200dma": true,
+      "sma50_above_sma200": false,
+      "annualized_volatility_pct": 71.41,
+      "expected_upside_pct": 27.91,
+      "expected_downside_pct": 1.23,
+      "reward_to_risk": 22.74,
+      "return_velocity": 0.3101,
+      "business_quality": 50.0,
+      "market_cap": 0,
+      "sector": "Unknown",
+      "industry": "Unknown",
+      "company": "NOW",
+      "fundamental_disqualification": false,
+      "fundamental_source": "unavailable",
+      "sector_leadership_score": 50.0,
+      "risk_score": 28.6,
+      "composite_score": 75.2,
+      "base_ops": 75.2,
+      "news_adjustment": 2.6,
+      "final_ops": 77.8,
+      "candidate_eligible": false,
+      "qualified_candidate_raw": false,
+      "qualified_100_raw": false,
+      "action": "ACCUMULATE",
+      "eligibility_ops": 75.2,
+      "news_risk_level": "Positive",
+      "news_reason": "contract / partnership: ServiceNow Opens First Brazil Office; Expands Academic Partnerships to Build Regional AI Talent",
+      "news_sources": [
+        {
+          "category": "contract / partnership",
+          "direction": "positive",
+          "headline": "ServiceNow Opens First Brazil Office; Expands Academic Partnerships to Build Regional AI Talent",
+          "source": "Yahoo",
+          "url": "https://finnhub.io/api/news?id=70be2cf093a8a0d194818f93aa5f8f26654caffd42e884ead161552cfee56640",
+          "datetime": 1786017600,
+          "estimated_effect": 2.6
+        }
+      ],
+      "news_articles_reviewed": 12,
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "DYN",
@@ -6135,7 +6158,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "APGE",
@@ -6188,7 +6211,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "OSCR",
@@ -6241,7 +6264,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 8,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "QURE",
@@ -6294,7 +6317,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "GWRE",
@@ -6342,7 +6365,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "FDS",
@@ -6413,8 +6436,8 @@
           "estimated_effect": -4.5
         }
       ],
-      "news_articles_reviewed": 20,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_articles_reviewed": 21,
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "NTSK",
@@ -19078,7 +19101,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 4,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "EQH",
@@ -29293,7 +29316,7 @@
         }
       ],
       "news_articles_reviewed": 7,
-      "news_checked_at": "2026-08-09T01:29:21.420148+00:00"
+      "news_checked_at": "2026-08-09T13:16:56.653348+00:00"
     },
     {
       "symbol": "SITM",
@@ -68782,6 +68805,7 @@
     "candidate_qualification": "non-owned, eligible and OPS >=95; OPS 90-94 is shown as emerging; exact 100 remains elite",
     "confirmation": "two distinct market sessions; immediate severe-risk override",
     "news_refinement": "owned positions + Base OPS >=75; material company news adjusts OPS within -15/+10; Base and Final OPS are preserved",
-    "shadow_market_regime": "Phase 1 observer only; score and hypothetical capital multiplier are logged but do not affect live ladders or OPS"
+    "shadow_market_regime": "Phase 1 observer only; score and hypothetical capital multiplier are logged but do not affect live ladders or OPS",
+    "shadow_weather_sentiment": "Phase 1 research-only Northeast weather hypothesis; logged but never affects OPS, recommendations, ladders, or capital"
   }
 }

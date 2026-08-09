@@ -24,6 +24,7 @@ from typing import Dict
 from market_universe import load_market_universe, normalize_yahoo_symbol
 from news_refinement import refine_news_scores
 from market_regime import calculate_shadow_regime
+from weather_sentiment import calculate_shadow_weather
 
 MIN_PRICE = 10.0
 MIN_MARKET_CAP = 2_000_000_000
@@ -542,6 +543,7 @@ def main() -> int:
     # after the full broad-market scan but is NOT consumed by OPS, confirmation,
     # recommendations, ladder prices, ladder sizes, or capital allocation.
     shadow_regime = calculate_shadow_regime(results, benchmark_close, sectors, root)
+    shadow_weather = calculate_shadow_weather(root)
 
     results.sort(
         key=lambda r: (r["leadership_score"], r["return_velocity"], r["reward_to_risk"], r["business_quality"]),
@@ -569,6 +571,7 @@ def main() -> int:
         "download_diagnostics": download_diagnostics,
         "news_diagnostics": news_diagnostics,
         "shadow_market_regime": shadow_regime,
+        "shadow_weather_sentiment": shadow_weather,
         "eligible_technical_count": len(technical),
         "benchmark": "QQQ",
         "market_mode": market_mode,
@@ -584,6 +587,7 @@ def main() -> int:
             "confirmation": "two distinct market sessions; immediate severe-risk override",
             "news_refinement": "owned positions + Base OPS >=75; material company news adjusts OPS within -15/+10; Base and Final OPS are preserved",
             "shadow_market_regime": "Phase 1 observer only; score and hypothetical capital multiplier are logged but do not affect live ladders or OPS",
+            "shadow_weather_sentiment": "Phase 1 research-only Northeast weather hypothesis; logged but never affects OPS, recommendations, ladders, or capital",
         },
     }
     save_json(root / "leadership_scores.json", payload)
@@ -617,6 +621,12 @@ def main() -> int:
         f"Shadow Market Regime: {shadow_regime.get('score', 0):.1f}/100 · "
         f"{shadow_regime.get('regime', 'Pending')} · hypothetical buy-capital "
         f"{shadow_regime.get('shadow_capital_pct', 100)}% (SHADOW ONLY; live ladders unchanged)."
+    )
+    ws = shadow_weather.get("score")
+    ws_text = f"{ws:.1f}/100" if isinstance(ws, (int, float)) else "unavailable"
+    print(
+        f"Shadow Northeast Weather Sentiment: {ws_text} · {shadow_weather.get('signal', 'Unavailable')} · "
+        f"target {shadow_weather.get('target_session_date')} (SHADOW ONLY; no trading impact)."
     )
 
     print("Top automatically discovered opportunities:")

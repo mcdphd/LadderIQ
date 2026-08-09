@@ -19,7 +19,7 @@
       "immediate_risk_override": false
     },
     "PANW": {
-      "observed_score": 90.0,
+      "observed_score": 90.8,
       "confirmed_score": 100.0,
       "streak": 3,
       "last_observed": "2026-08-07",
@@ -90,7 +90,7 @@
       "immediate_risk_override": false
     },
     "NVDA": {
-      "observed_score": 83.8,
+      "observed_score": 80.7,
       "confirmed_score": 42.8,
       "streak": 1,
       "last_observed": "2026-08-07",
@@ -4697,7 +4697,7 @@
       "immediate_risk_override": false
     },
     "CART": {
-      "observed_score": 99.2,
+      "observed_score": 100.0,
       "confirmed_score": 65.7,
       "streak": 1,
       "last_observed": "2026-08-07",
@@ -12863,7 +12863,7 @@
   "version": "1.0",
   "confirmation_days": 2,
   "threshold": 95.0,
-  "last_updated": "2026-08-08 21:29:21",
+  "last_updated": "2026-08-09 09:18:13",
   "migration_bootstrap_used": false,
   "elite_threshold": 100.0
 }
