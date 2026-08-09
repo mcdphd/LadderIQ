@@ -1,3 +1,10 @@
+## 3.60.22 — Growth Candidate OPS-band upside ranking
+
+- Growth Candidates remain primarily ranked by News-Refined/Actionable OPS.
+- Candidates within the same 5-point OPS band are secondarily ranked by Expected Upside (highest first).
+- Exact OPS is the next tie-breaker, followed by the existing trend/leadership/rank tie-breakers.
+- No eligibility, OPS, news, ladder, portfolio, or capital-allocation logic changed.
+
 ## 3.60.21 — Confirmed-first News-Refined OPS
 
 - Fixes the v3.60.20 scoring-order defect.

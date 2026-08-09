@@ -12863,7 +12863,7 @@
   "version": "1.0",
   "confirmation_days": 2,
   "threshold": 95.0,
-  "last_updated": "2026-08-08 21:24:28",
+  "last_updated": "2026-08-08 21:29:21",
   "migration_bootstrap_used": false,
   "elite_threshold": 100.0
 }
