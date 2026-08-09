@@ -365,6 +365,7 @@ def refine_news_scores(results: list[dict], holdings: set[str] | list[str], root
                 "base_ops": round(base, 1),
                 "news_adjustment": 0.0,
                 "final_ops": round(base, 1),
+                "eligibility_ops": round(base, 1),
                 "news_risk_level": "Not Checked",
                 "news_reason": "FINNHUB_API_KEY is not configured; Base OPS retained.",
                 "news_sources": [],
@@ -403,20 +404,28 @@ def refine_news_scores(results: list[dict], holdings: set[str] | list[str], root
             }
 
         adjustment = float(scored.get("news_adjustment") or 0)
-        final = round(_clamp(base + adjustment, 0.0, 100.0), 1)
+        # News-Refined OPS is intentionally allowed to exceed 100 on positive
+        # material news so elite Base-100 names can still be ranked against one
+        # another. Negative news continues to reduce the score normally.
+        final = round(max(0.0, base + adjustment), 1)
+        # Positive headlines may strengthen/rank an already-qualified setup, but
+        # they may not manufacture buy eligibility. Negative news is allowed to
+        # remove eligibility immediately.
+        eligibility_ops = round(_clamp(base + min(adjustment, 0.0), 0.0, 100.0), 1)
         row.update({
             "base_ops": round(base, 1),
             "news_adjustment": round(adjustment, 1),
             "final_ops": final,
+            "eligibility_ops": eligibility_ops,
             "news_risk_level": scored.get("news_risk_level") or "Neutral",
             "news_reason": scored.get("news_reason") or "No material recent company-news event detected.",
             "news_sources": scored.get("news_sources") or [],
             "news_articles_reviewed": int(scored.get("news_articles_reviewed") or 0),
             "news_checked_at": checked_at,
             "leadership_score": final,
-            "qualified_candidate_raw": final >= 95,
-            "qualified_100_raw": final >= 100,
-            "action": "ATTACK" if final >= 90 else "ACCUMULATE" if final >= 75 else "HOLD" if final >= 60 else "REPLACE_CANDIDATE",
+            "qualified_candidate_raw": eligibility_ops >= 95,
+            "qualified_100_raw": eligibility_ops >= 100,
+            "action": "ATTACK" if eligibility_ops >= 90 else "ACCUMULATE" if eligibility_ops >= 75 else "HOLD" if eligibility_ops >= 60 else "REPLACE_CANDIDATE",
         })
         if adjustment:
             diagnostics["adjusted"] += 1
@@ -433,6 +442,7 @@ def refine_news_scores(results: list[dict], holdings: set[str] | list[str], root
             "base_ops": round(base, 1),
             "news_adjustment": 0.0,
             "final_ops": round(base, 1),
+            "eligibility_ops": round(base, 1),
             "news_risk_level": "Not Shortlisted",
             "news_reason": f"Base OPS below {min_base_ops:.0f} and position not owned; targeted news scan skipped.",
             "news_sources": [],

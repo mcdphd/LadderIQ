@@ -1,4 +1,10 @@
-## 3.60.19
+## 3.60.20 — News-refined OPS ranking
+- Allows positive News-Refined OPS to exceed 100 for transparent tie-breaking.
+- Sidebar badges and within-category sorting use News-Refined OPS.
+- Positive news cannot create buy eligibility; negative news can reduce/remove eligibility.
+- Base OPS remains normalized to 0–100 and Confirmed OPS remains the execution gate.
+
+## 3.60.20
 - UI consistency fix: render the News Refinement callout for all displayed securities, including Special Situations.
 - If no material event is present, display: "No material recent company-news event detected."
 - No scoring, news adjustment, OPS, recommendation, ladder, or market-regime logic changed.

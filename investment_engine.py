@@ -45,7 +45,7 @@ def confirm_opportunities(
     result: Dict[str, dict] = {}
 
     for symbol, row in scores.items():
-        raw = float(row.get("leadership_score") or 0)
+        raw = float(row.get("eligibility_ops") if row.get("eligibility_ops") is not None else (row.get("leadership_score") or 0))
         prior = symbols.get(symbol, {})
         prior_raw = prior.get("observed_score")
         same_day = prior.get("last_observed") == day
