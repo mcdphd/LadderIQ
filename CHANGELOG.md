@@ -1,3 +1,8 @@
+## 3.60.19
+- UI consistency fix: render the News Refinement callout for all displayed securities, including Special Situations.
+- If no material event is present, display: "No material recent company-news event detected."
+- No scoring, news adjustment, OPS, recommendation, ladder, or market-regime logic changed.
+
 # Changelog
 
 ## 3.60.11 — 2026-08-04
