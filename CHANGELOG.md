@@ -1,8 +1,3 @@
-## 3.60.17 — Shadow Market Regime Observer
-- Added `market_regime.py` shadow-only market regime scoring and history logging.
-- Added dashboard Shadow Market Regime card and terminal diagnostics.
-- No live trading logic consumes the regime score.
-
 # Changelog
 
 ## 3.60.11 — 2026-08-04
