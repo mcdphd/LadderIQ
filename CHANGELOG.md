@@ -1,4 +1,12 @@
-## 3.60.20 — News-refined OPS ranking
+## 3.60.21 — Confirmed-first News-Refined OPS
+
+- Fixes the v3.60.20 scoring-order defect.
+- Actionable / sidebar OPS is now Confirmed OPS + News Impact.
+- Example: NVDA Confirmed OPS 43 + News Impact -8.1 = News-Refined OPS 34.9.
+- Positive news may improve ranking above 100 but cannot create buy eligibility; negative news can remove eligibility.
+- Sidebar and dashboard ranking continue to use the actionable News-Refined OPS.
+
+## 3.60.21 — News-refined OPS ranking
 - Allows positive News-Refined OPS to exceed 100 for transparent tie-breaking.
 - Sidebar badges and within-category sorting use News-Refined OPS.
 - Positive news cannot create buy eligibility; negative news can reduce/remove eligibility.
