@@ -49,14 +49,14 @@
       "sector_participation": 72.7
     },
     "observations": {
-      "universe_rows": 1392,
+      "universe_rows": 1393,
       "pct_above_20dma": 63.8,
       "pct_above_50dma": 65.3,
       "pct_above_200dma": 72.7,
       "pct_50dma_above_200dma": 67.8,
       "pct_technical_75_plus": 46.5,
       "pct_technical_90_plus": 31.5,
-      "pct_positive_1m": 63.6,
+      "pct_positive_1m": 63.5,
       "pct_positive_3m": 68.0,
       "qqq_drawdown_pct": -3.28,
       "qqq_realized_volatility_20d_pct": 25.3
