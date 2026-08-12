@@ -6,6 +6,9 @@ import json
 from pathlib import Path
 from datetime import datetime
 
+TARGET_ACCOUNT_NUMBER = "Z25686771"
+EXCLUDED_PORTFOLIO_SYMBOLS = {"QQQ"}
+
 def parse_float(value):
     if value is None:
         return None
@@ -59,11 +62,25 @@ def main():
     if not csv_path.exists():
         raise FileNotFoundError(f"CSV not found: {csv_path}")
 
+    # Fidelity history exports do not include the account number in each row,
+    # so the export filename is the account boundary for this importer.
+    # Fail closed rather than contaminating the LadderIQ taxable account.
+    if TARGET_ACCOUNT_NUMBER not in csv_path.name:
+        raise ValueError(
+            f"Account-history file '{csv_path.name}' is not for LadderIQ account {TARGET_ACCOUNT_NUMBER}. "
+            "Export history specifically for the Individual-TOD account."
+        )
+
     print(f"Using account-history CSV: {csv_path}")
 
     state = json.loads(state_path.read_text(encoding="utf-8"))
     existing_ids = set(state.get("import_control", {}).get("imported_transaction_ids", []))
     transactions = json.loads(tx_path.read_text(encoding="utf-8")) if tx_path.exists() else []
+    # Permanently purge excluded symbols from LadderIQ transaction history.
+    transactions = [
+        tx for tx in transactions
+        if str(tx.get("symbol", "")).strip().upper() not in EXCLUDED_PORTFOLIO_SYMBOLS
+    ]
 
     new_rows = []
     with csv_path.open(newline="", encoding="utf-8-sig", errors="replace") as f:
@@ -78,6 +95,8 @@ def main():
             amount = parse_float(row.get("Amount ($)"))
             symbol = str(row.get("Symbol", "")).strip().upper()
             if not symbol or qty is None or price is None or amount is None:
+                continue
+            if symbol in EXCLUDED_PORTFOLIO_SYMBOLS:
                 continue
             tx = {
                 "run_date": parse_date(row.get("Run Date")),

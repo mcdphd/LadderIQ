@@ -8,6 +8,8 @@ STATE_FILE='portfolio_state.json'
 OUTPUT_FILE='portfolio_positions.json'
 
 CASH_EQUIVALENT_SYMBOLS={'CASH','FCASH','FCASH**','FDRXX','PDRXX','SPAXX','SPRXX'}
+TARGET_ACCOUNT_NUMBER='Z25686771'
+EXCLUDED_PORTFOLIO_SYMBOLS={'QQQ'}
 
 def is_cash_equivalent(symbol='', description=''):
     sym=str(symbol or '').strip().upper()
@@ -67,6 +69,15 @@ def main():
     df=pd.read_csv(latest_file, index_col=False)
     aliases={'Last price':'Last Price','Current value':'Current Value','Cost basis total':'Cost Basis Total','Average cost basis':'Average Cost Basis','Percent of account':'Percent Of Account'}
     df=df.rename(columns={k:v for k,v in aliases.items() if k in df.columns})
+    # Account number is the portfolio firewall. LadderIQ must never merge
+    # retirement-account holdings into the taxable Individual-TOD portfolio.
+    if 'Account number' not in df.columns:
+        raise KeyError("Missing required Fidelity 'Account number' column. LadderIQ will not import positions without an account boundary.")
+    df['Account number']=df['Account number'].astype(str).str.strip()
+    df=df[df['Account number']==TARGET_ACCOUNT_NUMBER].copy()
+    if df.empty:
+        raise ValueError(f"No Fidelity position rows found for LadderIQ account {TARGET_ACCOUNT_NUMBER}.")
+
     required=['Symbol','Description','Quantity','Last Price','Current Value','Cost Basis Total','Average Cost Basis','Percent Of Account']
     missing=[c for c in required if c not in df.columns]
     if missing: raise KeyError(f'Missing required columns: {missing}. Available columns: {list(df.columns)}')
@@ -74,6 +85,9 @@ def main():
     for _, row in df.iterrows():
         symbol=str(row['Symbol']).strip().replace('\ufeff',''); description=str(row['Description']).strip()
         if symbol in ['', 'nan']: continue
+        if symbol.upper() in EXCLUDED_PORTFOLIO_SYMBOLS:
+            print(f'Ignoring excluded symbol {symbol.upper()} for LadderIQ portfolio accounting.')
+            continue
         quantity=clean_number(row['Quantity']); last_price=clean_number(row['Last Price']); current_value=clean_number(row['Current Value']); cost_basis_total=clean_number(row['Cost Basis Total']); avg_cost=clean_number(row['Average Cost Basis']); pct_account=clean_number(row['Percent Of Account'])
         if is_cash_equivalent(symbol, description):
             cash += current_value; continue
@@ -93,6 +107,8 @@ def main():
         role = 'Imported Fidelity position' if float(p.get('quantity',0) or 0) > 0 else old.get('role','Buy candidate - no current Fidelity position')
         updated.append({'symbol':p['symbol'],'price':p['price'],'quantity':p['quantity'],'current_value':p['current_value'],'cost_basis':p['cost_basis'],'priority':priority_for(p['symbol']),'role':role})
     state.setdefault('baseline_value',9913.04); state.setdefault('market_mode','BULL')
+    state['account_number']=TARGET_ACCOUNT_NUMBER
+    state['excluded_portfolio_symbols']=sorted(EXCLUDED_PORTFOLIO_SYMBOLS)
     state['as_of']=infer_as_of(latest_file); state['positions']=updated; state['cash']=round(cash,2); state['pending_activity']=round(pending_activity,2); state['effective_cash']=round(cash+pending_activity,2)
     state['priority_framework']={'version':'V15 Locked Framework','P1':['TSM','PANW'],'P2':['ANET','NVDA'],'P3':['AMZN','META'],'governance':'Leadership scanner can promote tactical names, but cannot demote strategic core holdings from P1 on one reading.','effective_cash_allocation':{'TSM':0.40,'PANW':0.30,'ANET':0.25,'NVDA':0.05}}
     state['positions_last_imported_from']=latest_file; state['positions_last_imported_at']=datetime.now().strftime('%Y-%m-%d %H:%M:%S')
