@@ -175,7 +175,7 @@
         "city": "New York",
         "score": 88.0,
         "avg_cloud_cover_pct": 16.6,
-        "avg_precip_probability_pct": 1.2,
+        "avg_precip_probability_pct": 1.1,
         "forecast_precip_mm": 0.0,
         "forecast_rainy_market_hours": 0
       },
@@ -183,7 +183,7 @@
         "city": "Philadelphia",
         "score": 46.6,
         "avg_cloud_cover_pct": 75.4,
-        "avg_precip_probability_pct": 2.1,
+        "avg_precip_probability_pct": 2.0,
         "forecast_precip_mm": 0.0,
         "forecast_rainy_market_hours": 0
       },
@@ -202,6 +202,6 @@
     "affects_live_ladders": false,
     "hypothesis": "Northeast cloud/rain conditions may correlate with market risk appetite; research only.",
     "source": "Open-Meteo forecast API",
-    "checked_at": "2026-08-13T21:37:41-04:00"
+    "checked_at": "2026-08-13T21:43:51-04:00"
   }
 ]

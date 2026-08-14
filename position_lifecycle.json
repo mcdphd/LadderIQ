@@ -427,7 +427,7 @@
       "state": "active_candidate",
       "quantity": 0.0,
       "market_value": 0.0,
-      "last_position_file": "Portfolio_Positions_Aug-11-2026 (1).csv"
+      "last_position_file": "Portfolio_Positions_Aug-13-2026.csv"
     },
     "RACE": {
       "state": "active_candidate",
@@ -464,7 +464,61 @@
       "quantity": 0.0,
       "market_value": 0.0,
       "last_position_file": "Portfolio_Positions_Aug-11-2026 (1).csv"
+    },
+    "CRDO": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Aug-13-2026.csv"
+    },
+    "MEDP": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Aug-13-2026.csv"
+    },
+    "GTLB": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Aug-13-2026.csv"
+    },
+    "DK": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Aug-13-2026.csv"
+    },
+    "COMP": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Aug-13-2026.csv"
+    },
+    "MDB": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Aug-13-2026.csv"
+    },
+    "WEX": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Aug-13-2026.csv"
+    },
+    "SAIC": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Aug-13-2026.csv"
+    },
+    "JLL": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Aug-13-2026.csv"
     }
   },
-  "last_updated": "2026-08-13 21:37:42"
+  "last_updated": "2026-08-13 21:43:51"
 }
