@@ -34,21 +34,39 @@ def make_transaction_id(tx, duplicate_index):
     return hashlib.sha256((raw + "|" + str(duplicate_index)).encode()).hexdigest()[:16]
 
 def find_latest_account_history():
-    patterns = [
-        "Accounts_History*.csv",
-        "History_for_Account*.csv",
-    ]
     search_dirs = [Path("."), Path("data/history"), Path("imports/history")]
-    files = []
+
+    # Prefer an export whose filename explicitly names the LadderIQ account.
+    # This prevents a newer export from another Fidelity account from winning
+    # simply because its file modification time is later.
+    explicit = []
+    generic = []
     for directory in search_dirs:
         if not directory.exists():
             continue
-        for pattern in patterns:
-            files.extend(directory.glob(pattern))
-    files = [f for f in files if f.is_file()]
-    if not files:
+        explicit.extend(directory.glob(f"History_for_Account*{TARGET_ACCOUNT_NUMBER}*.csv"))
+        explicit.extend(directory.glob(f"Accounts_History*{TARGET_ACCOUNT_NUMBER}*.csv"))
+        generic.extend(directory.glob("History_for_Account*.csv"))
+        generic.extend(directory.glob("Accounts_History*.csv"))
+
+    explicit = [f for f in explicit if f.is_file()]
+    if explicit:
+        return max(explicit, key=lambda f: f.stat().st_mtime)
+
+    generic = [f for f in generic if f.is_file()]
+    if not generic:
         raise FileNotFoundError("No account-history CSV found. Expected Accounts_History*.csv or History_for_Account*.csv")
-    return max(files, key=lambda f: f.stat().st_mtime)
+
+    # Some Fidelity downloads use a generic Accounts_History filename even
+    # when the export was initiated from a specific account. The rows contain
+    # no account-number column, so the importer cannot prove the account from
+    # file contents. Allow that legacy format, but make the limitation visible.
+    chosen = max(generic, key=lambda f: f.stat().st_mtime)
+    print(
+        f"WARNING: account number is not encoded in history filename '{chosen.name}'. "
+        f"Using it as the {TARGET_ACCOUNT_NUMBER} history export. QQQ remains excluded."
+    )
+    return chosen
 
 def main():
     parser = argparse.ArgumentParser()
@@ -62,13 +80,15 @@ def main():
     if not csv_path.exists():
         raise FileNotFoundError(f"CSV not found: {csv_path}")
 
-    # Fidelity history exports do not include the account number in each row,
-    # so the export filename is the account boundary for this importer.
-    # Fail closed rather than contaminating the LadderIQ taxable account.
-    if TARGET_ACCOUNT_NUMBER not in csv_path.name:
+    # Fidelity history rows themselves do not carry an account-number field.
+    # When the filename names an account, reject a clearly different account.
+    # Generic Accounts_History filenames are allowed for compatibility with
+    # Fidelity's account-scoped export, while QQQ is still permanently ignored.
+    name_upper = csv_path.name.upper()
+    if "HISTORY_FOR_ACCOUNT" in name_upper and TARGET_ACCOUNT_NUMBER.upper() not in name_upper:
         raise ValueError(
-            f"Account-history file '{csv_path.name}' is not for LadderIQ account {TARGET_ACCOUNT_NUMBER}. "
-            "Export history specifically for the Individual-TOD account."
+            f"Account-history file '{csv_path.name}' names a different Fidelity account. "
+            f"LadderIQ only accepts account {TARGET_ACCOUNT_NUMBER}."
         )
 
     print(f"Using account-history CSV: {csv_path}")
