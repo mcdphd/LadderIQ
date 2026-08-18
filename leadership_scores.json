@@ -1,8 +1,8 @@
 {
-  "as_of": "2026-08-17 22:02:06",
+  "as_of": "2026-08-18 16:04:30",
   "market_session_date": "2026-08-17",
   "source": "yfinance + local cache + Nasdaq Trader + Finnhub targeted company news",
-  "benchmark_source": "yfinance",
+  "benchmark_source": "cache-current",
   "benchmark_stale": false,
   "universe_source": "official Nasdaq Trader cache",
   "universe_count": 5429,
@@ -16,9 +16,9 @@
   },
   "download_diagnostics": {
     "requested": 5440,
-    "stale_requested": 5440,
+    "stale_requested": 1,
     "downloaded_or_cached": 5439,
-    "refreshed": 5439,
+    "refreshed": 0,
     "cache_hits": 5439,
     "invalid_rejected_before_download": 0,
     "provider_failures": [
@@ -31,9 +31,9 @@
     "provider": "Finnhub Company News",
     "lookback_days": 3,
     "shortlist_threshold": 75.0,
-    "shortlisted": 70,
-    "owned_shortlisted": 18,
-    "api_requests": 70,
+    "shortlisted": 76,
+    "owned_shortlisted": 20,
+    "api_requests": 76,
     "cache_hits": 0,
     "adjusted": 7,
     "negative_adjustments": 0,
@@ -73,34 +73,34 @@
     "methodology": "Phase 1 shadow observer; no live decision or ladder inputs consume this score."
   },
   "shadow_weather_sentiment": {
-    "score": 53.9,
-    "signal": "Neutral",
-    "target_session_date": "2026-08-18",
-    "avg_cloud_cover_pct": 64.2,
-    "avg_precip_probability_pct": 3.7,
+    "score": 93.6,
+    "signal": "Favorable",
+    "target_session_date": "2026-08-19",
+    "avg_cloud_cover_pct": 8.9,
+    "avg_precip_probability_pct": 0.5,
     "forecast_precip_mm_total": 0.0,
     "cities": [
       {
         "city": "New York",
-        "score": 55.9,
-        "avg_cloud_cover_pct": 60.6,
-        "avg_precip_probability_pct": 5.6,
+        "score": 99.1,
+        "avg_cloud_cover_pct": 1.0,
+        "avg_precip_probability_pct": 0.5,
         "forecast_precip_mm": 0.0,
         "forecast_rainy_market_hours": 0
       },
       {
         "city": "Philadelphia",
-        "score": 60.6,
-        "avg_cloud_cover_pct": 54.8,
-        "avg_precip_probability_pct": 3.5,
+        "score": 92.7,
+        "avg_cloud_cover_pct": 10.1,
+        "avg_precip_probability_pct": 0.8,
         "forecast_precip_mm": 0.0,
         "forecast_rainy_market_hours": 0
       },
       {
         "city": "Boston",
-        "score": 45.3,
-        "avg_cloud_cover_pct": 77.2,
-        "avg_precip_probability_pct": 2.1,
+        "score": 89.0,
+        "avg_cloud_cover_pct": 15.6,
+        "avg_precip_probability_pct": 0.2,
         "forecast_precip_mm": 0.0,
         "forecast_rainy_market_hours": 0
       }
@@ -111,7 +111,7 @@
     "affects_live_ladders": false,
     "hypothesis": "Northeast cloud/rain conditions may correlate with market risk appetite; research only.",
     "source": "Open-Meteo forecast API",
-    "checked_at": "2026-08-17T22:02:06-04:00"
+    "checked_at": "2026-08-18T16:04:30-04:00"
   },
   "eligible_technical_count": 1388,
   "benchmark": "QQQ",
@@ -138,7 +138,7 @@
       "sma200": 137.53,
       "average_daily_dollar_volume": 1599730696.54,
       "technical_score": 100,
-      "leadership_score": 105.2,
+      "leadership_score": 104.5,
       "return_1m_pct": 7.76,
       "return_3m_pct": 38.26,
       "return_6m_pct": 106.52,
@@ -170,8 +170,8 @@
       "risk_score": 44.2,
       "composite_score": 87.9,
       "base_ops": 100.0,
-      "news_adjustment": 5.2,
-      "final_ops": 105.2,
+      "news_adjustment": 4.5,
+      "final_ops": 104.5,
       "candidate_eligible": true,
       "qualified_candidate_raw": true,
       "qualified_100_raw": true,
@@ -187,11 +187,74 @@
           "source": "SeekingAlpha",
           "url": "https://finnhub.io/api/news?id=e2984c6316d9261480c645441f586ab7e06c8104a3fe4ce1ac0513d30c8c5a80",
           "datetime": 1786947601,
-          "estimated_effect": 5.2
+          "estimated_effect": 4.5
         }
       ],
       "news_articles_reviewed": 6,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
+    },
+    {
+      "symbol": "NET",
+      "price": 307.01,
+      "sma20": 288.63,
+      "sma50": 263.78,
+      "sma200": 218.13,
+      "average_daily_dollar_volume": 1243227072.07,
+      "technical_score": 100,
+      "leadership_score": 104.5,
+      "return_1m_pct": 12.7,
+      "return_3m_pct": 52.17,
+      "return_6m_pct": 58.51,
+      "relative_1m_vs_qqq_pct": 7.84,
+      "relative_3m_vs_qqq_pct": 48.66,
+      "relative_6m_vs_qqq_pct": 36.85,
+      "above_20dma": true,
+      "above_50dma": true,
+      "above_200dma": true,
+      "sma50_above_sma200": true,
+      "annualized_volatility_pct": 57.37,
+      "expected_upside_pct": 45.13,
+      "expected_downside_pct": 28.95,
+      "reward_to_risk": 1.56,
+      "return_velocity": 0.5014,
+      "business_quality": 72.4,
+      "market_cap": 107281473536.0,
+      "sector": "Technology",
+      "industry": "Software - Infrastructure",
+      "company": "Cloudflare, Inc.",
+      "revenue_growth_pct": 35.9,
+      "earnings_growth_pct": 0.0,
+      "free_cash_flow": 691048256.0,
+      "operating_margin_pct": -7.9,
+      "return_on_equity_pct": -14.43,
+      "fundamental_disqualification": false,
+      "fundamental_source": "yfinance",
+      "sector_leadership_score": 100,
+      "risk_score": 42.6,
+      "composite_score": 85.6,
+      "base_ops": 100.0,
+      "news_adjustment": 4.5,
+      "final_ops": 104.5,
+      "candidate_eligible": true,
+      "qualified_candidate_raw": true,
+      "qualified_100_raw": true,
+      "action": "ATTACK",
+      "eligibility_ops": 100.0,
+      "news_risk_level": "Positive",
+      "news_reason": "guidance: Cloudflare: I Exited My Position Way Too Early",
+      "news_sources": [
+        {
+          "category": "guidance",
+          "direction": "positive",
+          "headline": "Cloudflare: I Exited My Position Way Too Early",
+          "source": "SeekingAlpha",
+          "url": "https://finnhub.io/api/news?id=e2984c6316d9261480c645441f586ab7e06c8104a3fe4ce1ac0513d30c8c5a80",
+          "datetime": 1786947601,
+          "estimated_effect": 4.5
+        }
+      ],
+      "news_articles_reviewed": 4,
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "SNOW",
@@ -201,7 +264,7 @@
       "sma200": 214.75,
       "average_daily_dollar_volume": 1600817437.99,
       "technical_score": 100,
-      "leadership_score": 103.8,
+      "leadership_score": 103.2,
       "return_1m_pct": 20.33,
       "return_3m_pct": 100.99,
       "return_6m_pct": 86.4,
@@ -233,8 +296,8 @@
       "risk_score": 13.7,
       "composite_score": 85.3,
       "base_ops": 100.0,
-      "news_adjustment": 3.8,
-      "final_ops": 103.8,
+      "news_adjustment": 3.2,
+      "final_ops": 103.2,
       "candidate_eligible": true,
       "qualified_candidate_raw": true,
       "qualified_100_raw": true,
@@ -250,11 +313,74 @@
           "source": "Yahoo",
           "url": "https://finnhub.io/api/news?id=ad25e85f3d47bc9a333cbc26feb98b5df5081fc4e8c2a46b246448b41e23721e",
           "datetime": 1786971300,
-          "estimated_effect": 3.8
+          "estimated_effect": 3.2
+        }
+      ],
+      "news_articles_reviewed": 6,
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
+    },
+    {
+      "symbol": "CRDO",
+      "price": 282.82,
+      "sma20": 230.67,
+      "sma50": 240.69,
+      "sma200": 171.69,
+      "average_daily_dollar_volume": 1423237682.38,
+      "technical_score": 100,
+      "leadership_score": 103.2,
+      "return_1m_pct": 33.36,
+      "return_3m_pct": 80.98,
+      "return_6m_pct": 126.62,
+      "relative_1m_vs_qqq_pct": 28.5,
+      "relative_3m_vs_qqq_pct": 77.47,
+      "relative_6m_vs_qqq_pct": 104.95,
+      "above_20dma": true,
+      "above_50dma": true,
+      "above_200dma": true,
+      "sma50_above_sma200": true,
+      "annualized_volatility_pct": 104.06,
+      "expected_upside_pct": 60,
+      "expected_downside_pct": 39.29,
+      "reward_to_risk": 1.53,
+      "return_velocity": 0.6667,
+      "business_quality": 100.0,
+      "market_cap": 49601257472.0,
+      "sector": "Technology",
+      "industry": "Semiconductors",
+      "company": "Credo Technology Group Holding ",
+      "revenue_growth_pct": 157.0,
+      "earnings_growth_pct": 343.2,
+      "free_cash_flow": 250810128.0,
+      "operating_margin_pct": 35.66,
+      "return_on_equity_pct": 34.41,
+      "fundamental_disqualification": false,
+      "fundamental_source": "yfinance",
+      "sector_leadership_score": 100,
+      "risk_score": 0.0,
+      "composite_score": 93.8,
+      "base_ops": 100.0,
+      "news_adjustment": 3.2,
+      "final_ops": 103.2,
+      "candidate_eligible": true,
+      "qualified_candidate_raw": true,
+      "qualified_100_raw": true,
+      "action": "ATTACK",
+      "eligibility_ops": 100.0,
+      "news_risk_level": "Positive",
+      "news_reason": "earnings / revenue: H World Group Posts Upbeat Q2 Results, Joins Almonty Industries, Diana Shipping And Other Big Stocks Moving Higher On Monday",
+      "news_sources": [
+        {
+          "category": "earnings / revenue",
+          "direction": "positive",
+          "headline": "H World Group Posts Upbeat Q2 Results, Joins Almonty Industries, Diana Shipping And Other Big Stocks Moving Higher On Monday",
+          "source": "Benzinga",
+          "url": "https://finnhub.io/api/news?id=ad4638180e36463daef1e014698e2182a2b06c30f71828ab124f420a3654df55",
+          "datetime": 1786960317,
+          "estimated_effect": 3.2
         }
       ],
       "news_articles_reviewed": 5,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "QLYS",
@@ -307,7 +433,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "PANW",
@@ -360,7 +486,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 4,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "HPE",
@@ -387,7 +513,7 @@
       "reward_to_risk": 1.3,
       "return_velocity": 0.6667,
       "business_quality": 73.0,
-      "market_cap": 70474113024.0,
+      "market_cap": 73758138368.0,
       "sector": "Technology",
       "industry": "Communication Equipment",
       "company": "Hewlett Packard Enterprise Comp",
@@ -413,7 +539,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "FIVN",
@@ -466,7 +592,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "OSCR",
@@ -519,7 +645,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "ANET",
@@ -572,7 +698,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 2,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "GLBE",
@@ -625,7 +751,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "IOT",
@@ -678,7 +804,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "ASML",
@@ -731,7 +857,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 2,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "NVDA",
@@ -741,7 +867,7 @@
       "sma200": 194.87,
       "average_daily_dollar_volume": 26999068563.68,
       "technical_score": 90,
-      "leadership_score": 92.4,
+      "leadership_score": 91.7,
       "return_1m_pct": 10.69,
       "return_3m_pct": 1.33,
       "return_6m_pct": 21.8,
@@ -773,8 +899,8 @@
       "risk_score": 60.6,
       "composite_score": 87.2,
       "base_ops": 87.2,
-      "news_adjustment": 5.2,
-      "final_ops": 92.4,
+      "news_adjustment": 4.5,
+      "final_ops": 91.7,
       "candidate_eligible": true,
       "qualified_candidate_raw": false,
       "qualified_100_raw": false,
@@ -790,11 +916,11 @@
           "source": "Benzinga",
           "url": "https://finnhub.io/api/news?id=27329d9b1b51153a6a8a2fc34a32d04bcf13a29cc8155070b7dac8174abc150f",
           "datetime": 1786955972,
-          "estimated_effect": 5.2
+          "estimated_effect": 4.5
         }
       ],
-      "news_articles_reviewed": 65,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_articles_reviewed": 97,
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "TSM",
@@ -856,8 +982,8 @@
           "estimated_effect": 4.5
         }
       ],
-      "news_articles_reviewed": 12,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_articles_reviewed": 17,
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "GE",
@@ -867,7 +993,7 @@
       "sma200": 318.14,
       "average_daily_dollar_volume": 1254134806.6,
       "technical_score": 90,
-      "leadership_score": 86.4,
+      "leadership_score": 85.7,
       "return_1m_pct": 8.24,
       "return_3m_pct": 29.34,
       "return_6m_pct": 13.25,
@@ -899,8 +1025,8 @@
       "risk_score": 69.6,
       "composite_score": 81.2,
       "base_ops": 81.2,
-      "news_adjustment": 5.2,
-      "final_ops": 86.4,
+      "news_adjustment": 4.5,
+      "final_ops": 85.7,
       "candidate_eligible": true,
       "qualified_candidate_raw": false,
       "qualified_100_raw": false,
@@ -916,11 +1042,11 @@
           "source": "Benzinga",
           "url": "https://finnhub.io/api/news?id=aa13fa2b54b5d9459f3d0577f68ef10283cdaece03e8e0cf5b8d3103818796e7",
           "datetime": 1786959205,
-          "estimated_effect": 5.2
+          "estimated_effect": 4.5
         }
       ],
-      "news_articles_reviewed": 4,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_articles_reviewed": 5,
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "FTNT",
@@ -973,7 +1099,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 3,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "OKTA",
@@ -1000,7 +1126,7 @@
       "reward_to_risk": 1.66,
       "return_velocity": 0.5948,
       "business_quality": 84.1,
-      "market_cap": 25779109888.0,
+      "market_cap": 25014353920.0,
       "sector": "Technology",
       "industry": "Software - Infrastructure",
       "company": "Okta, Inc.",
@@ -1026,7 +1152,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 5,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "NBIX",
@@ -1078,8 +1204,8 @@
       "news_risk_level": "Neutral",
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
-      "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_articles_reviewed": 1,
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "DVA",
@@ -1132,135 +1258,62 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     }
   ],
   "emerging_leaders": [
     {
-      "symbol": "NET",
-      "price": 307.01,
-      "sma20": 288.63,
-      "sma50": 263.78,
-      "sma200": 218.13,
-      "average_daily_dollar_volume": 1243227072.07,
+      "symbol": "CHYM",
+      "price": 31.45,
+      "sma20": 26.16,
+      "sma50": 22.08,
+      "sma200": 21.79,
+      "average_daily_dollar_volume": 277672982.94,
       "technical_score": 100,
-      "leadership_score": 105.2,
-      "return_1m_pct": 12.7,
-      "return_3m_pct": 52.17,
-      "return_6m_pct": 58.51,
-      "relative_1m_vs_qqq_pct": 7.84,
-      "relative_3m_vs_qqq_pct": 48.66,
-      "relative_6m_vs_qqq_pct": 36.85,
+      "leadership_score": 100.0,
+      "return_1m_pct": 43.41,
+      "return_3m_pct": 79.2,
+      "return_6m_pct": 60.05,
+      "relative_1m_vs_qqq_pct": 38.55,
+      "relative_3m_vs_qqq_pct": 75.69,
+      "relative_6m_vs_qqq_pct": 38.38,
       "above_20dma": true,
       "above_50dma": true,
       "above_200dma": true,
       "sma50_above_sma200": true,
-      "annualized_volatility_pct": 57.37,
-      "expected_upside_pct": 45.13,
-      "expected_downside_pct": 28.95,
-      "reward_to_risk": 1.56,
-      "return_velocity": 0.5014,
-      "business_quality": 72.4,
-      "market_cap": 106920050688.0,
-      "sector": "Technology",
-      "industry": "Software - Infrastructure",
-      "company": "Cloudflare, Inc.",
-      "revenue_growth_pct": 35.9,
-      "earnings_growth_pct": 0.0,
-      "free_cash_flow": 691048256.0,
-      "operating_margin_pct": -7.9,
-      "return_on_equity_pct": -14.43,
-      "fundamental_disqualification": false,
-      "fundamental_source": "yfinance",
-      "sector_leadership_score": 100,
-      "risk_score": 42.6,
-      "composite_score": 85.6,
-      "base_ops": 100.0,
-      "news_adjustment": 5.2,
-      "final_ops": 105.2,
-      "candidate_eligible": true,
-      "qualified_candidate_raw": true,
-      "qualified_100_raw": true,
-      "action": "ATTACK",
-      "eligibility_ops": 100.0,
-      "news_risk_level": "Positive",
-      "news_reason": "guidance: Cloudflare: I Exited My Position Way Too Early",
-      "news_sources": [
-        {
-          "category": "guidance",
-          "direction": "positive",
-          "headline": "Cloudflare: I Exited My Position Way Too Early",
-          "source": "SeekingAlpha",
-          "url": "https://finnhub.io/api/news?id=e2984c6316d9261480c645441f586ab7e06c8104a3fe4ce1ac0513d30c8c5a80",
-          "datetime": 1786947601,
-          "estimated_effect": 5.2
-        }
-      ],
-      "news_articles_reviewed": 3,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
-    },
-    {
-      "symbol": "CRDO",
-      "price": 282.82,
-      "sma20": 230.67,
-      "sma50": 240.69,
-      "sma200": 171.69,
-      "average_daily_dollar_volume": 1423237682.38,
-      "technical_score": 100,
-      "leadership_score": 103.8,
-      "return_1m_pct": 33.36,
-      "return_3m_pct": 80.98,
-      "return_6m_pct": 126.62,
-      "relative_1m_vs_qqq_pct": 28.5,
-      "relative_3m_vs_qqq_pct": 77.47,
-      "relative_6m_vs_qqq_pct": 104.95,
-      "above_20dma": true,
-      "above_50dma": true,
-      "above_200dma": true,
-      "sma50_above_sma200": true,
-      "annualized_volatility_pct": 104.06,
+      "annualized_volatility_pct": 67.68,
       "expected_upside_pct": 60,
-      "expected_downside_pct": 39.29,
-      "reward_to_risk": 1.53,
+      "expected_downside_pct": 30.7,
+      "reward_to_risk": 1.95,
       "return_velocity": 0.6667,
-      "business_quality": 100.0,
-      "market_cap": 49601257472.0,
+      "business_quality": 87.4,
+      "market_cap": 12080651264.0,
       "sector": "Technology",
-      "industry": "Semiconductors",
-      "company": "Credo Technology Group Holding ",
-      "revenue_growth_pct": 157.0,
-      "earnings_growth_pct": 343.2,
-      "free_cash_flow": 250810128.0,
-      "operating_margin_pct": 35.66,
-      "return_on_equity_pct": 34.41,
+      "industry": "Software - Application",
+      "company": "Chime Financial, Inc.",
+      "revenue_growth_pct": 26.8,
+      "earnings_growth_pct": 0.0,
+      "free_cash_flow": 437652256.0,
+      "operating_margin_pct": 18.61,
+      "return_on_equity_pct": -1.28,
       "fundamental_disqualification": false,
       "fundamental_source": "yfinance",
       "sector_leadership_score": 100,
-      "risk_score": 0.0,
-      "composite_score": 93.8,
+      "risk_score": 32.3,
+      "composite_score": 91.1,
       "base_ops": 100.0,
-      "news_adjustment": 3.8,
-      "final_ops": 103.8,
+      "news_adjustment": 0.0,
+      "final_ops": 100.0,
       "candidate_eligible": true,
       "qualified_candidate_raw": true,
       "qualified_100_raw": true,
       "action": "ATTACK",
       "eligibility_ops": 100.0,
-      "news_risk_level": "Positive",
-      "news_reason": "earnings / revenue: H World Group Posts Upbeat Q2 Results, Joins Almonty Industries, Diana Shipping And Other Big Stocks Moving Higher On Monday",
-      "news_sources": [
-        {
-          "category": "earnings / revenue",
-          "direction": "positive",
-          "headline": "H World Group Posts Upbeat Q2 Results, Joins Almonty Industries, Diana Shipping And Other Big Stocks Moving Higher On Monday",
-          "source": "Benzinga",
-          "url": "https://finnhub.io/api/news?id=ad4638180e36463daef1e014698e2182a2b06c30f71828ab124f420a3654df55",
-          "datetime": 1786960317,
-          "estimated_effect": 3.8
-        }
-      ],
-      "news_articles_reviewed": 2,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_risk_level": "Neutral",
+      "news_reason": "No material recent company-news event detected.",
+      "news_sources": [],
+      "news_articles_reviewed": 1,
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "NTAP",
@@ -1287,7 +1340,7 @@
       "reward_to_risk": 1.54,
       "return_velocity": 0.6667,
       "business_quality": 90.6,
-      "market_cap": 36617318400.0,
+      "market_cap": 40171118592.0,
       "sector": "Technology",
       "industry": "Software - Infrastructure",
       "company": "NetApp, Inc.",
@@ -1312,8 +1365,8 @@
       "news_risk_level": "Neutral",
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
-      "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_articles_reviewed": 1,
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "PTGX",
@@ -1340,13 +1393,13 @@
       "reward_to_risk": 1.63,
       "return_velocity": 0.6563,
       "business_quality": 94.1,
-      "market_cap": 9438997504.0,
+      "market_cap": 10181200896.0,
       "sector": "Healthcare",
       "industry": "Biotechnology",
       "company": "Protagonist Therapeutics, Inc.",
       "revenue_growth_pct": 3749.2,
       "earnings_growth_pct": 0.0,
-      "free_cash_flow": 92303752.0,
+      "free_cash_flow": 96145752.0,
       "operating_margin_pct": 74.37,
       "return_on_equity_pct": 10.98,
       "fundamental_disqualification": false,
@@ -1366,7 +1419,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 2,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "NSIT",
@@ -1392,21 +1445,21 @@
       "expected_downside_pct": 37.36,
       "reward_to_risk": 1.57,
       "return_velocity": 0.6505,
-      "business_quality": 71.8,
-      "market_cap": 4237005312.0,
+      "business_quality": 78.1,
+      "market_cap": 4380022784.0,
       "sector": "Technology",
       "industry": "Electronics & Computer Distribution",
       "company": "Insight Enterprises, Inc.",
-      "revenue_growth_pct": 1.2,
-      "earnings_growth_pct": 340.9,
-      "free_cash_flow": 165567248.0,
-      "operating_margin_pct": 5.17,
-      "return_on_equity_pct": 11.26,
+      "revenue_growth_pct": 14.7,
+      "earnings_growth_pct": 76.0,
+      "free_cash_flow": 438449760.0,
+      "operating_margin_pct": 6.18,
+      "return_on_equity_pct": 13.11,
       "fundamental_disqualification": false,
       "fundamental_source": "yfinance",
       "sector_leadership_score": 100,
       "risk_score": 55.0,
-      "composite_score": 85.5,
+      "composite_score": 87.4,
       "base_ops": 100.0,
       "news_adjustment": 0.0,
       "final_ops": 100.0,
@@ -1419,7 +1472,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "RBRK",
@@ -1446,7 +1499,7 @@
       "reward_to_risk": 1.75,
       "return_velocity": 0.6477,
       "business_quality": 76.7,
-      "market_cap": 18538979328.0,
+      "market_cap": 20697090048.0,
       "sector": "Technology",
       "industry": "Software - Infrastructure",
       "company": "Rubrik, Inc.",
@@ -1472,7 +1525,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "PAYC",
@@ -1499,7 +1552,7 @@
       "reward_to_risk": 1.76,
       "return_velocity": 0.6346,
       "business_quality": 86.3,
-      "market_cap": 9687694336.0,
+      "market_cap": 9724652544.0,
       "sector": "Technology",
       "industry": "Software - Application",
       "company": "Paycom Software, Inc.",
@@ -1525,7 +1578,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "ZETA",
@@ -1578,7 +1631,113 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
+    },
+    {
+      "symbol": "ENVA",
+      "price": 263.91,
+      "sma20": 250.43,
+      "sma50": 229.53,
+      "sma200": 169.49,
+      "average_daily_dollar_volume": 91462920.5,
+      "technical_score": 100,
+      "leadership_score": 100.0,
+      "return_1m_pct": 14.52,
+      "return_3m_pct": 59.65,
+      "return_6m_pct": 77.88,
+      "relative_1m_vs_qqq_pct": 9.66,
+      "relative_3m_vs_qqq_pct": 56.13,
+      "relative_6m_vs_qqq_pct": 56.22,
+      "above_20dma": true,
+      "above_50dma": true,
+      "above_200dma": true,
+      "sma50_above_sma200": true,
+      "annualized_volatility_pct": 40.41,
+      "expected_upside_pct": 53.95,
+      "expected_downside_pct": 35.78,
+      "reward_to_risk": 1.51,
+      "return_velocity": 0.5995,
+      "business_quality": 74.6,
+      "market_cap": 6516177920.0,
+      "sector": "Financial Services",
+      "industry": "Credit Services",
+      "company": "Enova International, Inc.",
+      "revenue_growth_pct": 31.1,
+      "earnings_growth_pct": 39.9,
+      "free_cash_flow": 0.0,
+      "operating_margin_pct": 29.94,
+      "return_on_equity_pct": 26.08,
+      "fundamental_disqualification": false,
+      "fundamental_source": "yfinance",
+      "sector_leadership_score": 80,
+      "risk_score": 59.6,
+      "composite_score": 83.2,
+      "base_ops": 100.0,
+      "news_adjustment": 0.0,
+      "final_ops": 100.0,
+      "candidate_eligible": true,
+      "qualified_candidate_raw": true,
+      "qualified_100_raw": true,
+      "action": "ATTACK",
+      "eligibility_ops": 100.0,
+      "news_risk_level": "Neutral",
+      "news_reason": "No material recent company-news event detected.",
+      "news_sources": [],
+      "news_articles_reviewed": 0,
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
+    },
+    {
+      "symbol": "NTRA",
+      "price": 314.18,
+      "sma20": 282.46,
+      "sma50": 264.14,
+      "sma200": 226.78,
+      "average_daily_dollar_volume": 412613699.72,
+      "technical_score": 100,
+      "leadership_score": 100.0,
+      "return_1m_pct": 19.63,
+      "return_3m_pct": 63.18,
+      "return_6m_pct": 48.72,
+      "relative_1m_vs_qqq_pct": 14.77,
+      "relative_3m_vs_qqq_pct": 59.66,
+      "relative_6m_vs_qqq_pct": 27.06,
+      "above_20dma": true,
+      "above_50dma": true,
+      "above_200dma": true,
+      "sma50_above_sma200": true,
+      "annualized_volatility_pct": 59.68,
+      "expected_upside_pct": 47.78,
+      "expected_downside_pct": 27.82,
+      "reward_to_risk": 1.72,
+      "return_velocity": 0.5309,
+      "business_quality": 78.6,
+      "market_cap": 44928299008.0,
+      "sector": "Healthcare",
+      "industry": "Diagnostics & Research",
+      "company": "Natera, Inc.",
+      "revenue_growth_pct": 37.7,
+      "earnings_growth_pct": 0.0,
+      "free_cash_flow": 104029000.0,
+      "operating_margin_pct": -10.29,
+      "return_on_equity_pct": -12.54,
+      "fundamental_disqualification": false,
+      "fundamental_source": "yfinance",
+      "sector_leadership_score": 90,
+      "risk_score": 40.3,
+      "composite_score": 86.4,
+      "base_ops": 100.0,
+      "news_adjustment": 0.0,
+      "final_ops": 100.0,
+      "candidate_eligible": true,
+      "qualified_candidate_raw": true,
+      "qualified_100_raw": true,
+      "action": "ATTACK",
+      "eligibility_ops": 100.0,
+      "news_risk_level": "Neutral",
+      "news_reason": "No material recent company-news event detected.",
+      "news_sources": [],
+      "news_articles_reviewed": 0,
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "GTLB",
@@ -1631,7 +1790,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "EXPE",
@@ -1683,8 +1842,8 @@
       "news_risk_level": "Neutral",
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
-      "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_articles_reviewed": 1,
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "FRSH",
@@ -1737,7 +1896,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "NTNX",
@@ -1789,8 +1948,8 @@
       "news_risk_level": "Neutral",
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
-      "news_articles_reviewed": 1,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_articles_reviewed": 2,
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "NEU",
@@ -1843,7 +2002,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "MANH",
@@ -1870,7 +2029,7 @@
       "reward_to_risk": 1.77,
       "return_velocity": 0.409,
       "business_quality": 84.4,
-      "market_cap": 11382879232.0,
+      "market_cap": 11566540800.0,
       "sector": "Technology",
       "industry": "Software - Application",
       "company": "Manhattan Associates, Inc.",
@@ -1896,7 +2055,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "MEDP",
@@ -1949,7 +2108,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "SAIC",
@@ -2002,7 +2161,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "BIO",
@@ -2055,7 +2214,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "JLL",
@@ -2108,7 +2267,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "DV",
@@ -2161,7 +2320,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "SLG",
@@ -2214,7 +2373,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "SN",
@@ -2241,13 +2400,13 @@
       "reward_to_risk": 1.49,
       "return_velocity": 0.5612,
       "business_quality": 76.1,
-      "market_cap": 0.0,
+      "market_cap": 25868509184.0,
       "sector": "Consumer Cyclical",
       "industry": "Furnishings, Fixtures & Appliances",
       "company": "SharkNinja, Inc.",
       "revenue_growth_pct": 22.2,
       "earnings_growth_pct": -6.3,
-      "free_cash_flow": 584139392.0,
+      "free_cash_flow": 638667520.0,
       "operating_margin_pct": 10.16,
       "return_on_equity_pct": 27.53,
       "fundamental_disqualification": false,
@@ -2267,7 +2426,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "EAT",
@@ -2320,7 +2479,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "HRB",
@@ -2373,7 +2532,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 2,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "MGNI",
@@ -2400,7 +2559,7 @@
       "reward_to_risk": 1.65,
       "return_velocity": 0.6667,
       "business_quality": 85.2,
-      "market_cap": 3545445120.0,
+      "market_cap": 3518194688.0,
       "sector": "Communication Services",
       "industry": "Advertising Agencies",
       "company": "Magnite, Inc.",
@@ -2426,7 +2585,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "IMAX",
@@ -2479,7 +2638,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     }
   ],
   "weakening_leaders": [
@@ -2533,8 +2692,8 @@
       "news_risk_level": "Neutral",
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
-      "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_articles_reviewed": 1,
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "DVA",
@@ -2587,7 +2746,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     }
   ],
   "scores": [
@@ -2599,7 +2758,7 @@
       "sma200": 137.53,
       "average_daily_dollar_volume": 1599730696.54,
       "technical_score": 100,
-      "leadership_score": 105.2,
+      "leadership_score": 104.5,
       "return_1m_pct": 7.76,
       "return_3m_pct": 38.26,
       "return_6m_pct": 106.52,
@@ -2631,8 +2790,8 @@
       "risk_score": 44.2,
       "composite_score": 87.9,
       "base_ops": 100.0,
-      "news_adjustment": 5.2,
-      "final_ops": 105.2,
+      "news_adjustment": 4.5,
+      "final_ops": 104.5,
       "candidate_eligible": true,
       "qualified_candidate_raw": true,
       "qualified_100_raw": true,
@@ -2648,11 +2807,11 @@
           "source": "SeekingAlpha",
           "url": "https://finnhub.io/api/news?id=e2984c6316d9261480c645441f586ab7e06c8104a3fe4ce1ac0513d30c8c5a80",
           "datetime": 1786947601,
-          "estimated_effect": 5.2
+          "estimated_effect": 4.5
         }
       ],
       "news_articles_reviewed": 6,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "NET",
@@ -2662,7 +2821,7 @@
       "sma200": 218.13,
       "average_daily_dollar_volume": 1243227072.07,
       "technical_score": 100,
-      "leadership_score": 105.2,
+      "leadership_score": 104.5,
       "return_1m_pct": 12.7,
       "return_3m_pct": 52.17,
       "return_6m_pct": 58.51,
@@ -2679,7 +2838,7 @@
       "reward_to_risk": 1.56,
       "return_velocity": 0.5014,
       "business_quality": 72.4,
-      "market_cap": 106920050688.0,
+      "market_cap": 107281473536.0,
       "sector": "Technology",
       "industry": "Software - Infrastructure",
       "company": "Cloudflare, Inc.",
@@ -2694,8 +2853,8 @@
       "risk_score": 42.6,
       "composite_score": 85.6,
       "base_ops": 100.0,
-      "news_adjustment": 5.2,
-      "final_ops": 105.2,
+      "news_adjustment": 4.5,
+      "final_ops": 104.5,
       "candidate_eligible": true,
       "qualified_candidate_raw": true,
       "qualified_100_raw": true,
@@ -2711,11 +2870,11 @@
           "source": "SeekingAlpha",
           "url": "https://finnhub.io/api/news?id=e2984c6316d9261480c645441f586ab7e06c8104a3fe4ce1ac0513d30c8c5a80",
           "datetime": 1786947601,
-          "estimated_effect": 5.2
+          "estimated_effect": 4.5
         }
       ],
-      "news_articles_reviewed": 3,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_articles_reviewed": 4,
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "SNOW",
@@ -2725,7 +2884,7 @@
       "sma200": 214.75,
       "average_daily_dollar_volume": 1600817437.99,
       "technical_score": 100,
-      "leadership_score": 103.8,
+      "leadership_score": 103.2,
       "return_1m_pct": 20.33,
       "return_3m_pct": 100.99,
       "return_6m_pct": 86.4,
@@ -2757,8 +2916,8 @@
       "risk_score": 13.7,
       "composite_score": 85.3,
       "base_ops": 100.0,
-      "news_adjustment": 3.8,
-      "final_ops": 103.8,
+      "news_adjustment": 3.2,
+      "final_ops": 103.2,
       "candidate_eligible": true,
       "qualified_candidate_raw": true,
       "qualified_100_raw": true,
@@ -2774,11 +2933,11 @@
           "source": "Yahoo",
           "url": "https://finnhub.io/api/news?id=ad25e85f3d47bc9a333cbc26feb98b5df5081fc4e8c2a46b246448b41e23721e",
           "datetime": 1786971300,
-          "estimated_effect": 3.8
+          "estimated_effect": 3.2
         }
       ],
-      "news_articles_reviewed": 5,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_articles_reviewed": 6,
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "CRDO",
@@ -2788,7 +2947,7 @@
       "sma200": 171.69,
       "average_daily_dollar_volume": 1423237682.38,
       "technical_score": 100,
-      "leadership_score": 103.8,
+      "leadership_score": 103.2,
       "return_1m_pct": 33.36,
       "return_3m_pct": 80.98,
       "return_6m_pct": 126.62,
@@ -2820,8 +2979,8 @@
       "risk_score": 0.0,
       "composite_score": 93.8,
       "base_ops": 100.0,
-      "news_adjustment": 3.8,
-      "final_ops": 103.8,
+      "news_adjustment": 3.2,
+      "final_ops": 103.2,
       "candidate_eligible": true,
       "qualified_candidate_raw": true,
       "qualified_100_raw": true,
@@ -2837,11 +2996,64 @@
           "source": "Benzinga",
           "url": "https://finnhub.io/api/news?id=ad4638180e36463daef1e014698e2182a2b06c30f71828ab124f420a3654df55",
           "datetime": 1786960317,
-          "estimated_effect": 3.8
+          "estimated_effect": 3.2
         }
       ],
-      "news_articles_reviewed": 2,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_articles_reviewed": 5,
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
+    },
+    {
+      "symbol": "CHYM",
+      "price": 31.45,
+      "sma20": 26.16,
+      "sma50": 22.08,
+      "sma200": 21.79,
+      "average_daily_dollar_volume": 277672982.94,
+      "technical_score": 100,
+      "leadership_score": 100.0,
+      "return_1m_pct": 43.41,
+      "return_3m_pct": 79.2,
+      "return_6m_pct": 60.05,
+      "relative_1m_vs_qqq_pct": 38.55,
+      "relative_3m_vs_qqq_pct": 75.69,
+      "relative_6m_vs_qqq_pct": 38.38,
+      "above_20dma": true,
+      "above_50dma": true,
+      "above_200dma": true,
+      "sma50_above_sma200": true,
+      "annualized_volatility_pct": 67.68,
+      "expected_upside_pct": 60,
+      "expected_downside_pct": 30.7,
+      "reward_to_risk": 1.95,
+      "return_velocity": 0.6667,
+      "business_quality": 87.4,
+      "market_cap": 12080651264.0,
+      "sector": "Technology",
+      "industry": "Software - Application",
+      "company": "Chime Financial, Inc.",
+      "revenue_growth_pct": 26.8,
+      "earnings_growth_pct": 0.0,
+      "free_cash_flow": 437652256.0,
+      "operating_margin_pct": 18.61,
+      "return_on_equity_pct": -1.28,
+      "fundamental_disqualification": false,
+      "fundamental_source": "yfinance",
+      "sector_leadership_score": 100,
+      "risk_score": 32.3,
+      "composite_score": 91.1,
+      "base_ops": 100.0,
+      "news_adjustment": 0.0,
+      "final_ops": 100.0,
+      "candidate_eligible": true,
+      "qualified_candidate_raw": true,
+      "qualified_100_raw": true,
+      "action": "ATTACK",
+      "eligibility_ops": 100.0,
+      "news_risk_level": "Neutral",
+      "news_reason": "No material recent company-news event detected.",
+      "news_sources": [],
+      "news_articles_reviewed": 1,
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "QLYS",
@@ -2894,7 +3106,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "NTAP",
@@ -2921,7 +3133,7 @@
       "reward_to_risk": 1.54,
       "return_velocity": 0.6667,
       "business_quality": 90.6,
-      "market_cap": 36617318400.0,
+      "market_cap": 40171118592.0,
       "sector": "Technology",
       "industry": "Software - Infrastructure",
       "company": "NetApp, Inc.",
@@ -2946,8 +3158,8 @@
       "news_risk_level": "Neutral",
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
-      "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_articles_reviewed": 1,
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "PANW",
@@ -3000,7 +3212,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 4,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "HPE",
@@ -3027,7 +3239,7 @@
       "reward_to_risk": 1.3,
       "return_velocity": 0.6667,
       "business_quality": 73.0,
-      "market_cap": 70474113024.0,
+      "market_cap": 73758138368.0,
       "sector": "Technology",
       "industry": "Communication Equipment",
       "company": "Hewlett Packard Enterprise Comp",
@@ -3053,7 +3265,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "PTGX",
@@ -3080,13 +3292,13 @@
       "reward_to_risk": 1.63,
       "return_velocity": 0.6563,
       "business_quality": 94.1,
-      "market_cap": 9438997504.0,
+      "market_cap": 10181200896.0,
       "sector": "Healthcare",
       "industry": "Biotechnology",
       "company": "Protagonist Therapeutics, Inc.",
       "revenue_growth_pct": 3749.2,
       "earnings_growth_pct": 0.0,
-      "free_cash_flow": 92303752.0,
+      "free_cash_flow": 96145752.0,
       "operating_margin_pct": 74.37,
       "return_on_equity_pct": 10.98,
       "fundamental_disqualification": false,
@@ -3106,7 +3318,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 2,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "NSIT",
@@ -3132,21 +3344,21 @@
       "expected_downside_pct": 37.36,
       "reward_to_risk": 1.57,
       "return_velocity": 0.6505,
-      "business_quality": 71.8,
-      "market_cap": 4237005312.0,
+      "business_quality": 78.1,
+      "market_cap": 4380022784.0,
       "sector": "Technology",
       "industry": "Electronics & Computer Distribution",
       "company": "Insight Enterprises, Inc.",
-      "revenue_growth_pct": 1.2,
-      "earnings_growth_pct": 340.9,
-      "free_cash_flow": 165567248.0,
-      "operating_margin_pct": 5.17,
-      "return_on_equity_pct": 11.26,
+      "revenue_growth_pct": 14.7,
+      "earnings_growth_pct": 76.0,
+      "free_cash_flow": 438449760.0,
+      "operating_margin_pct": 6.18,
+      "return_on_equity_pct": 13.11,
       "fundamental_disqualification": false,
       "fundamental_source": "yfinance",
       "sector_leadership_score": 100,
       "risk_score": 55.0,
-      "composite_score": 85.5,
+      "composite_score": 87.4,
       "base_ops": 100.0,
       "news_adjustment": 0.0,
       "final_ops": 100.0,
@@ -3159,7 +3371,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "RBRK",
@@ -3186,7 +3398,7 @@
       "reward_to_risk": 1.75,
       "return_velocity": 0.6477,
       "business_quality": 76.7,
-      "market_cap": 18538979328.0,
+      "market_cap": 20697090048.0,
       "sector": "Technology",
       "industry": "Software - Infrastructure",
       "company": "Rubrik, Inc.",
@@ -3212,7 +3424,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "FIVN",
@@ -3265,7 +3477,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "PAYC",
@@ -3292,7 +3504,7 @@
       "reward_to_risk": 1.76,
       "return_velocity": 0.6346,
       "business_quality": 86.3,
-      "market_cap": 9687694336.0,
+      "market_cap": 9724652544.0,
       "sector": "Technology",
       "industry": "Software - Application",
       "company": "Paycom Software, Inc.",
@@ -3318,7 +3530,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "ZETA",
@@ -3371,7 +3583,60 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
+    },
+    {
+      "symbol": "ENVA",
+      "price": 263.91,
+      "sma20": 250.43,
+      "sma50": 229.53,
+      "sma200": 169.49,
+      "average_daily_dollar_volume": 91462920.5,
+      "technical_score": 100,
+      "leadership_score": 100.0,
+      "return_1m_pct": 14.52,
+      "return_3m_pct": 59.65,
+      "return_6m_pct": 77.88,
+      "relative_1m_vs_qqq_pct": 9.66,
+      "relative_3m_vs_qqq_pct": 56.13,
+      "relative_6m_vs_qqq_pct": 56.22,
+      "above_20dma": true,
+      "above_50dma": true,
+      "above_200dma": true,
+      "sma50_above_sma200": true,
+      "annualized_volatility_pct": 40.41,
+      "expected_upside_pct": 53.95,
+      "expected_downside_pct": 35.78,
+      "reward_to_risk": 1.51,
+      "return_velocity": 0.5995,
+      "business_quality": 74.6,
+      "market_cap": 6516177920.0,
+      "sector": "Financial Services",
+      "industry": "Credit Services",
+      "company": "Enova International, Inc.",
+      "revenue_growth_pct": 31.1,
+      "earnings_growth_pct": 39.9,
+      "free_cash_flow": 0.0,
+      "operating_margin_pct": 29.94,
+      "return_on_equity_pct": 26.08,
+      "fundamental_disqualification": false,
+      "fundamental_source": "yfinance",
+      "sector_leadership_score": 80,
+      "risk_score": 59.6,
+      "composite_score": 83.2,
+      "base_ops": 100.0,
+      "news_adjustment": 0.0,
+      "final_ops": 100.0,
+      "candidate_eligible": true,
+      "qualified_candidate_raw": true,
+      "qualified_100_raw": true,
+      "action": "ATTACK",
+      "eligibility_ops": 100.0,
+      "news_risk_level": "Neutral",
+      "news_reason": "No material recent company-news event detected.",
+      "news_sources": [],
+      "news_articles_reviewed": 0,
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "OSCR",
@@ -3424,7 +3689,60 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
+    },
+    {
+      "symbol": "NTRA",
+      "price": 314.18,
+      "sma20": 282.46,
+      "sma50": 264.14,
+      "sma200": 226.78,
+      "average_daily_dollar_volume": 412613699.72,
+      "technical_score": 100,
+      "leadership_score": 100.0,
+      "return_1m_pct": 19.63,
+      "return_3m_pct": 63.18,
+      "return_6m_pct": 48.72,
+      "relative_1m_vs_qqq_pct": 14.77,
+      "relative_3m_vs_qqq_pct": 59.66,
+      "relative_6m_vs_qqq_pct": 27.06,
+      "above_20dma": true,
+      "above_50dma": true,
+      "above_200dma": true,
+      "sma50_above_sma200": true,
+      "annualized_volatility_pct": 59.68,
+      "expected_upside_pct": 47.78,
+      "expected_downside_pct": 27.82,
+      "reward_to_risk": 1.72,
+      "return_velocity": 0.5309,
+      "business_quality": 78.6,
+      "market_cap": 44928299008.0,
+      "sector": "Healthcare",
+      "industry": "Diagnostics & Research",
+      "company": "Natera, Inc.",
+      "revenue_growth_pct": 37.7,
+      "earnings_growth_pct": 0.0,
+      "free_cash_flow": 104029000.0,
+      "operating_margin_pct": -10.29,
+      "return_on_equity_pct": -12.54,
+      "fundamental_disqualification": false,
+      "fundamental_source": "yfinance",
+      "sector_leadership_score": 90,
+      "risk_score": 40.3,
+      "composite_score": 86.4,
+      "base_ops": 100.0,
+      "news_adjustment": 0.0,
+      "final_ops": 100.0,
+      "candidate_eligible": true,
+      "qualified_candidate_raw": true,
+      "qualified_100_raw": true,
+      "action": "ATTACK",
+      "eligibility_ops": 100.0,
+      "news_risk_level": "Neutral",
+      "news_reason": "No material recent company-news event detected.",
+      "news_sources": [],
+      "news_articles_reviewed": 0,
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "GTLB",
@@ -3477,7 +3795,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "EXPE",
@@ -3529,8 +3847,8 @@
       "news_risk_level": "Neutral",
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
-      "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_articles_reviewed": 1,
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "FRSH",
@@ -3583,7 +3901,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "NTNX",
@@ -3635,8 +3953,8 @@
       "news_risk_level": "Neutral",
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
-      "news_articles_reviewed": 1,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_articles_reviewed": 2,
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "NEU",
@@ -3689,7 +4007,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "MANH",
@@ -3716,7 +4034,7 @@
       "reward_to_risk": 1.77,
       "return_velocity": 0.409,
       "business_quality": 84.4,
-      "market_cap": 11382879232.0,
+      "market_cap": 11566540800.0,
       "sector": "Technology",
       "industry": "Software - Application",
       "company": "Manhattan Associates, Inc.",
@@ -3742,7 +4060,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "ANET",
@@ -3795,7 +4113,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 2,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "GLBE",
@@ -3848,7 +4166,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "MEDP",
@@ -3901,7 +4219,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "SAIC",
@@ -3954,7 +4272,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "IOT",
@@ -4007,7 +4325,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "BIO",
@@ -4060,7 +4378,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "JLL",
@@ -4113,7 +4431,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "ASML",
@@ -4166,7 +4484,60 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 2,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
+    },
+    {
+      "symbol": "PGY",
+      "price": 20.93,
+      "sma20": 19.44,
+      "sma50": 17.7,
+      "sma200": 17.57,
+      "average_daily_dollar_volume": 63712533.59,
+      "technical_score": 100,
+      "leadership_score": 97.4,
+      "return_1m_pct": 22.47,
+      "return_3m_pct": 62.63,
+      "return_6m_pct": 70.16,
+      "relative_1m_vs_qqq_pct": 17.61,
+      "relative_3m_vs_qqq_pct": 59.11,
+      "relative_6m_vs_qqq_pct": 48.49,
+      "above_20dma": true,
+      "above_50dma": true,
+      "above_200dma": true,
+      "sma50_above_sma200": true,
+      "annualized_volatility_pct": 75.47,
+      "expected_upside_pct": 53.8,
+      "expected_downside_pct": 16.08,
+      "reward_to_risk": 3.35,
+      "return_velocity": 0.5978,
+      "business_quality": 96.9,
+      "market_cap": 1695213056.0,
+      "sector": "Technology",
+      "industry": "Software - Infrastructure",
+      "company": "Pagaya Technologies Ltd.",
+      "revenue_growth_pct": 18.6,
+      "earnings_growth_pct": 143.3,
+      "free_cash_flow": 207177120.0,
+      "operating_margin_pct": 27.33,
+      "return_on_equity_pct": 19.46,
+      "fundamental_disqualification": true,
+      "fundamental_source": "yfinance",
+      "sector_leadership_score": 100,
+      "risk_score": 24.5,
+      "composite_score": 97.4,
+      "base_ops": 97.4,
+      "news_adjustment": 0.0,
+      "final_ops": 97.4,
+      "candidate_eligible": false,
+      "qualified_candidate_raw": true,
+      "qualified_100_raw": false,
+      "action": "ATTACK",
+      "eligibility_ops": 97.4,
+      "news_risk_level": "Neutral",
+      "news_reason": "No material recent company-news event detected.",
+      "news_sources": [],
+      "news_articles_reviewed": 2,
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "NVDA",
@@ -4176,7 +4547,7 @@
       "sma200": 194.87,
       "average_daily_dollar_volume": 26999068563.68,
       "technical_score": 90,
-      "leadership_score": 92.4,
+      "leadership_score": 91.7,
       "return_1m_pct": 10.69,
       "return_3m_pct": 1.33,
       "return_6m_pct": 21.8,
@@ -4208,8 +4579,8 @@
       "risk_score": 60.6,
       "composite_score": 87.2,
       "base_ops": 87.2,
-      "news_adjustment": 5.2,
-      "final_ops": 92.4,
+      "news_adjustment": 4.5,
+      "final_ops": 91.7,
       "candidate_eligible": true,
       "qualified_candidate_raw": false,
       "qualified_100_raw": false,
@@ -4225,11 +4596,11 @@
           "source": "Benzinga",
           "url": "https://finnhub.io/api/news?id=27329d9b1b51153a6a8a2fc34a32d04bcf13a29cc8155070b7dac8174abc150f",
           "datetime": 1786955972,
-          "estimated_effect": 5.2
+          "estimated_effect": 4.5
         }
       ],
-      "news_articles_reviewed": 65,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_articles_reviewed": 97,
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "TSM",
@@ -4291,8 +4662,8 @@
           "estimated_effect": 4.5
         }
       ],
-      "news_articles_reviewed": 12,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_articles_reviewed": 17,
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "BLFS",
@@ -4345,7 +4716,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "GE",
@@ -4355,7 +4726,7 @@
       "sma200": 318.14,
       "average_daily_dollar_volume": 1254134806.6,
       "technical_score": 90,
-      "leadership_score": 86.4,
+      "leadership_score": 85.7,
       "return_1m_pct": 8.24,
       "return_3m_pct": 29.34,
       "return_6m_pct": 13.25,
@@ -4387,8 +4758,8 @@
       "risk_score": 69.6,
       "composite_score": 81.2,
       "base_ops": 81.2,
-      "news_adjustment": 5.2,
-      "final_ops": 86.4,
+      "news_adjustment": 4.5,
+      "final_ops": 85.7,
       "candidate_eligible": true,
       "qualified_candidate_raw": false,
       "qualified_100_raw": false,
@@ -4404,11 +4775,64 @@
           "source": "Benzinga",
           "url": "https://finnhub.io/api/news?id=aa13fa2b54b5d9459f3d0577f68ef10283cdaece03e8e0cf5b8d3103818796e7",
           "datetime": 1786959205,
-          "estimated_effect": 5.2
+          "estimated_effect": 4.5
         }
       ],
-      "news_articles_reviewed": 4,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_articles_reviewed": 5,
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
+    },
+    {
+      "symbol": "U",
+      "price": 45.45,
+      "sma20": 36.65,
+      "sma50": 31.94,
+      "sma200": 31.68,
+      "average_daily_dollar_volume": 560585527.07,
+      "technical_score": 100,
+      "leadership_score": 85.6,
+      "return_1m_pct": 52.47,
+      "return_3m_pct": 69.59,
+      "return_6m_pct": 147.55,
+      "relative_1m_vs_qqq_pct": 47.61,
+      "relative_3m_vs_qqq_pct": 66.08,
+      "relative_6m_vs_qqq_pct": 125.88,
+      "above_20dma": true,
+      "above_50dma": true,
+      "above_200dma": true,
+      "sma50_above_sma200": true,
+      "annualized_volatility_pct": 59.36,
+      "expected_upside_pct": 60,
+      "expected_downside_pct": 30.29,
+      "reward_to_risk": 1.98,
+      "return_velocity": 0.6667,
+      "business_quality": 68.7,
+      "market_cap": 20569757696.0,
+      "sector": "Technology",
+      "industry": "Software - Application",
+      "company": "Unity Software Inc.",
+      "revenue_growth_pct": 23.9,
+      "earnings_growth_pct": 0.0,
+      "free_cash_flow": 599621120.0,
+      "operating_margin_pct": -5.18,
+      "return_on_equity_pct": -17.38,
+      "fundamental_disqualification": false,
+      "fundamental_source": "yfinance",
+      "sector_leadership_score": 100,
+      "risk_score": 40.6,
+      "composite_score": 85.6,
+      "base_ops": 85.6,
+      "news_adjustment": 0.0,
+      "final_ops": 85.6,
+      "candidate_eligible": false,
+      "qualified_candidate_raw": false,
+      "qualified_100_raw": false,
+      "action": "ACCUMULATE",
+      "eligibility_ops": 85.6,
+      "news_risk_level": "Neutral",
+      "news_reason": "No material recent company-news event detected.",
+      "news_sources": [],
+      "news_articles_reviewed": 1,
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "HPQ",
@@ -4461,7 +4885,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "FSLY",
@@ -4488,7 +4912,7 @@
       "reward_to_risk": 1.54,
       "return_velocity": 0.6667,
       "business_quality": 67.6,
-      "market_cap": 3657527808.0,
+      "market_cap": 4235787008.0,
       "sector": "Technology",
       "industry": "Software - Application",
       "company": "Fastly, Inc.",
@@ -4514,7 +4938,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 4,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "FTNT",
@@ -4567,7 +4991,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 3,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "FDS",
@@ -4619,8 +5043,8 @@
       "news_risk_level": "Neutral",
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
-      "news_articles_reviewed": 1,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_articles_reviewed": 2,
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "IQV",
@@ -4647,7 +5071,7 @@
       "reward_to_risk": 2.08,
       "return_velocity": 0.4084,
       "business_quality": 66.1,
-      "market_cap": 39290019840.0,
+      "market_cap": 39508938752.0,
       "sector": "Healthcare",
       "industry": "Diagnostics & Research",
       "company": "IQVIA Holdings, Inc.",
@@ -4673,7 +5097,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "AXON",
@@ -4726,7 +5150,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "GH",
@@ -4753,7 +5177,7 @@
       "reward_to_risk": 1.59,
       "return_velocity": 0.5361,
       "business_quality": 69.5,
-      "market_cap": 21898129408.0,
+      "market_cap": 21487489024.0,
       "sector": "Healthcare",
       "industry": "Diagnostics & Research",
       "company": "Guardant Health, Inc.",
@@ -4779,7 +5203,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "HAE",
@@ -4831,8 +5255,8 @@
       "news_risk_level": "Neutral",
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
-      "news_articles_reviewed": 1,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_articles_reviewed": 6,
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "RGEN",
@@ -4885,7 +5309,60 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
+    },
+    {
+      "symbol": "PI",
+      "price": 171.71,
+      "sma20": 156.54,
+      "sma50": 143.86,
+      "sma200": 142.49,
+      "average_daily_dollar_volume": 89598556.24,
+      "technical_score": 100,
+      "leadership_score": 83.0,
+      "return_1m_pct": 24.68,
+      "return_3m_pct": 23.27,
+      "return_6m_pct": 36.14,
+      "relative_1m_vs_qqq_pct": 19.82,
+      "relative_3m_vs_qqq_pct": 19.75,
+      "relative_6m_vs_qqq_pct": 14.47,
+      "above_20dma": true,
+      "above_50dma": true,
+      "above_200dma": true,
+      "sma50_above_sma200": true,
+      "annualized_volatility_pct": 63.96,
+      "expected_upside_pct": 26.15,
+      "expected_downside_pct": 17.01,
+      "reward_to_risk": 1.54,
+      "return_velocity": 0.2906,
+      "business_quality": 63.8,
+      "market_cap": 5135280128.0,
+      "sector": "Technology",
+      "industry": "Semiconductors",
+      "company": "Impinj, Inc.",
+      "revenue_growth_pct": 10.7,
+      "earnings_growth_pct": 0.0,
+      "free_cash_flow": 56185876.0,
+      "operating_margin_pct": 9.69,
+      "return_on_equity_pct": -12.88,
+      "fundamental_disqualification": false,
+      "fundamental_source": "yfinance",
+      "sector_leadership_score": 100,
+      "risk_score": 36.0,
+      "composite_score": 83.0,
+      "base_ops": 83.0,
+      "news_adjustment": 0.0,
+      "final_ops": 83.0,
+      "candidate_eligible": false,
+      "qualified_candidate_raw": false,
+      "qualified_100_raw": false,
+      "action": "ACCUMULATE",
+      "eligibility_ops": 83.0,
+      "news_risk_level": "Neutral",
+      "news_reason": "No material recent company-news event detected.",
+      "news_sources": [],
+      "news_articles_reviewed": 0,
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "ADPT",
@@ -4938,7 +5415,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "OUST",
@@ -4990,61 +5467,61 @@
       "news_risk_level": "Neutral",
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
-      "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_articles_reviewed": 1,
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
-      "symbol": "NTRA",
-      "price": 314.18,
-      "sma20": 282.46,
-      "sma50": 264.14,
-      "sma200": 226.78,
-      "average_daily_dollar_volume": 412613699.72,
+      "symbol": "HTFL",
+      "price": 41.94,
+      "sma20": 28.32,
+      "sma50": 29.25,
+      "sma200": 28.87,
+      "average_daily_dollar_volume": 66591902.03,
       "technical_score": 100,
-      "leadership_score": 81.0,
-      "return_1m_pct": 19.63,
-      "return_3m_pct": 63.18,
-      "return_6m_pct": 48.72,
-      "relative_1m_vs_qqq_pct": 14.77,
-      "relative_3m_vs_qqq_pct": 59.66,
-      "relative_6m_vs_qqq_pct": 27.06,
+      "leadership_score": 81.2,
+      "return_1m_pct": 70.77,
+      "return_3m_pct": 63.54,
+      "return_6m_pct": 88.33,
+      "relative_1m_vs_qqq_pct": 65.91,
+      "relative_3m_vs_qqq_pct": 60.03,
+      "relative_6m_vs_qqq_pct": 66.66,
       "above_20dma": true,
       "above_50dma": true,
       "above_200dma": true,
       "sma50_above_sma200": true,
-      "annualized_volatility_pct": 59.68,
-      "expected_upside_pct": 47.78,
-      "expected_downside_pct": 27.82,
-      "reward_to_risk": 1.72,
-      "return_velocity": 0.5309,
-      "business_quality": 60.6,
-      "market_cap": 46428839936.0,
+      "annualized_volatility_pct": 98.1,
+      "expected_upside_pct": 60,
+      "expected_downside_pct": 31.16,
+      "reward_to_risk": 1.93,
+      "return_velocity": 0.6667,
+      "business_quality": 59.5,
+      "market_cap": 3932912384.0,
       "sector": "Healthcare",
-      "industry": "Diagnostics & Research",
-      "company": "Natera, Inc.",
-      "revenue_growth_pct": 37.7,
+      "industry": "Health Information Services",
+      "company": "Heartflow, Inc.",
+      "revenue_growth_pct": 47.6,
       "earnings_growth_pct": 0.0,
-      "free_cash_flow": 0.0,
-      "operating_margin_pct": -10.07,
-      "return_on_equity_pct": -12.54,
+      "free_cash_flow": -33605624.0,
+      "operating_margin_pct": -27.93,
+      "return_on_equity_pct": -154.23,
       "fundamental_disqualification": false,
       "fundamental_source": "yfinance",
       "sector_leadership_score": 90,
-      "risk_score": 40.3,
-      "composite_score": 81.0,
-      "base_ops": 81.0,
+      "risk_score": 1.9,
+      "composite_score": 81.2,
+      "base_ops": 81.2,
       "news_adjustment": 0.0,
-      "final_ops": 81.0,
+      "final_ops": 81.2,
       "candidate_eligible": false,
       "qualified_candidate_raw": false,
       "qualified_100_raw": false,
       "action": "ACCUMULATE",
-      "eligibility_ops": 81.0,
+      "eligibility_ops": 81.2,
       "news_risk_level": "Neutral",
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
-      "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_articles_reviewed": 6,
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "GPN",
@@ -5097,7 +5574,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "OKTA",
@@ -5124,7 +5601,7 @@
       "reward_to_risk": 1.66,
       "return_velocity": 0.5948,
       "business_quality": 84.1,
-      "market_cap": 25779109888.0,
+      "market_cap": 25014353920.0,
       "sector": "Technology",
       "industry": "Software - Infrastructure",
       "company": "Okta, Inc.",
@@ -5150,7 +5627,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 5,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "DNTH",
@@ -5177,13 +5654,13 @@
       "reward_to_risk": 1.57,
       "return_velocity": 0.6667,
       "business_quality": 59.5,
-      "market_cap": 6292617216.0,
+      "market_cap": 6462658048.0,
       "sector": "Healthcare",
       "industry": "Biotechnology",
       "company": "Dianthus Therapeutics, Inc.",
       "revenue_growth_pct": 294.3,
       "earnings_growth_pct": 0.0,
-      "free_cash_flow": -103689504.0,
+      "free_cash_flow": -92210496.0,
       "operating_margin_pct": -8079.11,
       "return_on_equity_pct": -26.06,
       "fundamental_disqualification": false,
@@ -5203,7 +5680,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "DV",
@@ -5256,7 +5733,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "CRL",
@@ -5283,7 +5760,7 @@
       "reward_to_risk": 1.81,
       "return_velocity": 0.6667,
       "business_quality": 56.7,
-      "market_cap": 12884384768.0,
+      "market_cap": 13451320320.0,
       "sector": "Healthcare",
       "industry": "Diagnostics & Research",
       "company": "Charles River Laboratories Inte",
@@ -5309,7 +5786,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "SLG",
@@ -5362,7 +5839,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "SN",
@@ -5389,13 +5866,13 @@
       "reward_to_risk": 1.49,
       "return_velocity": 0.5612,
       "business_quality": 76.1,
-      "market_cap": 0.0,
+      "market_cap": 25868509184.0,
       "sector": "Consumer Cyclical",
       "industry": "Furnishings, Fixtures & Appliances",
       "company": "SharkNinja, Inc.",
       "revenue_growth_pct": 22.2,
       "earnings_growth_pct": -6.3,
-      "free_cash_flow": 584139392.0,
+      "free_cash_flow": 638667520.0,
       "operating_margin_pct": 10.16,
       "return_on_equity_pct": 27.53,
       "fundamental_disqualification": false,
@@ -5415,7 +5892,60 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
+    },
+    {
+      "symbol": "W",
+      "price": 103.08,
+      "sma20": 95.61,
+      "sma50": 89.61,
+      "sma200": 88.39,
+      "average_daily_dollar_volume": 422825910.8,
+      "technical_score": 100,
+      "leadership_score": 79.6,
+      "return_1m_pct": 15.42,
+      "return_3m_pct": 77.05,
+      "return_6m_pct": 25.11,
+      "relative_1m_vs_qqq_pct": 10.56,
+      "relative_3m_vs_qqq_pct": 73.54,
+      "relative_6m_vs_qqq_pct": 3.44,
+      "above_20dma": true,
+      "above_50dma": true,
+      "above_200dma": true,
+      "sma50_above_sma200": true,
+      "annualized_volatility_pct": 92.73,
+      "expected_upside_pct": 45.97,
+      "expected_downside_pct": 14.25,
+      "reward_to_risk": 3.23,
+      "return_velocity": 0.5107,
+      "business_quality": 60.9,
+      "market_cap": 13925542912.0,
+      "sector": "Consumer Cyclical",
+      "industry": "Internet Retail",
+      "company": "Wayfair Inc.",
+      "revenue_growth_pct": 7.5,
+      "earnings_growth_pct": 0.0,
+      "free_cash_flow": 471624992.0,
+      "operating_margin_pct": 3.01,
+      "return_on_equity_pct": 0.0,
+      "fundamental_disqualification": false,
+      "fundamental_source": "yfinance",
+      "sector_leadership_score": 55,
+      "risk_score": 7.3,
+      "composite_score": 79.6,
+      "base_ops": 79.6,
+      "news_adjustment": 0.0,
+      "final_ops": 79.6,
+      "candidate_eligible": false,
+      "qualified_candidate_raw": false,
+      "qualified_100_raw": false,
+      "action": "ACCUMULATE",
+      "eligibility_ops": 79.6,
+      "news_risk_level": "Neutral",
+      "news_reason": "No material recent company-news event detected.",
+      "news_sources": [],
+      "news_articles_reviewed": 1,
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "EAT",
@@ -5468,7 +5998,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "HRB",
@@ -5521,7 +6051,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 2,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "MGNI",
@@ -5548,7 +6078,7 @@
       "reward_to_risk": 1.65,
       "return_velocity": 0.6667,
       "business_quality": 85.2,
-      "market_cap": 3545445120.0,
+      "market_cap": 3518194688.0,
       "sector": "Communication Services",
       "industry": "Advertising Agencies",
       "company": "Magnite, Inc.",
@@ -5574,7 +6104,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "TVTX",
@@ -5601,7 +6131,7 @@
       "reward_to_risk": 1.63,
       "return_velocity": 0.6667,
       "business_quality": 53.5,
-      "market_cap": 5780089344.0,
+      "market_cap": 6023283200.0,
       "sector": "Healthcare",
       "industry": "Biotechnology",
       "company": "Travere Therapeutics, Inc.",
@@ -5627,7 +6157,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "WAT",
@@ -5680,7 +6210,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "DYN",
@@ -5707,7 +6237,7 @@
       "reward_to_risk": 2.03,
       "return_velocity": 0.5679,
       "business_quality": 49.0,
-      "market_cap": 4902093824.0,
+      "market_cap": 4855407104.0,
       "sector": "Healthcare",
       "industry": "Biotechnology",
       "company": "Dyne Therapeutics, Inc.",
@@ -5733,7 +6263,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "IMAX",
@@ -5786,7 +6316,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "AVTR",
@@ -5839,7 +6369,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "VAC",
@@ -5892,7 +6422,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "ICUI",
@@ -5945,7 +6475,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "CBZ",
@@ -5998,103 +6528,60 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
-      "symbol": "PGY",
-      "price": 20.93,
-      "sma20": 19.44,
-      "sma50": 17.7,
-      "sma200": 17.57,
-      "average_daily_dollar_volume": 63712533.59,
+      "symbol": "LAD",
+      "price": 369.52,
+      "sma20": 369.49,
+      "sma50": 331.49,
+      "sma200": 305.38,
+      "average_daily_dollar_volume": 134873114.67,
       "technical_score": 100,
-      "leadership_score": 75.9,
-      "return_1m_pct": 22.47,
-      "return_3m_pct": 62.63,
-      "return_6m_pct": 70.16,
-      "relative_1m_vs_qqq_pct": 17.61,
-      "relative_3m_vs_qqq_pct": 59.11,
-      "relative_6m_vs_qqq_pct": 48.49,
+      "leadership_score": 76.2,
+      "return_1m_pct": 13.85,
+      "return_3m_pct": 39.76,
+      "return_6m_pct": 23.47,
+      "relative_1m_vs_qqq_pct": 8.99,
+      "relative_3m_vs_qqq_pct": 36.25,
+      "relative_6m_vs_qqq_pct": 1.8,
       "above_20dma": true,
       "above_50dma": true,
       "above_200dma": true,
       "sma50_above_sma200": true,
-      "annualized_volatility_pct": 75.47,
-      "expected_upside_pct": 53.8,
-      "expected_downside_pct": 16.08,
-      "reward_to_risk": 3.35,
-      "return_velocity": 0.5978,
-      "business_quality": 50.0,
-      "market_cap": 0,
-      "sector": "Unknown",
-      "industry": "Unknown",
-      "company": "PGY",
+      "annualized_volatility_pct": 52.11,
+      "expected_upside_pct": 27.8,
+      "expected_downside_pct": 17.36,
+      "reward_to_risk": 1.6,
+      "return_velocity": 0.3089,
+      "business_quality": 63.1,
+      "market_cap": 7840772608.0,
+      "sector": "Consumer Cyclical",
+      "industry": "Auto & Truck Dealerships",
+      "company": "Lithia Motors, Inc.",
+      "revenue_growth_pct": 2.2,
+      "earnings_growth_pct": 16.9,
+      "free_cash_flow": 547649984.0,
+      "operating_margin_pct": 4.61,
+      "return_on_equity_pct": 10.72,
       "fundamental_disqualification": false,
-      "fundamental_source": "unavailable",
-      "sector_leadership_score": 50.0,
-      "risk_score": 24.5,
-      "composite_score": 75.9,
-      "base_ops": 75.9,
+      "fundamental_source": "yfinance",
+      "sector_leadership_score": 55,
+      "risk_score": 47.9,
+      "composite_score": 76.2,
+      "base_ops": 76.2,
       "news_adjustment": 0.0,
-      "final_ops": 75.9,
+      "final_ops": 76.2,
       "candidate_eligible": false,
       "qualified_candidate_raw": false,
       "qualified_100_raw": false,
       "action": "ACCUMULATE",
-      "eligibility_ops": 75.9,
+      "eligibility_ops": 76.2,
       "news_risk_level": "Neutral",
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
-      "news_articles_reviewed": 1,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
-    },
-    {
-      "symbol": "W",
-      "price": 103.08,
-      "sma20": 95.61,
-      "sma50": 89.61,
-      "sma200": 88.39,
-      "average_daily_dollar_volume": 422825910.8,
-      "technical_score": 100,
-      "leadership_score": 75.6,
-      "return_1m_pct": 15.42,
-      "return_3m_pct": 77.05,
-      "return_6m_pct": 25.11,
-      "relative_1m_vs_qqq_pct": 10.56,
-      "relative_3m_vs_qqq_pct": 73.54,
-      "relative_6m_vs_qqq_pct": 3.44,
-      "above_20dma": true,
-      "above_50dma": true,
-      "above_200dma": true,
-      "sma50_above_sma200": true,
-      "annualized_volatility_pct": 92.73,
-      "expected_upside_pct": 45.97,
-      "expected_downside_pct": 14.25,
-      "reward_to_risk": 3.23,
-      "return_velocity": 0.5107,
-      "business_quality": 50.0,
-      "market_cap": 0,
-      "sector": "Unknown",
-      "industry": "Unknown",
-      "company": "W",
-      "fundamental_disqualification": false,
-      "fundamental_source": "unavailable",
-      "sector_leadership_score": 50.0,
-      "risk_score": 7.3,
-      "composite_score": 75.6,
-      "base_ops": 75.6,
-      "news_adjustment": 0.0,
-      "final_ops": 75.6,
-      "candidate_eligible": false,
-      "qualified_candidate_raw": false,
-      "qualified_100_raw": false,
-      "action": "ACCUMULATE",
-      "eligibility_ops": 75.6,
-      "news_risk_level": "Neutral",
-      "news_reason": "No material recent company-news event detected.",
-      "news_sources": [],
-      "news_articles_reviewed": 1,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_articles_reviewed": 0,
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "GWRE",
@@ -6142,7 +6629,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "LYFT",
@@ -6189,8 +6676,8 @@
       "news_risk_level": "Neutral",
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
-      "news_articles_reviewed": 2,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_articles_reviewed": 5,
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "ROP",
@@ -6237,8 +6724,8 @@
       "news_risk_level": "Neutral",
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
-      "news_articles_reviewed": 1,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_articles_reviewed": 2,
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "ICLR",
@@ -6476,53 +6963,6 @@
       "news_checked_at": null
     },
     {
-      "symbol": "U",
-      "price": 45.45,
-      "sma20": 36.65,
-      "sma50": 31.94,
-      "sma200": 31.68,
-      "average_daily_dollar_volume": 560585527.07,
-      "technical_score": 100,
-      "leadership_score": 72.5,
-      "return_1m_pct": 52.47,
-      "return_3m_pct": 69.59,
-      "return_6m_pct": 147.55,
-      "relative_1m_vs_qqq_pct": 47.61,
-      "relative_3m_vs_qqq_pct": 66.08,
-      "relative_6m_vs_qqq_pct": 125.88,
-      "above_20dma": true,
-      "above_50dma": true,
-      "above_200dma": true,
-      "sma50_above_sma200": true,
-      "annualized_volatility_pct": 59.36,
-      "expected_upside_pct": 60,
-      "expected_downside_pct": 30.29,
-      "reward_to_risk": 1.98,
-      "return_velocity": 0.6667,
-      "business_quality": 50.0,
-      "market_cap": 0,
-      "sector": "Unknown",
-      "industry": "Unknown",
-      "company": "U",
-      "fundamental_disqualification": false,
-      "fundamental_source": "unavailable",
-      "sector_leadership_score": 50.0,
-      "risk_score": 40.6,
-      "composite_score": 72.5,
-      "base_ops": 72.5,
-      "news_adjustment": 0.0,
-      "final_ops": 72.5,
-      "candidate_eligible": false,
-      "qualified_candidate_raw": false,
-      "qualified_100_raw": false,
-      "action": "HOLD",
-      "eligibility_ops": 72.5,
-      "news_risk_level": "Not Shortlisted",
-      "news_reason": "Base OPS below 75 and position not owned; targeted news scan skipped.",
-      "news_sources": [],
-      "news_checked_at": null
-    },
-    {
       "symbol": "TOST",
       "price": 34.32,
       "sma20": 32.87,
@@ -6564,100 +7004,6 @@
       "qualified_100_raw": false,
       "action": "HOLD",
       "eligibility_ops": 72.5,
-      "news_risk_level": "Not Shortlisted",
-      "news_reason": "Base OPS below 75 and position not owned; targeted news scan skipped.",
-      "news_sources": [],
-      "news_checked_at": null
-    },
-    {
-      "symbol": "CHYM",
-      "price": 31.45,
-      "sma20": 26.16,
-      "sma50": 22.08,
-      "sma200": 21.79,
-      "average_daily_dollar_volume": 277672982.94,
-      "technical_score": 100,
-      "leadership_score": 72.4,
-      "return_1m_pct": 43.41,
-      "return_3m_pct": 79.2,
-      "return_6m_pct": 60.05,
-      "relative_1m_vs_qqq_pct": 38.55,
-      "relative_3m_vs_qqq_pct": 75.69,
-      "relative_6m_vs_qqq_pct": 38.38,
-      "above_20dma": true,
-      "above_50dma": true,
-      "above_200dma": true,
-      "sma50_above_sma200": true,
-      "annualized_volatility_pct": 67.68,
-      "expected_upside_pct": 60,
-      "expected_downside_pct": 30.7,
-      "reward_to_risk": 1.95,
-      "return_velocity": 0.6667,
-      "business_quality": 50.0,
-      "market_cap": 0,
-      "sector": "Unknown",
-      "industry": "Unknown",
-      "company": "CHYM",
-      "fundamental_disqualification": false,
-      "fundamental_source": "unavailable",
-      "sector_leadership_score": 50.0,
-      "risk_score": 32.3,
-      "composite_score": 72.4,
-      "base_ops": 72.4,
-      "news_adjustment": 0.0,
-      "final_ops": 72.4,
-      "candidate_eligible": false,
-      "qualified_candidate_raw": false,
-      "qualified_100_raw": false,
-      "action": "HOLD",
-      "eligibility_ops": 72.4,
-      "news_risk_level": "Not Shortlisted",
-      "news_reason": "Base OPS below 75 and position not owned; targeted news scan skipped.",
-      "news_sources": [],
-      "news_checked_at": null
-    },
-    {
-      "symbol": "HTFL",
-      "price": 41.94,
-      "sma20": 28.32,
-      "sma50": 29.25,
-      "sma200": 28.87,
-      "average_daily_dollar_volume": 66591902.03,
-      "technical_score": 100,
-      "leadership_score": 72.3,
-      "return_1m_pct": 70.77,
-      "return_3m_pct": 63.54,
-      "return_6m_pct": 88.33,
-      "relative_1m_vs_qqq_pct": 65.91,
-      "relative_3m_vs_qqq_pct": 60.03,
-      "relative_6m_vs_qqq_pct": 66.66,
-      "above_20dma": true,
-      "above_50dma": true,
-      "above_200dma": true,
-      "sma50_above_sma200": true,
-      "annualized_volatility_pct": 98.1,
-      "expected_upside_pct": 60,
-      "expected_downside_pct": 31.16,
-      "reward_to_risk": 1.93,
-      "return_velocity": 0.6667,
-      "business_quality": 50.0,
-      "market_cap": 0,
-      "sector": "Unknown",
-      "industry": "Unknown",
-      "company": "HTFL",
-      "fundamental_disqualification": false,
-      "fundamental_source": "unavailable",
-      "sector_leadership_score": 50.0,
-      "risk_score": 1.9,
-      "composite_score": 72.3,
-      "base_ops": 72.3,
-      "news_adjustment": 0.0,
-      "final_ops": 72.3,
-      "candidate_eligible": false,
-      "qualified_candidate_raw": false,
-      "qualified_100_raw": false,
-      "action": "HOLD",
-      "eligibility_ops": 72.3,
       "news_risk_level": "Not Shortlisted",
       "news_reason": "Base OPS below 75 and position not owned; targeted news scan skipped.",
       "news_sources": [],
@@ -6829,7 +7175,7 @@
       "reward_to_risk": 1.7,
       "return_velocity": 0.6667,
       "business_quality": 54.2,
-      "market_cap": 2031306752.0,
+      "market_cap": 2039224704.0,
       "sector": "Consumer Defensive",
       "industry": "Packaged Foods",
       "company": "Utz Brands Inc",
@@ -6851,100 +7197,6 @@
       "qualified_100_raw": false,
       "action": "HOLD",
       "eligibility_ops": 71.5,
-      "news_risk_level": "Not Shortlisted",
-      "news_reason": "Base OPS below 75 and position not owned; targeted news scan skipped.",
-      "news_sources": [],
-      "news_checked_at": null
-    },
-    {
-      "symbol": "LAD",
-      "price": 369.52,
-      "sma20": 369.49,
-      "sma50": 331.49,
-      "sma200": 305.38,
-      "average_daily_dollar_volume": 134873114.67,
-      "technical_score": 100,
-      "leadership_score": 71.5,
-      "return_1m_pct": 13.85,
-      "return_3m_pct": 39.76,
-      "return_6m_pct": 23.47,
-      "relative_1m_vs_qqq_pct": 8.99,
-      "relative_3m_vs_qqq_pct": 36.25,
-      "relative_6m_vs_qqq_pct": 1.8,
-      "above_20dma": true,
-      "above_50dma": true,
-      "above_200dma": true,
-      "sma50_above_sma200": true,
-      "annualized_volatility_pct": 52.11,
-      "expected_upside_pct": 27.8,
-      "expected_downside_pct": 17.36,
-      "reward_to_risk": 1.6,
-      "return_velocity": 0.3089,
-      "business_quality": 50.0,
-      "market_cap": 0,
-      "sector": "Unknown",
-      "industry": "Unknown",
-      "company": "LAD",
-      "fundamental_disqualification": false,
-      "fundamental_source": "unavailable",
-      "sector_leadership_score": 50.0,
-      "risk_score": 47.9,
-      "composite_score": 71.5,
-      "base_ops": 71.5,
-      "news_adjustment": 0.0,
-      "final_ops": 71.5,
-      "candidate_eligible": false,
-      "qualified_candidate_raw": false,
-      "qualified_100_raw": false,
-      "action": "HOLD",
-      "eligibility_ops": 71.5,
-      "news_risk_level": "Not Shortlisted",
-      "news_reason": "Base OPS below 75 and position not owned; targeted news scan skipped.",
-      "news_sources": [],
-      "news_checked_at": null
-    },
-    {
-      "symbol": "ENVA",
-      "price": 263.91,
-      "sma20": 250.43,
-      "sma50": 229.53,
-      "sma200": 169.49,
-      "average_daily_dollar_volume": 91462920.5,
-      "technical_score": 100,
-      "leadership_score": 71.3,
-      "return_1m_pct": 14.52,
-      "return_3m_pct": 59.65,
-      "return_6m_pct": 77.88,
-      "relative_1m_vs_qqq_pct": 9.66,
-      "relative_3m_vs_qqq_pct": 56.13,
-      "relative_6m_vs_qqq_pct": 56.22,
-      "above_20dma": true,
-      "above_50dma": true,
-      "above_200dma": true,
-      "sma50_above_sma200": true,
-      "annualized_volatility_pct": 40.41,
-      "expected_upside_pct": 53.95,
-      "expected_downside_pct": 35.78,
-      "reward_to_risk": 1.51,
-      "return_velocity": 0.5995,
-      "business_quality": 50.0,
-      "market_cap": 0,
-      "sector": "Unknown",
-      "industry": "Unknown",
-      "company": "ENVA",
-      "fundamental_disqualification": false,
-      "fundamental_source": "unavailable",
-      "sector_leadership_score": 50.0,
-      "risk_score": 59.6,
-      "composite_score": 71.3,
-      "base_ops": 71.3,
-      "news_adjustment": 0.0,
-      "final_ops": 71.3,
-      "candidate_eligible": false,
-      "qualified_candidate_raw": false,
-      "qualified_100_raw": false,
-      "action": "HOLD",
-      "eligibility_ops": 71.3,
       "news_risk_level": "Not Shortlisted",
       "news_reason": "Base OPS below 75 and position not owned; targeted news scan skipped.",
       "news_sources": [],
@@ -6983,53 +7235,6 @@
       "fundamental_source": "unavailable",
       "sector_leadership_score": 50.0,
       "risk_score": 55.9,
-      "composite_score": 71.3,
-      "base_ops": 71.3,
-      "news_adjustment": 0.0,
-      "final_ops": 71.3,
-      "candidate_eligible": false,
-      "qualified_candidate_raw": false,
-      "qualified_100_raw": false,
-      "action": "HOLD",
-      "eligibility_ops": 71.3,
-      "news_risk_level": "Not Shortlisted",
-      "news_reason": "Base OPS below 75 and position not owned; targeted news scan skipped.",
-      "news_sources": [],
-      "news_checked_at": null
-    },
-    {
-      "symbol": "PI",
-      "price": 171.71,
-      "sma20": 156.54,
-      "sma50": 143.86,
-      "sma200": 142.49,
-      "average_daily_dollar_volume": 89598556.24,
-      "technical_score": 100,
-      "leadership_score": 71.3,
-      "return_1m_pct": 24.68,
-      "return_3m_pct": 23.27,
-      "return_6m_pct": 36.14,
-      "relative_1m_vs_qqq_pct": 19.82,
-      "relative_3m_vs_qqq_pct": 19.75,
-      "relative_6m_vs_qqq_pct": 14.47,
-      "above_20dma": true,
-      "above_50dma": true,
-      "above_200dma": true,
-      "sma50_above_sma200": true,
-      "annualized_volatility_pct": 63.96,
-      "expected_upside_pct": 26.15,
-      "expected_downside_pct": 17.01,
-      "reward_to_risk": 1.54,
-      "return_velocity": 0.2906,
-      "business_quality": 50.0,
-      "market_cap": 0,
-      "sector": "Unknown",
-      "industry": "Unknown",
-      "company": "PI",
-      "fundamental_disqualification": false,
-      "fundamental_source": "unavailable",
-      "sector_leadership_score": 50.0,
-      "risk_score": 36.0,
       "composite_score": 71.3,
       "base_ops": 71.3,
       "news_adjustment": 0.0,
@@ -32991,8 +33196,8 @@
       "news_risk_level": "Neutral",
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
-      "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_articles_reviewed": 1,
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "KNX",
@@ -41176,7 +41381,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-08-18T02:00:48.700886+00:00"
+      "news_checked_at": "2026-08-18T20:03:06.112822+00:00"
     },
     {
       "symbol": "UAL",

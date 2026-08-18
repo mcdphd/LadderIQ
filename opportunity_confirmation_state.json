@@ -1565,7 +1565,7 @@
       "immediate_risk_override": false
     },
     "LAD": {
-      "observed_score": 71.5,
+      "observed_score": 76.2,
       "confirmed_score": 70.7,
       "streak": 1,
       "last_observed": "2026-08-17",
@@ -1691,7 +1691,7 @@
       "immediate_risk_override": false
     },
     "ENVA": {
-      "observed_score": 71.3,
+      "observed_score": 100.0,
       "confirmed_score": 71.3,
       "streak": 2,
       "last_observed": "2026-08-17",
@@ -4490,7 +4490,7 @@
       "immediate_risk_override": true
     },
     "U": {
-      "observed_score": 72.5,
+      "observed_score": 85.6,
       "confirmed_score": 66.2,
       "streak": 1,
       "last_observed": "2026-08-17",
@@ -4982,7 +4982,7 @@
       "last_observed": "2026-08-17",
       "qualified_candidate": false,
       "qualified_100": false,
-      "immediate_risk_override": true
+      "immediate_risk_override": false
     },
     "COGT": {
       "observed_score": 55.9,
@@ -6605,7 +6605,7 @@
       "immediate_risk_override": false
     },
     "W": {
-      "observed_score": 75.6,
+      "observed_score": 79.6,
       "confirmed_score": 58.0,
       "streak": 1,
       "last_observed": "2026-08-17",
@@ -6812,7 +6812,7 @@
       "immediate_risk_override": false
     },
     "CHYM": {
-      "observed_score": 72.4,
+      "observed_score": 100.0,
       "confirmed_score": 56.6,
       "streak": 1,
       "last_observed": "2026-08-17",
@@ -7244,7 +7244,7 @@
       "immediate_risk_override": false
     },
     "NTRA": {
-      "observed_score": 81.0,
+      "observed_score": 100.0,
       "confirmed_score": 80.9,
       "streak": 1,
       "last_observed": "2026-08-17",
@@ -8492,7 +8492,7 @@
       "last_observed": "2026-08-17",
       "qualified_candidate": false,
       "qualified_100": false,
-      "immediate_risk_override": true
+      "immediate_risk_override": false
     },
     "DECK": {
       "observed_score": 27.0,
@@ -9212,7 +9212,7 @@
       "last_observed": "2026-08-17",
       "qualified_candidate": false,
       "qualified_100": false,
-      "immediate_risk_override": true
+      "immediate_risk_override": false
     },
     "MSCI": {
       "observed_score": 29.2,
@@ -12176,7 +12176,7 @@
       "immediate_risk_override": false
     },
     "PI": {
-      "observed_score": 71.3,
+      "observed_score": 83.0,
       "confirmed_score": 53.2,
       "streak": 1,
       "last_observed": "2026-08-17",
@@ -12203,7 +12203,7 @@
       "immediate_risk_override": false
     },
     "PGY": {
-      "observed_score": 75.9,
+      "observed_score": 97.4,
       "confirmed_score": 70.1,
       "streak": 1,
       "last_observed": "2026-08-17",
@@ -13067,7 +13067,7 @@
       "immediate_risk_override": false
     },
     "HTFL": {
-      "observed_score": 72.3,
+      "observed_score": 81.2,
       "confirmed_score": 71.6,
       "streak": 1,
       "last_observed": "2026-08-17",
@@ -13205,7 +13205,7 @@
   "version": "1.0",
   "confirmation_days": 2,
   "threshold": 95.0,
-  "last_updated": "2026-08-17 22:02:06",
+  "last_updated": "2026-08-18 16:04:30",
   "migration_bootstrap_used": false,
   "elite_threshold": 100.0
 }
