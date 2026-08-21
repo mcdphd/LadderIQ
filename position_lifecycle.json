@@ -11,7 +11,7 @@
       "manual": true,
       "quantity": 0.0,
       "market_value": 0.0,
-      "last_position_file": "Portfolio_Positions_Aug-20-2026.csv"
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
     },
     "ARM": {
       "state": "active_candidate",
@@ -24,56 +24,56 @@
     "TSM": {
       "state": "owned",
       "quantity": 1.23,
-      "market_value": 506.87,
-      "last_position_file": "Portfolio_Positions_Aug-20-2026.csv"
+      "market_value": 511.68,
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
     },
     "PANW": {
       "state": "owned",
-      "quantity": 7.137,
-      "market_value": 2567.6,
-      "last_position_file": "Portfolio_Positions_Aug-20-2026.csv"
+      "quantity": 7.576,
+      "market_value": 2648.26,
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
     },
     "ANET": {
       "state": "owned",
       "quantity": 9.639,
-      "market_value": 1797.19,
-      "last_position_file": "Portfolio_Positions_Aug-20-2026.csv"
+      "market_value": 1771.16,
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
     },
     "NVDA": {
       "state": "owned",
       "quantity": 0.412,
-      "market_value": 89.63,
-      "last_position_file": "Portfolio_Positions_Aug-20-2026.csv"
+      "market_value": 89.34,
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
     },
     "ASML": {
       "state": "owned",
       "quantity": 0.045,
-      "market_value": 78.82,
-      "last_position_file": "Portfolio_Positions_Aug-20-2026.csv"
+      "market_value": 78.76,
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
     },
     "CRWD": {
       "state": "owned",
-      "quantity": 4.445,
-      "market_value": 896.24,
-      "last_position_file": "Portfolio_Positions_Aug-20-2026.csv"
+      "quantity": 4.837,
+      "market_value": 920.67,
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
     },
     "AMD": {
       "state": "active_candidate",
       "quantity": 0.0,
       "market_value": 0.0,
-      "last_position_file": "Portfolio_Positions_Aug-20-2026.csv"
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
     },
     "SPCX": {
       "state": "owned",
       "quantity": 9.402,
-      "market_value": 1312.98,
-      "last_position_file": "Portfolio_Positions_Aug-20-2026.csv"
+      "market_value": 1259.86,
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
     },
     "SNOW": {
       "state": "owned",
       "quantity": 1.686,
-      "market_value": 547.96,
-      "last_position_file": "Portfolio_Positions_Aug-20-2026.csv"
+      "market_value": 541.69,
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
     },
     "DELL": {
       "state": "owned",
@@ -102,26 +102,26 @@
     "DVA": {
       "state": "owned",
       "quantity": 5.982,
-      "market_value": 1060.42,
-      "last_position_file": "Portfolio_Positions_Aug-20-2026.csv"
+      "market_value": 1048.28,
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
     },
     "OSCR": {
       "state": "owned",
-      "quantity": 13.36,
-      "market_value": 431.52,
-      "last_position_file": "Portfolio_Positions_Aug-20-2026.csv"
+      "quantity": 12.119,
+      "market_value": 382.59,
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
     },
     "NTAP": {
       "state": "active_candidate",
       "quantity": 0.0,
       "market_value": 0.0,
-      "last_position_file": "Portfolio_Positions_Aug-20-2026.csv"
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
     },
     "FIVN": {
       "state": "owned",
       "quantity": 23.787,
-      "market_value": 778.78,
-      "last_position_file": "Portfolio_Positions_Aug-20-2026.csv"
+      "market_value": 768.32,
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
     },
     "CHEF": {
       "state": "active_candidate",
@@ -133,7 +133,7 @@
       "state": "active_candidate",
       "quantity": 0.0,
       "market_value": 0.0,
-      "last_position_file": "Portfolio_Positions_Aug-20-2026.csv"
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
     },
     "CVS": {
       "state": "active_candidate",
@@ -144,8 +144,8 @@
     "NBIX": {
       "state": "owned",
       "quantity": 3.512,
-      "market_value": 546.25,
-      "last_position_file": "Portfolio_Positions_Aug-20-2026.csv"
+      "market_value": 537.09,
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
     },
     "DOC": {
       "state": "active_candidate",
@@ -174,8 +174,8 @@
     "IOT": {
       "state": "owned",
       "quantity": 19.071,
-      "market_value": 747.58,
-      "last_position_file": "Portfolio_Positions_Aug-20-2026.csv"
+      "market_value": 743.38,
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
     },
     "HEI": {
       "state": "active_candidate",
@@ -198,8 +198,8 @@
     "GE": {
       "state": "owned",
       "quantity": 3.854,
-      "market_value": 1372.91,
-      "last_position_file": "Portfolio_Positions_Aug-20-2026.csv"
+      "market_value": 1328.24,
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
     },
     "GD": {
       "state": "active_candidate",
@@ -258,8 +258,8 @@
     "HPE": {
       "state": "owned",
       "quantity": 13.88,
-      "market_value": 737.44,
-      "last_position_file": "Portfolio_Positions_Aug-20-2026.csv"
+      "market_value": 734.11,
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
     },
     "VCYT": {
       "state": "active_candidate",
@@ -271,37 +271,37 @@
       "state": "active_candidate",
       "quantity": 0.0,
       "market_value": 0.0,
-      "last_position_file": "Portfolio_Positions_Jul-30-2026.csv"
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
     },
     "NET": {
       "state": "owned",
-      "quantity": 0.486,
-      "market_value": 141.85,
-      "last_position_file": "Portfolio_Positions_Aug-20-2026.csv"
+      "quantity": 0.703,
+      "market_value": 196.07,
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
     },
     "ADP": {
       "state": "active_candidate",
       "quantity": 0.0,
       "market_value": 0.0,
-      "last_position_file": "Portfolio_Positions_Aug-16-2026.csv"
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
     },
     "DT": {
       "state": "active_candidate",
       "quantity": 0.0,
       "market_value": 0.0,
-      "last_position_file": "Portfolio_Positions_Aug-16-2026.csv"
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
     },
     "FTNT": {
       "state": "owned",
-      "quantity": 5.631,
-      "market_value": 860.69,
-      "last_position_file": "Portfolio_Positions_Aug-20-2026.csv"
+      "quantity": 6.042,
+      "market_value": 911.07,
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
     },
     "QLYS": {
       "state": "owned",
-      "quantity": 3.754,
-      "market_value": 700.79,
-      "last_position_file": "Portfolio_Positions_Aug-20-2026.csv"
+      "quantity": 4.094,
+      "market_value": 745.96,
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
     },
     "CSW": {
       "state": "active_candidate",
@@ -343,7 +343,7 @@
       "state": "active_candidate",
       "quantity": 0.0,
       "market_value": 0.0,
-      "last_position_file": "Portfolio_Positions_Aug-20-2026.csv"
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
     },
     "BAX": {
       "state": "active_candidate",
@@ -353,9 +353,9 @@
     },
     "GLBE": {
       "state": "owned",
-      "quantity": 16.003,
-      "market_value": 659.96,
-      "last_position_file": "Portfolio_Positions_Aug-20-2026.csv"
+      "quantity": 17.53,
+      "market_value": 715.04,
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
     },
     "CPAY": {
       "state": "active_candidate",
@@ -373,43 +373,43 @@
       "state": "active_candidate",
       "quantity": 0.0,
       "market_value": 0.0,
-      "last_position_file": "Portfolio_Positions_Aug-20-2026.csv"
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
     },
     "PAYC": {
       "state": "active_candidate",
       "quantity": 0.0,
       "market_value": 0.0,
-      "last_position_file": "Portfolio_Positions_Aug-20-2026.csv"
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
     },
     "HNGE": {
       "state": "active_candidate",
       "quantity": 0.0,
       "market_value": 0.0,
-      "last_position_file": "Portfolio_Positions_Aug-07-2026.csv"
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
     },
     "OKTA": {
       "state": "owned",
-      "quantity": 4.007,
-      "market_value": 565.82,
-      "last_position_file": "Portfolio_Positions_Aug-20-2026.csv"
+      "quantity": 4.507,
+      "market_value": 604.65,
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
     },
     "PTGX": {
       "state": "active_candidate",
       "quantity": 0.0,
       "market_value": 0.0,
-      "last_position_file": "Portfolio_Positions_Aug-18-2026.csv"
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
     },
     "RBRK": {
       "state": "active_candidate",
       "quantity": 0.0,
       "market_value": 0.0,
-      "last_position_file": "Portfolio_Positions_Aug-20-2026.csv"
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
     },
     "MANH": {
       "state": "active_candidate",
       "quantity": 0.0,
       "market_value": 0.0,
-      "last_position_file": "Portfolio_Positions_Aug-20-2026.csv"
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
     },
     "DXCM": {
       "state": "active_candidate",
@@ -427,7 +427,7 @@
       "state": "active_candidate",
       "quantity": 0.0,
       "market_value": 0.0,
-      "last_position_file": "Portfolio_Positions_Aug-20-2026.csv"
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
     },
     "RACE": {
       "state": "active_candidate",
@@ -445,7 +445,7 @@
       "state": "active_candidate",
       "quantity": 0.0,
       "market_value": 0.0,
-      "last_position_file": "Portfolio_Positions_Aug-12-2026.csv"
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
     },
     "LNC": {
       "state": "active_candidate",
@@ -467,9 +467,9 @@
     },
     "CRDO": {
       "state": "owned",
-      "quantity": 1.147,
-      "market_value": 269.33,
-      "last_position_file": "Portfolio_Positions_Aug-20-2026.csv"
+      "quantity": 1.417,
+      "market_value": 327.82,
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
     },
     "MEDP": {
       "state": "active_candidate",
@@ -481,7 +481,7 @@
       "state": "active_candidate",
       "quantity": 0.0,
       "market_value": 0.0,
-      "last_position_file": "Portfolio_Positions_Aug-20-2026.csv"
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
     },
     "DK": {
       "state": "active_candidate",
@@ -529,7 +529,7 @@
       "state": "active_candidate",
       "quantity": 0.0,
       "market_value": 0.0,
-      "last_position_file": "Portfolio_Positions_Aug-20-2026.csv"
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
     },
     "ENVA": {
       "state": "active_candidate",
@@ -541,7 +541,7 @@
       "state": "active_candidate",
       "quantity": 0.0,
       "market_value": 0.0,
-      "last_position_file": "Portfolio_Positions_Aug-18-2026.csv"
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
     },
     "EAT": {
       "state": "active_candidate",
@@ -554,7 +554,61 @@
       "quantity": 0.0,
       "market_value": 0.0,
       "last_position_file": "Portfolio_Positions_Aug-20-2026.csv"
+    },
+    "LFST": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
+    },
+    "FROG": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
+    },
+    "PAY": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
+    },
+    "ESTC": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
+    },
+    "PCTY": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
+    },
+    "TMO": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
+    },
+    "A": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
+    },
+    "BKNG": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
+    },
+    "PYPL": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
     }
   },
-  "last_updated": "2026-08-20 03:46:39"
+  "last_updated": "2026-08-21 07:07:55"
 }
