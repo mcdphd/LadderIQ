@@ -410,33 +410,33 @@
     "checked_at": "2026-08-21T07:07:53-04:00"
   },
   {
-    "score": 92.0,
+    "score": 85.9,
     "signal": "Favorable",
     "target_session_date": "2026-08-24",
-    "avg_cloud_cover_pct": 11.1,
+    "avg_cloud_cover_pct": 19.8,
     "avg_precip_probability_pct": 0.9,
     "forecast_precip_mm_total": 0.0,
     "cities": [
       {
         "city": "New York",
-        "score": 92.6,
-        "avg_cloud_cover_pct": 10.2,
-        "avg_precip_probability_pct": 0.9,
+        "score": 85.7,
+        "avg_cloud_cover_pct": 20.1,
+        "avg_precip_probability_pct": 0.8,
         "forecast_precip_mm": 0.0,
         "forecast_rainy_market_hours": 0
       },
       {
         "city": "Philadelphia",
-        "score": 89.1,
-        "avg_cloud_cover_pct": 14.9,
-        "avg_precip_probability_pct": 1.6,
+        "score": 81.2,
+        "avg_cloud_cover_pct": 26.1,
+        "avg_precip_probability_pct": 1.8,
         "forecast_precip_mm": 0.0,
         "forecast_rainy_market_hours": 0
       },
       {
         "city": "Boston",
-        "score": 94.3,
-        "avg_cloud_cover_pct": 8.1,
+        "score": 90.7,
+        "avg_cloud_cover_pct": 13.2,
         "avg_precip_probability_pct": 0.1,
         "forecast_precip_mm": 0.0,
         "forecast_rainy_market_hours": 0
@@ -448,6 +448,6 @@
     "affects_live_ladders": false,
     "hypothesis": "Northeast cloud/rain conditions may correlate with market risk appetite; research only.",
     "source": "Open-Meteo forecast API",
-    "checked_at": "2026-08-24T00:48:04-04:00"
+    "checked_at": "2026-08-24T02:32:23-04:00"
   }
 ]

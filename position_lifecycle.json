@@ -608,7 +608,37 @@
       "quantity": 0.0,
       "market_value": 0.0,
       "last_position_file": "Portfolio_Positions_Aug-21-2026.csv"
+    },
+    "HOOD": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Aug-24-2026 (1).csv"
+    },
+    "ARX": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Aug-24-2026 (1).csv"
+    },
+    "BRZE": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Aug-24-2026 (1).csv"
+    },
+    "TOST": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Aug-24-2026 (1).csv"
+    },
+    "AFRM": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Aug-24-2026 (1).csv"
     }
   },
-  "last_updated": "2026-08-24 00:48:05"
+  "last_updated": "2026-08-24 02:32:23"
 }

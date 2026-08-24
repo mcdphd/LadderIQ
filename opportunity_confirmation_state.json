@@ -2177,7 +2177,7 @@
       "immediate_risk_override": false
     },
     "XYZ": {
-      "observed_score": 71.7,
+      "observed_score": 75.8,
       "confirmed_score": 70.2,
       "streak": 1,
       "last_observed": "2026-08-21",
@@ -4355,7 +4355,7 @@
       "immediate_risk_override": false
     },
     "BRZE": {
-      "observed_score": 73.2,
+      "observed_score": 100.0,
       "confirmed_score": 75.2,
       "streak": 1,
       "last_observed": "2026-08-21",
@@ -4937,7 +4937,7 @@
       "last_observed": "2026-08-21",
       "qualified_candidate": false,
       "qualified_100": false,
-      "immediate_risk_override": true
+      "immediate_risk_override": false
     },
     "COLB": {
       "observed_score": 46.6,
@@ -6110,7 +6110,7 @@
       "immediate_risk_override": true
     },
     "TOST": {
-      "observed_score": 74.0,
+      "observed_score": 100.0,
       "confirmed_score": 63.1,
       "streak": 1,
       "last_observed": "2026-08-21",
@@ -8504,7 +8504,7 @@
       "immediate_risk_override": true
     },
     "AFRM": {
-      "observed_score": 72.5,
+      "observed_score": 100.0,
       "confirmed_score": 47.4,
       "streak": 1,
       "last_observed": "2026-08-21",
@@ -10754,7 +10754,7 @@
       "immediate_risk_override": true
     },
     "HOOD": {
-      "observed_score": 76.1,
+      "observed_score": 100.0,
       "confirmed_score": 51.6,
       "streak": 1,
       "last_observed": "2026-08-21",
@@ -10763,7 +10763,7 @@
       "immediate_risk_override": false
     },
     "HIMS": {
-      "observed_score": 77.1,
+      "observed_score": 87.9,
       "confirmed_score": 66.2,
       "streak": 1,
       "last_observed": "2026-08-21",
@@ -13013,7 +13013,7 @@
       "immediate_risk_override": false
     },
     "ARX": {
-      "observed_score": 71.6,
+      "observed_score": 100.0,
       "confirmed_score": 69.3,
       "streak": 1,
       "last_observed": "2026-08-21",
@@ -13328,7 +13328,7 @@
       "immediate_risk_override": false
     },
     "CXW": {
-      "observed_score": 71.8,
+      "observed_score": 78.7,
       "confirmed_score": 71.8,
       "streak": 1,
       "last_observed": "2026-08-21",
@@ -13358,7 +13358,7 @@
   "version": "1.0",
   "confirmation_days": 2,
   "threshold": 95.0,
-  "last_updated": "2026-08-24 00:48:05",
+  "last_updated": "2026-08-24 02:32:23",
   "migration_bootstrap_used": false,
   "elite_threshold": 100.0
 }
