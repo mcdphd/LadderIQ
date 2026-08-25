@@ -1,4 +1,4 @@
-# LadderIQ 3.60.27 — Tomorrow Ladder
+# LadderIQ 3.60.28 — Tomorrow Ladder
 
 Updated with the latest Fidelity files detected in the project folder.
 
@@ -60,7 +60,7 @@ Use `build_ladder.py`. The old version-specific build name (`build_v41.py`) has 
 
 Do not run `update_portfolio.py`; that file is not part of this system.
 
-## 3.60.27 Features
+## 3.60.28 Features
 
 - Portfolio Command Center layout
 - Decision Center: Buy Today / Sell Today / Watch Closely
@@ -75,8 +75,8 @@ Do not run `update_portfolio.py`; that file is not part of this system.
 
 ## Latest Build Inputs
 
-- Positions file: `Portfolio_Positions_Aug-24-2026 (1).csv`
-- Account Total: $18,359.12
-- Effective Cash: $1,257.91
-- ROI Since Inception: 34.20%
-- Next ladder: Monday, August 24, 2026
+- Positions file: `Portfolio_Positions_Aug-25-2026.csv`
+- Account Total: $18,164.29
+- Effective Cash: $1,111.39
+- ROI Since Inception: 32.24%
+- Next ladder: Tuesday, August 25, 2026

@@ -3,7 +3,7 @@ from pathlib import Path
 from datetime import datetime, timedelta
 from investment_engine import confirm_opportunities, position_state, roi_pace, recommended_candidate_budget
 
-VERSION='3.60.27'
+VERSION='3.60.28'
 BASELINE=9913.04
 NEW_CONTRIBUTION=5055.52
 CONTRIBUTION_DATE='2026-07-10'
@@ -18,27 +18,9 @@ CASH_EQUIVALENT_SYMBOLS = {
     'CASH', 'FCASH', 'FCASH**', 'FDRXX', 'PDRXX', 'SPAXX', 'SPRXX',
 }
 
-# BR-083 Whole-share execution guard. Fidelity does not support fractional
-# share orders for every security. Symbols listed here are generated only as
-# executable whole-share ladders so the user never has to manually translate
-# a fractional recommendation.
-WHOLE_SHARE_ONLY_SYMBOLS = {'DVA'}
-
-def is_whole_share_only(symbol):
-    return str(symbol or '').strip().upper() in WHOLE_SHARE_ONLY_SYMBOLS
-
-def apportion_whole_shares(total_qty, weights):
-    """Allocate at most floor(total_qty) whole shares across ladder rungs."""
-    total=max(0, int(math.floor(float(total_qty or 0) + 1e-9)))
-    if total <= 0:
-        return [0 for _ in weights]
-    raw=[total*float(w) for w in weights]
-    out=[int(math.floor(x)) for x in raw]
-    remaining=total-sum(out)
-    order=sorted(range(len(raw)), key=lambda i: (raw[i]-out[i], -i), reverse=True)
-    for i in order[:remaining]:
-        out[i]+=1
-    return out
+# BR-085 Fractional Precision Rule. LadderIQ always reports the model-calculated
+# share quantity. Brokerage execution constraints and any manual rounding are
+# intentionally left to the user so the ladder math remains consistent across symbols.
 
 def is_cash_equivalent(symbol='', description=''):
     sym=str(symbol or '').strip().upper()
@@ -1875,14 +1857,6 @@ def sell_levels(sym, price, qty, avg, position_value=0, opportunity_score=0, por
     }
     eligible_qty=current_qty*max_harvest_by_state.get(state,0.60)
     splits=(.40,.35,.25)
-    if is_whole_share_only(sym):
-        whole=apportion_whole_shares(eligible_qty, splits)
-        levels=[]
-        for i,shares in enumerate(whole):
-            if shares <= 0:
-                continue
-            levels.append((state+' '+str(i+1),prices[i],shares,notes[i]+' · whole-share order'))
-        return levels
     return [(state+' '+str(i+1),prices[i],round(eligible_qty*splits[i],3),notes[i]) for i in range(3)]
 
 confirmed_candidate_count=len(confirmed_candidate_symbols)
@@ -1968,16 +1942,9 @@ for st in stocks:
         for i,(label,price,note) in enumerate(b):
             alloc=bud*(splits[i] if i<len(splits) else 1/len(b))
             sh=alloc/price if price else 0
-            whole_only=is_whole_share_only(st['symbol'])
-            if whole_only:
-                sh=int(math.floor(sh + 1e-9))
-                if sh <= 0:
-                    continue
-                alloc=sh*price
             ladder_active=st['has_active_position'] or st.get('qualified_candidate')
             ladder_status='Active' if ladder_active else 'Preview — pending confirmation'
-            execution_note=' · whole-share order' if whole_only else ''
-            ladder_note=(note+execution_note) if ladder_active else f"{note}{execution_note}; do not place until confirmation reaches 2/2"
+            ladder_note=note if ladder_active else f"{note}; do not place until confirmation reaches 2/2"
             st['buy'].append({'level':i+1,'label':label,'price':price,'allocation':alloc,'shares':sh,'status':ladder_status,'note':ladder_note})
     for i,(label,price,sh,note) in enumerate(sell_levels(st['symbol'], st['price'], st['quantity'], st.get('avg_cost',0), st.get('value',0), st.get('opportunity',0), account_total, st.get('group',''))):
         proceeds=(price or 0)*(sh or 0)
@@ -2004,12 +1971,6 @@ for st in stocks:
         avg_cost=float(st.get('avg_cost') or 0)
         if avg_cost > 0 and sell_price <= avg_cost:
             raise ValueError(f"Invalid sell ladder for {st['symbol']}: {sell_price} is not above average cost basis {avg_cost}")
-        if is_whole_share_only(st.get('symbol')) and abs(float(rung.get('shares') or 0)-round(float(rung.get('shares') or 0))) > 1e-9:
-            raise ValueError(f"Invalid whole-share sell ladder for {st['symbol']}: {rung.get('shares')} shares")
-    if is_whole_share_only(st.get('symbol')):
-        for rung in st.get('buy',[]):
-            if abs(float(rung.get('shares') or 0)-round(float(rung.get('shares') or 0))) > 1e-9:
-                raise ValueError(f"Invalid whole-share buy ladder for {st['symbol']}: {rung.get('shares')} shares")
     if st.get('symbol') == 'AMZN' and st.get('sell'):
         minimum=round(current*1.015,2)
         if float(st['sell'][0]['price']) < minimum:
