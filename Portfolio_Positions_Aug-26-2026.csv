@@ -1,0 +1,32 @@
+﻿Account number,Account name,Symbol,Description,Quantity,Last price,Last price change,Current value,Today's gain/loss dollar,Today's gain/loss percent,Total gain/loss dollar,Total gain/loss percent,Percent of account,Cost basis total,Average cost basis,Type
+Z25686771,Individual - TOD,FCASH**,HELD IN FCASH,,,,$1111.39,,,,,6.13%,,,Cash,
+Z25686771,Individual - TOD,FIVN,FIVE9 INC COM USD0.001,24.787,$32.285,-$0.485,$800.24,-$11.15,-1.38%,-$3.22,-0.40%,4.42%,$803.46,$32.41,Cash,
+Z25686771,Individual - TOD,GLBE,GLOBAL-E ONLINE LTD COM NPV,19.605,$39.43,-$0.43,$773.02,-$7.58,-0.97%,-$19.08,-2.41%,4.27%,$792.10,$40.40,Cash,
+Z25686771,Individual - TOD,IOT,SAMSARA INC COM CL A,15.071,$39.14,-$1.19,$589.87,-$16.85,-2.78%,-$4.64,-0.78%,3.26%,$594.51,$39.45,Cash,
+Z25686771,Individual - TOD,HPE,HEWLETT PACKARD ENTERPRISE CO COM,14.702,$53.44,+$1.01,$785.67,+$14.84,+1.92%,-$14.17,-1.78%,4.34%,$799.84,$54.40,Cash,
+Z25686771,Individual - TOD,OSCR,OSCAR HEALTH INC CL A,10.504,$30.93,-$0.88,$324.88,-$9.25,-2.77%,+$1.62,+0.50%,1.79%,$323.26,$30.77,Cash,
+Z25686771,Individual - TOD,ANET,ARISTA NETWORKS INC COM SHS,9.639,$190.94,+$2.79,$1840.47,+$26.89,+1.48%,-$59.56,-3.14%,10.16%,$1900.03,$197.12,Cash,
+Z25686771,Individual - TOD,SPCX,SPACE EXPL TECHNOLOGIES CORP CL A,9.402,$137.95,+$2.95,$1297.00,+$27.73,+2.18%,-$96.75,-6.95%,7.16%,$1393.75,$148.24,Cash,
+Z25686771,Individual - TOD,PANW,PALO ALTO NETWORKS INC COM USD0.0001,8.158,$339.90,-$11.00,$2772.90,-$87.50,-3.06%,-$242.68,-8.05%,15.30%,$3015.58,$369.65,Cash,
+Z25686771,Individual - TOD,FTNT,FORTINET INC COM USD0.001,6.326,$153.66,+$1.67,$972.05,+$10.56,+1.09%,-$34.25,-3.41%,5.36%,$1006.30,$159.07,Cash,
+Z25686771,Individual - TOD,DVA,DAVITA INC COM,5.982,$177.80,+$1.30,$1063.59,+$7.77,+0.73%,-$241.92,-18.53%,5.87%,$1305.51,$218.24,Cash,
+Z25686771,Individual - TOD,CRWD,CROWDSTRIKE HLDGS INC CL A,4.837,$185.38,-$5.30,$896.68,-$25.64,-2.78%,-$135.94,-13.17%,4.95%,$1032.62,$213.48,Cash,
+Z25686771,Individual - TOD,QLYS,QUALYS INC COM USD0.001,4.792,$175.94,-$2.52,$843.10,-$11.10,-1.30%,-$38.79,-4.40%,4.65%,$881.89,$184.03,Cash,
+Z25686771,Individual - TOD,OKTA,OKTA INC CL A,4.507,$130.61,-$0.36,$588.65,-$1.63,-0.28%,-$71.30,-10.81%,3.25%,$659.95,$146.43,Cash,
+Z25686771,Individual - TOD,GE,GE AEROSPACE COM NEW,3.854,$349.54,+$7.70,$1347.12,+$29.67,+2.25%,-$75.88,-5.34%,7.43%,$1423.00,$369.23,Cash,
+Z25686771,Individual - TOD,NBIX,NEUROCRINE BIOSCIENCES INC,3.512,$153.37,+$0.33,$538.63,+$1.15,+0.21%,-$62.59,-10.41%,2.97%,$601.22,$171.19,Cash,
+Z25686771,Individual - TOD,CRDO,CREDO TECHNOLOGY GROUP HOLDING LTD COM USD0.00005,1.916,$226.51,+$3.90,$433.99,+$7.47,+1.75%,-$23.62,-5.17%,2.40%,$457.61,$238.84,Cash,
+Z25686771,Individual - TOD,SNOW,SNOWFLAKE INC. COMMON STOCK,1.533,$317.02,-$5.76,$485.99,-$7.88,-1.60%,-$9.16,-1.85%,2.68%,$495.15,$322.99,Cash,
+Z25686771,Individual - TOD,TSM,TAIWAN SEMICONDUCTOR MANUFACTURING SPON ADS EACH REP 5 ORD TWD10,1.23,$417.41,+$7.29,$513.41,+$8.96,+1.77%,-$83.34,-13.97%,2.83%,$596.75,$485.16,Cash,
+Z25686771,Individual - TOD,NET,CLOUDFLARE INC CL A COM,0.853,$277.58,-$2.77,$236.77,-$2.37,-0.99%,-$11.51,-4.64%,1.31%,$248.28,$291.07,Cash,
+Z25686771,Individual - TOD,NVDA,NVIDIA CORPORATION COM,0.412,$213.05,+$4.57,$87.77,+$1.88,+2.19%,+$6.68,+8.24%,0.48%,$81.09,$196.82,Cash,
+Z25686771,Individual - TOD,ASML,ASML HOLDING NV EUR0.09 NY REGISTRY SHS 2012,0.056,$1744.16,+$4.03,$97.67,+$0.22,+0.23%,-$8.75,-8.22%,0.54%,$106.42,$1900.36,Cash,
+Z25686771,Individual - TOD,Pending activity,,,,,-$280.26,,,,,,
+266573923,Self-Employed 401K,FDRXX**,HELD IN MONEY MARKET,,,,$957.75,,,,,84.35%,,,Cash,
+266573923,Self-Employed 401K,QQQ,INVESCO QQQ TR UNIT SER 1,0.25,$710.72,+$4.40,$177.68,+$1.10,+0.62%,-$3.07,-1.70%,15.65%,$180.75,$723.00,Cash,
+
+"The data and information in this spreadsheet is provided to you solely for your use and is not for distribution. The spreadsheet is provided for informational purposes only, and is not intended to provide advice, nor should it be construed as an offer to sell, a solicitation of an offer to buy or a recommendation for any security by Fidelity or any third party. Data and information shown is based on information known to Fidelity as of the date it was exported and is subject to change. It should not be used in place of your account statements or trade confirmations and is not intended for tax reporting purposes. For more information on the data included in this spreadsheet, including any limitations thereof, go to Fidelity.com."
+
+"Brokerage services are provided by Fidelity Brokerage Services LLC (FBS), 900 Salem Street, Smithfield, RI 02917. Custody and other services provided by National Financial Services LLC (NFS). Both are Fidelity Investment companies and members SIPC, NYSE. Neither FBS nor NFS offer crypto as a direct investment nor provide trading or custody services for such assets."
+
+"Date downloaded Aug-26-2026 3:03 a.m ET"
