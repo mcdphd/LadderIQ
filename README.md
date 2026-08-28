@@ -75,8 +75,8 @@ Do not run `update_portfolio.py`; that file is not part of this system.
 
 ## Latest Build Inputs
 
-- Positions file: `Portfolio_Positions_Aug-27-2026.csv`
-- Account Total: $18,379.67
-- Effective Cash: $1,077.01
-- ROI Since Inception: 34.41%
-- Next ladder: Thursday, August 27, 2026
+- Positions file: `Portfolio_Positions_Aug-28-2026.csv`
+- Account Total: $19,298.06
+- Effective Cash: $4,559.72
+- ROI Since Inception: 43.67%
+- Next ladder: Friday, August 28, 2026
