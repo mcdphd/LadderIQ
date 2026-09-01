@@ -1,196 +1,205 @@
 {
-  "as_of": "2026-08-30",
+  "as_of": "2026-08-31",
   "baseline_value": 9913.04,
   "cash": 4559.72,
-  "pending_activity": -2197.63,
+  "pending_activity": -974.55,
   "market_mode": "BULL",
   "market_mode_source": "auto_yfinance_with_manual_fallback",
   "positions": [
     {
       "symbol": "GLBE",
-      "price": 39.95,
+      "price": 37.35,
       "quantity": 19.605,
-      "current_value": 783.21,
+      "current_value": 732.24,
       "cost_basis": 792.1,
       "priority": "P3",
       "role": "Imported Fidelity position"
     },
     {
       "symbol": "HPE",
-      "price": 52.31,
+      "price": 52.24,
       "quantity": 17.702,
-      "current_value": 925.99,
+      "current_value": 924.75,
       "cost_basis": 958.66,
       "priority": "P3",
       "role": "Imported Fidelity position"
     },
     {
       "symbol": "FIVN",
-      "price": 34.05,
-      "quantity": 13.787,
-      "current_value": 469.44,
-      "cost_basis": 448.07,
+      "price": 34.56,
+      "quantity": 16.787,
+      "current_value": 580.15,
+      "cost_basis": 547.46,
       "priority": "P3",
       "role": "Imported Fidelity position"
     },
     {
       "symbol": "OSCR",
-      "price": 30.47,
-      "quantity": 11.504,
-      "current_value": 350.52,
-      "cost_basis": 353.28,
+      "price": 29.96,
+      "quantity": 14.213,
+      "current_value": 425.82,
+      "cost_basis": 433.61,
       "priority": "P3",
       "role": "Imported Fidelity position"
     },
     {
       "symbol": "SPCX",
-      "price": 141.5,
+      "price": 143.69,
       "quantity": 9.402,
-      "current_value": 1330.38,
+      "current_value": 1350.97,
       "cost_basis": 1393.75,
       "priority": "SS",
       "role": "Imported Fidelity position"
     },
     {
       "symbol": "ANET",
-      "price": 195.38,
+      "price": 195.69,
       "quantity": 9.222,
-      "current_value": 1801.79,
+      "current_value": 1804.65,
       "cost_basis": 1819.91,
       "priority": "P2",
       "role": "Imported Fidelity position"
     },
     {
       "symbol": "IOT",
-      "price": 41.16,
+      "price": 40.85,
       "quantity": 8.071,
-      "current_value": 332.2,
+      "current_value": 329.7,
       "cost_basis": 316.2,
       "priority": "P3",
       "role": "Imported Fidelity position"
     },
     {
-      "symbol": "PANW",
-      "price": 371.59,
-      "quantity": 7.413,
-      "current_value": 2754.59,
-      "cost_basis": 2749.83,
-      "priority": "P1",
-      "role": "Imported Fidelity position"
-    },
-    {
       "symbol": "DVA",
-      "price": 180.68,
+      "price": 176.01,
       "quantity": 5.982,
-      "current_value": 1080.82,
+      "current_value": 1052.89,
       "cost_basis": 1305.51,
       "priority": "P3",
       "role": "Imported Fidelity position"
     },
     {
+      "symbol": "PANW",
+      "price": 382.13,
+      "quantity": 5.413,
+      "current_value": 2068.46,
+      "cost_basis": 1991.08,
+      "priority": "P1",
+      "role": "Imported Fidelity position"
+    },
+    {
       "symbol": "QLYS",
-      "price": 187.05,
+      "price": 186.14,
       "quantity": 4.636,
-      "current_value": 867.16,
+      "current_value": 862.94,
       "cost_basis": 852.19,
       "priority": "P3",
       "role": "Imported Fidelity position"
     },
     {
-      "symbol": "FTNT",
-      "price": 166.0,
-      "quantity": 3.991,
-      "current_value": 662.5,
-      "cost_basis": 635.99,
-      "priority": "P3",
-      "role": "Imported Fidelity position"
-    },
-    {
       "symbol": "GE",
-      "price": 342.58,
+      "price": 335.71,
       "quantity": 3.854,
-      "current_value": 1320.3,
+      "current_value": 1293.82,
       "cost_basis": 1423.0,
       "priority": "P3",
       "role": "Imported Fidelity position"
     },
     {
-      "symbol": "CRWD",
-      "price": 218.4,
-      "quantity": 3.837,
-      "current_value": 838.0,
-      "cost_basis": 835.8,
-      "priority": "P3",
-      "role": "Imported Fidelity position"
-    },
-    {
       "symbol": "NBIX",
-      "price": 154.06,
+      "price": 154.03,
       "quantity": 3.512,
-      "current_value": 541.05,
+      "current_value": 540.95,
       "cost_basis": 601.22,
       "priority": "P3",
       "role": "Imported Fidelity position"
     },
     {
       "symbol": "CRDO",
-      "price": 232.75,
-      "quantity": 2.707,
-      "current_value": 630.05,
-      "cost_basis": 640.78,
+      "price": 226.19,
+      "quantity": 3.062,
+      "current_value": 692.59,
+      "cost_basis": 721.18,
       "priority": "P3",
       "role": "Imported Fidelity position"
     },
     {
-      "symbol": "OKTA",
-      "price": 166.23,
-      "quantity": 2.428,
-      "current_value": 403.6,
-      "cost_basis": 367.99,
+      "symbol": "FTNT",
+      "price": 170.93,
+      "quantity": 2.991,
+      "current_value": 511.25,
+      "cost_basis": 478.78,
       "priority": "P3",
       "role": "Imported Fidelity position"
     },
     {
       "symbol": "TSM",
-      "price": 417.52,
+      "price": 415.32,
       "quantity": 2.249,
-      "current_value": 939.0,
+      "current_value": 934.05,
       "cost_basis": 1055.35,
       "priority": "P1",
       "role": "Imported Fidelity position"
     },
     {
+      "symbol": "OKTA",
+      "price": 173.04,
+      "quantity": 1.89,
+      "current_value": 327.04,
+      "cost_basis": 290.82,
+      "priority": "P3",
+      "role": "Imported Fidelity position"
+    },
+    {
+      "symbol": "CRWD",
+      "price": 231.0,
+      "quantity": 1.837,
+      "current_value": 424.34,
+      "cost_basis": 395.68,
+      "priority": "P3",
+      "role": "Imported Fidelity position"
+    },
+    {
+      "symbol": "AFRM",
+      "price": 74.45,
+      "quantity": 1.0,
+      "current_value": 74.45,
+      "cost_basis": 75.91,
+      "priority": "P3",
+      "role": "Imported Fidelity position"
+    },
+    {
       "symbol": "NET",
-      "price": 299.84,
-      "quantity": 0.985,
-      "current_value": 295.34,
-      "cost_basis": 289.56,
+      "price": 305.11,
+      "quantity": 0.749,
+      "current_value": 228.52,
+      "cost_basis": 221.42,
       "priority": "P3",
       "role": "Imported Fidelity position"
     },
     {
       "symbol": "SNOW",
-      "price": 328.0,
+      "price": 331.43,
       "quantity": 0.625,
-      "current_value": 205.0,
+      "current_value": 207.14,
       "cost_basis": 197.85,
       "priority": "P3",
       "role": "Imported Fidelity position"
     },
     {
       "symbol": "NVDA",
-      "price": 217.55,
+      "price": 220.78,
       "quantity": 0.312,
-      "current_value": 67.87,
+      "current_value": 68.88,
       "cost_basis": 60.69,
       "priority": "P2",
       "role": "Imported Fidelity position"
     },
     {
       "symbol": "ASML",
-      "price": 1696.16,
+      "price": 1696.01,
       "quantity": 0.056,
-      "current_value": 94.98,
+      "current_value": 94.97,
       "cost_basis": 106.42,
       "priority": "P3",
       "role": "Imported Fidelity position"
@@ -1453,11 +1462,11 @@
       "ffa15a8050c7e747"
     ],
     "last_csv_imported": "History_for_Account_Z25686771 (10).csv",
-    "last_import_trade_count": 15
+    "last_import_trade_count": 0
   },
-  "positions_last_imported_from": ".\\Portfolio_Positions_Aug-30-2026.csv",
-  "positions_last_imported_at": "2026-08-30 06:56:04",
-  "effective_cash": 2362.09,
+  "positions_last_imported_from": ".\\Portfolio_Positions_Aug-31-2026.csv",
+  "positions_last_imported_at": "2026-08-31 20:00:16",
+  "effective_cash": 3585.17,
   "priority_framework": {
     "version": "V15 Locked Framework",
     "P1": [
