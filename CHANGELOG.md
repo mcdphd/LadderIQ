@@ -326,3 +326,13 @@ Removed the obsolete Watch List UI, added automatic confirmed/emerging Growth Ca
 - Logs one forecast observation per target market session to `weather_sentiment_history.json` for later comparison with market outcomes.
 - Added a compact `NE Weather · Shadow` dashboard KPI and terminal diagnostic.
 - Weather is strictly observational: it does not alter OPS, news refinement, candidate eligibility, recommendations, ladders, or capital allocation.
+
+## 3.60.29 — 2026-09-01 — Capital Preservation Shadow
+- Added a Phase 1 four-pillar Capital Preservation score: market deterioration, economic deterioration, financial stress, and breadth/leadership stress.
+- Added public FRED-based recession/stress inputs with fail-open data-quality reporting.
+- Added `capital_preservation_history.json` logging for daily research observations.
+- Added Capital Preservation Shadow KPI with Growth/Caution/Preservation/Recession/Crisis states and hypothetical deployable-capital posture.
+- Added research-only hypothetical preservation sell ladders for Preservation/Recession/Crisis states.
+- Any hypothetical below-cost rung contains a concise explanation of why capital preservation would override the normal profit floor.
+- Live ladders are unchanged in Phase 1; ordinary cost-basis protection remains enforced.
+- Added Phase 2 backlog item to activate preservation-adjusted live ladders only after backtesting and live-shadow validation.

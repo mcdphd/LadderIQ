@@ -1,4 +1,4 @@
-# LadderIQ 3.60.28 — Tomorrow Ladder
+# LadderIQ 3.60.29 — Tomorrow Ladder
 
 Updated with the latest Fidelity files detected in the project folder.
 
@@ -60,7 +60,7 @@ Use `build_ladder.py`. The old version-specific build name (`build_v41.py`) has 
 
 Do not run `update_portfolio.py`; that file is not part of this system.
 
-## 3.60.28 Features
+## 3.60.29 Features
 
 - Portfolio Command Center layout
 - Decision Center: Buy Today / Sell Today / Watch Closely
@@ -72,6 +72,8 @@ Do not run `update_portfolio.py`; that file is not part of this system.
 - Capital ledger records the $5,055.52 external contribution without treating it as gain.
 - Adaptive learning records NVDA and AMZN manual ladder overrides for future rule proposals.
 - META remains removed.
+- Capital Preservation Shadow: four-pillar recession/crisis observer with daily history logging and hypothetical preservation ladders. Phase 1 never changes live orders.
+- Phase 2 backlog: activate preservation-adjusted live ladders, including explicitly explained below-cost sells when capital preservation overrides the normal profit floor, after backtest and shadow validation.
 
 ## Latest Build Inputs
 
@@ -79,4 +81,4 @@ Do not run `update_portfolio.py`; that file is not part of this system.
 - Account Total: $19,115.74
 - Effective Cash: $3,585.17
 - ROI Since Inception: 41.84%
-- Next ladder: Monday, August 31, 2026
+- Next ladder: Tuesday, September 1, 2026
