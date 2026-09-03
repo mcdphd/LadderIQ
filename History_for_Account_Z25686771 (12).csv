@@ -1,6 +1,21 @@
 ﻿
 
 Run Date,Action,Symbol,Description,Type,Price ($),Quantity,Commission ($),Fees ($),Accrued Interest ($),Amount ($),Cash Balance ($),Settlement Date
+09/02/2026,YOU BOUGHT CROWDSTRIKE HLDGS INC CL A (CRWD) (Cash),CRWD,CROWDSTRIKE HLDGS INC CL A,Cash,201.52,0.168,"","","","-33.86",Processing,09/03/2026
+09/02/2026,YOU BOUGHT SAMSARA INC COM CL A (IOT) (Cash),IOT,SAMSARA INC COM CL A,Cash,36.81,1,"","","","-36.81",Processing,09/03/2026
+09/02/2026,YOU BOUGHT CLOUDFLARE INC CL A COM (NET) (Cash),NET,CLOUDFLARE INC CL A COM,Cash,269.78,0.1,"","","","-26.98",Processing,09/03/2026
+09/02/2026,YOU BOUGHT ARISTA NETWORKS INC COM SHS (ANET) (Cash),ANET,ARISTA NETWORKS INC COM SHS,Cash,184.47,0.489,"","","","-90.21",Processing,09/03/2026
+09/02/2026,YOU BOUGHT SNOWFLAKE INC. COMMON STOCK (SNOW) (Cash),SNOW,SNOWFLAKE INC. COMMON STOCK,Cash,305.89,0.088,"","","","-26.92",Processing,09/03/2026
+09/02/2026,YOU SOLD NVIDIA CORPORATION COM (NVDA) (Cash),NVDA,NVIDIA CORPORATION COM,Cash,223.97,"-0.1","","","",22.4,Processing,09/03/2026
+09/02/2026,YOU BOUGHT FORTINET INC COM USD0.001 (FTNT) (Cash),FTNT,FORTINET INC COM USD0.001,Cash,155.02,0.175,"","","","-27.13",Processing,09/03/2026
+09/02/2026,YOU BOUGHT OKTA INC CL A (OKTA) (Cash),OKTA,OKTA INC CL A,Cash,161.84,0.279,"","","","-45.15",Processing,09/03/2026
+09/02/2026,YOU BOUGHT CLOUDFLARE INC CL A COM (NET) (Cash),NET,CLOUDFLARE INC CL A COM,Cash,278.77,0.162,"","","","-45.16",Processing,09/03/2026
+09/02/2026,YOU BOUGHT FORTINET INC COM USD0.001 (FTNT) (Cash),FTNT,FORTINET INC COM USD0.001,Cash,158.92,0.284,"","","","-45.13",Processing,09/03/2026
+09/02/2026,YOU BOUGHT CROWDSTRIKE HLDGS INC CL A (CRWD) (Cash),CRWD,CROWDSTRIKE HLDGS INC CL A,Cash,209.26,0.269,"","","","-56.29",Processing,09/03/2026
+09/02/2026,YOU BOUGHT PALO ALTO NETWORKS INC COM USD0.0001 (PANW) (Cash),PANW,PALO ALTO NETWORKS INC COM USD0.0001,Cash,341.82,0.198,"","","","-67.68",Processing,09/03/2026
+09/02/2026,YOU BOUGHT SNOWFLAKE INC. COMMON STOCK (SNOW) (Cash),SNOW,SNOWFLAKE INC. COMMON STOCK,Cash,310.27,0.144,"","","","-44.68",Processing,09/03/2026
+09/02/2026,YOU BOUGHT SAMSARA INC COM CL A (IOT) (Cash),IOT,SAMSARA INC COM CL A,Cash,38.68,2,"","","","-77.36",Processing,09/03/2026
+09/02/2026,YOU BOUGHT PALO ALTO NETWORKS INC COM USD0.0001 (PANW) (Cash),PANW,PALO ALTO NETWORKS INC COM USD0.0001,Cash,347.86,0.319,"","","","-110.97",Processing,09/03/2026
 09/01/2026,YOU BOUGHT SNOWFLAKE INC. COMMON STOCK (SNOW) (Cash),SNOW,SNOWFLAKE INC. COMMON STOCK,Cash,325.34,0.375,"","","","-122",1326.85,09/02/2026
 09/01/2026,YOU BOUGHT SAMSARA INC COM CL A (IOT) (Cash),IOT,SAMSARA INC COM CL A,Cash,40.1,3,"","","","-120.3",1448.85,09/02/2026
 09/01/2026,YOU BOUGHT QUALYS INC COM USD0.001 (QLYS) (Cash),QLYS,QUALYS INC COM USD0.001,Cash,181.56,0.671,"","","","-121.83",1569.15,09/02/2026
@@ -339,14 +354,14 @@ Run Date,Action,Symbol,Description,Type,Price ($),Quantity,Commission ($),Fees (
 08/03/2026,YOU BOUGHT ARISTA NETWORKS INC COM SHS (ANET) (Cash),ANET,ARISTA NETWORKS INC COM SHS,Cash,174.42,0.542,"","","","-94.54",9093.66,08/04/2026
 08/03/2026,YOU SOLD ARISTA NETWORKS INC COM SHS (ANET) (Cash),ANET,ARISTA NETWORKS INC COM SHS,Cash,185.78,"-0.254","","","",47.19,9188.2,08/04/2026
 
-"The data and information in this spreadsheet is provided to you solely for your use and is not for distribution. The spreadsheet is provided for"
+The data and information in this spreadsheet is provided to you solely for your use and is not for distribution. The spreadsheet is provided for
 "informational purposes only, and is not intended to provide advice, nor should it be construed as an offer to sell, a solicitation of an offer to buy or a"
-"recommendation for any security or insurance product by Fidelity or any third party. Data and information shown is based on information known to Fidelity as of the date it was"
-"exported and is subject to change. It should not be used in place of your account statements or trade confirmations and is not intended for tax reporting"
+recommendation for any security or insurance product by Fidelity or any third party. Data and information shown is based on information known to Fidelity as of the date it was
+exported and is subject to change. It should not be used in place of your account statements or trade confirmations and is not intended for tax reporting
 "purposes. For more information on the data included in this spreadsheet, including any limitations thereof, go to Fidelity.com."
 
 "Brokerage services are provided by Fidelity Brokerage Services LLC (FBS), 900 Salem Street, Smithfield, RI 02917. Custody and other services provided by National"
 "Financial Services LLC (NFS). Both are Fidelity Investment companies and members SIPC, NYSE. Insurance products at Fidelity are distributed by"
 "Fidelity Insurance Agency, Inc., and, for certain products, by Fidelity Brokerage Services, Member NYSE, SIPC."
 
-Date downloaded 09/02/2026 05:55 am
+Date downloaded 09/02/2026 09:38 pm

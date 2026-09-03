@@ -19,7 +19,7 @@
       "immediate_risk_override": false
     },
     "PANW": {
-      "observed_score": 80.4,
+      "observed_score": 79.6,
       "confirmed_score": 100.0,
       "streak": 1,
       "last_observed": "2026-09-01",
@@ -28,7 +28,7 @@
       "immediate_risk_override": false
     },
     "CRWD": {
-      "observed_score": 92.7,
+      "observed_score": 93.9,
       "confirmed_score": 100.0,
       "streak": 1,
       "last_observed": "2026-09-01",
@@ -90,7 +90,7 @@
       "immediate_risk_override": false
     },
     "NVDA": {
-      "observed_score": 85.8,
+      "observed_score": 78.4,
       "confirmed_score": 87.2,
       "streak": 1,
       "last_observed": "2026-09-01",
@@ -836,7 +836,7 @@
       "immediate_risk_override": false
     },
     "DVA": {
-      "observed_score": 51.3,
+      "observed_score": 46.8,
       "confirmed_score": 51.3,
       "streak": 2,
       "last_observed": "2026-09-01",
@@ -1097,7 +1097,7 @@
       "immediate_risk_override": false
     },
     "DINO": {
-      "observed_score": 83.7,
+      "observed_score": 100.0,
       "confirmed_score": 71.2,
       "streak": 1,
       "last_observed": "2026-09-01",
@@ -1106,7 +1106,7 @@
       "immediate_risk_override": false
     },
     "MPC": {
-      "observed_score": 82.4,
+      "observed_score": 100.0,
       "confirmed_score": 71.1,
       "streak": 1,
       "last_observed": "2026-09-01",
@@ -1277,7 +1277,7 @@
       "immediate_risk_override": false
     },
     "MAN": {
-      "observed_score": 72.3,
+      "observed_score": 72.4,
       "confirmed_score": 70.8,
       "streak": 1,
       "last_observed": "2026-09-01",
@@ -1367,7 +1367,7 @@
       "immediate_risk_override": false
     },
     "CRNX": {
-      "observed_score": 71.2,
+      "observed_score": 80.0,
       "confirmed_score": 68.9,
       "streak": 1,
       "last_observed": "2026-09-01",
@@ -1637,7 +1637,7 @@
       "immediate_risk_override": false
     },
     "INCY": {
-      "observed_score": 71.3,
+      "observed_score": 100.0,
       "confirmed_score": 68.5,
       "streak": 1,
       "last_observed": "2026-09-01",
@@ -4184,7 +4184,7 @@
       "immediate_risk_override": false
     },
     "HUM": {
-      "observed_score": 71.4,
+      "observed_score": 100.0,
       "confirmed_score": 67.6,
       "streak": 1,
       "last_observed": "2026-09-01",
@@ -4643,7 +4643,7 @@
       "immediate_risk_override": false
     },
     "RVMD": {
-      "observed_score": 71.0,
+      "observed_score": 76.7,
       "confirmed_score": 70.7,
       "streak": 1,
       "last_observed": "2026-09-01",
@@ -5372,7 +5372,7 @@
       "immediate_risk_override": false
     },
     "ADP": {
-      "observed_score": 100.0,
+      "observed_score": 94.8,
       "confirmed_score": 70.8,
       "streak": 1,
       "last_observed": "2026-09-01",
@@ -6236,7 +6236,7 @@
       "immediate_risk_override": false
     },
     "GPC": {
-      "observed_score": 72.3,
+      "observed_score": 69.8,
       "confirmed_score": 68.1,
       "streak": 1,
       "last_observed": "2026-09-01",
@@ -12131,7 +12131,7 @@
       "immediate_risk_override": false
     },
     "BH": {
-      "observed_score": 72.1,
+      "observed_score": 70.9,
       "confirmed_score": 55.7,
       "streak": 1,
       "last_observed": "2026-09-01",
@@ -13484,7 +13484,7 @@
   "version": "1.0",
   "confirmation_days": 2,
   "threshold": 95.0,
-  "last_updated": "2026-09-02 05:58:50",
+  "last_updated": "2026-09-02 21:40:29",
   "migration_bootstrap_used": false,
   "elite_threshold": 100.0
 }
