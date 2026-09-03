@@ -510,5 +510,37 @@
       "qqq_realized_volatility_20d_pct": 13.16
     },
     "methodology": "Phase 1 shadow observer; no live decision or ladder inputs consume this score."
+  },
+  {
+    "score": 76.0,
+    "regime": "Bull",
+    "shadow_capital_multiplier": 1.0,
+    "shadow_capital_pct": 100,
+    "shadow_only": true,
+    "affects_live_ladders": false,
+    "market_session_date": "2026-09-03",
+    "components": {
+      "index_trend": 80,
+      "market_breadth": 60.3,
+      "leadership_health": 100.0,
+      "broad_momentum": 56.3,
+      "drawdown_resilience": 88.9,
+      "volatility_health": 100.0,
+      "sector_participation": 54.5
+    },
+    "observations": {
+      "universe_rows": 1290,
+      "pct_above_20dma": 47.6,
+      "pct_above_50dma": 52.9,
+      "pct_above_200dma": 67.2,
+      "pct_50dma_above_200dma": 69.6,
+      "pct_technical_75_plus": 41.5,
+      "pct_technical_90_plus": 28.1,
+      "pct_positive_1m": 49.9,
+      "pct_positive_3m": 64.1,
+      "qqq_drawdown_pct": -3.71,
+      "qqq_realized_volatility_20d_pct": 13.53
+    },
+    "methodology": "Phase 1 shadow observer; no live decision or ladder inputs consume this score."
   }
 ]

@@ -78,5 +78,45 @@
     "summary": "No broad capital-preservation trigger is active.",
     "phase2_policy": "Only Phase 2 may allow preservation-driven below-cost sells; every such rung must include a specific rationale.",
     "methodology": "Phase 1 shadow only: four equally weighted pillars; no live ladder, OPS, recommendation, or allocation impact."
+  },
+  {
+    "score": 17.8,
+    "regime": "Growth",
+    "shadow_capital_pct": 100,
+    "shadow_only": true,
+    "affects_live_ladders": false,
+    "market_session_date": "2026-09-03",
+    "pillars": {
+      "market_deterioration": 24.0,
+      "economic_deterioration": 17.6,
+      "financial_stress": 0.1,
+      "leadership_stress": 29.5
+    },
+    "economic_detail": {
+      "sahm_rule_pp": -0.03,
+      "unemployment_3m_change_pp": -0.2,
+      "payroll_3m_pct": 0.038,
+      "industrial_production_6m_pct": 1.935
+    },
+    "financial_detail": {
+      "stl_fsi": -0.853,
+      "high_yield_oas_pct": 2.66,
+      "10y_3m_spread_pp": 0.88,
+      "vix": 15.2
+    },
+    "data_sources_ok": [
+      "BAMLH0A0HYM2",
+      "INDPRO",
+      "PAYEMS",
+      "SAHMREALTIME",
+      "STLFSI4",
+      "T10Y3M",
+      "UNRATE",
+      "VIXCLS"
+    ],
+    "data_quality": "full",
+    "summary": "No broad capital-preservation trigger is active.",
+    "phase2_policy": "Only Phase 2 may allow preservation-driven below-cost sells; every such rung must include a specific rationale.",
+    "methodology": "Phase 1 shadow only: four equally weighted pillars; no live ladder, OPS, recommendation, or allocation impact."
   }
 ]
