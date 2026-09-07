@@ -39,3 +39,8 @@
 - Every live below-cost sell must include a short, stock-specific explanation showing the capital-preservation regime, relevant macro/market triggers, stock-level weakness, and estimated loss versus average cost.
 - Add regime hysteresis / confirmation rules so one noisy data point cannot rapidly flip Growth ↔ Preservation.
 - Add staged recovery/re-entry logic to redeploy preserved cash as breadth, financial stress, and market structure recover.
+
+
+## 3.60.30 dashboard cleanup
+- NE Weather Shadow retired from active collection/display; historical `weather_sentiment_history.json` retained for research archive.
+- Top command center constrained to two desktop rows so Buy / Manage / Risk remain together.

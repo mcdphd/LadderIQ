@@ -776,7 +776,49 @@
       "quantity": 0.0,
       "market_value": 0.0,
       "last_position_file": "Portfolio_Positions_Sep-07-2026.csv"
+    },
+    "SNDK": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Sep-07-2026.csv"
+    },
+    "MRX": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Sep-07-2026.csv"
+    },
+    "WDAY": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Sep-07-2026.csv"
+    },
+    "CRBG": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Sep-07-2026.csv"
+    },
+    "AMP": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Sep-07-2026.csv"
+    },
+    "RJF": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Sep-07-2026.csv"
+    },
+    "MSFT": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Sep-07-2026.csv"
     }
   },
-  "last_updated": "2026-09-07 10:20:30"
+  "last_updated": "2026-09-07 11:55:43"
 }

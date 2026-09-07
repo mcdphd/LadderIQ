@@ -336,3 +336,11 @@ Removed the obsolete Watch List UI, added automatic confirmed/emerging Growth Ca
 - Any hypothetical below-cost rung contains a concise explanation of why capital preservation would override the normal profit floor.
 - Live ladders are unchanged in Phase 1; ordinary cost-basis protection remains enforced.
 - Added Phase 2 backlog item to activate preservation-adjusted live ladders only after backtesting and live-shadow validation.
+
+
+## 3.60.30 — 2026-09-07 — Weather Shadow Retirement & Two-Row Dashboard
+- Retired the NE Weather Shadow experiment after the initial observation period showed no useful market-direction relationship.
+- Removed live weather API calls, weather scoring, scanner payload output, terminal diagnostics, and the NE Weather dashboard card.
+- Preserved `weather_sentiment_history.json` as historical research data; no new observations are collected.
+- Reflowed the command-center KPI area to exactly two rows on desktop: six primary KPIs on row 1; Today's P/L, a wider ROI Mission Pace card, and compact Buy/Manage/Risk cards on row 2.
+- No OPS, recommendation, ladder pricing, position sizing, Market Regime, or Capital Preservation logic changed.
