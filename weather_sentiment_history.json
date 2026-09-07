@@ -818,5 +818,46 @@
     "hypothesis": "Northeast cloud/rain conditions may correlate with market risk appetite; research only.",
     "source": "Open-Meteo forecast API",
     "checked_at": "2026-09-03T18:08:58-04:00"
+  },
+  {
+    "score": 98.4,
+    "signal": "Favorable",
+    "target_session_date": "2026-09-07",
+    "avg_cloud_cover_pct": 2.2,
+    "avg_precip_probability_pct": 0.0,
+    "forecast_precip_mm_total": 0.0,
+    "cities": [
+      {
+        "city": "New York",
+        "score": 100.0,
+        "avg_cloud_cover_pct": 0.0,
+        "avg_precip_probability_pct": 0.0,
+        "forecast_precip_mm": 0.0,
+        "forecast_rainy_market_hours": 0
+      },
+      {
+        "city": "Philadelphia",
+        "score": 95.5,
+        "avg_cloud_cover_pct": 6.4,
+        "avg_precip_probability_pct": 0.0,
+        "forecast_precip_mm": 0.0,
+        "forecast_rainy_market_hours": 0
+      },
+      {
+        "city": "Boston",
+        "score": 99.8,
+        "avg_cloud_cover_pct": 0.2,
+        "avg_precip_probability_pct": 0.0,
+        "forecast_precip_mm": 0.0,
+        "forecast_rainy_market_hours": 0
+      }
+    ],
+    "errors": [],
+    "status": "ok",
+    "shadow_only": true,
+    "affects_live_ladders": false,
+    "hypothesis": "Northeast cloud/rain conditions may correlate with market risk appetite; research only.",
+    "source": "Open-Meteo forecast API",
+    "checked_at": "2026-09-07T10:20:29-04:00"
   }
 ]
