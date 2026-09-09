@@ -1,0 +1,36 @@
+﻿Account number,Account name,Symbol,Description,Quantity,Last price,Last price change,Current value,Today's gain/loss dollar,Today's gain/loss percent,Total gain/loss dollar,Total gain/loss percent,Percent of account,Cost basis total,Average cost basis,Type
+Z25686771,Individual - TOD,FCASH**,HELD IN FCASH,,,,$1122.01,,,,,6.01%,,,Cash,
+Z25686771,Individual - TOD,GLBE,GLOBAL-E ONLINE LTD COM NPV,19.605,$36.93,-$1.44,$724.01,-$28.24,-3.76%,-$68.09,-8.60%,3.88%,$792.10,$40.40,Cash,
+Z25686771,Individual - TOD,FIVN,FIVE9 INC COM USD0.001,18.7,$31.23,-$2.04,$584.00,-$35.55,-5.74%,-$27.01,-4.43%,3.13%,$611.01,$32.67,Cash,
+Z25686771,Individual - TOD,HPE,HEWLETT PACKARD ENTERPRISE CO COM,14.279,$56.03,+$4.03,$800.05,+$57.54,+7.75%,+$23.39,+3.01%,4.28%,$776.66,$54.39,Cash,
+Z25686771,Individual - TOD,SPCX,SPACE EXPL TECHNOLOGIES CORP CL A,9.402,$153.47,+$5.52,$1442.92,+$51.89,+3.73%,+$49.17,+3.52%,7.73%,$1393.75,$148.24,Cash,
+Z25686771,Individual - TOD,ANET,ARISTA NETWORKS INC COM SHS,9.22,$194.96,+$1.18,$1797.53,+$10.87,+0.60%,+$2.65,+0.14%,9.62%,$1794.88,$194.67,Cash,
+Z25686771,Individual - TOD,IOT,SAMSARA INC COM CL A,9.071,$40.15,-$0.05,$364.20,+$0.56,+0.15%,+$9.84,+2.77%,1.95%,$354.36,$39.07,Cash,
+Z25686771,Individual - TOD,PANW,PALO ALTO NETWORKS INC COM USD0.0001,7.254,$336.98,+$3.72,$2444.45,+$26.98,+1.11%,-$213.06,-8.02%,13.09%,$2657.51,$366.35,Cash,
+Z25686771,Individual - TOD,OSCR,OSCAR HEALTH INC CL A,6.213,$33.01,+$0.76,$205.09,+$4.72,+2.35%,+$15.73,+8.30%,1.10%,$189.36,$30.48,Cash,
+Z25686771,Individual - TOD,DVA,DAVITA INC COM,5.982,$180.06,-$3.93,$1077.11,-$23.51,-2.14%,-$228.40,-17.50%,5.77%,$1305.51,$218.24,Cash,
+Z25686771,Individual - TOD,QLYS,QUALYS INC COM USD0.001,5.535,$170.32,-$1.33,$942.72,-$6.38,-0.68%,-$69.45,-6.87%,5.05%,$1012.17,$182.87,Cash,
+Z25686771,Individual - TOD,FTNT,FORTINET INC COM USD0.001,4.897,$157.47,+$1.18,$771.13,+$5.77,+0.75%,-$20.64,-2.61%,4.13%,$791.77,$161.68,Cash,
+Z25686771,Individual - TOD,CRDO,CREDO TECHNOLOGY GROUP HOLDING LTD COM USD0.00005,3.961,$167.75,-$2.82,$664.45,-$11.18,-1.66%,-$251.73,-27.48%,3.56%,$916.18,$231.30,Cash,
+Z25686771,Individual - TOD,GE,GE AEROSPACE COM NEW,3.854,$334.91,-$2.21,$1290.74,-$8.52,-0.66%,-$132.26,-9.30%,6.91%,$1423.00,$369.23,Cash,
+Z25686771,Individual - TOD,CRWD,CROWDSTRIKE HLDGS INC CL A,3.604,$210.02,-$3.08,$756.91,-$9.78,-1.28%,-$20.34,-2.62%,4.05%,$777.25,$215.66,Cash,
+Z25686771,Individual - TOD,NBIX,NEUROCRINE BIOSCIENCES INC,3.512,$155.13,-$0.51,$544.81,-$1.80,-0.33%,-$56.41,-9.39%,2.92%,$601.22,$171.19,Cash,
+Z25686771,Individual - TOD,OKTA,OKTA INC CL A,2.574,$167.595,-$3.005,$431.38,-$6.68,-1.53%,+$3.29,+0.77%,2.31%,$428.09,$166.31,Cash,
+Z25686771,Individual - TOD,TSM,TAIWAN SEMICONDUCTOR MANUFACTURING SPON ADS EACH REP 5 ORD TWD10,2.249,$439.00,+$10.09,$987.31,+$22.69,+2.35%,-$68.04,-6.45%,5.29%,$1055.35,$469.25,Cash,
+Z25686771,Individual - TOD,NET,CLOUDFLARE INC CL A COM,1.783,$284.30,+$5.38,$506.90,+$9.59,+1.92%,-$12.15,-2.34%,2.71%,$519.05,$291.11,Cash,
+Z25686771,Individual - TOD,AFRM,AFFIRM HOLDINGS INC CLASS A COMMON STOCK,1.54,$72.08,-$0.27,$111.00,+$0.49,+0.44%,-$3.07,-2.69%,0.59%,$114.07,$74.07,Cash,
+Z25686771,Individual - TOD,DOCU,DOCUSIGN INC COM,1.423,$65.08,-$3.33,$92.60,-$2.60,-2.73%,-$0.62,-0.66%,0.50%,$93.22,$65.51,Cash,
+Z25686771,Individual - TOD,SNOW,SNOWFLAKE INC. COMMON STOCK,1.382,$335.50,-$1.68,$463.66,-$2.33,-0.50%,+$20.42,+4.60%,2.48%,$443.24,$320.72,Cash,
+Z25686771,Individual - TOD,GTLB,GITLAB INC CLASS A COM,1.25,$47.15,-$2.68,$58.93,-$1.52,-2.52%,-$1.10,-1.82%,0.32%,$60.03,$48.02,Cash,
+Z25686771,Individual - TOD,HOOD,ROBINHOOD MKTS INC COM CL A,0.571,$117.34,-$4.77,$67.00,-$1.67,-2.43%,-$1.29,-1.89%,0.36%,$68.29,$119.60,Cash,
+Z25686771,Individual - TOD,NVDA,NVIDIA CORPORATION COM,0.212,$225.73,-$4.63,$47.85,-$0.99,-2.01%,+$6.93,+16.94%,0.26%,$40.92,$193.02,Cash,
+Z25686771,Individual - TOD,ASML,ASML HOLDING NV EUR0.09 NY REGISTRY SHS 2012,0.056,$1764.85,+$49.97,$98.83,+$2.79,+2.91%,-$7.59,-7.14%,0.53%,$106.42,$1900.36,Cash,
+Z25686771,Individual - TOD,Pending activity,,,,,$278.80,,,,,,
+266573923,Self-Employed 401K,FDRXX**,HELD IN MONEY MARKET,,,,$1937.13,,,,,91.52%,,,Cash,
+266573923,Self-Employed 401K,QQQ,INVESCO QQQ TR UNIT SER 1,0.25,$718.36,-$0.60,$179.59,-$0.15,-0.09%,-$1.16,-0.65%,8.48%,$180.75,$723.00,Cash,
+
+"The data and information in this spreadsheet is provided to you solely for your use and is not for distribution. The spreadsheet is provided for informational purposes only, and is not intended to provide advice, nor should it be construed as an offer to sell, a solicitation of an offer to buy or a recommendation for any security by Fidelity or any third party. Data and information shown is based on information known to Fidelity as of the date it was exported and is subject to change. It should not be used in place of your account statements or trade confirmations and is not intended for tax reporting purposes. For more information on the data included in this spreadsheet, including any limitations thereof, go to Fidelity.com."
+
+"Brokerage services are provided by Fidelity Brokerage Services LLC (FBS), 900 Salem Street, Smithfield, RI 02917. Custody and other services provided by National Financial Services LLC (NFS). Both are Fidelity Investment companies and members SIPC, NYSE. Neither FBS nor NFS offer crypto as a direct investment nor provide trading or custody services for such assets."
+
+"Date downloaded Sep-09-2026 6:38 a.m ET"
