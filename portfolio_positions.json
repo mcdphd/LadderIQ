@@ -1,236 +1,236 @@
 {
-    "FIVN": {
-        "description": "FIVE9 INC COM USD0.001",
-        "shares": 20.267,
-        "price": 31.75,
-        "current_value": 643.47,
-        "avg_cost": 32.5,
-        "cost_basis_total": 658.63,
-        "percent_of_account": 3.38
-    },
-    "GLBE": {
-        "description": "GLOBAL-E ONLINE LTD COM NPV",
-        "shares": 19.605,
-        "price": 37.49,
-        "current_value": 734.99,
-        "avg_cost": 40.4,
-        "cost_basis_total": 792.1,
-        "percent_of_account": 3.86
-    },
-    "SPCX": {
-        "description": "SPACE EXPL TECHNOLOGIES CORP CL A",
-        "shares": 9.402,
-        "price": 148.15,
-        "current_value": 1392.9,
-        "avg_cost": 148.24,
-        "cost_basis_total": 1393.75,
-        "percent_of_account": 7.32
-    },
     "ANET": {
         "description": "ARISTA NETWORKS INC COM SHS",
         "shares": 8.92,
-        "price": 187.81,
-        "current_value": 1675.26,
+        "price": 192.84,
+        "current_value": 1720.13,
         "avg_cost": 192.58,
         "cost_basis_total": 1717.79,
-        "percent_of_account": 8.8
-    },
-    "QLYS": {
-        "description": "QUALYS INC COM USD0.001",
-        "shares": 6.313,
-        "price": 172.91,
-        "current_value": 1091.58,
-        "avg_cost": 180.26,
-        "cost_basis_total": 1137.96,
-        "percent_of_account": 5.74
-    },
-    "DVA": {
-        "description": "DAVITA INC COM",
-        "shares": 5.982,
-        "price": 189.32,
-        "current_value": 1132.51,
-        "avg_cost": 218.24,
-        "cost_basis_total": 1305.51,
-        "percent_of_account": 5.95
-    },
-    "IOT": {
-        "description": "SAMSARA INC COM CL A",
-        "shares": 4.288,
-        "price": 42.91,
-        "current_value": 183.99,
-        "avg_cost": 38.29,
-        "cost_basis_total": 164.2,
-        "percent_of_account": 0.97
+        "percent_of_account": 9.04
     },
     "PANW": {
         "description": "PALO ALTO NETWORKS INC COM USD0.0001",
         "shares": 4.254,
-        "price": 373.94,
-        "current_value": 1590.74,
+        "price": 375.09,
+        "current_value": 1595.63,
         "avg_cost": 362.5,
         "cost_basis_total": 1542.07,
-        "percent_of_account": 8.36
+        "percent_of_account": 8.38
     },
-    "CRDO": {
-        "description": "CREDO TECHNOLOGY GROUP HOLDING LTD COM USD0.00005",
-        "shares": 3.961,
-        "price": 150.09,
-        "current_value": 594.5,
-        "avg_cost": 231.3,
-        "cost_basis_total": 916.18,
-        "percent_of_account": 3.12
+    "SPCX": {
+        "description": "SPACE EXPL TECHNOLOGIES CORP CL A",
+        "shares": 9.402,
+        "price": 143.49,
+        "current_value": 1349.09,
+        "avg_cost": 148.24,
+        "cost_basis_total": 1393.75,
+        "percent_of_account": 7.09
     },
     "GE": {
         "description": "GE AEROSPACE COM NEW",
         "shares": 3.854,
-        "price": 317.56,
-        "current_value": 1223.87,
+        "price": 307.05,
+        "current_value": 1183.37,
         "avg_cost": 369.23,
         "cost_basis_total": 1423.0,
-        "percent_of_account": 6.43
+        "percent_of_account": 6.22
     },
-    "NBIX": {
-        "description": "NEUROCRINE BIOSCIENCES INC",
-        "shares": 3.512,
-        "price": 157.22,
-        "current_value": 552.15,
-        "avg_cost": 171.19,
-        "cost_basis_total": 601.22,
-        "percent_of_account": 2.9
+    "DVA": {
+        "description": "DAVITA INC COM",
+        "shares": 5.982,
+        "price": 190.9,
+        "current_value": 1141.96,
+        "avg_cost": 218.24,
+        "cost_basis_total": 1305.51,
+        "percent_of_account": 6.0
     },
-    "FTNT": {
-        "description": "FORTINET INC COM USD0.001",
-        "shares": 3.285,
-        "price": 170.18,
-        "current_value": 559.04,
-        "avg_cost": 164.1,
-        "cost_basis_total": 539.06,
-        "percent_of_account": 2.94
-    },
-    "OSCR": {
-        "description": "OSCAR HEALTH INC CL A",
-        "shares": 2.693,
-        "price": 33.81,
-        "current_value": 91.05,
-        "avg_cost": 31.04,
-        "cost_basis_total": 83.6,
-        "percent_of_account": 0.48
-    },
-    "AFRM": {
-        "description": "AFFIRM HOLDINGS INC CLASS A COMMON STOCK",
-        "shares": 2.54,
-        "price": 73.38,
-        "current_value": 186.38,
-        "avg_cost": 71.1,
-        "cost_basis_total": 180.6,
-        "percent_of_account": 0.98
-    },
-    "HPE": {
-        "description": "HEWLETT PACKARD ENTERPRISE CO COM",
-        "shares": 2.279,
-        "price": 55.41,
-        "current_value": 126.27,
-        "avg_cost": 54.83,
-        "cost_basis_total": 124.96,
-        "percent_of_account": 0.66
+    "QLYS": {
+        "description": "QUALYS INC COM USD0.001",
+        "shares": 5.313,
+        "price": 185.37,
+        "current_value": 984.87,
+        "avg_cost": 179.58,
+        "cost_basis_total": 954.09,
+        "percent_of_account": 5.17
     },
     "TSM": {
         "description": "TAIWAN SEMICONDUCTOR MANUFACTURING SPON ADS EACH REP 5 ORD TWD10",
         "shares": 2.249,
-        "price": 418.01,
-        "current_value": 940.1,
+        "price": 413.75,
+        "current_value": 930.52,
         "avg_cost": 469.25,
         "cost_basis_total": 1055.35,
-        "percent_of_account": 4.94
+        "percent_of_account": 4.89
+    },
+    "GLBE": {
+        "description": "GLOBAL-E ONLINE LTD COM NPV",
+        "shares": 19.605,
+        "price": 36.48,
+        "current_value": 715.19,
+        "avg_cost": 40.4,
+        "cost_basis_total": 792.1,
+        "percent_of_account": 3.76
     },
     "SNOW": {
         "description": "SNOWFLAKE INC. COMMON STOCK",
-        "shares": 1.637,
-        "price": 332.35,
-        "current_value": 544.05,
-        "avg_cost": 320.87,
-        "cost_basis_total": 525.27,
-        "percent_of_account": 2.86
+        "shares": 2.147,
+        "price": 322.98,
+        "current_value": 693.43,
+        "avg_cost": 321.86,
+        "cost_basis_total": 691.04,
+        "percent_of_account": 3.64
     },
-    "DOCU": {
-        "description": "DOCUSIGN INC COM",
-        "shares": 1.423,
-        "price": 69.76,
-        "current_value": 99.26,
-        "avg_cost": 65.51,
-        "cost_basis_total": 93.22,
-        "percent_of_account": 0.52
+    "NBIX": {
+        "description": "NEUROCRINE BIOSCIENCES INC",
+        "shares": 4.612,
+        "price": 150.02,
+        "current_value": 691.89,
+        "avg_cost": 167.32,
+        "cost_basis_total": 771.7,
+        "percent_of_account": 3.63
     },
-    "GTLB": {
-        "description": "GITLAB INC CLASS A COM",
-        "shares": 1.25,
-        "price": 49.25,
-        "current_value": 61.56,
-        "avg_cost": 48.02,
-        "cost_basis_total": 60.03,
-        "percent_of_account": 0.32
+    "CRDO": {
+        "description": "CREDO TECHNOLOGY GROUP HOLDING LTD COM USD0.00005",
+        "shares": 3.961,
+        "price": 150.39,
+        "current_value": 595.69,
+        "avg_cost": 231.3,
+        "cost_basis_total": 916.18,
+        "percent_of_account": 3.13
+    },
+    "FTNT": {
+        "description": "FORTINET INC COM USD0.001",
+        "shares": 3.285,
+        "price": 172.37,
+        "current_value": 566.23,
+        "avg_cost": 164.1,
+        "cost_basis_total": 539.06,
+        "percent_of_account": 2.97
+    },
+    "IOT": {
+        "description": "SAMSARA INC COM CL A",
+        "shares": 8.288,
+        "price": 41.65,
+        "current_value": 345.19,
+        "avg_cost": 39.97,
+        "cost_basis_total": 331.24,
+        "percent_of_account": 1.81
+    },
+    "NET": {
+        "description": "CLOUDFLARE INC CL A COM",
+        "shares": 1.041,
+        "price": 327.23,
+        "current_value": 340.64,
+        "avg_cost": 303.59,
+        "cost_basis_total": 316.04,
+        "percent_of_account": 1.79
     },
     "HOOD": {
         "description": "ROBINHOOD MKTS INC COM CL A",
-        "shares": 1.154,
-        "price": 114.33,
-        "current_value": 131.93,
-        "avg_cost": 115.85,
-        "cost_basis_total": 133.69,
-        "percent_of_account": 0.69
+        "shares": 2.654,
+        "price": 110.45,
+        "current_value": 293.13,
+        "avg_cost": 113.25,
+        "cost_basis_total": 300.57,
+        "percent_of_account": 1.54
     },
-    "PBF": {
-        "description": "PBF ENERGY INC COM USD0.001",
-        "shares": 0.662,
-        "price": 70.4,
-        "current_value": 46.6,
-        "avg_cost": 76.19,
-        "cost_basis_total": 50.44,
-        "percent_of_account": 0.24
+    "OSCR": {
+        "description": "OSCAR HEALTH INC CL A",
+        "shares": 7.693,
+        "price": 32.44,
+        "current_value": 249.56,
+        "avg_cost": 32.29,
+        "cost_basis_total": 248.4,
+        "percent_of_account": 1.31
+    },
+    "AFRM": {
+        "description": "AFFIRM HOLDINGS INC CLASS A COMMON STOCK",
+        "shares": 2.54,
+        "price": 72.09,
+        "current_value": 183.1,
+        "avg_cost": 71.1,
+        "cost_basis_total": 180.6,
+        "percent_of_account": 0.96
+    },
+    "HPE": {
+        "description": "HEWLETT PACKARD ENTERPRISE CO COM",
+        "shares": 2.279,
+        "price": 55.88,
+        "current_value": 127.35,
+        "avg_cost": 54.83,
+        "cost_basis_total": 124.96,
+        "percent_of_account": 0.67
     },
     "CRWD": {
         "description": "CROWDSTRIKE HLDGS INC CL A",
-        "shares": 0.604,
-        "price": 235.38,
-        "current_value": 142.16,
-        "avg_cost": 206.39,
-        "cost_basis_total": 124.66,
-        "percent_of_account": 0.75
+        "shares": 0.459,
+        "price": 242.49,
+        "current_value": 111.3,
+        "avg_cost": 205.49,
+        "cost_basis_total": 94.32,
+        "percent_of_account": 0.58
     },
     "OKTA": {
         "description": "OKTA INC CL A",
         "shares": 0.574,
-        "price": 186.45,
-        "current_value": 107.02,
+        "price": 190.45,
+        "current_value": 109.31,
         "avg_cost": 163.54,
         "cost_basis_total": 93.87,
-        "percent_of_account": 0.56
-    },
-    "NET": {
-        "description": "CLOUDFLARE INC CL A COM",
-        "shares": 0.541,
-        "price": 330.36,
-        "current_value": 178.72,
-        "avg_cost": 286.47,
-        "cost_basis_total": 154.98,
-        "percent_of_account": 0.94
-    },
-    "NVDA": {
-        "description": "NVIDIA CORPORATION COM",
-        "shares": 0.212,
-        "price": 210.96,
-        "current_value": 44.72,
-        "avg_cost": 193.02,
-        "cost_basis_total": 40.92,
-        "percent_of_account": 0.24
+        "percent_of_account": 0.57
     },
     "ASML": {
         "description": "ASML HOLDING NV EUR0.09 NY REGISTRY SHS 2012",
         "shares": 0.056,
-        "price": 1575.15,
-        "current_value": 88.2,
+        "price": 1591.48,
+        "current_value": 89.12,
         "avg_cost": 1900.36,
         "cost_basis_total": 106.42,
-        "percent_of_account": 0.46
+        "percent_of_account": 0.47
+    },
+    "GTLB": {
+        "description": "GITLAB INC CLASS A COM",
+        "shares": 1.25,
+        "price": 49.1,
+        "current_value": 61.37,
+        "avg_cost": 48.02,
+        "cost_basis_total": 60.03,
+        "percent_of_account": 0.32
+    },
+    "PBF": {
+        "description": "PBF ENERGY INC COM USD0.001",
+        "shares": 0.662,
+        "price": 74.72,
+        "current_value": 49.46,
+        "avg_cost": 76.19,
+        "cost_basis_total": 50.44,
+        "percent_of_account": 0.26
+    },
+    "NVDA": {
+        "description": "NVIDIA CORPORATION COM",
+        "shares": 0.212,
+        "price": 212.17,
+        "current_value": 44.98,
+        "avg_cost": 193.02,
+        "cost_basis_total": 40.92,
+        "percent_of_account": 0.24
+    },
+    "DOCU": {
+        "description": "DOCUSIGN INC COM",
+        "shares": 0.423,
+        "price": 71.85,
+        "current_value": 30.39,
+        "avg_cost": 65.15,
+        "cost_basis_total": 27.56,
+        "percent_of_account": 0.16
+    },
+    "FIVN": {
+        "description": "FIVE9 INC COM USD0.001",
+        "shares": 0.267,
+        "price": 33.02,
+        "current_value": 8.81,
+        "avg_cost": 30.41,
+        "cost_basis_total": 8.12,
+        "percent_of_account": 0.05
     }
 }

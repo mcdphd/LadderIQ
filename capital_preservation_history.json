@@ -320,7 +320,7 @@
     "methodology": "Phase 1 shadow only: four equally weighted pillars; no live ladder, OPS, recommendation, or allocation impact."
   },
   {
-    "score": 22.6,
+    "score": 22.8,
     "regime": "Growth",
     "shadow_capital_pct": 100,
     "shadow_only": true,
@@ -329,7 +329,7 @@
     "pillars": {
       "market_deterioration": 35.4,
       "economic_deterioration": 14.5,
-      "financial_stress": 0.6,
+      "financial_stress": 1.5,
       "leadership_stress": 39.8
     },
     "economic_detail": {
@@ -340,9 +340,9 @@
     },
     "financial_detail": {
       "stl_fsi": -0.788,
-      "high_yield_oas_pct": 2.65,
-      "10y_3m_spread_pp": 0.86,
-      "vix": 15.84
+      "high_yield_oas_pct": 2.71,
+      "10y_3m_spread_pp": 0.89,
+      "vix": 17.1
     },
     "data_sources_ok": [
       "BAMLH0A0HYM2",
