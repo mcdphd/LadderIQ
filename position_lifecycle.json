@@ -247,7 +247,7 @@
       "state": "active_candidate",
       "quantity": 0.0,
       "market_value": 0.0,
-      "last_position_file": "Portfolio_Positions_Sep-07-2026.csv"
+      "last_position_file": "Portfolio_Positions_Sep-15-2026 (1).csv"
     },
     "BRK-B": {
       "state": "active_candidate",
@@ -475,7 +475,7 @@
       "state": "active_candidate",
       "quantity": 0.0,
       "market_value": 0.0,
-      "last_position_file": "Portfolio_Positions_Aug-28-2026.csv"
+      "last_position_file": "Portfolio_Positions_Sep-15-2026 (1).csv"
     },
     "GTLB": {
       "state": "owned",
@@ -565,7 +565,7 @@
       "state": "active_candidate",
       "quantity": 0.0,
       "market_value": 0.0,
-      "last_position_file": "Portfolio_Positions_Aug-31-2026.csv"
+      "last_position_file": "Portfolio_Positions_Sep-15-2026 (1).csv"
     },
     "PAY": {
       "state": "active_candidate",
@@ -589,7 +589,7 @@
       "state": "active_candidate",
       "quantity": 0.0,
       "market_value": 0.0,
-      "last_position_file": "Portfolio_Positions_Sep-07-2026.csv"
+      "last_position_file": "Portfolio_Positions_Sep-15-2026 (1).csv"
     },
     "A": {
       "state": "active_candidate",
@@ -841,7 +841,7 @@
       "state": "active_candidate",
       "quantity": 0.0,
       "market_value": 0.0,
-      "last_position_file": "Portfolio_Positions_Sep-14-2026.csv"
+      "last_position_file": "Portfolio_Positions_Sep-15-2026 (1).csv"
     },
     "STX": {
       "state": "active_candidate",
@@ -940,5 +940,5 @@
       "last_position_file": "Portfolio_Positions_Sep-15-2026 (1).csv"
     }
   },
-  "last_updated": "2026-09-15 17:21:21"
+  "last_updated": "2026-09-16 06:35:57"
 }
