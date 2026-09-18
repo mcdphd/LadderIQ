@@ -3,7 +3,7 @@ from pathlib import Path
 from datetime import datetime, timedelta
 from investment_engine import confirm_opportunities, position_state, roi_pace, recommended_candidate_budget
 
-VERSION='3.60.29'
+VERSION='3.60.31'
 BASELINE=9913.04
 NEW_CONTRIBUTION=5055.52
 CONTRIBUTION_DATE='2026-07-10'
@@ -18,9 +18,35 @@ CASH_EQUIVALENT_SYMBOLS = {
     'CASH', 'FCASH', 'FCASH**', 'FDRXX', 'PDRXX', 'SPAXX', 'SPRXX',
 }
 
-# BR-085 Fractional Precision Rule. LadderIQ always reports the model-calculated
-# share quantity. Brokerage execution constraints and any manual rounding are
-# intentionally left to the user so the ladder math remains consistent across symbols.
+# BR-086 Practical Share Rounding. LadderIQ rounds executable ladder quantities
+# to reduce order-entry keystrokes. Quantities normally use one decimal place;
+# values within 0.15 share of a whole number are rounded to that whole share.
+# Sell ladders are subsequently capped so rounding can never recommend selling
+# more shares than the model-authorized quantity or the position actually owned.
+def round_trade_shares(value):
+    try:
+        value=max(0.0, float(value or 0))
+    except (TypeError, ValueError):
+        return 0.0
+    nearest=round(value)
+    if nearest >= 1 and abs(value-nearest) <= 0.15:
+        return float(nearest)
+    return round(value, 1)
+
+def rounded_split_quantities(total_qty, splits):
+    total=max(0.0, float(total_qty or 0))
+    out=[]
+    used=0.0
+    for i, split in enumerate(splits):
+        raw=total*float(split)
+        q=round_trade_shares(raw)
+        remaining=max(0.0, total-used)
+        q=min(q, remaining)
+        # Keep final displayed precision practical and never exceed the cap.
+        q=round(q, 1)
+        out.append(q)
+        used=round(used+q, 10)
+    return out
 
 def is_cash_equivalent(symbol='', description=''):
     sym=str(symbol or '').strip().upper()
@@ -329,6 +355,30 @@ for candidate_rank, sym in enumerate(candidate_symbols, start=1):
     status='Candidate' if confirmed else 'Emerging'
     subtitle=('Confirmed broad-market growth candidate' if confirmed else f"Automatic broad-market candidate · confirmation {int(meta.get('streak') or 1)}/2")
     stocks.append(base_stock(sym,'Growth Candidates',candidate_rank,'Growth Candidate',status,'0–10%',subtitle))
+
+# BR-087 Candidate Deduplication. Fixed architecture names (for example AMD)
+# can also qualify through the broad-market scanner. A symbol must exist only
+# once in the working collection or the later classification engine can render
+# the same non-owned ticker twice in Growth Candidates. For non-owned names,
+# prefer the fresh scanner candidate record; for owned names, prefer the
+# portfolio-management record.
+_dedup={}
+for _st in stocks:
+    _sym=_st.get('symbol')
+    if not _sym:
+        continue
+    _existing=_dedup.get(_sym)
+    if _existing is None:
+        _dedup[_sym]=_st
+        continue
+    _owned=_sym in owned_symbols
+    if _owned:
+        if _existing.get('group') == 'Growth Candidates' and _st.get('group') != 'Growth Candidates':
+            _dedup[_sym]=_st
+    else:
+        if _st.get('group') == 'Growth Candidates':
+            _dedup[_sym]=_st
+stocks=list(_dedup.values())
 
 # Ensure every brokerage holding is managed even when it was not part of the
 # historical fixed portfolio architecture.
@@ -1807,7 +1857,8 @@ def sell_levels(sym, price, qty, avg, position_value=0, opportunity_score=0, por
             second=max(second, round(float(avg)*1.03,2))
         if second <= first:
             second=round(first*1.02,2)
-        return [('40% Exit',first,round(q*.4,3),'Validated harvest rung above market and cost basis'),('60% Exit',second,round(q*.6,3),'Complete exit only into additional profitable strength')]
+        amzn_q=rounded_split_quantities(q, (.40,.60))
+        return [('40% Exit',first,amzn_q[0],'Validated harvest rung above market and cost basis'),('60% Exit',second,amzn_q[1],'Complete exit only into additional profitable strength')]
     if sym=='SPCX':
         cost=avg or price
         return [('+50% Review', round(cost*1.5), current_qty, 'Review only'),('+100% Review', round(cost*2), current_qty, 'Consider capital recovery')]
@@ -1857,7 +1908,8 @@ def sell_levels(sym, price, qty, avg, position_value=0, opportunity_score=0, por
     }
     eligible_qty=current_qty*max_harvest_by_state.get(state,0.60)
     splits=(.40,.35,.25)
-    return [(state+' '+str(i+1),prices[i],round(eligible_qty*splits[i],3),notes[i]) for i in range(3)]
+    rounded_qty=rounded_split_quantities(eligible_qty, splits)
+    return [(state+' '+str(i+1),prices[i],rounded_qty[i],notes[i]) for i in range(3)]
 
 def build_shadow_preservation_ladder(stock, capital_shadow):
     """Research-only hypothetical sell ladder. Never consumed by live execution logic."""
@@ -1880,7 +1932,7 @@ def build_shadow_preservation_ladder(stock, capital_shadow):
     # Weaker individual positions move one step more urgently inside the macro regime.
     if stock_risk>=25:
         mults=tuple(max(.97,m-.015) for m in mults)
-    splits=(.40,.35,.25); eligible=qty*fraction; levels=[]
+    splits=(.40,.35,.25); eligible=qty*fraction; rounded_shadow_qty=rounded_split_quantities(eligible, splits); levels=[]
     macro_reason=capital_shadow.get('summary') or f'Capital Preservation score {score:.1f} is in {regime}.'
     stock_bits=[]
     if trend in {'Down','Lateral'}: stock_bits.append(f'{trend.lower()} price trend')
@@ -1888,7 +1940,7 @@ def build_shadow_preservation_ladder(stock, capital_shadow):
     if news<=-5: stock_bits.append(f'negative news impact {news:.1f}')
     stock_reason=', '.join(stock_bits) if stock_bits else 'no exceptional stock-level weakness'
     for i,m in enumerate(mults):
-        px=round(price*m,2); sh=round(eligible*splits[i],3); below=avg>0 and px<avg
+        px=round(price*m,2); sh=rounded_shadow_qty[i]; below=avg>0 and px<avg
         loss_pct=((px/avg)-1)*100 if below else 0
         why=(f'SHADOW ONLY — {regime} capital-preservation scenario. {macro_reason} Position factors: {stock_reason}. ' +
              (f'Below average cost by {abs(loss_pct):.1f}% because preserving capital would override the normal profit floor.' if below else 'This rung remains above average cost.'))
@@ -1977,7 +2029,7 @@ for st in stocks:
         splits=[.5,.3,.2] if len(b)==3 else [1]
         for i,(label,price,note) in enumerate(b):
             alloc=bud*(splits[i] if i<len(splits) else 1/len(b))
-            sh=alloc/price if price else 0
+            sh=round_trade_shares(alloc/price) if price else 0
             ladder_active=st['has_active_position'] or st.get('qualified_candidate')
             ladder_status='Active' if ladder_active else 'Preview — pending confirmation'
             ladder_note=note if ladder_active else f"{note}; do not place until confirmation reaches 2/2"
@@ -2065,7 +2117,7 @@ script=r'''
 const DATA = __DATA__;
 const fmtMoney = v => '$' + Number(v||0).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2});
 const fmtPct = v => Number(v||0).toFixed(2)+'%';
-const fmtSh = v => Number(v||0).toFixed(3).replace(/\.0+$/,'').replace(/(\.\d*?)0+$/,'$1');
+const fmtSh = v => Number(v||0).toFixed(1).replace(/\.0$/,'');
 const fmtOps = v => { const n=Number(v||0); return Math.abs(n-Math.round(n))<0.05 ? String(Math.round(n)) : n.toFixed(1); };
 function trendClass(t){return (t||'').toLowerCase()==='up'?'up':((t||'').toLowerCase()==='down'?'down':'lateral')}
 function trendIcon(t){return (t||'').toLowerCase()==='up'?'↑':((t||'').toLowerCase()==='down'?'↓':'→')}

@@ -938,7 +938,37 @@
       "quantity": 0.0,
       "market_value": 0.0,
       "last_position_file": "Portfolio_Positions_Sep-17-2026.csv"
+    },
+    "AUGO": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Sep-18-2026.csv"
+    },
+    "CVLT": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Sep-18-2026.csv"
+    },
+    "BOX": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Sep-18-2026.csv"
+    },
+    "CRM": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Sep-18-2026.csv"
+    },
+    "CAI": {
+      "state": "active_candidate",
+      "quantity": 0.0,
+      "market_value": 0.0,
+      "last_position_file": "Portfolio_Positions_Sep-18-2026.csv"
     }
   },
-  "last_updated": "2026-09-18 06:39:13"
+  "last_updated": "2026-09-18 07:43:29"
 }

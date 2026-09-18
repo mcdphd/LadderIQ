@@ -344,3 +344,9 @@ Removed the obsolete Watch List UI, added automatic confirmed/emerging Growth Ca
 - Preserved `weather_sentiment_history.json` as historical research data; no new observations are collected.
 - Reflowed the command-center KPI area to exactly two rows on desktop: six primary KPIs on row 1; Today's P/L, a wider ROI Mission Pace card, and compact Buy/Manage/Risk cards on row 2.
 - No OPS, recommendation, ladder pricing, position sizing, Market Regime, or Capital Preservation logic changed.
+
+## 3.60.31 — 2026-09-18
+- Fixed duplicate Growth Candidate rendering by deduplicating the working stock collection by normalized symbol before classification; non-owned names prefer the scanner candidate record and owned names prefer the portfolio-management record.
+- Replaced the prior no-rounding rule with practical execution rounding: ladder shares normally display to one decimal and quantities within 0.15 share of a whole number round to the nearest whole share.
+- Added sell-side caps after rounding so ladder quantities cannot exceed the model-authorized sell quantity or shares owned.
+- Applied the same practical rounding convention to buy, live sell, and Capital Preservation shadow ladders.
