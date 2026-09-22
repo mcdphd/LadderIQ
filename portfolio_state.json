@@ -201,7 +201,7 @@
       "quantity": 3.0,
       "current_value": 153.12,
       "cost_basis": 150.03,
-      "priority": "P3",
+      "priority": "SS",
       "role": "Imported Fidelity position"
     },
     {
@@ -1741,10 +1741,10 @@
       "ffe58b28e4c46cad"
     ],
     "last_csv_imported": "History_for_Account_Z25686771 (20).csv",
-    "last_import_trade_count": 15
+    "last_import_trade_count": 0
   },
   "positions_last_imported_from": ".\\Portfolio_Positions_Sep-22-2026.csv",
-  "positions_last_imported_at": "2026-09-22 18:36:08",
+  "positions_last_imported_at": "2026-09-22 18:42:17",
   "effective_cash": 3677.09,
   "priority_framework": {
     "version": "V15 Locked Framework",

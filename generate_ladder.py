@@ -3,7 +3,7 @@ from pathlib import Path
 from datetime import datetime, timedelta
 from investment_engine import confirm_opportunities, position_state, roi_pace, recommended_candidate_budget
 
-VERSION='3.60.31'
+VERSION='3.60.32'
 BASELINE=9913.04
 NEW_CONTRIBUTION=5055.52
 CONTRIBUTION_DATE='2026-07-10'
@@ -74,6 +74,11 @@ def effective_ladder_datetime(now=None):
 
 _LADDER_DT=effective_ladder_datetime()
 LADDER_FOR=_LADDER_DT.strftime('%A, %B %d, %Y').replace(' 0',' ')
+
+# Thesis-driven positions intentionally managed outside normal OPS qualification.
+# Keep this set centralized so classification, buy/sell rules, and execution
+# guidance stay aligned when a new Special Situation is added.
+SPECIAL_SITUATION_SYMBOLS = {'SPCX', 'MP'}
 
 
 
@@ -1804,7 +1809,7 @@ def lifecycle_visible(stock):
 
 def buy_levels(sym, price):
     if price<=0: return []
-    if sym=='SPCX':
+    if sym in SPECIAL_SITUATION_SYMBOLS:
         return [('Buy Zone 1', round(price*.97,2), 'Add only on weakness'),('Buy Zone 2', round(price*.92,2), 'Strong add zone'),('Review Add', round(price*.85,2), 'Manual review')]
     # BR-078: widen or tighten the entry ladder using observed annualized
     # volatility. Stable stocks use the baseline 1.5/3.5/5.5% pullbacks;
@@ -1859,7 +1864,7 @@ def sell_levels(sym, price, qty, avg, position_value=0, opportunity_score=0, por
             second=round(first*1.02,2)
         amzn_q=rounded_split_quantities(q, (.40,.60))
         return [('40% Exit',first,amzn_q[0],'Validated harvest rung above market and cost basis'),('60% Exit',second,amzn_q[1],'Complete exit only into additional profitable strength')]
-    if sym=='SPCX':
+    if sym in SPECIAL_SITUATION_SYMBOLS:
         cost=avg or price
         return [('+50% Review', round(cost*1.5), current_qty, 'Review only'),('+100% Review', round(cost*2), current_qty, 'Consider capital recovery')]
     if price<=0: return []
@@ -1994,7 +1999,7 @@ def owned_buy_eligible(stock):
     """
     if not stock.get('has_active_position'):
         return False
-    if stock.get('symbol') == 'SPCX':
+    if stock.get('symbol') in SPECIAL_SITUATION_SYMBOLS:
         return False
     score=float(stock.get('eligibility_ops') if stock.get('eligibility_ops') is not None else (stock.get('opportunity') or 0))
     state=(stock.get('position_state') or {}).get('name')
@@ -2005,6 +2010,11 @@ def owned_buy_eligible(stock):
 stocks=[st for st in stocks if not is_cash_equivalent(st.get('symbol'), st.get('company'))]
 
 for st in stocks:
+    if st.get('symbol') in SPECIAL_SITUATION_SYMBOLS:
+        st['group']='Special Situations'; st['role']='Special'; st['status']='Hold'; st['target']='5–10%'
+        if st.get('symbol') == 'MP':
+            st['own_reason']='Special Situation — Rare Earths / Magnets / AI Infrastructure test'
+            st['score_reason']='Special situation; OPS remains informational and does not authorize normal accumulation.'
     st['has_active_position']=has_active_position(st)
     st['lifecycle_state']=resolve_lifecycle_state(st)
     st['position_status']='Active' if st['has_active_position'] else (('Confirmed Candidate' if st.get('qualified_candidate') else 'Emerging Candidate') if st['lifecycle_state']=='active_candidate' else ('Recently Exited' if st['lifecycle_state']=='recently_exited' else 'Archived'))
@@ -2070,7 +2080,7 @@ for st in stocks:
 # determines where non-owned securities sit in the research pipeline.
 def classify_portfolio_role(stock):
     sym=stock.get('symbol')
-    if sym == 'SPCX':
+    if sym in SPECIAL_SITUATION_SYMBOLS:
         return 'Special Situations', 'Special', 'Hold', '5–10%'
     if stock.get('has_active_position'):
         return stock.get('group'), stock.get('role'), stock.get('status'), stock.get('target')

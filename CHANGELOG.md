@@ -1,5 +1,16 @@
 ## 3.60.22 — Growth Candidate OPS-band upside ranking
 
+## 3.60.32 — 2026-09-22
+
+### MP Special Situation Classification
+- Added MP to the same Special Situations framework used by SPCX.
+- MP is automatically classified as Special / Hold when imported as an owned position.
+- MP remains scored by OPS, but OPS does not automatically authorize accumulation while it is a Special Situation.
+- MP receives Special Situation review-style buy/sell handling and unattended-order REVIEW guidance.
+- Import priority now marks MP as `SS`, matching SPCX.
+- Added a centralized Special Situation symbol set to keep future classification/risk-rule changes consistent.
+
+
 - Growth Candidates remain primarily ranked by News-Refined/Actionable OPS.
 - Candidates within the same 5-point OPS band are secondarily ranked by Expected Upside (highest first).
 - Exact OPS is the next tie-breaker, followed by the existing trend/leadership/rank tie-breakers.

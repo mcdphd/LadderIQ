@@ -13826,7 +13826,7 @@
   "version": "1.0",
   "confirmation_days": 2,
   "threshold": 95.0,
-  "last_updated": "2026-09-22 18:39:31",
+  "last_updated": "2026-09-22 18:42:22",
   "migration_bootstrap_used": false,
   "elite_threshold": 100.0
 }

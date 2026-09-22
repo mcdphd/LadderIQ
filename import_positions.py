@@ -56,7 +56,7 @@ def infer_as_of(filename):
 def priority_for(symbol):
     if symbol in {'TSM','PANW'}: return 'P1'
     if symbol in {'ANET','NVDA'}: return 'P2'
-    if symbol == 'SPCX': return 'SS'
+    if symbol in {'SPCX','MP'}: return 'SS'
     return 'P3'
 
 def main():

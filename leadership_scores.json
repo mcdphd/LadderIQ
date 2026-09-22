@@ -1,10 +1,10 @@
 {
-  "as_of": "2026-09-22 18:39:30",
+  "as_of": "2026-09-22 18:42:21",
   "market_session_date": "2026-09-22",
   "source": "yfinance + local cache + Nasdaq Trader + Finnhub targeted company news",
-  "benchmark_source": "yfinance",
+  "benchmark_source": "cache-current",
   "benchmark_stale": false,
-  "universe_source": "Nasdaq Trader symbol directories",
+  "universe_source": "official Nasdaq Trader cache",
   "universe_count": 5433,
   "universe_filter_stats": {
     "invalid_symbols_removed": 13,
@@ -16,10 +16,10 @@
   },
   "download_diagnostics": {
     "requested": 5444,
-    "stale_requested": 5444,
+    "stale_requested": 0,
     "downloaded_or_cached": 5444,
-    "refreshed": 5444,
-    "cache_hits": 5430,
+    "refreshed": 0,
+    "cache_hits": 5444,
     "invalid_rejected_before_download": 0,
     "provider_failures": [],
     "rate_limit_detected": false
@@ -31,8 +31,8 @@
     "shortlist_threshold": 75.0,
     "shortlisted": 66,
     "owned_shortlisted": 29,
-    "api_requests": 66,
-    "cache_hits": 0,
+    "api_requests": 0,
+    "cache_hits": 66,
     "adjusted": 18,
     "negative_adjustments": 1,
     "positive_adjustments": 17,
@@ -197,7 +197,7 @@
         }
       ],
       "news_articles_reviewed": 18,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "OKTA",
@@ -269,7 +269,7 @@
         }
       ],
       "news_articles_reviewed": 19,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "FTNT",
@@ -350,7 +350,7 @@
         }
       ],
       "news_articles_reviewed": 12,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "TEAM",
@@ -413,7 +413,7 @@
         }
       ],
       "news_articles_reviewed": 6,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "CRWD",
@@ -485,7 +485,7 @@
         }
       ],
       "news_articles_reviewed": 31,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "PANW",
@@ -557,7 +557,7 @@
         }
       ],
       "news_articles_reviewed": 35,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "HPE",
@@ -610,7 +610,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 17,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "FIVN",
@@ -663,7 +663,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 2,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "QLYS",
@@ -716,7 +716,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "NET",
@@ -769,7 +769,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 8,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "MPC",
@@ -822,7 +822,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 21,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "DOCU",
@@ -875,7 +875,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "ANET",
@@ -928,7 +928,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 10,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "NVDA",
@@ -1009,7 +1009,7 @@
         }
       ],
       "news_articles_reviewed": 249,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "TSM",
@@ -1062,7 +1062,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 24,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "GTLB",
@@ -1115,7 +1115,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "SNOW",
@@ -1168,7 +1168,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 2,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "HOOD",
@@ -1231,7 +1231,7 @@
         }
       ],
       "news_articles_reviewed": 45,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "CRDO",
@@ -1294,7 +1294,7 @@
         }
       ],
       "news_articles_reviewed": 11,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "GLBE",
@@ -1347,7 +1347,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "PBF",
@@ -1400,7 +1400,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 2,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "ASML",
@@ -1453,7 +1453,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 15,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "IOT",
@@ -1506,7 +1506,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "OSCR",
@@ -1559,7 +1559,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 8,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "AFRM",
@@ -1622,7 +1622,7 @@
         }
       ],
       "news_articles_reviewed": 4,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "DVA",
@@ -1675,7 +1675,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 2,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "NBIX",
@@ -1728,7 +1728,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "GE",
@@ -1781,7 +1781,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 20,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "MP",
@@ -1848,7 +1848,7 @@
         }
       ],
       "news_articles_reviewed": 10,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     }
   ],
   "emerging_leaders": [
@@ -1913,7 +1913,7 @@
         }
       ],
       "news_articles_reviewed": 3,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "ESTC",
@@ -1976,7 +1976,7 @@
         }
       ],
       "news_articles_reviewed": 6,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "SMCI",
@@ -2039,7 +2039,7 @@
         }
       ],
       "news_articles_reviewed": 21,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "A",
@@ -2102,7 +2102,7 @@
         }
       ],
       "news_articles_reviewed": 7,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "AMD",
@@ -2174,7 +2174,7 @@
         }
       ],
       "news_articles_reviewed": 163,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "NTSK",
@@ -2227,7 +2227,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 2,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "CAI",
@@ -2280,7 +2280,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "RBRK",
@@ -2333,7 +2333,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 2,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "ATRC",
@@ -2386,7 +2386,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "TWLO",
@@ -2439,7 +2439,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 8,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "RNG",
@@ -2492,7 +2492,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 5,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "NTRA",
@@ -2545,7 +2545,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 6,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "SAIL",
@@ -2598,7 +2598,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "HALO",
@@ -2651,7 +2651,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 4,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "DINO",
@@ -2704,7 +2704,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 7,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "ZS",
@@ -2757,7 +2757,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 5,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "P",
@@ -2810,7 +2810,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "SMTC",
@@ -2863,7 +2863,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 6,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "AUGO",
@@ -2916,7 +2916,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 4,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "DT",
@@ -2969,7 +2969,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 2,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "PSX",
@@ -3022,7 +3022,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 14,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "DDOG",
@@ -3075,7 +3075,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 6,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "CVLT",
@@ -3128,7 +3128,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 2,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "CVI",
@@ -3181,7 +3181,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "ILMN",
@@ -3234,7 +3234,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 3,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "CRBG",
@@ -3287,7 +3287,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "ECO",
@@ -3394,7 +3394,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "OSCR",
@@ -3447,7 +3447,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 8,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "AFRM",
@@ -3510,7 +3510,7 @@
         }
       ],
       "news_articles_reviewed": 4,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "DVA",
@@ -3563,7 +3563,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 2,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "NBIX",
@@ -3616,7 +3616,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "GE",
@@ -3669,7 +3669,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 20,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "MP",
@@ -3736,7 +3736,7 @@
         }
       ],
       "news_articles_reviewed": 10,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     }
   ],
   "scores": [
@@ -3810,7 +3810,7 @@
         }
       ],
       "news_articles_reviewed": 18,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "OKTA",
@@ -3882,7 +3882,7 @@
         }
       ],
       "news_articles_reviewed": 19,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "MDB",
@@ -3945,7 +3945,7 @@
         }
       ],
       "news_articles_reviewed": 3,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "FTNT",
@@ -4026,7 +4026,7 @@
         }
       ],
       "news_articles_reviewed": 12,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "ESTC",
@@ -4089,7 +4089,7 @@
         }
       ],
       "news_articles_reviewed": 6,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "SMCI",
@@ -4152,7 +4152,7 @@
         }
       ],
       "news_articles_reviewed": 21,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "A",
@@ -4215,7 +4215,7 @@
         }
       ],
       "news_articles_reviewed": 7,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "TEAM",
@@ -4278,7 +4278,7 @@
         }
       ],
       "news_articles_reviewed": 6,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "CRWD",
@@ -4350,7 +4350,7 @@
         }
       ],
       "news_articles_reviewed": 31,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "AMD",
@@ -4422,7 +4422,7 @@
         }
       ],
       "news_articles_reviewed": 163,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "PANW",
@@ -4494,7 +4494,7 @@
         }
       ],
       "news_articles_reviewed": 35,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "NTSK",
@@ -4547,7 +4547,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 2,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "CAI",
@@ -4600,7 +4600,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "RBRK",
@@ -4653,7 +4653,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 2,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "ATRC",
@@ -4706,7 +4706,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "TWLO",
@@ -4759,7 +4759,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 8,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "HPE",
@@ -4812,7 +4812,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 17,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "FIVN",
@@ -4865,7 +4865,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 2,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "RNG",
@@ -4918,7 +4918,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 5,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "NTRA",
@@ -4971,7 +4971,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 6,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "SAIL",
@@ -5024,7 +5024,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "QLYS",
@@ -5077,7 +5077,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "HALO",
@@ -5130,7 +5130,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 4,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "DINO",
@@ -5183,7 +5183,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 7,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "NET",
@@ -5236,7 +5236,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 8,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "ZS",
@@ -5289,7 +5289,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 5,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "P",
@@ -5342,7 +5342,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "SMTC",
@@ -5395,7 +5395,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 6,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "MPC",
@@ -5448,7 +5448,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 21,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "AUGO",
@@ -5501,7 +5501,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 4,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "DT",
@@ -5554,7 +5554,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 2,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "DOCU",
@@ -5607,7 +5607,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "PSX",
@@ -5660,7 +5660,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 14,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "DDOG",
@@ -5713,7 +5713,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 6,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "CVLT",
@@ -5766,7 +5766,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 2,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "ANET",
@@ -5819,7 +5819,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 10,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "NVDA",
@@ -5900,7 +5900,7 @@
         }
       ],
       "news_articles_reviewed": 249,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "TSM",
@@ -5953,7 +5953,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 24,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "GTLB",
@@ -6006,7 +6006,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "S",
@@ -6059,7 +6059,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 7,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "PI",
@@ -6112,7 +6112,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "GH",
@@ -6175,7 +6175,7 @@
         }
       ],
       "news_articles_reviewed": 3,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "VRNS",
@@ -6228,7 +6228,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 2,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "SNOW",
@@ -6281,7 +6281,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 2,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "HOOD",
@@ -6344,7 +6344,7 @@
         }
       ],
       "news_articles_reviewed": 45,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "CVI",
@@ -6397,7 +6397,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "ILMN",
@@ -6450,7 +6450,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 3,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "SWKS",
@@ -6503,7 +6503,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 5,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "INSP",
@@ -6561,7 +6561,7 @@
         }
       ],
       "news_articles_reviewed": 3,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "ADPT",
@@ -6614,7 +6614,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "RVTY",
@@ -6667,7 +6667,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 3,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "GRAL",
@@ -6720,7 +6720,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 12,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "CRDO",
@@ -6783,7 +6783,7 @@
         }
       ],
       "news_articles_reviewed": 11,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "GLBE",
@@ -6836,7 +6836,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "TEVA",
@@ -6889,7 +6889,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 4,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "CRBG",
@@ -6942,7 +6942,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "AI",
@@ -6990,7 +6990,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 1,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "PBF",
@@ -7043,7 +7043,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 2,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "ECO",
@@ -7200,7 +7200,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 15,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "CLMT",
@@ -11414,7 +11414,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "DXCM",
@@ -12746,7 +12746,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 8,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "WDAY",
@@ -17791,7 +17791,7 @@
         }
       ],
       "news_articles_reviewed": 4,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "EMR",
@@ -21839,7 +21839,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 2,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "WIX",
@@ -30634,7 +30634,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 0,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "NSC",
@@ -42907,7 +42907,7 @@
       "news_reason": "No material recent company-news event detected.",
       "news_sources": [],
       "news_articles_reviewed": 20,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "AMT",
@@ -46264,7 +46264,7 @@
         }
       ],
       "news_articles_reviewed": 10,
-      "news_checked_at": "2026-09-22T22:38:16.869023+00:00"
+      "news_checked_at": "2026-09-22T22:42:21.298872+00:00"
     },
     {
       "symbol": "PJT",
