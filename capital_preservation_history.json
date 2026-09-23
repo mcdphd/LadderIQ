@@ -621,7 +621,7 @@
     "financial_detail": {
       "stl_fsi": -0.907,
       "high_yield_oas_pct": 2.68,
-      "10y_3m_spread_pp": 0.8,
+      "10y_3m_spread_pp": 0.92,
       "vix": 14.21
     },
     "data_sources_ok": [

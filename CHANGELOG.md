@@ -1,3 +1,11 @@
+# LadderIQ 3.60.33 — Dynamic Portfolio Concentration Check (2026-09-23)
+
+- Removed the legacy hard-coded `NVDA concentration remains high` Portfolio Health warning.
+- Portfolio concentration messaging now uses the latest imported holdings and current portfolio weights.
+- A concentration warning is shown only when the largest active equity position is at least 25% of the portfolio.
+- Otherwise the dashboard reports that no material single-stock concentration is detected and identifies the current largest position and weight.
+- Live ladders, OPS scoring, capital allocation, and Special Situation rules are unchanged.
+
 ## 3.60.22 — Growth Candidate OPS-band upside ranking
 
 ## 3.60.32 — 2026-09-22
