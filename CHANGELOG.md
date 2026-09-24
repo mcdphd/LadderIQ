@@ -369,3 +369,9 @@ Removed the obsolete Watch List UI, added automatic confirmed/emerging Growth Ca
 - Replaced the prior no-rounding rule with practical execution rounding: ladder shares normally display to one decimal and quantities within 0.15 share of a whole number round to the nearest whole share.
 - Added sell-side caps after rounding so ladder quantities cannot exceed the model-authorized sell quantity or shares owned.
 - Applied the same practical rounding convention to buy, live sell, and Capital Preservation shadow ladders.
+
+## 3.60.34 — Imported Holdings Precision (2026-09-24)
+- Separated imported-holding share display from recommended trade-share rounding.
+- Fidelity owned quantities now display up to 3 decimal places (for example, NVDA 0.212).
+- Buy/sell ladder order quantities retain the practical one-decimal rounding rule introduced in 3.60.31.
+- No OPS, pricing, allocation, classification, or ladder-strategy changes.
