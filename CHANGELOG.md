@@ -375,3 +375,11 @@ Removed the obsolete Watch List UI, added automatic confirmed/emerging Growth Ca
 - Fidelity owned quantities now display up to 3 decimal places (for example, NVDA 0.212).
 - Buy/sell ladder order quantities retain the practical one-decimal rounding rule introduced in 3.60.31.
 - No OPS, pricing, allocation, classification, or ladder-strategy changes.
+
+## 3.60.35 — Adaptive Fractional Ladder Precision (2026-09-24)
+- Fixed sell-ladder sizing for small fractional holdings such as NVDA and ASML.
+- Sub-share trade quantities now retain up to 3 decimals instead of being forced to 1 decimal.
+- Normal-sized orders keep practical whole-share / 1-decimal rounding.
+- Removed the second 1-decimal rounding pass that could turn valid fractional rungs into zero.
+- Corrected the embedded generator VERSION to match release metadata.
+- No OPS, ladder-price, classification, harvest-percentage, or capital-allocation changes.

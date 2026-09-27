@@ -3,7 +3,7 @@ from pathlib import Path
 from datetime import datetime, timedelta
 from investment_engine import confirm_opportunities, position_state, roi_pace, recommended_candidate_budget
 
-VERSION='3.60.33'
+VERSION='3.60.35'
 BASELINE=9913.04
 NEW_CONTRIBUTION=5055.52
 CONTRIBUTION_DATE='2026-07-10'
@@ -24,10 +24,16 @@ CASH_EQUIVALENT_SYMBOLS = {
 # Sell ladders are subsequently capped so rounding can never recommend selling
 # more shares than the model-authorized quantity or the position actually owned.
 def round_trade_shares(value):
+    # BR-087 Adaptive Fractional Trade Precision.
+    # Keep practical one-decimal / near-whole rounding for normal orders,
+    # but preserve up to 3 decimals for sub-share orders so tiny positions
+    # do not collapse to zero-share ladder rungs.
     try:
         value=max(0.0, float(value or 0))
     except (TypeError, ValueError):
         return 0.0
+    if 0.0 < value < 1.0:
+        return round(value, 3)
     nearest=round(value)
     if nearest >= 1 and abs(value-nearest) <= 0.15:
         return float(nearest)
@@ -42,8 +48,8 @@ def rounded_split_quantities(total_qty, splits):
         q=round_trade_shares(raw)
         remaining=max(0.0, total-used)
         q=min(q, remaining)
-        # Keep final displayed precision practical and never exceed the cap.
-        q=round(q, 1)
+        # Re-apply adaptive precision after the ownership/model cap.
+        q=round_trade_shares(q)
         out.append(q)
         used=round(used+q, 10)
     return out
@@ -2127,7 +2133,11 @@ script=r'''
 const DATA = __DATA__;
 const fmtMoney = v => '$' + Number(v||0).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2});
 const fmtPct = v => Number(v||0).toFixed(2)+'%';
-const fmtTradeSh = v => Number(v||0).toFixed(1).replace(/\.0$/,'');
+const fmtTradeSh = v => {
+ const n=Number(v||0);
+ if(n>0 && n<1) return n.toFixed(3).replace(/0+$/,'').replace(/\.$/,'');
+ return n.toFixed(1).replace(/\.0$/,'');
+};
 const fmtOwnedSh = v => Number(v||0).toFixed(3).replace(/\.0+$/,'').replace(/(\.\d*?)0+$/,'$1');
 const fmtOps = v => { const n=Number(v||0); return Math.abs(n-Math.round(n))<0.05 ? String(Math.round(n)) : n.toFixed(1); };
 function trendClass(t){return (t||'').toLowerCase()==='up'?'up':((t||'').toLowerCase()==='down'?'down':'lateral')}
