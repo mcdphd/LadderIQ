@@ -28,7 +28,7 @@
       "immediate_risk_override": false
     },
     "CRWD": {
-      "observed_score": 94.8,
+      "observed_score": 95.5,
       "confirmed_score": 100.0,
       "streak": 1,
       "last_observed": "2026-09-28",
@@ -162,7 +162,7 @@
       "immediate_risk_override": true
     },
     "AAPL": {
-      "observed_score": 97.8,
+      "observed_score": 100.0,
       "confirmed_score": 100.0,
       "streak": 1,
       "last_observed": "2026-09-28",
@@ -1493,7 +1493,7 @@
       "immediate_risk_override": false
     },
     "SWKS": {
-      "observed_score": 76.2,
+      "observed_score": 76.9,
       "confirmed_score": 80.3,
       "streak": 1,
       "last_observed": "2026-09-28",
@@ -3212,7 +3212,7 @@
       "immediate_risk_override": true
     },
     "DDOG": {
-      "observed_score": 100.0,
+      "observed_score": 95.5,
       "confirmed_score": 100.0,
       "streak": 5,
       "last_observed": "2026-09-28",
@@ -5120,7 +5120,7 @@
       "immediate_risk_override": true
     },
     "QRVO": {
-      "observed_score": 70.9,
+      "observed_score": 100.0,
       "confirmed_score": 70.9,
       "streak": 2,
       "last_observed": "2026-09-28",
@@ -8837,7 +8837,7 @@
       "immediate_risk_override": true
     },
     "QCOM": {
-      "observed_score": 71.8,
+      "observed_score": 82.4,
       "confirmed_score": 63.2,
       "streak": 1,
       "last_observed": "2026-09-28",
@@ -13643,7 +13643,7 @@
       "immediate_risk_override": false
     },
     "TRMD": {
-      "observed_score": 71.0,
+      "observed_score": 100.0,
       "confirmed_score": 70.2,
       "streak": 1,
       "last_observed": "2026-09-28",
@@ -13769,7 +13769,7 @@
       "immediate_risk_override": true
     },
     "BETA": {
-      "observed_score": 75.5,
+      "observed_score": 73.1,
       "confirmed_score": 72.9,
       "streak": 1,
       "last_observed": "2026-09-28",
@@ -13916,7 +13916,7 @@
   "version": "1.0",
   "confirmation_days": 2,
   "threshold": 95.0,
-  "last_updated": "2026-09-29 07:02:19",
+  "last_updated": "2026-09-29 20:15:57",
   "migration_bootstrap_used": false,
   "elite_threshold": 100.0
 }
