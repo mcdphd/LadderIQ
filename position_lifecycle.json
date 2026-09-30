@@ -79,7 +79,7 @@
       "state": "active_candidate",
       "quantity": 0.0,
       "market_value": 0.0,
-      "last_position_file": "Portfolio_Positions_Sep-25-2026.csv"
+      "last_position_file": "Portfolio_Positions_Sep-29-2026 (1).csv"
     },
     "AVGO": {
       "state": "active_candidate",
@@ -1024,5 +1024,5 @@
       "last_position_file": "Portfolio_Positions_Sep-29-2026 (1).csv"
     }
   },
-  "last_updated": "2026-09-29 20:15:58"
+  "last_updated": "2026-09-30 06:45:08"
 }

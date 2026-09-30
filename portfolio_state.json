@@ -1802,10 +1802,10 @@
       "ffe58b28e4c46cad"
     ],
     "last_csv_imported": "History_for_Account_Z25686771 (24).csv",
-    "last_import_trade_count": 8
+    "last_import_trade_count": 0
   },
   "positions_last_imported_from": ".\\Portfolio_Positions_Sep-29-2026 (1).csv",
-  "positions_last_imported_at": "2026-09-29 20:13:47",
+  "positions_last_imported_at": "2026-09-30 06:40:19",
   "effective_cash": 801.57,
   "priority_framework": {
     "version": "V15 Locked Framework",
