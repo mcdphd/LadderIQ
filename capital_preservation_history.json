@@ -878,5 +878,45 @@
     "summary": "Breadth and leadership are weakening.",
     "phase2_policy": "Only Phase 2 may allow preservation-driven below-cost sells; every such rung must include a specific rationale.",
     "methodology": "Phase 1 shadow only: four equally weighted pillars; no live ladder, OPS, recommendation, or allocation impact."
+  },
+  {
+    "score": 28.9,
+    "regime": "Caution",
+    "shadow_capital_pct": 75,
+    "shadow_only": true,
+    "affects_live_ladders": false,
+    "market_session_date": "2026-10-02",
+    "pillars": {
+      "market_deterioration": 35.0,
+      "economic_deterioration": 21.6,
+      "financial_stress": 1.9,
+      "leadership_stress": 57.3
+    },
+    "economic_detail": {
+      "sahm_rule_pp": 0.0,
+      "unemployment_3m_change_pp": 0.0,
+      "payroll_3m_pct": 0.096,
+      "industrial_production_6m_pct": 1.141
+    },
+    "financial_detail": {
+      "stl_fsi": -0.807,
+      "high_yield_oas_pct": 3.24,
+      "10y_3m_spread_pp": 1.09,
+      "vix": 16.39
+    },
+    "data_sources_ok": [
+      "BAMLH0A0HYM2",
+      "INDPRO",
+      "PAYEMS",
+      "SAHMREALTIME",
+      "STLFSI4",
+      "T10Y3M",
+      "UNRATE",
+      "VIXCLS"
+    ],
+    "data_quality": "full",
+    "summary": "Breadth and leadership are weakening.",
+    "phase2_policy": "Only Phase 2 may allow preservation-driven below-cost sells; every such rung must include a specific rationale.",
+    "methodology": "Phase 1 shadow only: four equally weighted pillars; no live ladder, OPS, recommendation, or allocation impact."
   }
 ]
